@@ -1,0 +1,45 @@
+{
+  "SECTION_HOME": {
+    "TITLE" : "Declaration for issuing ordinary passports abroad for people under 14 years old" ,
+    "MALE": "Male" ,
+    "FEMALE": "Female",
+    "YES": "Yes",
+    "NO" : "No",
+    "INFORMATION": "WHERE TO ENTER INFORMATION HERE:",
+    "LIST_INFORMATION": "LIST OF INFORMATION",
+    "BUTTON_NEXT": "Next" ,
+    "BUTTON_BACK": "Back" ,
+    "BUTTON_INFORMATION" : "Add Information"
+  },
+  "SECTION_A": {
+    "TITLE": "Applicant Details" ,
+    "FULL_NAME": "Full Names",
+    "FIRST_NAME": "Family Name",
+    "LAST_NAME": "All given names",
+    "SEX": "Sex",
+    "DATE": "Date of birth",
+    "BIRTH": "City of birth",
+    "COUNTRY": "Country" ,
+    "4":"Have you been known by any other name(s) ?" ,
+    "5": "Have you ever had a different date of birth to the one shown at question 1 ?",
+    "6": "Do you currently have citizenship from any country ?" ,
+    "6_1": "How did you gain this citizenship (eg. Birth, descent, naturalisation) ?",
+    "6_2": "Date you gained this citizenship: ",
+    "8": "Do you currently have permanent residency rights in any country other than those declared in questions 6 or 7 ?",
+    "8_1": "List all other countries: "
+  },
+  "SECTION_B": {
+    "TITLE": "Passport/Travel Document Details" ,
+    "9":   "Do you have a current passport or travel document ?",
+    "9_1": "Passport/travel document number: ",
+    "9_2": "Country of passport/travel document: ",
+    "9_3": "Date of issue",
+    "9_4": "Date of expiry: ",
+    "9_5": "Nationality: ",
+    "9_6": "Place of issue/issuing authority: ",
+    "9_7": "Name on the document (if the same as question 1, write ‘same as question 1’) ?",
+    "9_8": "Family name: ",
+    "9_9": "Given names: ",
+    "10" : "Do you have any other current passport or travel document ?"
+  }
+}

@@ -1,0 +1,114 @@
+
+
+<div class="header" [ngClass]="{'ScrollNav': permanent}">
+  <nav class="navbar navbar-expand-sm navbar-dark menu" style="background-color: #ffffff;">
+
+      <div class="container-fluid">
+        <div class="menu_logo" routerLink="/" style="cursor: pointer;">
+          <img [src]="this.api.URL + '/uploads/' + logo[0].image" alt="" width="200px">
+        </div>
+
+        <div class="menu_option">
+          <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="nav-item" *ngFor="let item of listmenu" routerLinkActive="click" ariaCurrentWhenActive="page">
+                <ng-container *ngIf="isExternalLink(item.link); else routerLink">
+                  <a class="nav-link" [attr.href]="item.link" target="_blank" >
+                    <span class="menu_item_hov">{{ item.title }}<span class="triangle-container"><span   *ngIf="item.children" class="triangle"></span></span>
+                    </span>
+                  </a>
+                </ng-container>
+                <ng-template #routerLink>
+                  <a class="nav-link" [routerLink]="item.link">
+                    <span class="menu_item_hov">{{ item.title }}<span   *ngIf="item.children" class="triangle-container"><span class="triangle"></span></span>
+                    </span>
+                  </a>
+                </ng-template>
+                <div class="dropdown-content" *ngIf="item.children">
+                  <ng-container *ngFor="let itemchildren of item.children">
+                    <ng-container *ngIf="isExternalLink(itemchildren.link); else childrenRouterLink">
+                      <a [attr.href]="itemchildren.link" target="_blank" class="bevietnam">{{ itemchildren.title }}</a>
+                    </ng-container>
+                  <ng-template #childrenRouterLink>
+                    <a [routerLink]="itemchildren.link" class="bevietnam">{{ itemchildren.title }}</a>
+                  </ng-template>
+                </ng-container>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="menu_icon">
+          <div class="collapse navbar-collapse item-contact" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-lg-0">
+              <li class="nav-item active d-flex align-items-center">
+                <a class="nav-link_color d-flex" *ngIf="this.lang == 'en'" >
+                    <img src="/assets/vn.svg" (click)="onLanguageToggle('vi')" style="width: 24px;" alt="">
+                </a>
+                <a class="nav-link_color d-flex" *ngIf="this.lang == 'vi'" >
+                  <img src="/assets/us.svg" (click)="onLanguageToggle('en')" style="width: 24px;" alt="">
+              </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link_color" >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="navbar-nav-mb mr-auto mt-lg-0">
+            <li class="nav-item active d-flex align-items-center">
+              <a class="nav-link_color d-flex" *ngIf="this.lang == 'en'" >
+                  <img src="/assets/vn.svg" (click)="onLanguageToggle('vi')" style="width: 24px;" alt="">
+              </a>
+              <a class="nav-link_color d-flex" *ngIf="this.lang == 'vi'" >
+                <img src="/assets/us.svg" (click)="onLanguageToggle('en')" style="width: 24px;" alt="">
+            </a>
+            </li>
+          </ul>
+
+          <div class="toggle_menu"  (click)="show()">
+            <i class="fa-solid fa-bars mt-1" style="font-size: 25px;"></i>
+          </div>
+
+        </div>
+        </div>
+  </nav>
+</div>
+
+
+
+
+
+<!-- mobile -->
+<div class="site-mobile-menu site-navbar-target " [ngClass]="{'active_show': isShow}"  >
+  <div class="site-mobile-menu-header">
+    <div class="site-mobile-menu-close mt-3">
+      <span class="icon-close2 js-menu-toggle" (click)="show()"></span>
+    </div>
+  </div>
+  <div class="site-mobile-menu-body">
+    <ul class="site-nav-wrap">
+      <li *ngFor="let item of listmenu; let i = index">
+        <span [ngClass]="{'collapsed arrow-collapse': item.children}" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseItem' + i"></span>
+        <ng-container *ngIf="isExternalLink(item.link); else routerLink">
+          <a [attr.href]="item.link" (click)="show()" [ngClass]="{'has-children': item.children}" class="nav-link active">{{ item.title }}</a>
+        </ng-container>
+        <ng-template #routerLink>
+          <a [routerLink]="item.link" (click)="show()" [ngClass]="{'has-children': item.children}" class="nav-link active">{{ item.title }}</a>
+        </ng-template>
+        <ul class="collapse" [id]="'collapseItem' + i">
+          <li *ngFor="let item1 of item.children">
+            <ng-container *ngIf="isExternalLink(item1.link); else childrenRouterLink">
+              <a [attr.href]="item1.link" (click)="show()">{{ item1.title }}</a>
+            </ng-container>
+            <ng-template #childrenRouterLink>
+              <a [routerLink]="item1.link" (click)="show()">{{ item1.title }}</a>
+            </ng-template>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,152 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<section class="main" style="height: 100%;  background-color: #f6f8fa ; overflow-x: hidden;
+overflow-y: hidden;">
+  <section class="header-pdf">
+    <div class="header-pdf-container">
+      <div class="logo-pdf">
+          <a href="">
+              <img src="https://api.phaplyvietnam.com/uploads/1689154423439-392492251.webp" alt="">
+          </a>
+      </div>
+
+
+      <div class="pdf-button d-flex">
+        <div class="show_item" style="margin-right: 15px;" *ngIf="hidden" (click)="setHidden()">
+          <div class="icon_item_show" >
+              <img src="../../../assets/show.png" style="    width: 20px;
+              height: 20px" alt="">
+          </div>
+      </div>
+        <div class="button-pdf" (click)="savePdfAs4Test()">
+          <div class="item-button-pdf">
+              <button>Submit</button>
+          </div>
+    </div>
+      </div>
+  </div>
+</section>
+
+  <section class="header" style="height: 85px;" [ngClass]="{'d-none': hidden , 'd-block' : !hidden}">
+    <div class="util">
+        <div class="util-container">
+              <div class="list-item">
+                  <div class="item-util" (click)="handleShow()">
+                      <div class="icon-util">
+                          <img src="../../../assets/thumbnail.png" alt="">
+                      </div>
+                      <div class="text-util">
+                          <span>Thumbnails</span>
+                      </div>
+                  </div>
+
+                  <div class="item-util" (click)="zoomIn()">
+                    <div class="icon-util">
+                        <img src="../../../assets/zoom-in.png" alt="">
+                    </div>
+                    <div class="text-util">
+                        <span>Zoom in </span>
+                    </div>
+                </div>
+
+                <div class="item-util" (click)="zoomOut()">
+                  <div class="icon-util">
+                    <img src="../../../assets/zoom-out.png" alt="">
+                  </div>
+                  <div class="text-util">
+                      <span>Zoom out</span>
+                  </div>
+              </div>
+
+              <div class="item-util" (click)="prevPage()" [ngClass]="{'disabled': page <= 1}">
+                <div class="icon-util">
+                    <img src="../../../assets/mark.png" alt="">
+                </div>
+                <div class="text-util">
+                    <span>Previous Page</span>
+                </div>
+            </div>
+            <div class="item-util">
+
+                  <h4 style="margin-bottom: 0;">{{ page }} / {{ totalPages }}</h4>
+              <div class="text-util" style="padding: 0 !important;">
+                  <span>Number Page </span>
+              </div>
+          </div>
+          <div class="item-util" (click)="nextPage()" [ngClass]="{'disabled': page == totalPages}" >
+            <div class="icon-util">
+                <img src="../../../assets/add.png" alt="">
+            </div>
+            <div class="text-util">
+                <span>Next Page</span>
+            </div>
+        </div>
+
+          <div class="item-util" >
+            <div class="icon-util">
+                <img src="../../../assets/save.png" alt="">
+            </div>
+            <div class="text-util">
+                <span>Save</span>
+            </div>
+        </div>
+
+        <div class="item-util" (click)="setHidden()" >
+          <div class="icon-util">
+              <img src="../../../assets/hidden.png" alt="">
+          </div>
+          <div class="text-util">
+              <span>Hidden</span>
+          </div>
+      </div>
+              </div>
+
+        </div>
+    </div>
+  </section>
+
+<div class="row" *ngIf="!isLoadingPdf">
+  <h4 style="font-size: 1rem; text-align: center;" [ngClass]="{'pd-20-top': hidden , 'pd-0': !hidden}"><b>Lưu ý</b>: Vui lòng nhập tiếng việt<span style="color: red;"> "KHÔNG DẤU"</span></h4>
+
+  <div class="thumbnails" [ngClass]="{'col-md-2': isShow, 'd-none': !isShow}" style="padding-right: 0;">
+    <div class="thumbnails-container">
+      <div *ngFor="let thumbnail of thumbnails; let i = index" class="thumbnail-item">
+        <img [src]="thumbnail" style="width: 140px; border-radius: 5px;" alt="Thumbnail {{ i + 1 }}" (click)="goToPage(i + 1)">
+        <span>Page {{i + 1}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="pdf-main-viewer" [ngClass]="{'col-md-12': !isShow , 'col-md-10' : isShow}">
+    <div id="outerContainer" >
+      <div class="pdf-container" (wheel)="zoomOnWheel($event)">
+        <pdf-viewer #pdfViewer
+          [src]="src"
+          [render-text]="true"
+          [original-size]="false"
+          [rotation]="0"
+          [show-all]="true"
+          [fit-to-page]="false"
+          [zoom]="zoomLevel"
+          [zoom-scale]="'page-width'"
+          [stick-to-page]="true"
+          [external-link-target]="'blank'"
+          [autoresize]="true"
+          [show-borders]="false"
+          [ngClass]="{'pdf-viewer-full': hidden , 'pdf-viewer' : !hidden}"
+          [page]="page"
+          (change)="onPdfChange($event)"
+          (after-load-complete)="afterLoadComplete($event)"
+          (pageChange)="onPageChange($event)"
+    ></pdf-viewer>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="isLoadingPdf" >
+    <div class="loading-with-container">
+      <app-loadingpdf></app-loadingpdf>
+    </div>
+</div>
+
+</section>
+

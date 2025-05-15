@@ -1,0 +1,79 @@
+<app-loading *ngIf="isLoading"></app-loading>
+
+
+<section class="news_detail" *ngIf="!isLoading">
+  <div class="top_news"  >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="content_news_detail">
+                    <h1 class="content_news_detail_title">
+                        {{oneItem.category_id.title}}
+                    </h1>
+                  </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="content_news" *ngIf="listnew.length > 0">
+      <div class="container">
+          <div class="row row_content_news">
+              <div class="col-lg-8 col-md-12 col_blogs" [ngClass]="{'col-lg-12': !oneItem.category_id.filter}">
+                <div class="row">
+                    <div class="col-md-6" [ngClass]="{'col-lg-4': !oneItem.category_id.filter}" *ngFor="let item of listnew | paginate: { itemsPerPage: 6, currentPage: p }">
+                        <article class="item_blog">
+                          <div class="blog-item">
+                            <div class="blog-img">
+                              <a routerLink="/{{item.link}}"  >
+                                <img width="1400" height="660" style="border-radius: 5px;" [src]="this.api.URL + '/uploads/' + item.image" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" decoding="async" >
+                              </a>
+                            </div>
+                            <div class="content-wrapper">
+                              <div class="blog-img-content">
+                                <h3 class="blog-title blog-title-blog">
+                                  <a routerLink="/{{item.link}}" >{{item.title}}</a></h3>
+                                  <ul class="meta-class-grid">
+                                    <li><div class="meta meta-date"> <span class="month-day">{{item.date | date :'short'}}</span></div></li>
+                                    <li><span class="post-meta author">admin</span></li>
+                                    <li><a class="float-cat"> {{item.type_id.title}} </a></li>
+                                  </ul>
+                                </div>
+                                <div class="full-blog-content">
+                                  <div class="blog-desc">
+                                    <p class="color" [innerText]="this.extractDescriptionPart(item.description)"></p>
+                                  </div><div class="blog-button ">
+                                    <a routerLink="/{{item.link}}" >Đọc thêm <i class="fa-solid fa-arrow-right"></i></a></div><div class="clear">
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </article>
+
+                    </div>
+                </div>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </div>
+
+              <div class="col-lg-4 col-md-12 util" *ngIf="oneItem.category_id.filter">
+                <app-filter></app-filter>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="content_news" *ngIf="listnew.length == 0 && this.myName == 'gioi-thieu'">
+    <div class="container">
+      <div class="row row_content_news">
+        <app-introduce style="padding-bottom: 90px !important;"></app-introduce>
+      </div>
+    </div>
+
+    <app-reason></app-reason>
+
+    <app-partner></app-partner>
+  </div>
+
+
+</section>

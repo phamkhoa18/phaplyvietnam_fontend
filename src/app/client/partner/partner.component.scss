@@ -1,0 +1,104 @@
+.partner {
+    background-color: #263043 !important;
+    background-position: 0 0 !important;
+    background-repeat: repeat !important;
+}
+
+.partner-item a img {
+    width: 150px;
+    transition: all .5s ease;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.partner-item a img:hover {
+    filter: grayscale(0);
+}
+
+.sec2 {
+  padding: 25px 0px;
+}
+
+// quy trình
+
+
+.title_services {
+  text-align: center;
+  width: 100%;
+  font-family: "Alfa Slab One", serif;
+  font-size: 24px;
+  font-weight: 100;
+  font-style: normal;
+  color: #4DC1B8;
+  text-decoration: underline;
+}
+.diemnhan_services {
+  font-family: "Roboto Serif", serif;
+  font-size: 18px;
+  font-optical-sizing: auto;
+  font-variation-settings:
+    "wdth" 100,
+    "GRAD" 0;
+  color: #6e6d6d;
+  text-align: justify;
+  display: flex;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+   align-items: center;
+   margin-bottom: 15px;
+}
+
+hr {
+  color: #b69d74 !important;
+  margin: 0 !important;
+  width: 10%;
+  border: 1px solid;
+  margin: 10px !important;
+}
+
+
+.col_tieubieu {
+padding-top: 15px;
+padding-bottom: 15px;
+}
+
+.item_tieubieu_icon {
+ text-align: center;
+  font-size: 40px;
+  padding: 5px 0;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+.item_tieubieu_title h3 {
+font-weight: bold;
+font-size: 18px;
+margin-top: 0;
+margin-bottom: 12px;
+}
+
+.row_tieubieu {
+padding-top: 80px;
+}
+
+.item_tieubieu_des {
+font-size: 15px !important;
+}
+
+.item_tieubieu_nenicon {
+position: absolute;
+font-size: 240px;
+background: none;
+width: auto;
+height: auto;
+color: rgba(2, 2, 2, 0.2);
+opacity: .2;
+right: 0;
+top: 30%;
+left: 50%;
+margin-bottom: 20px;
+transition: 2s ease;
+outline: none;
+}

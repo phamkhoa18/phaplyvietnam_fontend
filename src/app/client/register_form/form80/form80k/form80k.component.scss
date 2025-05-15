@@ -1,0 +1,398 @@
+.form {
+  background: #f5f5f5;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
+}
+
+.container {
+  padding: 24px;
+}
+
+
+* {
+    color: #333 ;
+    font-family: 'roboto',sans-serif; ;
+    font-size: 15px;
+    line-height: 1.42857143;
+}
+
+
+
+.form_80 {
+  background-color: #ffff;
+}
+
+.HeaderCenter {
+  text-align: center;
+  padding: 20px 0px;
+  line-height: 1.5;
+}
+.h2, h2 {
+  font-size: 20px;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+.header-title {
+  font-family: "Helve", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  line-height: 1.2;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #1a8b83;
+}
+
+dl, ol, ul {
+  margin: 0;
+  padding: 0;
+}
+
+::ng-deep {
+  .p-inputtext:enabled:focus {
+    box-shadow: none !important;
+    border: 1px solid black;
+  }
+
+  .p-inputtext:enabled:hover {
+    border: 1px solid black;
+    box-shadow: none !important;
+}
+
+.p-inputtext {
+  font-size: 0.8rem;
+}
+
+.p-element {
+  box-shadow: none ;
+}
+
+.p-dropdown:enabled:focus {
+  box-shadow: none !important;
+  border: 1px solid black;
+}
+
+.p-dropdown:enabled:hover {
+  border: 1px solid black;
+  box-shadow: none !important;
+}
+
+.p-dropdown:not(.p-disabled):hover {
+  border-color: #1a8b83;
+  box-shadow: none !important;
+}
+
+.p-radiobutton .p-radiobutton-box.p-highlight {
+  border-color: #1a8b83;
+  background: #1a8b83;
+}
+
+.p-stepper.p-stepper-vertical .p-stepper-panel:last-of-type .p-stepper-content {
+  padding-left:  0;
+}
+
+.p-stepper .p-stepper-header {
+  padding: 0;
+}
+.p-stepper.p-stepper-vertical .p-stepper-panel .p-stepper-separator {
+  margin: 0;
+  margin-inline-start: 1rem;
+}
+.p-stepper-header .p-stepper-action {
+  display: block;
+  width: 100%;
+}
+.p-button {
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px !important;
+  font-size: 0.8rem;
+}
+
+.p-calendar {
+  width: 100%;
+}
+
+.p-dialog-mask {
+  z-index: 999999999999999999 !important;
+}
+
+.p-dropdown {
+  width: 100%;
+}
+
+.p-dropdown-panel .p-dropdown-items {
+  padding-left: 0 !important;
+}
+
+.p-dropdown-item {
+  width: 100% !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.p-overlay {
+  width: 100% !important;
+  min-width: none !important;
+}
+
+ul {
+  margin-bottom: 0 !important;
+}
+.p-dropdown-filter  {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.d-flex.align-items-center {
+  max-width: 100%; /* Đảm bảo chiều rộng không vượt quá dropdown */
+  display: flex;
+  align-items: center;
+}
+
+.d-flex.align-items-center .ms-2 {
+  flex-grow: 1;
+  max-width: 100%; /* Đảm bảo không vượt quá độ rộng của container */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Không cho phép xuống dòng */
+}
+
+.p-button-success {
+  background-color: #1A8B83; color: #ffff ;
+  transition: all 0.3ms;
+}
+
+.p-button-success:hover {
+  background-color: #cac80c  ;
+  color: black;
+}
+
+.p-inputtext.ng-dirty.ng-invalid {
+  border: 2px solid #e24c4c;
+}
+
+/* Định dạng vòng ngoài của radio button */
+.p-radiobutton-box {
+  width: 18px; /* Đường kính của radio button */
+  height: 18px; /* Đường kính của radio button */
+  border-radius: 6px; /* Tạo hình vuông với các góc bo tròn */
+  border: 2px solid #333; /* Màu viền của radio button */
+  position: relative; /* Để cho phép đặt biểu tượng dấu tích */
+}
+
+/* Khi radio button được chọn */
+.p-radiobutton-box.p-highlight {
+  background-color: #007ad9; /* Màu nền khi chọn */
+  border-color: #007ad9; /* Màu viền khi chọn */
+}
+
+/* Biểu tượng dấu tích */
+.p-radiobutton-box::after {
+  content: ''; /* Nội dung mặc định không có */
+  position: absolute; /* Để căn chỉnh dấu tích bên trong vòng ngoài */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Căn giữa dấu tích */
+  border-radius: 0; /* Không bo tròn dấu tích */
+  background-color: transparent; /* Màu nền của dấu tích khi không chọn */
+  border: 2px solid transparent; /* Viền trong suốt khi không chọn */
+}
+
+/* Dấu tích khi radio button được chọn */
+.p-radiobutton-box.p-highlight::after {
+  content: '\2713'; /* Dấu tích Unicode */
+  font-size: 12px; /* Kích thước dấu tích */
+  font-weight: bold;
+  color: #ffff; /* Màu dấu tích */
+  text-align: center; /* Căn giữa dấu tích */
+  line-height: 18px; /* Căn chỉnh dấu tích theo chiều dọc */
+}
+
+.ui-tooltip {
+  background-color: #ff4d4d; /* Màu nền cho tooltip */
+  color: #ffffff;           /* Màu chữ cho tooltip */
+  font-size: 12px;          /* Kích thước chữ */
+  border-radius: 4px;       /* Bo góc cho tooltip */
+}
+
+.p-radiobutton-icon{
+  background:none !important;
+}
+
+.p-button-success {
+  background-color: #1A8B83; color: #ffff ;
+  transition: all 0.3ms;
+}
+
+.p-button-success:hover {
+  background-color: #cac80c  ;
+  color: black;
+}
+
+.ui-tooltip {
+  background-color: #ff4d4d; /* Màu nền cho tooltip */
+  color: #ffffff;           /* Màu chữ cho tooltip */
+  font-size: 12px;          /* Kích thước chữ */
+  border-radius: 4px;       /* Bo góc cho tooltip */
+}
+
+.p-message .p-message-wrapper {
+  padding: 0.8rem 1rem;
+}
+
+.p-component {
+  font-size: 0.73rem;
+  }
+
+}
+
+.error-message {
+  color: #e24c4c;
+  margin-top: 5px;
+  font-size: 13px !important;
+}
+
+
+
+.box-child {
+  padding: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  background-color: #f5f5f5;
+  margin-top: 10px;
+}
+
+.sub-title {
+  display: block;
+  font-family: 'roboto-light' !important;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 14px !important;
+}
+
+@media screen and (max-width: 768px) {
+
+    .mat-card {
+      padding: 15px !important;
+    }
+
+    .container {
+      padding: 15px 10px ;
+    }
+
+    .header-title {
+      font-size: 20px;
+    }
+
+    .HeaderCenter {
+     padding: 0;
+     padding-top: 15px !important;
+    }
+
+    .header-title-child  {
+      font-size: 16px !important;
+
+      .sub-title-child {
+        i {
+          font-size: 12px  !important;
+        }
+      }
+    }
+
+}
+
+.mat-card {
+  padding: 20px ;
+}
+
+.header-child {
+  .stt {
+      font-size: 18px;
+      line-height: 1.2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #1a8b83;
+      color: #fff;
+      width: 30px;
+      height: 100%;
+      display: flex;
+      span {
+          display: block;
+          margin: auto;
+          color: #ffff;
+          font-family: "Helve", Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+      }
+  }
+
+  .content-header {
+    margin-left: 40px;
+    .header-title-child {
+      font-family: "Helve", Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+      color: #1a8b83;
+      position: relative;
+      padding-bottom: 10px;
+      font-size: 18px;
+      text-transform: uppercase;
+      line-height: 1.2;
+      font-weight: 300;
+    }
+
+    .header-title-child::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #1a8b83;
+  }
+
+  .sub-title-child {
+    padding-top: 5px;
+  }
+  }
+}
+
+
+
+
+.title-input {
+    display: inline-block;
+    max-width: 100%;
+    font-family: 'roboto-bold' !important;
+}
+
+
+.w-100 {
+  width: 100%;
+}
+
+
+.request {
+  color: red ;
+}
+
+
+.sub-title-child {
+  i  {
+    font-size: 14px ;
+  }
+}
+
+.valid {
+  border: 1px solid #e24c4c;
+  border-radius: 5px;
+}
+
+
+tr th {
+    font-family: 'roboto-bold' !important;
+}
+
+
+.title-input-bf::before {
+  content: "• " !important; /* Hoặc dùng dấu chấm "." */
+  font-weight: bold; /* Tùy chỉnh độ đậm */
+  margin-right: 4px; /* Khoảng cách giữa dấu chấm và câu */
+}

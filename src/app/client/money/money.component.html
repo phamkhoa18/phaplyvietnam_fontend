@@ -1,0 +1,109 @@
+<!-- <div class="converter">
+  <h2 style="color: #ffff;">Currency Converter</h2>
+  <div class="input-group" style="margin-top: 20px;">
+    <div class="row">
+        <div class="col-12">
+          <input type="number" class="form-control" [(ngModel)]="amount" placeholder="Enter amount" style="margin-bottom: 20px;" />
+        </div>
+        <div class="col-12">
+          <div class="khung_select row">
+            <div class="col-md-5">
+              <select  class="form-select form-select-lg" [(ngModel)]="baseCurrency">
+                <option value="USD">USD</option>
+                <option [value]="item" *ngFor="let item of listbaseCurrency" >{{item}}</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <span style="color: #ffff; line-height: 35px;">to</span>
+            </div>
+            <div class="col-md-5">
+              <select  class="form-select form-select-lg" [(ngModel)]="targetCurrency">
+                <option value="EUR">EUR</option>
+                <option [value]="item" *ngFor="let item of listbaseCurrency" >{{item}}</option>
+              </select>
+            </div>
+         </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <input type="text"
+              class="form-control" name="kq" id="" [(ngModel)]="kq" disabled aria-describedby="helpId" placeholder="">
+          </div>
+        </div>
+    </div>
+    <button (click)="convertCurrency()" style="color: white; background-color: #b69d74;">Convert</button>
+
+  </div>
+</div>
+ -->
+
+
+
+ <section class="money">
+    <div class="header_money white">
+        <div class="contain_money">
+          <div class="label_1">
+            Tỉ giá hôm nay
+        </div>
+        <div class="label_2">
+          1 AUD = 15,610 VND
+        </div>
+        </div>
+    </div>
+    <div class="body_money">
+        <div class="form-group">
+          <label for="">Bạn chuyền từ VND</label>
+          <div class="input_select" style="position: relative;">
+            <input inputmode="decimal" autocomplete="off" name="calculator-form-receiver-get-name" placeholder="0.00" type="text" class="sc-jGKxIK fFfUvW form-control" value="23">
+            <div class="dropdown_input">
+
+              <div class="sc-krNlru cZyEwo show_input" style="color: var(--ds-c-grey-dark);">
+                <img src="https://app.hhmt.com.au/static/media/vnm-flag.a28e166bb4aa0be9bcc1d1fe55bb7716.svg" class="sc-hwdzOV cFpGLp" (click)="clickShow(1)">VND </div>
+
+
+              <div class="content_dropdown" [ngClass]="{'disnone': this.isShow1}" style="z-index: 99;">
+                <a  class="sc-ihgnxF cWMnfF dropdown-item" role="button" *ngFor="let item of countries">
+                  <div class="sc-krNlru cZyEwo" >
+                  <img [src]="item.flag" class="sc-hwdzOV cFpGLp">{{item.cca}}
+                </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <label for="">Sang UCT</label>
+          <div class="input_select" style="position: relative;">
+            <input inputmode="decimal" disabled autocomplete="off" name="calculator-form-receiver-get-name" placeholder="0.00" type="text" class="sc-jGKxIK fFfUvW form-control" value="23">
+            <div class="dropdown_input">
+
+              <div class="sc-krNlru cZyEwo show_input" >
+                <img src="https://app.hhmt.com.au/static/media/vnm-flag.a28e166bb4aa0be9bcc1d1fe55bb7716.svg" class="sc-hwdzOV cFpGLp" (click)="clickShow(2)">VND </div>
+
+
+              <div class="content_dropdown" [ngClass]="{'disnone': this.isShow2}">
+                <a  class="sc-ihgnxF cWMnfF dropdown-item" role="button" *ngFor="let item of countries" >
+                  <div class="sc-krNlru cZyEwo" (click)="value(item)" >
+                  <img  [src]="item.flag" class="sc-hwdzOV cFpGLp">{{item.cca}}</div>
+                </a>
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+    </div>
+
+    <div class="header_money white" style="border-radius: 0px 0px 24px 24px !important;">
+      <div class="contain_money">
+        <div class="label_1 label_hover" style="    font-size: 20px;
+        padding: 10px 0px;
+        font-weight: 600;
+        cursor: pointer;">
+          Chuyển đổi
+      </div>
+      </div>
+  </div>
+
+
+ </section>

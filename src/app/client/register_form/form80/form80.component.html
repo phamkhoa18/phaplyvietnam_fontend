@@ -1,0 +1,37 @@
+<section class="form form80">
+    <div class="container">
+          <div class="form_80" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;">
+            <!-- title -->
+            <div class="mat-card" style="border-bottom: 2px solid;">
+                <div class="HeaderCenter">
+                  <span class="d-flex align-items-center flex-column" >
+                    <b class="header-title">{{ 'SECTION_HOME.TITLE' | translate }}</b>
+                  </span>
+                </div>
+            </div>
+             <!-- content -->
+             <div class="mat-card">
+                <router-outlet (activate)="onComponentActivate($event)"></router-outlet>
+            </div>
+            <div class="p-card">
+              <div class="page-progress-container">
+                <!-- Hiển thị tiến trình sử dụng ProgressBar của PrimeNG -->
+                <p-progressBar [value]="(currentStep / totalSteps) * 100" [showValue]="false"></p-progressBar>
+
+                <!-- Hiển thị thông tin trang hiện tại và tổng số trang -->
+                <div class="page-info">
+                  <p>{{ 'SECTION_HOME.TEXT_PAGE_1' | translate }}
+                    <span class="current-step">{{ currentStep }}</span>
+                    {{ 'SECTION_HOME.TEXT_PAGE_2' | translate }}
+                    <span class="total-steps">{{ totalSteps }}</span>
+                    {{ 'SECTION_HOME.TEXT_PAGE_3' | translate }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</section>
+
+
+

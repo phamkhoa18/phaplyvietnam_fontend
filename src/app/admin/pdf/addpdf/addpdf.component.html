@@ -1,0 +1,54 @@
+
+<app-loading *ngIf="isLoading"></app-loading>
+
+<!-- Begin Page Content -->
+<div class="container-fluid" *ngIf="!isLoading">
+
+ <!-- Page Heading -->
+ <h1 class="h3 mb-3 text-gray-800" style="margin-top: 30px;" routerLink="addcategory">THÊM MỚI PDF</h1>
+ <!-- <div class="khung_button" style="display: flex;">
+   <p class="mb-4" style="padding: 10px; padding-left: 0 !important;"><a routerLink="add" class="btn btn-success" role="button">Thêm mới menu</a></p>
+   <p class="mb-4"  style="padding: 10px;"><a name="" id="" class="btn btn-danger" role="button">Vị trí menu</a></p>
+ </div> -->
+
+
+ <!-- DataTales Example -->
+ <div class="card shadow mb-4">
+     <div class="container-fluid" style="padding: 15px !important;">
+           <div class="row">
+               <div class="col-7">
+                 <form class="row g-3" [formGroup]="slider" (ngSubmit)="submit()">
+                   <div class="col-md-12">
+                     <label for="inputEmail4" class="form-label">Tên Pdf</label>
+                     <input type="text" formControlName="title" class="form-control" id="inputEmail4">
+                     <small class="text-danger" *ngIf="slider.get('title')?.invalid && slider.get('title')?.touched">
+                       Tên không được để trống
+                     </small>
+                   </div>
+                   <div class="col-md-12">
+                    <label for="inputEmail4" class="form-label">Content</label>
+                    <textarea type="text" formControlName="description" class="form-control" id="inputEmail4"></textarea>
+                  </div>
+                  <div class="col-md-12">
+                    <label for="inputEmail4" class="form-label">Link</label>
+                    <input type="text" formControlName="link" class="form-control" id="inputEmail4">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Pdf (vi)</label>
+                    <input type="file" (change)="onFileChangevi($event)" formControlName="pdfvi" class="form-control" id="inputPassword4">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Pdf (en)</label>
+                    <input type="file" (change)="onFileChangeen($event)"  formControlName="pdfen" class="form-control" id="inputPassword4">
+                  </div>
+                   <div class="col-12">
+                     <button type="submit" class="btn btn-primary">Submit</button>
+                   </div>
+                 </form>
+               </div>
+           </div>
+     </div>
+ </div>
+
+</div>
+<!-- /.container-fluid -->

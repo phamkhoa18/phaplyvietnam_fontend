@@ -1,0 +1,980 @@
+<section class="form lylichtuphap">
+  <div class="container">
+      <form [formGroup]="lylichtuphap" (ngSubmit)="submit()">
+        <div class="form_80" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;">
+          <!-- title -->
+          <div class="mat-card" style="border: 2px solid #1A8B83;">
+              <div class="HeaderCenter">
+                <span class="d-flex align-items-center flex-column" >
+                  <b class="header-title">{{ 'FORM_VISA600.TITLE' | translate }}</b>
+                  <b class="sub-title"><i>{{ 'FORM_VISA600.DES' | translate }}</i></b>
+                </span>
+              </div>
+          </div>
+
+           <!-- content -->
+           <div class="mat-card">
+            <div class="header-child header-a position-relative">
+              <div class="stt"><span>1</span></div>
+              <div class="content-header">
+                <h2 class="header-title-child d-flex flex-column">THÔNG TIN CƠ BẢN
+                  <b class="sub-title-child"><i>BASIC INFORMATION</i></b>
+                </h2>
+              </div>
+            </div>
+            <div class="row" style="padding-top: 15px;">
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    1. {{ 'FORM_VISA600.1' | translate }} <span class="request"> *</span>
+                  </label>
+                  <div class="d-flex flex-wrap gap-3 align-content-center pb-2">
+                    <div class="d-flex align-items-center">
+                      <p-radioButton formControlName="nuocngoai" [value]="'Đúng'"  />
+                      <label for="male" class="ms-2">{{ 'FORM_VISA600.yes' | translate }}</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <p-radioButton formControlName="nuocngoai" [value]="'Sai'"  />
+                      <label for="female" class="ms-2">{{ 'FORM_VISA600.no' | translate }}</label>
+                    </div>
+                  </div>
+
+                  <span class="error-message" *ngIf="this.getErrorMessage('nuocngoai') != ''">
+                    {{ this.getErrorMessage('nuocngoai') }}
+                  </span>
+
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <div class="d-flex flex-column pb-3" style="width: 100%;">
+                    <label class="d-block font-weight-bold mb-2 title-input">
+                      2. {{ 'FORM_VISA600.2' | translate }}<span class="request"> *</span>
+                    </label>
+                    <p-dropdown [options]="countries"
+                      [formControlName]="'oquocgia'"
+                      placeholder="Vui lòng chọn quốc gia"
+                      [filter]="true"
+                      [ngClass]="{'valid': lylichtuphap.get('oquocgia').invalid && (lylichtuphap.get('oquocgia').dirty || lylichtuphap.get('oquocgia').touched)}"
+                      filterBy="name"
+                      [showClear]="true"
+                      optionLabel="name" optionValue="name">
+                        <ng-template let-item pTemplate="item">
+                          <div class="d-flex align-items-center">
+                            <span class="fi fi-{{item.code.toLowerCase()}}"></span>
+                            <span class="ms-2">{{item.name}}</span>
+                          </div>
+                        </ng-template>
+                    </p-dropdown>
+                  </div>
+
+                  <span class="error-message" *ngIf="this.getErrorMessage('oquocgia') != ''">
+                    {{ this.getErrorMessage('oquocgia') }}
+                  </span>
+
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    3. {{ 'FORM_VISA600.3' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'quoctichvn'"
+                    [ngClass]="{'valid': lylichtuphap.get('quoctichvn').invalid && (lylichtuphap.get('quoctichvn').dirty || lylichtuphap.get('quoctichvn').touched)}"
+                    [placeholder]="placeholder"
+                  />
+                  <span class="error-message" *ngIf="this.getErrorMessage('quoctichvn') != ''">
+                    {{ this.getErrorMessage('quoctichvn') }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-xs-12">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    4. {{ 'FORM_VISA600.4' | translate }}
+                  </label>
+                  <div class="d-flex flex-wrap gap-3  flex-column pb-2" style="height: 100%;">
+                    <div class="d-flex align-items-center">
+                      <p-radioButton formControlName="mucdich" [value]="'FORM_VISA600.4.1' | translate"  />
+                      <label for="male" class="ms-2">{{ 'FORM_VISA600.4.1' | translate }}</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <p-radioButton formControlName="mucdich" [value]="'FORM_VISA600.4.2' | translate"  />
+                      <label for="female" class="ms-2">{{ 'FORM_VISA600.4.2' | translate }}</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <p-radioButton formControlName="mucdich" [value]="'FORM_VISA600.4.3' | translate"  />
+                      <label for="male" class="ms-2">{{ 'FORM_VISA600.4.3' | translate }}</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <p-radioButton formControlName="mucdich" [value]="'FORM_VISA600.4.4' | translate"  />
+                      <label for="male" class="ms-2">{{ 'FORM_VISA600.4.4' | translate }}</label>
+                    </div>
+                  </div>
+                  <span class="error-message" *ngIf="this.getErrorMessage('mucdich') != ''">
+                    {{ this.getErrorMessage('mucdich') }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-xs-12">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    5. {{ 'FORM_VISA600.5' | translate }}
+                  </label>
+                  <div class="d-flex flex-wrap gap-3  flex-column pb-2" style="height: 100%;">
+                    <div class="d-flex align-items-center" *ngFor="let item of listlydo, let i = index">
+                      <p-checkbox
+                        formArrayName="lydo"
+                        [value]="item.title"
+                        (onChange)="onCheckboxChange($event, 'lydo' , item.title)"/>
+                      <label for="ny" class="ms-2">{{ 'FORM_VISA600.5.' + (i + 1) | translate }}</label>
+                    </div>
+
+                    <div class="d-flex align-items-center">
+                      <p-checkbox
+                      formControlName="lydobl"
+                      value="khac"
+                      inputId="ny" />
+                      <label for="male" class="ms-2">{{ 'FORM_VISA600.5.4' | translate }}</label>
+
+                      <input type="text" pInputText style="flex-grow: 3;" *ngIf="this.lylichtuphap.get('lydobl').value == 'khac'"
+                      [formControlName]="'lydokhac'"
+                      [placeholder]="placeholder"
+                    />
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-5 col-xs-12">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                   6. {{ 'FORM_VISA600.6' | translate }} <span class="request"> *</span>
+                  </label>
+                  <p-calendar placeholder="dd/mm/yyyy"
+                  [dateFormat]="'dd/mm/yy'"
+                  formControlName="datedenuc"
+                  (onSelect)="onDateChange($event, 'datedenuc')"
+                  (onInput)="onInputChange($event, 'datedenuc')"
+                  [ngClass]="{'valid': lylichtuphap.get(['datedenuc']).invalid && (lylichtuphap.get(['datedenuc']).dirty || lylichtuphap.get(['datedenuc']).touched)}"
+                  >
+                    <ng-template pTemplate="date" let-date>
+                        <span>
+                            {{ date.day }}
+                        </span>
+                    </ng-template>
+                </p-calendar>
+
+                <span class="error-message" *ngIf="getErrorMessage('datedenuc') != ''">
+                  {{ getErrorMessage('datedenuc') }}
+                </span>
+                </div>
+              </div>
+
+              <div class="col-md-7 col-xs-12">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                   7. {{ 'FORM_VISA600.7' | translate }} <span class="request"> *</span>
+                  </label>
+                  <div class="d-flex flex-wrap gap-3 align-content-center pb-2" style="height: 100%;">
+                    <div class="d-flex align-items-center">
+                      <p-radioButton formControlName="dktheonhom" [value]="'Đúng'"  />
+                      <label for="male" class="ms-2">{{ 'FORM_VISA600.yes' | translate }}</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <p-radioButton formControlName="dktheonhom" [value]="'Sai'"  />
+                      <label for="female" class="ms-2">{{ 'FORM_VISA600.no' | translate }}</label>
+                    </div>
+                  </div>
+
+                  <span class="error-message" *ngIf="this.getErrorMessage('dktheonhom') != ''">
+                    {{ this.getErrorMessage('dktheonhom') }}
+                  </span>
+
+                </div>
+              </div>
+
+              <div class="col-md-12 col-xs-12">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    8. {{ 'FORM_VISA600.8' | translate }} <span class="request"> *</span>
+                  </label>
+                  <div class="d-flex flex-wrap gap-3 align-content-center pb-2" style="height: 100%;">
+                    <div class="d-flex align-items-center">
+                      <p-radioButton formControlName="nhanvien" [value]="'Đúng'"  />
+                      <label for="male" class="ms-2">{{ 'FORM_VISA600.yes' | translate }}</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <p-radioButton formControlName="nhanvien" [value]="'Sai'"  />
+                      <label for="female" class="ms-2">{{ 'FORM_VISA600.no' | translate }}</label>
+                    </div>
+                  </div>
+
+                  <span class="error-message" *ngIf="this.getErrorMessage('nhanvien') != ''">
+                    {{ this.getErrorMessage('nhanvien') }}
+                  </span>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="header-child header-a position-relative">
+              <div class="stt"><span>2</span></div>
+              <div class="content-header">
+                <h2 class="header-title-child d-flex flex-column">THÔNG TIN CÁ NHÂN
+                  <b class="sub-title-child"><i>PERSONAL INFORMATION</i></b>
+                </h2>
+              </div>
+            </div>
+
+            <div class="row"  style="padding-top: 15px;">
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    9. {{ 'FORM_VISA600.10' | translate }}<span class="request"> *</span>
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'ho'"
+                    [ngClass]="{'valid': lylichtuphap.get('ho').invalid && (lylichtuphap.get('ho').dirty || lylichtuphap.get('ho').touched)}"
+                    [placeholder]="placeholder"
+                  />
+                  <span class="error-message" *ngIf="this.getErrorMessage('ho') != ''">
+                    {{ this.getErrorMessage('ho') }}
+                  </span>
+
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    10. {{ 'FORM_VISA600.12' | translate }}<span class="request"> *</span>
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'ten'"
+                    [ngClass]="{'valid': lylichtuphap.get('ten').invalid && (lylichtuphap.get('ten').dirty || lylichtuphap.get('ten').touched)}"
+                    [placeholder]="placeholder"
+                  />
+                  <span class="error-message" *ngIf="this.getErrorMessage('ten') != ''">
+                    {{ this.getErrorMessage('ten') }}
+                  </span>
+
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    13. {{ 'FORM_VISA600.13' | translate }}<span class="request"> *</span>
+                  </label>
+                  <div class="d-flex flex-wrap gap-3 align-content-center" style="height: 100%;">
+                    <div class="d-flex align-items-center">
+                      <p-radioButton [formControlName]="'gender'" value="Nam"  />
+                      <label for="male" class="ms-2">{{ 'FORM_VISA600.male' | translate }}</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <p-radioButton [formControlName]="'gender'" value="Nữ" />
+                      <label for="female" class="ms-2">{{ 'FORM_VISA600.female' | translate }}</label>
+                    </div>
+                  </div>
+
+                  <span class="error-message" *ngIf="this.getErrorMessage('gender') != ''">
+                    {{ this.getErrorMessage('gender') }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                   14. {{ 'FORM_VISA600.14' | translate }} <span class="request"> *</span>
+                  </label>
+                  <p-calendar placeholder="dd/mm/yyyy"
+                  [dateFormat]="'dd/mm/yy'"
+                  formControlName="date"
+                  (onSelect)="onDateChange($event, 'date')"
+                  (onInput)="onInputChange($event, 'date')"
+                  [ngClass]="{'valid': lylichtuphap.get(['date']).invalid && (lylichtuphap.get(['date']).dirty || lylichtuphap.get(['date']).touched)}"
+                  >
+                    <ng-template pTemplate="date" let-date>
+                        <span>
+                            {{ date.day }}
+                        </span>
+                    </ng-template>
+                </p-calendar>
+
+                <span class="error-message" *ngIf="getErrorMessage('date') != ''">
+                  {{ getErrorMessage('date') }}
+                </span>
+                </div>
+              </div>
+
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    15. {{ 'FORM_VISA600.15' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'sohc'"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    16. {{ 'FORM_VISA600.16' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'quocgiacaphc'"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    17. {{ 'FORM_VISA600.17' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'ngaycaphc'"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    18. {{ 'FORM_VISA600.18' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'ngayhethc'"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    19. {{ 'FORM_VISA600.19' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'ngayhethc'"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    20. {{ 'FORM_VISA600.20' | translate }}<span class="request"> *</span>
+                  </label>
+                  <div class="d-flex flex-wrap gap-3 align-content-center"  style="height: 100%;">
+                    <div class="d-flex align-items-center">
+                      <p-radioButton [formControlName]="'cmnd'" value="Có"  />
+                      <label for="male" class="ms-2">{{ 'FORM_VISA600.yes' | translate }}</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <p-radioButton [formControlName]="'cmnd'" value="Không" />
+                      <label for="female" class="ms-2">{{ 'FORM_VISA600.no' | translate }}</label>
+                    </div>
+                  </div>
+
+                  <span class="error-message" *ngIf="this.getErrorMessage('cmnd') != ''">
+                    {{ this.getErrorMessage('cmnd') }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;" *ngIf="this.lylichtuphap.get('cmnd').value == 'Có'">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    21. {{ 'FORM_VISA600.21' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'socmnd'"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;" *ngIf="this.lylichtuphap.get('cmnd').value == 'Có'">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    22. {{ 'FORM_VISA600.22' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'quocgiacapcmnd'"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    23. {{ 'FORM_VISA600.23' | translate }}
+                  </label>
+                  <textarea
+                      rows="3"
+                      cols="30"
+                      style="resize: none;"
+                      pInputTextarea
+                      [placeholder]="placeholder"
+                      [formControlName]="'noisinh'">
+                  </textarea>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    24. {{ 'FORM_VISA600.24' | translate }}
+                  </label>
+                  <div class="d-flex flex-wrap gap-3  flex-column pb-2" style="height: 100%;">
+                    <div class="d-flex align-items-center">
+                      <p-radioButton formControlName="honnhan" [value]="'FORM_VISA600.24.1' | translate"  />
+                      <label for="male" class="ms-2">{{ 'FORM_VISA600.24.1' | translate }}</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <p-radioButton formControlName="honnhan" [value]="'FORM_VISA600.24.2' | translate"  />
+                      <label for="female" class="ms-2">{{ 'FORM_VISA600.24.2' | translate }}</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <p-radioButton formControlName="honnhan" [value]="'FORM_VISA600.24.3' | translate"  />
+                      <label for="male" class="ms-2">{{ 'FORM_VISA600.24.3' | translate }}</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <p-radioButton formControlName="honnhan" [value]="'FORM_VISA600.24.4' | translate"  />
+                      <label for="male" class="ms-2">{{ 'FORM_VISA600.24.4' | translate }}</label>
+                    </div>
+                  </div>
+                  <span class="error-message" *ngIf="this.getErrorMessage('honnhan') != ''">
+                    {{ this.getErrorMessage('honnhan') }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    25. {{ 'FORM_VISA600.25' | translate }}<span class="request"> *</span>
+                  </label>
+                  <div class="d-flex flex-wrap gap-3 align-content-center" >
+                    <div class="d-flex align-items-center">
+                      <p-radioButton [formControlName]="'quoctichht'" value="Có"  />
+                      <label for="male" class="ms-2">{{ 'FORM_VISA600.yes' | translate }}</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <p-radioButton [formControlName]="'quoctichht'" value="Không" />
+                      <label for="female" class="ms-2">{{ 'FORM_VISA600.no' | translate }}</label>
+                    </div>
+                  </div>
+
+                  <span class="error-message" *ngIf="this.getErrorMessage('quoctichht') != ''">
+                    {{ this.getErrorMessage('quoctichht') }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    26. {{ 'FORM_VISA600.26' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'quoctichngoai'"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    27. {{ 'FORM_VISA600.27' | translate }}<span class="request"> *</span>
+                  </label>
+                  <div class="d-flex flex-wrap gap-3 align-content-center" style="height: 100%;" >
+                    <div class="d-flex align-items-center">
+                      <p-radioButton [formControlName]="'nopvisauc'" value="Có"  />
+                      <label for="male" class="ms-2">{{ 'FORM_VISA600.yes' | translate }}</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <p-radioButton [formControlName]="'nopvisauc'" value="Không" />
+                      <label for="female" class="ms-2">{{ 'FORM_VISA600.no' | translate }}</label>
+                    </div>
+                  </div>
+
+                  <span class="error-message" *ngIf="this.getErrorMessage('nopvisauc') != ''">
+                    {{ this.getErrorMessage('nopvisauc') }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    28. {{ 'FORM_VISA600.28' | translate }}<span class="request"> *</span>
+                  </label>
+                  <div class="d-flex flex-wrap gap-3 align-content-center" style="height: 100%;" >
+                    <div class="d-flex align-items-center">
+                      <p-radioButton [formControlName]="'tungdenuc'" value="Có"  />
+                      <label for="male" class="ms-2">{{ 'FORM_VISA600.yes' | translate }}</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <p-radioButton [formControlName]="'tungdenuc'" value="Không" />
+                      <label for="female" class="ms-2">{{ 'FORM_VISA600.no' | translate }}</label>
+                    </div>
+                  </div>
+
+                  <span class="error-message" *ngIf="this.getErrorMessage('tungdenuc') != ''">
+                    {{ this.getErrorMessage('tungdenuc') }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    29. {{ 'FORM_VISA600.29' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'visauc'"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    30. {{ 'FORM_VISA600.30' | translate }}<span class="request"> *</span>
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'dc'"
+                    [placeholder]="placeholder"
+                    [ngClass]="{'valid': lylichtuphap.get('dc').invalid && (lylichtuphap.get('dc').dirty || lylichtuphap.get('dc').touched)}"
+                  />
+
+                  <span class="error-message" *ngIf="getErrorMessage('dc') != ''">
+                    {{ getErrorMessage('dc') }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    31. {{ 'FORM_VISA600.31' | translate }}<span class="request"> *</span>
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'sdt'"
+                    [placeholder]="placeholder"
+                    [ngClass]="{'valid': lylichtuphap.get('sdt').invalid && (lylichtuphap.get('sdt').dirty || lylichtuphap.get('sdt').touched)}"
+                  />
+
+                  <span class="error-message" *ngIf="getErrorMessage('sdt') != ''">
+                    {{ getErrorMessage('sdt') }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    32. {{ 'FORM_VISA600.32' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'email'"
+                    [placeholder]="placeholder"
+                    [ngClass]="{'valid': lylichtuphap.get('email').invalid && (lylichtuphap.get('email').dirty || lylichtuphap.get('email').touched)}"
+                  />
+
+                  <span class="error-message" *ngIf="getErrorMessage('email') != ''">
+                    {{ getErrorMessage('email') }}
+                  </span>
+                </div>
+              </div>
+
+
+              <div class="col-md-12">
+                <div class="d-flex flex-column pb-3">
+                  <div class="d-flex rounded flex-column pb-3 pt-2">
+                    <div class="row" [formGroup]="itemthongtin">
+                      <label class="d-block font-weight-bold mb-2 title-input">
+                        33. {{"FORM_VISA600.33" | translate}}
+                      </label>
+                        <div class="col-md-3 d-flex align-items-end">
+                          <div class="d-flex flex-column pb-3" style="width: 100%;">
+                            <label class="d-block font-weight-bold mb-2 title-input">
+                              {{"FORM_VISA600.33.1" | translate}}<span class="request"> *</span>
+                              <span style="font-family: 'roboto' !important; display: block; font-style: italic; font-size: 13px; margin-top: 5px;">{{"FORM_VISA600.33.1.2" | translate}}</span>
+                            </label>
+                            <input type="text" pInputText
+                              [formControlName]="'vaitro'"
+                              [placeholder]="placeholder"
+                              [ngClass]="{'valid': itemthongtin.get('vaitro').invalid && (itemthongtin.get('vaitro').dirty || itemthongtin.get('vaitro').touched)}"
+                            />
+                          </div>
+                        </div>
+
+                        <div class="col-md-3 d-flex align-items-end">
+                          <div class="d-flex flex-column pb-3" style="width: 100%;">
+                            <label class="d-block font-weight-bold mb-2 title-input">
+                              {{"FORM_VISA600.33.2" | translate}} <span class="request"> *</span>
+                            </label>
+                            <input type="text" pInputText
+                              [formControlName]="'ten'"
+                              [placeholder]="placeholder"
+                              [ngClass]="{'valid': itemthongtin.get('ten').invalid && (itemthongtin.get('ten').dirty || itemthongtin.get('ten').touched)}"
+                            />
+                          </div>
+                        </div>
+
+                        <div class="col-md-3 d-flex align-items-end">
+                          <div class="d-flex flex-column pb-3" style="width: 100%;">
+                            <label class="d-block font-weight-bold mb-2 title-input">
+                              {{"FORM_VISA600.33.3" | translate}}
+                            </label>
+                            <p-calendar placeholder="dd/mm/yyyy"
+                            [dateFormat]="'dd/mm/yy'"
+                            formControlName="namsinh"
+                            (onSelect)="onDateChange($event, 'namsinh' , this.itemthongtin)"
+                            (onInput)="onInputChange($event, 'namsinh' , this.itemthongtin)"
+                            >
+                              <ng-template pTemplate="date" let-date>
+                                  <span>
+                                      {{ date.day }}
+                                  </span>
+                              </ng-template>
+                          </p-calendar>
+                          </div>
+                        </div>
+
+                        <div class="col-md-3 d-flex align-items-end">
+                          <div class="d-flex flex-column pb-3" style="width: 100%;">
+                            <label class="d-block font-weight-bold mb-2 title-input">
+                              {{"FORM_VISA600.33.4" | translate}}
+                            </label>
+                            <p-dropdown [options]="countries"
+                              [formControlName]="'quocgia'"
+                              placeholder="Vui lòng chọn quốc gia"
+                              [filter]="true"
+                              filterBy="name"
+                              [showClear]="true"
+                              optionLabel="name" optionValue="name">
+                                <ng-template let-item pTemplate="item">
+                                  <div class="d-flex align-items-center">
+                                    <span class="fi fi-{{item.code.toLowerCase()}}"></span>
+                                    <span class="ms-2">{{item.name}}</span>
+                                  </div>
+                                </ng-template>
+                            </p-dropdown>
+                          </div>
+                        </div>
+
+                        <div class="col-md-2 d-flex align-items-end">
+                          <div class="d-flex flex-column pb-3" style="width: 100%;">
+                              <p-toast />
+                              <p-confirmDialog />
+                              <p-button (onClick)="confirm()" [label]="'SECTION_HOME.BUTTON_INFORMATION' | translate" severity="danger" />
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                      <label class="d-block font-weight-bold mb-2 title-input" style="color: red; text-transform: uppercase;">
+                        {{"FORM_VISA600.infor" | translate}}
+                      </label>
+                        <div class="col-md-7 d-flex align-items-end">
+                          <div class="d-flex flex-column pb-3" style="width: 100%;">
+                            <p-table
+                            [value]="thongtinarray"
+                            [tableStyle]="{ 'min-width': '35rem' }">
+                            <!-- Header -->
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th>#</th>
+                                    <th>{{"FORM_VISA600.33.1" | translate}}</th>
+                                    <th>{{"FORM_VISA600.33.2" | translate}}</th>
+                                    <th>{{"FORM_VISA600.33.3" | translate}}</th>
+                                    <th>{{"FORM_VISA600.33.4" | translate}}</th>
+                                </tr>
+                            </ng-template>
+
+                            <!-- Body -->
+                            <ng-template pTemplate="body" let-row let-i="rowIndex" let-thongtin>
+                                <tr>
+                                    <td>
+                                      <svg width="20px" height="20px" viewBox="0 0 512 512" (click)="remove(i, thongtin)" style="cursor: pointer;" xmlns="http://www.w3.org/2000/svg"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"/></svg>
+                                    </td>
+                                    <td>{{thongtin['vaitro']}}</td>
+                                    <td>{{thongtin['ten']}}</td>
+                                    <td>{{thongtin['namsinh']}}</td>
+                                    <td>{{thongtin['quocgia']}}</td>
+                                <tr>
+                            </ng-template>
+                        </p-table>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="d-flex flex-column pb-3">
+                  <div class="d-flex rounded flex-column pb-3 pt-2">
+                    <div class="row" [formGroup]="itemthanhvien">
+                      <label class="d-block font-weight-bold mb-2 title-input">
+                        34. {{"FORM_VISA600.34" | translate}}
+                        <span style="font-family: 'roboto' !important; display: block; color: red ; font-style: italic; font-size: 13px; margin-top: 5px;">{{"FORM_VISA600.34.des" | translate}}</span>
+                      </label>
+
+                        <div class="col-md-3 d-flex align-items-end">
+                          <div class="d-flex flex-column pb-3" style="width: 100%;">
+                            <label class="d-block font-weight-bold mb-2 title-input">
+                              {{"FORM_VISA600.33.2" | translate}} <span class="request"> *</span>
+                            </label>
+                            <input type="text" pInputText
+                              [formControlName]="'ten'"
+                              [placeholder]="placeholder"
+                              [ngClass]="{'valid': itemthanhvien.get('ten').invalid && (itemthanhvien.get('ten').dirty || itemthanhvien.get('ten').touched)}"
+                            />
+                          </div>
+                        </div>
+
+                        <div class="col-md-3 d-flex align-items-end">
+                          <div class="d-flex flex-column pb-3" style="width: 100%;">
+                            <label class="d-block font-weight-bold mb-2 title-input">
+                              {{"FORM_VISA600.34.1" | translate}}
+                            </label>
+                            <input type="text" pInputText
+                              [formControlName]="'diachi'"
+                              [placeholder]="placeholder"
+                            />
+                          </div>
+                        </div>
+
+                        <div class="col-md-3 d-flex align-items-end">
+                          <div class="d-flex flex-column pb-3" style="width: 100%;">
+                            <label class="d-block font-weight-bold mb-2 title-input">
+                              {{"FORM_VISA600.34.2" | translate}}
+                            </label>
+                            <input type="text" pInputText
+                              [formControlName]="'nghenghiep'"
+                              [placeholder]="placeholder"
+                            />
+                          </div>
+                        </div>
+
+                        <div class="col-md-3 d-flex align-items-end">
+                          <div class="d-flex flex-column pb-3" style="width: 100%;">
+                            <label class="d-block font-weight-bold mb-2 title-input">
+                              {{"FORM_VISA600.33.3" | translate}}
+                            </label>
+                            <p-calendar placeholder="dd/mm/yyyy"
+                            [dateFormat]="'dd/mm/yy'"
+                            formControlName="namsinh"
+                            (onSelect)="onDateChange($event, 'namsinh' , this.itemthanhvien)"
+                            (onInput)="onInputChange($event, 'namsinh' , this.itemthanhvien)"
+                            >
+                              <ng-template pTemplate="date" let-date>
+                                  <span>
+                                      {{ date.day }}
+                                  </span>
+                              </ng-template>
+                          </p-calendar>
+                          </div>
+                        </div>
+
+                        <div class="col-md-3 d-flex align-items-end">
+                          <div class="d-flex flex-column pb-3" style="width: 100%;">
+                            <label class="d-block font-weight-bold mb-2 title-input">
+                              {{"FORM_VISA600.33.4" | translate}}
+                            </label>
+                            <p-dropdown [options]="countries"
+                              [formControlName]="'quocgia'"
+                              placeholder="Vui lòng chọn quốc gia"
+                              [filter]="true"
+                              filterBy="name"
+                              [showClear]="true"
+                              optionLabel="name" optionValue="name">
+                                <ng-template let-item pTemplate="item">
+                                  <div class="d-flex align-items-center">
+                                    <span class="fi fi-{{item.code.toLowerCase()}}"></span>
+                                    <span class="ms-2">{{item.name}}</span>
+                                  </div>
+                                </ng-template>
+                            </p-dropdown>
+                          </div>
+                        </div>
+
+                        <div class="col-md-2 d-flex align-items-end">
+                          <div class="d-flex flex-column pb-3" style="width: 100%;">
+                              <p-toast />
+                              <p-confirmDialog />
+                              <p-button (onClick)="confirm2()" [label]="'SECTION_HOME.BUTTON_INFORMATION' | translate" severity="danger" />
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                      <label class="d-block font-weight-bold mb-2 title-input" style="color: red; text-transform: uppercase;">
+                        {{"FORM_VISA600.infor" | translate}}
+                      </label>
+                        <div class="col-md-7 d-flex align-items-end">
+                          <div class="d-flex flex-column pb-3" style="width: 100%;">
+                            <p-table
+                            [value]="thongtinthanhvienarray"
+                            [tableStyle]="{ 'min-width': '45rem' }">
+                            <!-- Header -->
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th>#</th>
+                                    <th>{{"FORM_VISA600.33.1" | translate}}</th>
+                                    <th>{{"FORM_VISA600.34.1" | translate}}</th>
+                                    <th>{{"FORM_VISA600.34.2" | translate}}</th>
+                                    <th>{{"FORM_VISA600.33.3" | translate}}</th>
+                                    <th>{{"FORM_VISA600.33.4" | translate}}</th>
+                                </tr>
+                            </ng-template>
+
+                            <!-- Body -->
+                            <ng-template pTemplate="body" let-row let-i="rowIndex" let-thongtin>
+                                <tr>
+                                    <td>
+                                      <svg width="20px" height="20px" viewBox="0 0 512 512" (click)="remove2(i, thongtin)" style="cursor: pointer;" xmlns="http://www.w3.org/2000/svg"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"/></svg>
+                                    </td>
+                                    <td>{{thongtin['ten']}}</td>
+                                    <td>{{thongtin['diachi']}}</td>
+                                    <td>{{thongtin['nghenghiep']}}</td>
+                                    <td>{{thongtin['namsinh']}}</td>
+                                    <td>{{thongtin['quocgia']}}</td>
+                                <tr>
+                            </ng-template>
+                        </p-table>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    35. {{ 'FORM_VISA600.35' | translate }}
+                  </label>
+                  <textarea
+                      rows="3"
+                      cols="30"
+                      style="resize: none;"
+                      pInputTextarea
+                      [placeholder]="placeholder"
+                      [formControlName]="'ndcongviec'">
+                  </textarea>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    36. {{ 'FORM_VISA600.36' | translate }}
+                  </label>
+                  <textarea
+                      rows="3"
+                      cols="30"
+                      style="resize: none;"
+                      pInputTextarea
+                      [placeholder]="placeholder"
+                      [formControlName]="'tuchoivisa'">
+                  </textarea>
+                </div>
+              </div>
+
+            </div>
+
+
+
+            <div class="header-child header-a position-relative" style="margin-top: 10px;">
+              <div class="stt"><span>3</span></div>
+              <div class="content-header">
+                <h2 class="header-title-child d-flex flex-column">HỒ SƠ ĐÍNH KÈM
+                  <b class="sub-title-child"><i> UPLOAD FILE</i></b>
+                </h2>
+              </div>
+            </div>
+            <div class="row" style="padding-top: 15px;">
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    {{ 'FORM_VISA600.37' | translate }}
+                  </label>
+
+                <p>{{ 'FORM_VISA600.37.1' | translate }}</p>
+                <p>{{ 'FORM_VISA600.37.2' | translate }}</p>
+
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Nơi upload File (lưu ý tối đa 5mb)
+                  </label>
+
+                  <p-toast />
+                  <p-fileUpload
+                      name="demo[]"
+                      (onUpload)="onUpload($event)"
+                      [multiple]="true"
+                      maxFileSize="10000000"
+                      [auto]="false"
+                      [customUpload]="true"
+                      (onSelect)="onSelect($event)">
+                      <ng-template pTemplate="content">
+                          <ul *ngIf="uploadedFiles.length">
+                              <li *ngFor="let file of uploadedFiles">
+                                  {{ file.name }} - {{ file.size }} bytes
+                              </li>
+                          </ul>
+                      </ng-template>
+                  </p-fileUpload>
+
+                  <label for="" class="form-label label-title">Hoặc bạn có thể gửi đến Trợ giúp pháp lý việt nam với địa chỉ Email : hotro@trogiupphaply.com.au</label>
+                </div>
+              </div>
+            </div>
+            <p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }" />
+            <button
+                pButton
+                pRipple
+                type="button"
+                (click)="submit()"
+                label="{{ 'FORM_VISA600.submit' | translate }}"
+                class="p-button-success submit_button"
+                >
+            </button>
+
+          </div>
+        </div>
+      </form>
+  </div>
+</section>

@@ -1,0 +1,424 @@
+<!-- <app-loading *ngIf="isLoading"></app-loading> -->
+
+
+<section class="news_detail">
+  <div class="top_news" [ngStyle]="{ 'background-image': 'url(' + api.URL + '/uploads/' + 'contact.webp' + ')' }" >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="content_news_detail">
+                    <h1 class="content_news_detail_title">
+                      TỜ KHAI YÊU CẦU CẤP PHIẾU LÝ LỊCH TƯ PHÁP
+                    </h1>
+                  </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+  <div class="content_news" >
+    <div class="container">
+      <h2 class="content_news_detail_title" style="color:black !important; padding-bottom: 25px !important; font-size: 2rem !important; " >
+        TỜ KHAI YÊU CẦU CẤP PHIẾU LÝ LỊCH TƯ PHÁP
+      </h2>
+      <div class="row row_content_news">
+          <!-- HỌ VÀ TÊN -->
+          <form  [formGroup]="lylichtuphap" (ngSubmit)="submit()" >
+              <div class="row form">
+                <div class="col-md-12">
+                  <label for="" class="form-label label-title title-big">THÔNG TIN CƠ BẢN / PERSONAL INFORMATION</label>
+                </div>
+                    <!-- Ho va ten -->
+                <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="" class="form-label label-title">Họ và tên / Full name<span class="request"> *</span> </label>
+                      <input type="text"  formControlName="fullname"
+                        class="form-control" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ và Tên">
+                        <small class="text-danger" *ngIf="lylichtuphap.get('fullname')?.invalid && lylichtuphap.get('fullname')?.touched">
+                          Họ và tên không được để trống
+                        </small>
+                        <br>
+                        <small style="font-size: 12px;
+                        font-style: italic;">
+                        Viết bằng chữ in hoa, đủ dấu (In capital letters)
+                    </small>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="" class="form-label label-title">Tên gọi khác(nếu có) / Other name</label>
+                    <input type="text"  formControlName="fullname_new"
+                      class="form-control" name="" id="" aria-describedby="helpId" placeholder="Nhập tên gọi khác">
+                  </div>
+              </div>
+              <div class="col-md-12">
+                <div class="mb-3">
+                <label for="" class="form-label label-title">Giới tính / Sex<span class="request"> *</span> </label>
+               <div class="form-check">
+                 <input class="form-check-input" type="radio"  formControlName="gender" value="Nam" id="" checked>
+                 <label class="form-check-label" for="nam">
+                   Nam / Male
+                 </label>
+               </div>
+               <div class="form-check">
+                 <input class="form-check-input" type="radio" formControlName="gender" value="Nữ" id="">
+                 <label class="form-check-label" for="nu">
+                   Nữ / Female
+                 </label>
+               </div>
+
+              </div>
+            </div>
+            <!-- end -->
+
+            <!-- Ngày tháng năm -->
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="" class="form-label label-title">Ngày tháng năm sinh / Date of birth<span class="request"> *</span> </label>
+                  <input type="date" formControlName="date"
+                    class="form-control"  id="" aria-describedby="helpId" >
+                    <small class="text-danger" *ngIf="lylichtuphap.get('date')?.invalid && lylichtuphap.get('date')?.touched">
+                      Ngày tháng năm sinh / Date of birth
+                    </small>
+                </div>
+            </div>
+          <div class="col-md-12">
+            <div class="mb-3">
+              <label for="" class="form-label label-title">Nơi sinh ( tỉnh,TP ) / Place of birth</label>
+              <input type="text"
+                class="form-control" formControlName="date_address" aria-describedby="helpId" placeholder="Nhập nơi sinh">
+
+            </div>
+        </div>
+            <!-- end -->
+
+            <!-- 5. Dân tộc -->
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="" class="form-label label-title">Quốc tịch / Nationality</label>
+                <input type="input"
+                  class="form-control" formControlName="national" name="" id="" aria-describedby="helpId" placeholder="Nhập Quốc tịch">
+              </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="" class="form-label label-title">Dân tộc / Ethnicity</label>
+              <input type="input"
+                class="form-control" formControlName="nation" name="" id="" aria-describedby="helpId" placeholder="Nhập dân tộc">
+            </div>
+        </div>
+
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="" class="form-label label-title">Nơi thường trú / Permanent address</label>
+              <input type="input"
+                class="form-control" formControlName="address_thuong_tru" name="" id="" aria-describedby="helpId" placeholder="Nhập địa chỉ">
+                <small style="font-size: 12px; font-style: italic;">Ghi rõ số nhà, xã/phường (Number, ward/commune)</small>
+            </div>
+        </div>
+        <div class="col-md-6" style="display: flex;">
+
+          <div class="mb-3" style="width: 100%;">
+            <div class="select" style="display: flex; align-items: center; width: 100%;">
+              <label for="" class="form-label label-title" style="width: 40%;">
+                <input class="form-check-input" type="checkbox" formControlName="thuong_tru"> Nước ngoài
+              </label>
+              <div class="select" style="width: 100%;">
+                <label for="" class="form-label label-title">Vui lòng chọn</label>
+                <select class="form-control" formControlName="index_thuong_tru" *ngIf="this.lylichtuphap.value.thuong_tru">
+                  <option value="" disabled>Vui lòng chọn quốc gia - Vùng lãnh thổ</option>
+                  <option [value]="item.name" *ngFor="let item of listnation">{{ item.name }}</option>
+                </select>
+                <select class="form-control" formControlName="index_thuong_tru" *ngIf="!this.lylichtuphap.value.thuong_tru">
+                  <option value="" disabled>Vui lòng chọn tỉnh - thành phố VN</option>
+                  <option [value]="item.name" *ngFor="let item of listtp">{{ item.name }}</option>
+                </select>
+                <small style="font-size: 12px; font-style: italic;" *ngIf="this.lylichtuphap.value.thuong_tru">Chọn quốc gia (Select country)</small>
+                <small style="font-size: 12px; font-style: italic;" *ngIf="!this.lylichtuphap.value.thuong_tru">Chọn huyện/quận, tỉnh/ thành (Select district city/province)</small>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- tạm trú -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">Nơi tạm trú / Current address</label>
+          <input type="input"
+            class="form-control" formControlName="address_tam_tru" name="" id="" aria-describedby="helpId" placeholder="Nhập địa chỉ">
+            <small style="font-size: 12px; font-style: italic;">Ghi rõ số nhà, xã/phường (Number, ward/commune)</small>
+        </div>
+    </div>
+    <div class="col-md-6" style="display: flex;">
+      <div class="mb-3" style="width: 100%;">
+        <div class="select" style="display: flex; align-items: center; width: 100%;">
+          <label for="" class="form-label label-title" style="width: 40%;">
+            <input class="form-check-input" type="checkbox" formControlName="tam_tru"> Nước ngoài
+          </label>
+          <div class="select" style="width: 100%;">
+            <label for="" class="form-label label-title">Vui lòng chọn</label>
+            <select class="form-control" formControlName="index_tam_tru" *ngIf="this.lylichtuphap.value.tam_tru">
+              <option value="" disabled>Vui lòng chọn quốc gia - Vùng lãnh thổ</option>
+              <option [value]="item.name" *ngFor="let item of listnation">{{ item.name }}</option>
+            </select>
+            <select class="form-control" formControlName="index_tam_tru" *ngIf="!this.lylichtuphap.value.tam_tru">
+              <option value="" disabled>Vui lòng chọn tỉnh - thành phố VN</option>
+              <option [value]="item.name" *ngFor="let item of listtp">{{ item.name }}</option>
+            </select>
+            <small style="font-size: 12px; font-style: italic;" *ngIf="this.lylichtuphap.value.tam_tru">Chọn quốc gia (Select country)</small>
+            <small style="font-size: 12px; font-style: italic;" *ngIf="!this.lylichtuphap.value.tam_tru">Chọn huyện/quận, tỉnh/ thành (Select district city/province)</small>
+          </div>
+        </div>
+      </div>
+  </div>
+          <!-- end -->
+             <!-- 6. Họ chiếu -->
+             <div class="col-md-6">
+              <div class="mb-3">
+                <label for="" class="form-label label-title">Giấy tờ tùy thân / Identity documents<span class="request"> *</span> </label>
+                <select class="form-control" formControlName="loai_giay_to">
+                  <option [value]="item.name" *ngFor="let item of listgiayto">{{ item.name }}</option>
+                </select>
+              </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="" class="form-label label-title">Số / Number hoặc Chữ / Text<span class="request"> *</span> </label>
+              <input type="text"
+                class="form-control" formControlName="number_giay_to" name="" id="" aria-describedby="helpId" placeholder="Nhập số giấy tờ tùy thân">
+                <small class="text-danger" *ngIf="lylichtuphap.get('number_giay_to')?.invalid && lylichtuphap.get('number_giay_to')?.touched">
+                 Vui lòng thông tin giấy tờ
+                 </small>
+            </div>
+        </div>
+          <!-- end -->
+
+
+        <!-- 8. Địa chỉ cư trú tại nước ngoài* -->
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="" class="form-label label-title">Ngày cấp / Date of issue</label>
+            <input type="date"
+              class="form-control" name="" formControlName="ngay_cap_giay_to" id="" aria-describedby="helpId" placeholder="Nhập Địa chỉ cư trú tại nước ngoài">
+          </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">Nơi cấp / Place of issue</label>
+          <input type="text"
+            class="form-control" name="" formControlName="noi_cap_giay_to" id="" aria-describedby="helpId" placeholder="Nhập nơi cấp">
+        </div>
+    </div>
+      <!-- end -->
+
+      <!-- 7. Số điện thoại -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">Số diện thoại / Phone number<span class="request"> *</span> </label>
+          <input type="text"
+            class="form-control" name="" formControlName="phone" id="" aria-describedby="helpId" placeholder="Nhập Số điện thoại">
+            <small class="text-danger" *ngIf="lylichtuphap.get('phone')?.invalid && lylichtuphap.get('phone')?.touched">
+            Số điện thoại không được để trống
+            </small>
+        </div>
+    </div>
+    <!-- end -->
+
+      <!-- 7. Số điện thoại -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">Email nhận lại kết quả / Email to receive results</label>
+          <input type="text"
+            class="form-control" name="" formControlName="email" id="" aria-describedby="helpId" placeholder="Nhập Email nhận kết quả">
+        </div>
+    </div>
+    <!-- end -->
+
+    <!-- thông tin bố mẹ -->
+    <div class="col-md-12">
+      <label for="" class="form-label label-title title-big">THÔNG TIN VỀ CHA, MẸ, VỢ(CHỒNG) / INFORMATION OF FAMILY MEMBERS
+      </label>
+    </div>
+       <!-- 12. Họ tên cha -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">Họ và tên Bố / Full name of Father</label>
+          <input type="text"
+            class="form-control" formControlName="name_dad" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ tên cha">
+        </div>
+    </div>
+    <!-- end -->
+    <!-- 12. Họ tên cha -->
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="" class="form-label label-title">Năm sinh của Bố / Year of Father’s birth</label>
+        <input type="date"
+          class="form-control" formControlName="date_dad" name="" id="" aria-describedby="helpId" placeholder="Nhập Năm sinh">
+      </div>
+  </div>
+  <!-- end -->
+
+
+      <!-- 12. Họ tên cha -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">Họ và tên Mẹ / Full name of Mother</label>
+          <input type="text"
+            class="form-control" formControlName="name_mother" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ tên cha">
+        </div>
+    </div>
+    <!-- end -->
+    <!-- 12. Họ tên cha -->
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="" class="form-label label-title">Năm sinh của Mẹ / Year of Mother’s birth</label>
+        <input type="date"
+          class="form-control" formControlName="date_mother" name="" id="" aria-describedby="helpId" placeholder="Nhập Năm sinh">
+      </div>
+  </div>
+  <!-- end -->
+
+    <!-- 12. Họ tên Vợ/Chồng -->
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="" class="form-label label-title">Họ và tên vợ/chồng / Full name of wife/husband</label>
+            <input type="text"
+              class="form-control" formControlName="name_chong_vo" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ và tên vợ / chồng">
+          </div>
+      </div>
+      <!-- end -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">Năm sinh của vợ/chồng / Year of wife/husband’s birth</label>
+          <input type="date"
+            class="form-control" formControlName="date_chong_vo" name="" id="" aria-describedby="helpId" placeholder="Nhập Năm sinh">
+        </div>
+    </div>
+
+    <div class="col-md-12">
+      <label for="" class="form-label label-title title-big">QUÁ TRÌNH CƯ TRÚ (TÍNH TỪ KHI ĐỦ 14 TUỔI) / RESIDENCE PROCESS (FROM AGE OF 14 TO PRESENT)
+      </label>
+    </div>
+
+    <div class="col-md-12">
+        <table class="table table-striped table-inverse table-responsive">
+          <thead class="thead-inverse">
+            <tr>
+              <th>STT</th>
+              <th>Từ ngày*</th>
+              <th>Đến ngày*</th>
+              <th>Nơi thường trú/ tạm trú*</th>
+              <th>Nghề nghiệp</th>
+              <th>Nơi làm</th>
+            </tr>
+            </thead>
+            <tbody formArrayName="datacutru">
+              <tr *ngFor="let item of addDynamicRow.controls; let i = index" [formGroupName]="i">
+                <td scope="row">{{ i + 1 }}</td>
+                <td><input type="text" class="form-control" [formControlName]="'tu_ngay'" placeholder=""></td>
+                <td><input type="text" class="form-control" [formControlName]="'den_ngay'" placeholder=""></td>
+                <td><input type="text" class="form-control" [formControlName]="'noi_cu_tru'" placeholder=""></td>
+                <td><input type="text" class="form-control" [formControlName]="'nghe_nghiep'" placeholder=""></td>
+                <td><input type="text" class="form-control" [formControlName]="'noi_lam'" placeholder=""></td>
+              </tr>
+            </tbody>
+        </table>
+        <div class="button_tao" >
+          <button type="button" (click)="addtr()" class="btn btn-primary">Tạo mới thông tin cư trú</button>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+      <label for="" class="form-label label-title title-big">THÔNG TIN KHÁC / OTHER INFORMATION
+      </label>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="" class="form-label label-title">Loại tờ khai / Type of declaration</label>
+        <select class="form-control" formControlName="to_khai">
+          <option [value]="item.name" *ngFor="let item of listtokhai">{{ item.name }}</option>
+        </select>
+      </div>
+  </div>
+  <div class="col-md-6">
+    <div class="mb-3">
+      <label for="" class="form-label label-title">Đối tượng / Object of declaration</label>
+      <select class="form-control" formControlName="doi_tuong">
+        <option [value]="item.name" *ngFor="let item of listdoituong">{{ item.name }}</option>
+      </select>
+    </div>
+</div>
+  <div class="col-md-6">
+    <div class="mb-3">
+      <label for="" class="form-label label-title">Mục đích cấp phiếu / Purpose</label>
+      <input type="text"
+      class="form-control" formControlName="muc_dich_cap_phieu" placeholder="Mục đích cấp phiếu" name="" id="" aria-describedby="helpId" >
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="mb-3">
+      <label for="" class="form-label label-title">Số lượng phiếu cấp thêm / Number of additional</label>
+      <input type="number"
+      class="form-control" formControlName="so_luong_cap_them" placeholder="Số lượng phiếu" name="" id="" aria-describedby="helpId" >
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="mb-3">
+      <label for="" class="form-label label-title">Thông tin án tích / Judgments</label>
+      <input type="text"
+      class="form-control" formControlName="thong_tin_an_tich" placeholder="Nhập thông tin án tích" name="" id="" aria-describedby="helpId" >
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="mb-3">
+    <label for="" class="form-label label-title">Yêu cầu cấp Phiếu lý lịch tư pháp </label>
+   <div class="form-check">
+     <input class="form-check-input" type="radio"  formControlName="yeu_cau_cap_ly_lich" value="Số 1" id="" checked>
+     <label class="form-check-label" for="nam">
+       Số 1
+     </label>
+   </div>
+   <div class="form-check">
+     <input class="form-check-input" type="radio" formControlName="yeu_cau_cap_ly_lich" value="Số 2" id="">
+     <label class="form-check-label" for="nu">
+       Số 2
+     </label>
+   </div>
+
+  </div>
+</div>
+
+<div class="col-md-12">
+  <label for="" class="form-label label-title title-big">HỒ SƠ ĐÍNH KÈM / UPLOAD FILE
+  </label>
+</div>
+
+<div class="col-md-6">
+  <div class="mb-3 khung">
+    <label for="" class="form-label label-title">HỒ SƠ BAO GỒM CÁC GIẤY TỜ ĐÍNH KÈM SAU: </label>
+    <p>1. Tờ khai yêu cầu cấp phiếu <a (click)="download()" class="xanh">(In tờ khai online)</a></p>
+    <p>2. Chứng minh nhân dân (scan 2 mặt) <a [href]="this.api.URL +'/document/'+ 'cmnd.pdf'" target="_blank" >Xem ví dụ CMND</a></p>
+    <p>3. Hộ khẩu thường trú (scan đầy đủ trang bìa và các trang đã ghi thông tin liên quan đến bản thân) <a [href]="this.api.URL +'/document/'+ 'hk.pdf'" target="_blank">Xem ví dụ HK</a></p>
+  </div>
+</div>
+
+<div class="col-md-6">
+  <div class="mb-3 khung">
+    <label for="" class="form-label label-title">Nơi upload File (lưu ý chỉ nhận JPG , PDF)</label>
+<input  type="file" (change)="onFileSelected($event)" class="form-control" name="" id="" aria-describedby="helpId" multiple placeholder="Chọn file">
+  </div>
+  <label for="" class="form-label label-title">Hoặc bạn có thể gửi đến Trợ giúp pháp lý việt nam với địa chỉ Email : hotro@trogiupphaply.com.au</label>
+</div>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+      </div>
+    </div>
+
+
+  </div>
+</section>

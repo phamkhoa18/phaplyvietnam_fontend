@@ -1,0 +1,32 @@
+<section class="khung" >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+              <form class="row g-3" [formGroup]="menu" (ngSubmit)="submit()">
+
+                <input type="hidden" formControlName ='_id'>
+
+                <div class="col-md-12">
+                  <label for="inputPassword4" class="form-label">Logo tồn tại</label>
+                  <img style="width: 400px ; height: auto; padding-left: 20px;" [src]="this.api.URL + '/uploads/' + logo.image" alt="">
+                </div>
+
+                <div class="col-md-12">
+                  <label for="inputPassword4" class="form-label">Địa chỉ truy cập</label>
+                  <input type="text" formControlName="link" class="form-control" id="inputPassword4">
+                </div>
+                <div class="col-md-12">
+                  <label for="inputPassword4" class="form-label">Image</label>
+                  <input type="file" (change)="onFileSelected($event)" formControlName="image" class="form-control" id="inputPassword4">
+                </div>
+
+
+
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+</section>

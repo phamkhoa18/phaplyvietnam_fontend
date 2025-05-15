@@ -1,0 +1,45 @@
+{
+  "SECTION_HOME": {
+    "TITLE": "Tờ khai Cấp hộ chiếu phổ thông ở nước ngoài dành cho người chưa đủ 14 tuổi",
+    "YES": "Có",
+    "NO" : "Không",
+    "MALE": "Nam" ,
+    "FEMALE": "Nữ",
+    "INFORMATION": "NƠI NHẬP THÔNG TIN TẠI ĐÂY: ",
+    "LIST_INFORMATION": "DANH SÁCH CÁC THÔNG TIN: ",
+    "BUTTON_NEXT": "Tiếp tục" ,
+    "BUTTON_BACK": "Quay lại" ,
+    "BUTTON_INFORMATION": "Thêm thông tin"
+  },
+  "SECTION_A": {
+    "TITLE": "Thông tin người đại diện hợp pháp",
+    "FULL_NAME": "Họ và Tên",
+    "FIRST_NAME": "Họ",
+    "LAST_NAME": "Tên và tên lót",
+    "SEX": "Giới tính",
+    "DATE": "Ngày sinh",
+    "BIRTH": "Thành phố sinh",
+    "COUNTRY": "Quốc gia",
+    "4": "Bạn có từng được biết đến bằng tên khác không?",
+    "5": "Bạn có từng có ngày sinh khác với ngày được ghi ở câu hỏi 1 không?",
+    "6": "Hiện tại bạn có quốc tịch của quốc gia nào không?",
+    "6_1": "Bạn đã có quốc tịch này như thế nào (ví dụ: Sinh ra, tổ tiên, nhập tịch)?",
+    "6_2": "Ngày bạn có quốc tịch này:",
+    "8": "Bạn có hiện tại có quyền cư trú vĩnh viễn ở quốc gia nào khác ngoài những quốc gia đã khai ở câu hỏi 6 hoặc 7 không?",
+    "8_1": "Liệt kê tất cả các quốc gia khác:"
+  },
+  "SECTION_B": {
+    "TITLE": "Thông tin hộ chiếu/Tài liệu du lịch",
+    "9": "Bạn có hộ chiếu hoặc tài liệu du lịch hiện tại không?",
+    "9_1": "Số hộ chiếu/tài liệu du lịch:",
+    "9_2": "Quốc gia cấp hộ chiếu/tài liệu du lịch:",
+    "9_3": "Ngày phát hành: ",
+    "9_4": "Ngày hết hạn:",
+    "9_5": "Quốc tịch:",
+    "9_6": "Nơi cấp/Nơi cấp phát:",
+    "9_7": "Tên trên tài liệu (nếu giống như câu hỏi 1, ghi 'giống như câu hỏi 1')?",
+    "9_8": "Họ:",
+    "9_9": "Tên được cho:",
+    "10": "Bạn có hộ chiếu hoặc tài liệu du lịch hiện tại nào khác không?"
+  }
+}

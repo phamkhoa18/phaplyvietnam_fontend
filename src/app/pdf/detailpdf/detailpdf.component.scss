@@ -1,0 +1,283 @@
+/* Style for pdf-actions */
+.pdf-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+
+/* Style for pdf-container */
+#outerContainer {
+  // width: 100vw;
+  height: 100%;
+  overflow: hidden;
+}
+
+.pdf-container {
+  height: 100%;
+}
+
+/* Additional styling for pdf-viewer if needed */
+.pdf-viewer {
+  height: calc(100vh - 210px);
+  width: 98%;
+  display: block;
+  margin: 0 auto;
+}
+
+.pdf-viewer-full {
+  height: calc(100vh - 140px) !important;
+  width: 98%;
+  display: block;
+  margin: 0 auto;
+}
+
+.pd-20-top {
+  padding-top: 20px;
+}
+
+.pdf-container {
+  background-color: #f6f8fa ;
+}
+
+.show_item {
+  cursor: pointer;
+  padding: 10px 13px;
+  text-align: center;
+  background-color: #f0ecec;
+  border-radius: 50%;
+}
+
+.show_item:hover {
+  opacity: 0.5;
+}
+
+
+
+.util {
+  display: flex;
+  flex: 0 0 auto;
+  height: auto;
+  min-height: 60px;
+  padding-right: 24px;
+  align-items: center;
+  -ms-overflow-style: none;
+  background-color: #fcfdfe;
+  box-shadow: 0 1px 2px rgb(61 66 78 / 0.5);
+  color: #3d424e;
+  flex: 2;
+  flex-direction: row;
+  font-weight: 400;
+  min-height: 44px;
+  opacity: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  transition: opacity .4s ease 0s;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 3;
+
+  box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
+}
+
+
+.util-container {
+    width: 100%;
+    padding: 0px 10px;
+
+    .list-item {
+      display: flex;
+    }
+}
+
+
+.icon-util {
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+.item-util {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  transition: all 0.3s;
+}
+
+.text-util {
+  padding-top: 10px;
+}
+
+.item-util:hover {
+  background-color: #f0f3f9;
+  cursor: pointer;
+}
+
+
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color: #fff; /* Adjust the text color as needed */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Optional: Add a shadow for a visual effect */
+  z-index: 1000; /* Ensure the header stays above other elements */
+}
+
+.thumbnails {
+  background-color: #fff !important;
+}
+
+.loading-with-container {
+  height: calc(100vh - 210px);
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.thumbnails {
+  overflow-y: auto;  // Cho phép thanh cuộn dọc khi nội dung vượt quá chiều cao
+  height: calc(100vh - 210px);
+}
+
+.thumbnail-item {
+  margin-bottom: 10px;  // Khoảng cách giữa các thumbnail
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+
+  img {
+    border: 5px solid #0f72ff;
+  }
+
+  span {
+    display: block;
+    background-color: #0f72ff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-top: 10px;
+    font-weight: 500;
+    color: white;
+  }
+}
+
+.thumbnail-container {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.thumbnail {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.thumbnail img {
+  width: 50px;
+  height: auto;
+}
+
+
+.disabled {
+  pointer-events: none; /* Ngăn chặn sự kiện click */
+  opacity: 0.5; /* Làm mờ phần tử để thể hiện trạng thái bị vô hiệu hóa */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.logo-pdf a img {
+  width: 200px;
+  height: auto;
+}
+
+.header-pdf {
+  background-color: #ffff;
+}
+
+.header-pdf-container {
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.item-button-pdf {
+  button {
+    background-color: #0f72ff;
+    border-color: #0f72ff;
+    color: #ffff;
+    height: 48px;
+    padding: 10px 16px;
+    border-radius: 24px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    line-height: 24px;
+    font-family: inherit;
+    font-weight: 700;
+    user-select: none;
+    white-space: nowrap;
+    transition: background-color 0.2s ease-in-out 0s, border 0.2s ease-in-out 0s, color 0.2s ease-in-out 0s;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0259d6;
+  }
+}
+
+
+
+@media screen and (max-width : 768px) {
+  .header-pdf-container {
+    padding: 10px 20px;
+  }
+
+  .logo-pdf a img {
+    width: 150px;
+  }
+  .item-button-pdf button {
+    padding: 10px;
+  }
+}

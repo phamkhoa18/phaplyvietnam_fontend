@@ -1,0 +1,373 @@
+<!-- <app-loading *ngIf="isLoading"></app-loading> -->
+
+
+<section class="news_detail">
+  <div class="top_news" [ngStyle]="{ 'background-image': 'url(' + api.URL + '/uploads/' + 'contact.webp' + ')' }" >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="content_news_detail">
+                    <h1 class="content_news_detail_title">
+                      Giấy khai sinh cho trẻ em Việt Nam sinh ra tại nước ngoài
+                    </h1>
+                  </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+  <div class="content_news" >
+    <div class="container">
+      <h2 class="content_news_detail_title" style="color:black !important; padding-bottom: 25px !important; font-size: 2rem !important; " >
+        Tờ khai sinh cho trẻ em Việt Nam sinh ra tại nước ngoài
+      </h2>
+      <div class="row row_content_news">
+          <!-- HỌ VÀ TÊN -->
+          <form  [formGroup]="lylichtuphap" (ngSubmit)="submit()" >
+              <div class="row form">
+                    <!-- Ho va ten -->
+                <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="" class="form-label label-title">Họ, chữ đệm, tên người yêu cầu:<span class="request"> *</span> </label>
+                      <input type="text"  formControlName="fullname_req"
+                        class="form-control" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ và Tên">
+                        <small class="text-danger" *ngIf="lylichtuphap.get('fullname_req')?.invalid && lylichtuphap.get('fullname_req')?.touched">
+                          Họ và tên không được để trống
+                        </small>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="" class="form-label label-title">Giấy tờ tùy thân (1)( cmnd/cccd ): <span class="request"> *</span> </label>
+                    <input type="text"
+                      class="form-control" formControlName="cmnd_req" aria-describedby="helpId" placeholder="Nhập Giấy tờ tùy thân">
+                      <small class="text-danger" *ngIf="lylichtuphap.get('cmnd_req')?.invalid && lylichtuphap.get('cmnd_req')?.touched">
+                        Giấy tờ tùy thân không được để trống
+                      </small>
+                  </div>
+              </div>
+            <!-- end -->
+
+            <!-- Ngày tháng năm -->
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="" class="form-label label-title">Nơi cư trú (2): <span class="request"> *</span> </label>
+                  <input type="text" formControlName="address_req"
+                    class="form-control"  id="" aria-describedby="helpId" placeholder="Nhập Nơi cư trú">
+                    <small class="text-danger" *ngIf="lylichtuphap.get('address_req')?.invalid && lylichtuphap.get('address_req')?.touched">
+                      Nơi cư trú không được để trống
+                    </small>
+                </div>
+            </div>
+
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="" class="form-label label-title">Quan hệ với người được khai sinh: </label>
+              <input type="text"
+                class="form-control" formControlName="relationship_req" aria-describedby="helpId" placeholder="Nhập Quan hệ với người được khai sinh">
+
+            </div>
+        </div>
+            <!-- end -->
+
+            <label for="" class="form-label label-title">Đề nghị ghi vào sổ hộ tịch việc khai sinh cho người có tên dưới đây:<span class="request"> *</span> </label>
+            <br>
+            <br>
+            <!-- 5. Dân tộc -->
+            <div class="col-md-12">
+              <div class="mb-3">
+                <label for="" class="form-label label-title">Họ, chữ đệm, tên:<span class="request"> *</span> </label>
+                <input type="input"
+                  class="form-control" formControlName="fullname" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ, chữ đệm, tên">
+                  <small class="text-danger" *ngIf="lylichtuphap.get('fullname')?.invalid && lylichtuphap.get('fullname')?.touched">
+                  Tên không được để trống
+                  </small>
+              </div>
+          </div>
+          <!-- end -->
+             <!-- 6. Họ chiếu -->
+             <div class="col-md-4">
+              <label for="" class="form-label label-title">Giới tính:<span class="request"> *</span> </label>
+             <div class="form-check">
+               <input class="form-check-input" type="radio"  formControlName="gender" value="Nam" id="" checked>
+               <label class="form-check-label" for="nam">
+                 Nam
+               </label>
+             </div>
+             <div class="form-check">
+               <input class="form-check-input" type="radio" formControlName="gender" value="Nữ" id="">
+               <label class="form-check-label" for="nu">
+                 Nữ
+               </label>
+             </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="" class="form-label label-title">
+                Dân tộc: </label>
+              <input type="text"
+                class="form-control" formControlName="nation" name="" id="" aria-describedby="helpId" placeholder="Nhập dân tộc">
+            </div>
+        </div>
+        <div class="col-md-4">
+          <div class="mb-3">
+            <label for="" class="form-label label-title">Quốc tịch: <span class="request"> *</span> </label>
+            <input type="text"
+              class="form-control" formControlName="national" name="" id="" aria-describedby="helpId" placeholder="Nhập Quốc tịch">
+              <small class="text-danger" *ngIf="lylichtuphap.get('national')?.invalid && lylichtuphap.get('national')?.touched">
+              Quốc tịch không được để trống
+              </small>
+          </div>
+      </div>
+          <!-- end -->
+
+          <!-- 12. Họ tên cha -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">Ngày, tháng, năm sinh:<span class="request"> *</span> </label>
+          <input type="date"
+            class="form-control" formControlName="date" name="" id="" aria-describedby="helpId" placeholder="Nhập Năm sinh">
+            <small class="text-danger" *ngIf="lylichtuphap.get('date')?.invalid && lylichtuphap.get('date')?.touched">
+              Năm sinh không được để trống
+              </small>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="" class="form-label label-title">Ghi bằng chữ: </label>
+        <input type="text"
+          class="form-control" formControlName="date_text" name="" id="" aria-describedby="helpId" placeholder="Nhập chữ ngày sinh">
+      </div>
+  </div>
+    <!-- end -->
+
+    <div class="col-md-12">
+      <div class="mb-3">
+        <label for="" class="form-label label-title">Nơi sinh (3):<span class="request"> *</span> </label>
+        <input type="text"
+          class="form-control" formControlName="birthplace" name="" id="" aria-describedby="helpId" placeholder="Nhập Năm sinh">
+          <small class="text-danger" *ngIf="lylichtuphap.get('birthplace')?.invalid && lylichtuphap.get('birthplace')?.touched">
+            Nơi sinh không được để trống
+            </small>
+      </div>
+  </div>
+
+        <!-- 8. Địa chỉ cư trú tại nước ngoài* -->
+        <div class="col-md-12">
+          <div class="mb-3">
+            <label for="" class="form-label label-title">Quê quán: </label>
+            <input type="text"
+              class="form-control" name="" formControlName="nativeland" id="" aria-describedby="helpId" placeholder="Nhập Địa chỉ cư trú tại nước ngoài">
+          </div>
+      </div>
+      <!-- end -->
+         <!-- 12. Họ tên cha -->
+         <div class="col-md-12">
+          <div class="mb-3">
+            <label for="" class="form-label label-title">Họ, chữ đệm, tên Ba:<span class="request"> *</span> </label>
+            <input type="text"
+              class="form-control" formControlName="name_dad" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ tên cha">
+              <small class="text-danger" *ngIf="lylichtuphap.get('name_dad')?.invalid && lylichtuphap.get('name_dad')?.touched">
+                Họ và tên Ba không được để trống
+                </small>
+          </div>
+      </div>
+      <!-- 12. Họ tên cha -->
+      <div class="col-md-4">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">Năm sinh của Ba: <span class="request"> *</span> </label>
+          <input type="date"
+            class="form-control" formControlName="date_dad" name="" id="" aria-describedby="helpId" placeholder="Nhập Năm sinh">
+            <small class="text-danger" *ngIf="lylichtuphap.get('date_dad')?.invalid && lylichtuphap.get('date_dad')?.touched">
+              Năm sinh của Ba không được để trống
+              </small>
+        </div>
+    </div>
+    <!-- end -->
+      <div class="col-md-4">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">
+            Dân tộc: </label>
+          <input type="text"
+            class="form-control" formControlName="nation_dad" name="" id="" aria-describedby="helpId" placeholder="Nhập dân tộc">
+        </div>
+    </div>
+    <div class="col-md-4">
+      <div class="mb-3">
+        <label for="" class="form-label label-title">Quốc tịch: <span class="request"> *</span> </label>
+        <input type="text"
+          class="form-control" formControlName="national_dad" name="" id="" aria-describedby="helpId" placeholder="Nhập Quốc tịch">
+          <small class="text-danger" *ngIf="lylichtuphap.get('national_dad')?.invalid && lylichtuphap.get('national_dad')?.touched">
+          Quốc tịch không được để trống
+          </small>
+      </div>
+  </div>
+      <!-- end -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">
+            Nơi cư trú: (2)</label>
+          <input type="text"
+            class="form-control" formControlName="address_dad" name="" id="" aria-describedby="helpId" placeholder="Nhập nơi cư trú">
+        </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="" class="form-label label-title">Quê quán:</label>
+        <input type="text"
+          class="form-control" formControlName="nativeland_dad" name="" id="" aria-describedby="helpId" placeholder="Nhập Quê quán">
+      </div>
+  </div>
+
+
+       <!-- 12. Họ tên cha -->
+      <div class="col-md-12">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">Họ, chữ đệm, tên mẹ:<span class="request"> *</span> </label>
+          <input type="text"
+            class="form-control" formControlName="name_mother" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ tên cha">
+            <small class="text-danger" *ngIf="lylichtuphap.get('name_mother')?.invalid && lylichtuphap.get('name_mother')?.touched">
+              Họ và tên Mẹ không được để trống
+              </small>
+        </div>
+    </div>
+    <!-- 12. Họ tên cha -->
+    <div class="col-md-4">
+      <div class="mb-3">
+        <label for="" class="form-label label-title">Năm sinh của Mẹ: <span class="request"> *</span> </label>
+        <input type="date"
+          class="form-control" formControlName="date_mother" name="" id="" aria-describedby="helpId" placeholder="Nhập Năm sinh">
+          <small class="text-danger" *ngIf="lylichtuphap.get('date_mother')?.invalid && lylichtuphap.get('date_mother')?.touched">
+            Năm sinh của Mẹ không được để trống
+            </small>
+      </div>
+  </div>
+  <!-- end -->
+    <div class="col-md-4">
+      <div class="mb-3">
+        <label for="" class="form-label label-title">
+          Dân tộc: </label>
+        <input type="text"
+          class="form-control" formControlName="nation_mother" name="" id="" aria-describedby="helpId" placeholder="Nhập dân tộc">
+      </div>
+  </div>
+  <div class="col-md-4">
+    <div class="mb-3">
+      <label for="" class="form-label label-title">Quốc tịch: <span class="request"> *</span> </label>
+      <input type="text"
+        class="form-control" formControlName="national_mother" name="" id="" aria-describedby="helpId" placeholder="Nhập Quốc tịch">
+        <small class="text-danger" *ngIf="lylichtuphap.get('national_mother')?.invalid && lylichtuphap.get('national_mother')?.touched">
+        Quốc tịch không được để trống
+        </small>
+    </div>
+</div>
+    <!-- end -->
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="" class="form-label label-title">
+          Nơi cư trú: (2)</label>
+        <input type="text"
+          class="form-control" formControlName="address_mother" name="" id="" aria-describedby="helpId" placeholder="Nhập nơi cư trú">
+      </div>
+  </div>
+  <div class="col-md-6">
+    <div class="mb-3">
+      <label for="" class="form-label label-title">Quê quán:</label>
+      <input type="text"
+        class="form-control" formControlName="nativeland_mother" name="" id="" aria-describedby="helpId" placeholder="Nhập Quê quán">
+    </div>
+</div>
+
+    <div class="col-md-12">
+      <div class="mb-3">
+        <label for="" class="form-label label-title">Đã được đăng ký khai sinh tại(4): </label>
+        <input type="text"
+          class="form-control" formControlName="register" name="" id="" aria-describedby="helpId" placeholder="Nhập đăng ký khai sinh tại">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="" class="form-label label-title">Giấy khai sinh số(5): </label>
+        <input type="text"
+          class="form-control" formControlName="numberregister" name="" id="" aria-describedby="helpId" placeholder="Nhập giấy khai sinh số">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="" class="form-label label-title">Cấp ngày: </label>
+        <input type="date"
+          class="form-control" formControlName="register_date" name="" id="" aria-describedby="helpId" placeholder="Nhập giấy khai sinh số">
+      </div>
+    </div>
+            <!-- 6. Họ chiếu -->
+          <div class="col-md-12">
+          <label for="" class="form-label label-title">Tờ khai này được làm tại: </label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio"  formControlName="address_register" value="Úc (Australia)" id="" checked>
+            <label class="form-check-label" for="nam">
+              Úc (Australia)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" formControlName="address_register" value="Mỹ (USA)" id="">
+            <label class="form-check-label" for="nu">
+              Mỹ (USA)
+            </label>
+          </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">Ngày khai bản khai này</label>
+          <input type="date"
+            class="form-control" formControlName="date_cap_register" name="" id="" aria-describedby="helpId" placeholder="Nhập Năm sinh">
+            <small class="text-danger" *ngIf="lylichtuphap.get('date_cap_register')?.invalid && lylichtuphap.get('date_cap_register')?.touched">
+              Năm sinh không được để trống
+              </small>
+        </div>
+    </div>
+
+
+
+    <div class="col-md-12">
+      <div class="mb-3">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" formControlName="check" type="checkbox" id="">
+          <label class="form-check-label" for="">Tôi xin cam đoan những thông tin trên là đúng sự thật.</label>
+          </div>
+      </div>
+  </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+      </div>
+      <br>
+      <br>
+      <br>
+      <label class="form-check-label">
+        Chú thích:
+        <br>
+(1) Ghi thông tin về giấy tờ tùy thân của người đi đăng ký, ghi rõ số, cơ quan cấp, ngày cấp hộ chiếu, chứng minh nhân dân  hoặc giấy tờ hợp lệ thay thế
+<br>
+Ví dụ: Hộ chiếu Việt Nam số …….. do Cục Quản lý Xuất nhập cảnh cấp ngày…….
+<br>
+(2)  Ghi rõ địa chỉ cư trú tại nước ngoài.
+<br>
+(3) Trường hợp sinh tại cơ sở y tế thì ghi rõ tên cơ sở y tế và địa danh hành chính (Ví dụ: X Hospital, Melbourne, Victoria, Australia)
+<br>
+Trường hợp sinh ra ngoài cơ sở y tế thì ghi địa danh thành phố và bang của Australia, nơi sinh ra (ví dụ, Mebourne, Victoria, Australia).
+<br>
+(4) Ghi rõ tên cơ quan, tên quốc gia nước ngoài đã đăng ký sự kiện hộ tịch.
+<br>
+(5) Ghi số, ngày, tháng, năm cơ quan nước ngoài cấp Giấy khai sinh.
+      </label>
+    </div>
+
+
+  </div>
+
+
+</section>

@@ -1,0 +1,42 @@
+
+<app-loading *ngIf="isLoading"></app-loading>
+
+<section class="news_detail" *ngIf="!isLoading" >
+    <div class="content_news" >
+        <div class="container" >
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="banner" >
+                        <img src="../../../assets/poster1.png" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-8 col-md-7">
+                    <div class="content_title">
+                      <div class="router" style="cursor: pointer;">
+                        <span style="font-weight: bold;" routerLink="/">Trang chủ</span>
+                        &gt;
+                        <span>{{oneItem.type_id.title}}</span>
+                      </div>
+
+                      <div class="title_post">
+                        <h2 style="font-weight: 600; margin: 0;">{{oneItem.title}}</h2>
+                      </div>
+
+                      <div class="author_post">
+                        <p style="color: #0768EA; margin: 0; padding-bottom: 10px;">Đăng bởi: Quản trị viên
+                          <img src="../../../assets/image-18.png" alt="" width="14x">
+                        </p>
+                      </div>
+                    </div>
+                    <div class="img"><img [src]="this.api.URL + '/uploads/' + oneItem.image" style="border-radius: 20px;" alt=""></div>
+                    <div class="render-content" [innerHTML]="contentformatsafe">
+                </div>
+                </div>
+                <div class="col-lg-4 col-md-5">
+                    <app-filter></app-filter>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

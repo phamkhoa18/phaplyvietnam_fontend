@@ -1,0 +1,21 @@
+<app-loading *ngIf="isLoading" ></app-loading>
+<div class="body-wrapper" >
+  <!--  Header End -->
+  <div class="container-fluid">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-body">
+          <h5 style="    font-size: 18px;" class="card-title fw-semibold mb-4">VỊ TRÍ MENU HIỆN TẠI</h5>
+          <div class="card">
+            <div class="card-body p-4">
+              <!-- <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of listmenu" cdkDrag>{{item.title}}</div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-danger" (click)="save()">Lưu lại</button>
+    </div>
+  </div>
+</div>

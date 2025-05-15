@@ -1,0 +1,72 @@
+
+
+<app-loading *ngIf="isLoading"></app-loading>
+
+<!-- Begin Page Content -->
+<div class="container-fluid" *ngIf="!isLoading">
+
+ <!-- Page Heading -->
+ <h1 class="h3 mb-3 text-gray-800" style="margin-top: 30px;">TẤT CẢ BÀI VIẾT</h1>
+ <div class="khung_button" style="display: flex;">
+   <p class="mb-4" style="padding: 10px; padding-left: 0 !important;"><a routerLink="add" class="btn btn-success" role="button">Thêm bài viết</a></p>
+ </div>
+
+
+ <!-- DataTales Example -->
+ <div class="card shadow mb-4">
+     <div class="card-header py-3">
+         <h6 class="m-0 font-weight-bold text-primary">BÀI VIẾT</h6>
+     </div>
+     <div class="card-body">
+         <div class="table-responsive">
+             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                 <thead>
+                     <tr>
+                         <th>Tên Bài Viết</th>
+                         <th>Ảnh bìa</th>
+                         <th>Link </th>
+                         <th>Loại Bài viết</th>
+                          <th>Thể loại</th>
+                         <th>Tác vụ</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                      <tr  *ngFor="let item of listbaiviet | paginate: { itemsPerPage: 5, currentPage: p }">
+                        <td class="border-bottom-0" width="150x" height="100px">
+                          <p class="mb-0 fw-normal" style="    display: -webkit-box;
+                          -webkit-line-clamp: 3;
+                          -webkit-box-orient: vertical;
+                          overflow: hidden;" >{{item.title}}</p>
+                        </td>
+                         <td  class="border-bottom-0" style="text-align: center;" ><img  [src]="this.api.URL + '/uploads/' + item.image" width="150px" height="100px" alt=""></td>
+                         <td class="border-bottom-0" style="    width: 200px;">
+                           <p class="mb-0 fw-normal">{{item.link}}</p>
+                         </td>
+                         <td class="border-bottom-0">
+                            <select class="form-select select_hien" name="parent_id" [(ngModel)]="item.category_id.title"  >
+                              <option  disabled required >{{item.category_id.title}}</option>
+                            </select>
+                         </td>
+                         <td class="border-bottom-0">
+                          <p class="mb-0 fw-normal" *ngIf="item.type_id">{{item.type_id.title}}</p>
+                          <p class="mb-0 fw-normal" *ngIf="!item.type_id" >Không có</p>
+                        </td>
+                         <td>
+                           <a name="" id="" class="btn btn-warning"role="button" [routerLink]="'/admin/news/edit/' + item._id" style="margin-right: 10px;" >Edit</a>
+                           <a name="" id="" class="btn btn-danger" (click)="del(item)" role="button">Delete</a>
+                       </td>
+                     </tr>
+                 </tbody>
+
+             </table>
+             <pagination-controls (pageChange)="p = $event"></pagination-controls>
+         </div>
+     </div>
+ </div>
+
+</div>
+<!-- /.container-fluid -->
+
+
+
+

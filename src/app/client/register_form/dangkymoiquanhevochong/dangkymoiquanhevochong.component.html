@@ -1,0 +1,1095 @@
+<section class="form lylichtuphap">
+  <div class="container">
+      <form [formGroup]="moiquanhevochong">
+        <div class="form_80" style="border-radius: 10px;">
+          <!-- title -->
+          <div class="mat-card" style="padding: 0;">
+              <div class="HeaderCenter" style="
+              border-radius: 10px;">
+                <span class="d-flex align-items-center flex-column"
+                  style="
+                  background-color: #1A8B83;
+                  padding: 20px;
+                  border-radius: 10px;">
+                  <b class="header-title" style="color: #fff;">{{ 'FORM_MOIQUANHEVOCHONG.TITLE' | translate }}</b>
+                  <b class="sub-title"><i  style="color: #fff;" >{{ 'FORM_MOIQUANHEVOCHONG.DESCRIPTION' | translate }}</i></b>
+                </span>
+              </div>
+          </div>
+
+           <!-- content -->
+           <div class="mat-card">
+            <div class="header-child header-a position-relative">
+              <div class="stt"><span>1</span></div>
+              <div class="content-header">
+                <h2 class="header-title-child d-flex flex-column">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_1.TITLE' | translate }}
+                </h2>
+              </div>
+            </div>
+          <div class="row" style="padding-top: 15px;">
+
+            <div class="col-md-8">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  1. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_1.NAME' | translate }} <span class="request"> *</span>
+                </label>
+                <input type="text" pInputText
+                  [formControlName]="'name'"
+                  [ngClass]="{'valid': moiquanhevochong.get('name').invalid && (moiquanhevochong.get('name').dirty || moiquanhevochong.get('name').touched)}"
+                  [placeholder]="placeholder"
+                />
+                <span class="error-message" *ngIf="this.getErrorMessage('name') != ''">
+                  {{ this.getErrorMessage('name') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="d-flex flex-column pb-3">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  2. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_1.BIRTH' | translate }} <span class="request"> *</span>
+                </label>
+                <p-calendar placeholder="dd/mm/yyyy"
+                [dateFormat]="'dd/mm/yy'"
+                formControlName="date"
+                (onSelect)="onDateChange($event, 'date')"
+                (onInput)="onInputChange($event, 'date')"
+                >
+                  <ng-template pTemplate="date" let-date>
+                      <span>
+                          {{ date.day }}
+                      </span>
+                  </ng-template>
+              </p-calendar>
+
+              <span class="error-message" *ngIf="getErrorMessage('date') != ''">
+                {{ getErrorMessage('date') }}
+              </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  3. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_1.ADDRESS' | translate }}
+                </label>
+                <input type="text" pInputText
+                  [formControlName]="'address'"
+                  [placeholder]="placeholder"
+                />
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  4. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_1.PHONE' | translate }}
+                </label>
+                <input type="text" pInputText
+                  [formControlName]="'phone'"
+                  [placeholder]="placeholder"
+                />
+                <span class="error-message" *ngIf="this.getErrorMessage('phone') != ''">
+                  {{ this.getErrorMessage('phone') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  5. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_1.EMAIL' | translate }}
+                </label>
+                <input type="text" pInputText
+                  [formControlName]="'email'"
+                  [placeholder]="placeholder"
+                />
+                <span class="error-message" *ngIf="this.getErrorMessage('email') != ''">
+                  {{ this.getErrorMessage('email') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-8">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  6. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_1.NAME_2' | translate }} <span class="request"> *</span>
+                </label>
+                <input type="text" pInputText
+                  [formControlName]="'name_2'"
+                  [ngClass]="{'valid': moiquanhevochong.get('name_2').invalid && (moiquanhevochong.get('name_2').dirty || moiquanhevochong.get('name_2').touched)}"
+                  [placeholder]="placeholder"
+                />
+                <span class="error-message" *ngIf="this.getErrorMessage('name_2') != ''">
+                  {{ this.getErrorMessage('name_2') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="d-flex flex-column pb-3">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  7. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_1.BIRTH_2' | translate }}
+                </label>
+                <p-calendar placeholder="dd/mm/yyyy"
+                [dateFormat]="'dd/mm/yy'"
+                formControlName="date_2"
+                (onSelect)="onDateChange($event, 'date_2')"
+                (onInput)="onInputChange($event, 'date_2')"
+                >
+                  <ng-template pTemplate="date" let-date>
+                      <span>
+                          {{ date.day }}
+                      </span>
+                  </ng-template>
+              </p-calendar>
+
+              <span class="error-message" *ngIf="getErrorMessage('date_2') != ''">
+                {{ getErrorMessage('date_2') }}
+              </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  8. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_1.ADDRESS_2' | translate }}
+                </label>
+                <input type="text" pInputText
+                  [formControlName]="'address_2'"
+                  [placeholder]="placeholder"
+                />
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  9. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_1.START_MQH' | translate }}
+                </label>
+                <input type="text" pInputText
+                  [formControlName]="'start_mqh'"
+                  [placeholder]="placeholder"
+                />
+                <span class="error-message" *ngIf="this.getErrorMessage('start_mqh') != ''">
+                  {{ this.getErrorMessage('start_mqh') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  10. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_1.CHINHTHUC_VOCHONG' | translate }}
+                </label>
+                <input type="text" pInputText
+                  [formControlName]="'chinhthuc'"
+                  [placeholder]="placeholder"
+                />
+                <span class="error-message" *ngIf="this.getErrorMessage('chinhthuc') != ''">
+                  {{ this.getErrorMessage('chinhthuc') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  11. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_1.NGAY_CHUNGSONG' | translate }}
+                </label>
+                <input type="text" pInputText
+                  [formControlName]="'chungsong'"
+                  [placeholder]="placeholder"
+                />
+                <span class="error-message" *ngIf="this.getErrorMessage('chungsong') != ''">
+                  {{ this.getErrorMessage('chungsong') }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="header-child header-a position-relative">
+            <div class="stt"><span>2</span></div>
+            <div class="content-header">
+              <h2 class="header-title-child d-flex flex-column">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_2.TITLE' | translate }}
+              </h2>
+            </div>
+          </div>
+
+          <div class="row" style="padding-top: 15px;">
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  12. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_2.FIRST_MEET_PLACE' | translate }}
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'gapnhau'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('gapnhau') != ''">
+                  {{ this.getErrorMessage('gapnhau') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  13. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_2.FIRST_CONVERSATION' | translate }}
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'chudong'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('chudong') != ''">
+                  {{ this.getErrorMessage('chudong') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  14. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_2.FIRST_IMPRESSION' | translate }}
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'antuong'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('antuong') != ''">
+                  {{ this.getErrorMessage('antuong') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  15. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_2.ATTRACTION' | translate }}
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'thuhut'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('thuhut') != ''">
+                  {{ this.getErrorMessage('thuhut') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  16. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_2.INITIAL_DISCUSSIONS' | translate }}
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'thaoluan'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('thaoluan') != ''">
+                  {{ this.getErrorMessage('thaoluan') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  17. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_2.OFFICIAL_DATING' | translate }}
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'timehenho'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('timehenho') != ''">
+                  {{ this.getErrorMessage('timehenho') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  18. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_2.MEETING_FREQUENCY' | translate }}
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'timebatdau'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('timebatdau') != ''">
+                  {{ this.getErrorMessage('timebatdau') }}
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="header-child header-a position-relative">
+            <div class="stt"><span>3</span></div>
+            <div class="content-header">
+              <h2 class="header-title-child d-flex flex-column">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_3.TITLE' | translate }}
+              </h2>
+            </div>
+          </div>
+
+          <div class="row" style="padding-top: 15px;">
+
+            <div class="col-md-6">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  19. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_3.START_LIVING_TOGETHER' | translate }}
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'songchung'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('songchung') != ''">
+                  {{ this.getErrorMessage('songchung') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  20. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_3.FIRST_HOME_ADDRESS' | translate }}
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'addresshenho'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('addresshenho') != ''">
+                  {{ this.getErrorMessage('addresshenho') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  21. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_3.WHO_SUGGESTED' | translate }}
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'denghisongchung'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('denghisongchung') != ''">
+                  {{ this.getErrorMessage('denghisongchung') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="font-weight-bold mb-2 title-input d-flex flex-column">
+                  22. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_3.HOUSEWORK_DIVISION' | translate }}
+                    <ul style="padding: 5px 15px;" class="fst-italic">
+                        <li style="font-size: 13px;">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_3.DES_HOUSEWORK_DIVISION' | translate }}</li>
+                    </ul>
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'phancong'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('phancong') != ''">
+                  {{ this.getErrorMessage('phancong') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  23. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_3.DAILY_ACTIVITIES' | translate }}
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'hoatdong'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('hoatdong') != ''">
+                  {{ this.getErrorMessage('hoatdong') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  24. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_3.COVID_ADAPTATION' | translate }}
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'covid'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('covid') != ''">
+                  {{ this.getErrorMessage('covid') }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="header-child header-a position-relative">
+            <div class="stt"><span>4</span></div>
+            <div class="content-header">
+              <h2 class="header-title-child d-flex flex-column">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_4.TITLE' | translate }}
+              </h2>
+            </div>
+          </div>
+
+          <div class="row" style="padding-top: 15px;">
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  25. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_4.WORK_TOGETHER' | translate }} <span class="request"> *</span>
+                </label>
+                <div class="d-flex flex-wrap gap-3 align-content-center pb-2" style="height: 100%;">
+                  <div class="d-flex align-items-center">
+                    <p-radioButton [formControlName]="'chungcty'" [value]="'Có'"  />
+                    <label for="male" class="ms-2">{{ 'SECTION_HOME.YES' | translate }}</label>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <p-radioButton [formControlName]="'chungcty'" [value]="'Không'"  />
+                    <label for="female" class="ms-2">{{ 'SECTION_HOME.NO' | translate }}</label>
+                  </div>
+                </div>
+
+                <span class="error-message" *ngIf="this.getErrorMessage('chungcty') != ''">
+                  {{ this.getErrorMessage('chungcty') }}
+                </span>
+
+                <div class="d-flex rounded flex-column pt-2" *ngIf="this.moiquanhevochong.get('chungcty').value === 'Có'">
+                    <div class="row">
+                        <div class="col-md-12 d-flex align-items-end">
+                          <div class="d-flex flex-column pb-3" style="width: 100%;">
+                            <label class="d-block font-weight-bold mb-2 title-input">
+                              {{ 'FORM_MOIQUANHEVOCHONG.PHAN_4.DES_WORK_TOGETHER' | translate }}
+                            </label>
+                            <textarea
+                              rows="4"
+                              cols="30"
+                              style="resize: none;"
+                              pInputTextarea
+                              [placeholder]="placeholder2"
+                              [formControlName]="'deschungcty'">
+                            </textarea>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  26. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_4.JOINT_BANK_ACCOUNT' | translate }} <span class="request"> *</span>
+                </label>
+                <div class="d-flex flex-wrap gap-3 align-content-center pb-2" style="height: 100%;">
+                  <div class="d-flex align-items-center">
+                    <p-radioButton [formControlName]="'chungbank'" [value]="'Có'"  />
+                    <label for="male" class="ms-2">{{ 'SECTION_HOME.YES' | translate }}</label>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <p-radioButton [formControlName]="'chungbank'" [value]="'Không'"  />
+                    <label for="female" class="ms-2">{{ 'SECTION_HOME.NO' | translate }}</label>
+                  </div>
+                </div>
+
+                <span class="error-message" *ngIf="this.getErrorMessage('chungbank') != ''">
+                  {{ this.getErrorMessage('chungbank') }}
+                </span>
+
+                <div class="d-flex rounded flex-column pt-2" *ngIf="this.moiquanhevochong.get('chungbank').value === 'Có'">
+                    <div class="row">
+                        <div class="col-md-12 d-flex align-items-end">
+                          <div class="d-flex flex-column pb-3" style="width: 100%;">
+                            <label class="d-block font-weight-bold mb-2 title-input">
+                              {{ 'FORM_MOIQUANHEVOCHONG.PHAN_4.DES_JOINT_BANK_ACCOUNT' | translate }}
+                            </label>
+                            <textarea
+                              rows="4"
+                              cols="30"
+                              style="resize: none;"
+                              pInputTextarea
+                              [placeholder]="placeholder2"
+                              [formControlName]="'deschungbank'">
+                            </textarea>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  27. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_4.SHARED_EXPENSES' | translate }}
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'khoanphi'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('khoanphi') != ''">
+                  {{ this.getErrorMessage('khoanphi') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  28. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_4.JOINT_LOANS_INVESTMENTS' | translate }}
+                </label>
+                <div class="d-flex flex-wrap gap-3 align-content-center pb-2" style="height: 100%;">
+                  <div class="d-flex align-items-center">
+                    <p-radioButton [formControlName]="'dautuchung'" [value]="'Có'"  />
+                    <label for="male" class="ms-2">{{ 'SECTION_HOME.YES' | translate }}</label>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <p-radioButton [formControlName]="'dautuchung'" [value]="'Không'"  />
+                    <label for="female" class="ms-2">{{ 'SECTION_HOME.NO' | translate }}</label>
+                  </div>
+                </div>
+
+                <span class="error-message" *ngIf="this.getErrorMessage('dautuchung') != ''">
+                  {{ this.getErrorMessage('dautuchung') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  29. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_4.JOINT_ASSETS' | translate }}
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'taisankhac'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('taisankhac') != ''">
+                  {{ this.getErrorMessage('taisankhac') }}
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="header-child header-a position-relative">
+            <div class="stt"><span>5</span></div>
+            <div class="content-header">
+              <h2 class="header-title-child d-flex flex-column">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_5.TITLE' | translate }}
+              </h2>
+            </div>
+          </div>
+
+          <div class="row" style="padding-top: 15px;">
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  30. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_5.TRAVEL_HISTORY' | translate }} <span class="request"> *</span>
+                </label>
+                <div class="d-flex flex-wrap gap-3 align-content-center pb-2" style="height: 100%;">
+                  <div class="d-flex align-items-center">
+                    <p-radioButton [formControlName]="'dulich'" [value]="'Có'"  />
+                    <label for="male" class="ms-2">{{ 'SECTION_HOME.YES' | translate }}</label>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <p-radioButton [formControlName]="'dulich'" [value]="'Không'"  />
+                    <label for="female" class="ms-2">{{ 'SECTION_HOME.NO' | translate }}</label>
+                  </div>
+                </div>
+
+                <span class="error-message" *ngIf="this.getErrorMessage('dulich') != ''">
+                  {{ this.getErrorMessage('dulich') }}
+                </span>
+
+                <div class="d-flex rounded flex-column pt-2" *ngIf="this.moiquanhevochong.get('dulich').value === 'Có'">
+                    <div class="row">
+                        <div class="col-md-12 d-flex align-items-end">
+                          <div class="d-flex flex-column pb-3" style="width: 100%;">
+                            <label class="d-block font-weight-bold mb-2 title-input">
+                              {{ 'FORM_MOIQUANHEVOCHONG.PHAN_5.DES_TRAVEL_HISTORY' | translate }}
+                            </label>
+                            <textarea
+                              rows="4"
+                              cols="30"
+                              style="resize: none;"
+                              pInputTextarea
+                              [placeholder]="placeholder2"
+                              [formControlName]="'desdulich'">
+                            </textarea>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  31. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_5.MEMORABLE_TRIP' | translate }}
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'dangnho'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('dangnho') != ''">
+                  {{ this.getErrorMessage('dangnho') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  32. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_5.FUTURE_TRAVEL_PLANS' | translate }}
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'kehoach'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('kehoach') != ''">
+                  {{ this.getErrorMessage('kehoach') }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="header-child header-a position-relative">
+            <div class="stt"><span>6</span></div>
+            <div class="content-header">
+              <h2 class="header-title-child d-flex flex-column">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_6.TITLE' | translate }}
+              </h2>
+            </div>
+          </div>
+
+          <div class="row" style="padding-top: 15px;">
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="font-weight-bold mb-2 title-input d-flex flex-column">
+                  33. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_6.INTRODUCING_FAMILY.QUESTION' | translate }}
+                    <ul style="padding: 5px 15px;" class="fst-italic">
+                        <li style="font-size: 13px;">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_6.INTRODUCING_FAMILY.DES' | translate }}</li>
+                    </ul>
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'gioithieu2ben'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('gioithieu2ben') != ''">
+                  {{ this.getErrorMessage('gioithieu2ben') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="font-weight-bold mb-2 title-input d-flex flex-column">
+                  34. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_6.MEETING_IN_LAWS.QUESTION' | translate }}
+                    <ul style="padding: 5px 15px;" class="fst-italic">
+                        <li style="font-size: 13px;">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_6.MEETING_IN_LAWS.DES' | translate }}</li>
+                    </ul>
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'gapbome'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('gapbome') != ''">
+                  {{ this.getErrorMessage('gapbome') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="font-weight-bold mb-2 title-input d-flex flex-column">
+                  35. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_6.SPOUSE_MEETING_PARENTS.QUESTION' | translate }}
+                    <ul style="padding: 5px 15px;" class="fst-italic">
+                        <li style="font-size: 13px;">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_6.SPOUSE_MEETING_PARENTS.DES' | translate }}</li>
+                    </ul>
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'gapbomeconlai'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('gapbomeconlai') != ''">
+                  {{ this.getErrorMessage('gapbomeconlai') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="font-weight-bold mb-2 title-input d-flex flex-column">
+                  36. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_6.FAMILY_EVENTS.QUESTION' | translate }}
+                    <ul style="padding: 5px 15px;" class="fst-italic">
+                        <li style="font-size: 13px;">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_6.FAMILY_EVENTS.DES' | translate }}</li>
+                    </ul>
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'thamgia'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('thamgia') != ''">
+                  {{ this.getErrorMessage('thamgia') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="font-weight-bold mb-2 title-input d-flex flex-column">
+                  37. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_6.COMMON_FRIENDS.QUESTION' | translate }}
+                    <ul style="padding: 5px 15px;" class="fst-italic">
+                        <li style="font-size: 13px;">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_6.COMMON_FRIENDS.DES' | translate }}</li>
+                    </ul>
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'thanthiet'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('thanthiet') != ''">
+                  {{ this.getErrorMessage('thanthiet') }}
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="header-child header-a position-relative">
+            <div class="stt"><span>7</span></div>
+            <div class="content-header">
+              <h2 class="header-title-child d-flex flex-column">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_7.TITLE' | translate }}
+              </h2>
+            </div>
+          </div>
+
+          <div class="row" style="padding-top: 15px;">
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="font-weight-bold mb-2 title-input d-flex flex-column">
+                  38. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_7.MARRIAGE_PLANS.QUESTION' | translate }}
+                    <ul style="padding: 5px 15px;" class="fst-italic">
+                        <li style="font-size: 13px;">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_7.MARRIAGE_PLANS.DES' | translate }}</li>
+                    </ul>
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'kehoachkethon'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('kehoachkethon') != ''">
+                  {{ this.getErrorMessage('kehoachkethon') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="font-weight-bold mb-2 title-input d-flex flex-column">
+                  39. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_7.CHILD_PLANS.QUESTION' | translate }}
+                    <ul style="padding: 5px 15px;" class="fst-italic">
+                        <li style="font-size: 13px;">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_7.CHILD_PLANS.DES' | translate }}</li>
+                    </ul>
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'kehoachsinhcon'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('kehoachsinhcon') != ''">
+                  {{ this.getErrorMessage('kehoachsinhcon') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="font-weight-bold mb-2 title-input d-flex flex-column">
+                  40. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_7.SETTLEMENT_PLANS.QUESTION' | translate }}
+                    <ul style="padding: 5px 15px;" class="fst-italic">
+                        <li style="font-size: 13px;">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_7.SETTLEMENT_PLANS.DES' | translate }}</li>
+                    </ul>
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'muanha'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('muanha') != ''">
+                  {{ this.getErrorMessage('muanha') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="font-weight-bold mb-2 title-input d-flex flex-column">
+                  41. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_7.OTHER_FUTURE_PLANS.QUESTION' | translate }}
+                    <ul style="padding: 5px 15px;" class="fst-italic">
+                        <li style="font-size: 13px;">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_7.OTHER_FUTURE_PLANS.DES' | translate }}</li>
+                    </ul>
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'thuchiencungnhau'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('thuchiencungnhau') != ''">
+                  {{ this.getErrorMessage('thuchiencungnhau') }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="header-child header-a position-relative">
+            <div class="stt"><span>8</span></div>
+            <div class="content-header">
+              <h2 class="header-title-child d-flex flex-column">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_8.TITLE' | translate }}
+              </h2>
+            </div>
+          </div>
+
+          <div class="row" style="padding-top: 15px;">
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="font-weight-bold mb-2 title-input d-flex flex-column">
+                  42. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_8.RELATIONSHIP_BELIEF.QUESTION' | translate }}
+                    <ul style="padding: 5px 15px;" class="fst-italic">
+                        <li style="font-size: 13px;">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_8.RELATIONSHIP_BELIEF.DES' | translate }}</li>
+                    </ul>
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'tinmqh'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('tinmqh') != ''">
+                  {{ this.getErrorMessage('tinmqh') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="font-weight-bold mb-2 title-input d-flex flex-column">
+                  43. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_8.CONFLICT_RESOLUTION.QUESTION' | translate }}
+                    <ul style="padding: 5px 15px;" class="fst-italic">
+                        <li style="font-size: 13px;">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_8.CONFLICT_RESOLUTION.DES' | translate }}</li>
+                    </ul>
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'khokhan'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('khokhan') != ''">
+                  {{ this.getErrorMessage('khokhan') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="d-flex flex-column pb-3" style="height: 100%;">
+                <label class="font-weight-bold mb-2 title-input d-flex flex-column">
+                  44. {{ 'FORM_MOIQUANHEVOCHONG.PHAN_8.ADDITIONAL_SHARING.QUESTION' | translate }}
+                    <ul style="padding: 5px 15px;" class="fst-italic">
+                        <li style="font-size: 13px;">{{ 'FORM_MOIQUANHEVOCHONG.PHAN_8.ADDITIONAL_SHARING.DES' | translate }}</li>
+                    </ul>
+                </label>
+                <textarea
+                  rows="4"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder2"
+                  [formControlName]="'chiasethem'">
+                </textarea>
+                <span class="error-message" *ngIf="this.getErrorMessage('chiasethem') != ''">
+                  {{ this.getErrorMessage('chiasethem') }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+            <div class="header-child header-a position-relative" style="margin-top: 10px;">
+              <div class="stt"><span>9</span></div>
+              <div class="content-header">
+                <h2 class="header-title-child d-flex flex-column">HỒ SƠ ĐÍNH KÈM
+                  <b class="sub-title-child"><i> UPLOAD FILE</i></b>
+                </h2>
+              </div>
+            </div>
+            <div class="row" style="padding-top: 15px;">
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Một số loại giấy tờ khác nếu không có trong form vui lòng gửi lên
+                  </label>
+
+                <p>1. Tờ khai yêu cầu cấp phiếu <a class="xanh" [href]="this.api.URL + '/uploads/' + 'mau_so_03_LLTP.docx'">(In tờ khai online)</a></p>
+                <p>2. Chứng minh nhân dân (scan 2 mặt) <a [href]="this.api.URL +'/document/'+ 'cmnd.pdf'" target="_blank" >Xem ví dụ CMND</a></p>
+                <p>3. Hộ khẩu thường trú (scan đầy đủ trang bìa và các trang đã ghi thông tin liên quan đến bản thân) <a [href]="this.api.URL +'/document/'+ 'hk.pdf'" target="_blank">Xem ví dụ HK</a></p>
+
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Nơi upload File (lưu ý tối đa 5mb)
+                  </label>
+
+                  <p-toast />
+                  <p-fileUpload
+                      name="demo[]"
+                      (onUpload)="onUpload($event)"
+                      [multiple]="true"
+                      maxFileSize="10000000"
+                      [auto]="false"
+                      [customUpload]="true"
+                      (onSelect)="onSelect($event)">
+                      <ng-template pTemplate="content">
+                          <ul *ngIf="uploadedFiles.length">
+                              <li *ngFor="let file of uploadedFiles">
+                                  {{ file.name }} - {{ file.size }} bytes
+                              </li>
+                          </ul>
+                      </ng-template>
+                  </p-fileUpload>
+
+                  <label for="" class="form-label label-title">Hoặc bạn có thể gửi đến Trợ giúp pháp lý việt nam với địa chỉ Email : hotro@trogiupphaply.com.au</label>
+                </div>
+              </div>
+            </div>
+            <p-toast position="bottom-right" key="br"/>
+            <button
+                (click)="submit()"
+                pButton
+                pRipple
+                label="Hoàn Thành"
+                type="submit"
+                class="p-button-success submit_button"
+                >
+            </button>
+
+          </div>
+        </div>
+      </form>
+  </div>
+</section>

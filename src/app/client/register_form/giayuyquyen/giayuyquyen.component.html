@@ -1,0 +1,441 @@
+<section class="form lylichtuphap">
+  <div class="container">
+      <form [formGroup]="giayuyquyen">
+        <div class="form_80" style="border-radius: 10px;">
+          <!-- title -->
+          <div class="mat-card" style="padding: 0;">
+              <div class="HeaderCenter" style="
+              border-radius: 10px;">
+                <span class="d-flex align-items-center flex-column"
+                  style="
+                  background-color: #1A8B83;
+                  padding: 20px;
+                  border-radius: 10px;">
+                  <b class="header-title" style="color: #fff;">{{ 'FORM_UYQUYEN.TITLE' | translate }}</b>
+                  <b class="sub-title"><i  style="color: #fff;" >{{ 'FORM_UYQUYEN.DESCRIPTION' | translate }}</i></b>
+                </span>
+              </div>
+          </div>
+
+           <!-- content -->
+           <div class="mat-card">
+            <div class="header-child header-a position-relative">
+              <div class="stt"><span>1</span></div>
+              <div class="content-header">
+                <h2 class="header-title-child d-flex flex-column">THÔNG TIN CƠ BẢN
+                  <b class="sub-title-child"><i>PERSONAL INFORMATION</i></b>
+                </h2>
+              </div>
+            </div>
+            <div class="row" style="padding-top: 15px;">
+
+              <div class="col-md-8">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    1. {{ 'FORM_UYQUYEN.APPLICANT_INFO.NAME' | translate }} <span class="request"> *</span>
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'name'"
+                    [ngClass]="{'valid': giayuyquyen.get('name').invalid && (giayuyquyen.get('name').dirty || giayuyquyen.get('name').touched)}"
+                    [placeholder]="placeholder"
+                  />
+                  <span class="error-message" *ngIf="this.getErrorMessage('name') != ''">
+                    {{ this.getErrorMessage('name') }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                   2. {{ 'FORM_UYQUYEN.APPLICANT_INFO.BIRTH_YEAR' | translate }} <span class="request"> *</span>
+                  </label>
+                  <p-calendar placeholder="Nhập năm sinh tại đây"
+                    [view]="'year'"
+                    [dateFormat]="'yy'"
+                    formControlName="date"
+                    (onSelect)="onDateChangeYear($event, 'date')"
+                    (onInput)="onInputChangeYear($event, 'date')"
+                    [ngClass]="{'valid': giayuyquyen.get('date')?.invalid && (giayuyquyen.get('date')?.dirty || giayuyquyen.get('date')?.touched)}">
+                  </p-calendar>
+
+                <span class="error-message" *ngIf="getErrorMessage('date') != ''">
+                  {{ getErrorMessage('date') }}
+                </span>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    3. {{ 'FORM_UYQUYEN.APPLICANT_INFO.ID_NUMBER' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'cmnd'"
+                    [ngClass]="{'valid': giayuyquyen.get('cmnd').invalid && (giayuyquyen.get('cmnd').dirty || giayuyquyen.get('cmnd').touched)}"
+                    [placeholder]="placeholder"
+                  />
+                  <span class="error-message" *ngIf="this.getErrorMessage('cmnd') != ''">
+                    {{ this.getErrorMessage('cmnd') }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-xs-12">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                   4. {{ 'FORM_UYQUYEN.APPLICANT_INFO.ISSUE_DATE' | translate }}
+                  </label>
+                  <p-calendar placeholder="dd/mm/yyyy"
+                  [dateFormat]="'dd/mm/yy'"
+                  formControlName="capcmnd"
+                  (onSelect)="onDateChange($event, 'capcmnd')"
+                  (onInput)="onInputChange($event, 'capcmnd')"
+                  >
+                    <ng-template pTemplate="date" let-date>
+                        <span>
+                            {{ date.day }}
+                        </span>
+                    </ng-template>
+                </p-calendar>
+
+                <span class="error-message" *ngIf="getErrorMessage('capcmnd') != ''">
+                  {{ getErrorMessage('capcmnd') }}
+                </span>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    5. {{ 'FORM_UYQUYEN.APPLICANT_INFO.ISSUE_PLACE' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'noicap'"
+                    [placeholder]="placeholder"
+                  />
+                  <span class="error-message" *ngIf="this.getErrorMessage('noicap') != ''">
+                    {{ this.getErrorMessage('noicap') }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    5. {{ 'FORM_UYQUYEN.APPLICANT_INFO.CURRENT_ADDRESS' | translate }}
+                  </label>
+                  <input type="text" pInputText #autocomplete
+                    [id]="inputId"
+                    [formControlName]="'diachi'"
+                    [placeholder]="placeholder"
+                  />
+                  <span class="error-message" *ngIf="this.getErrorMessage('diachi') != ''">
+                    {{ this.getErrorMessage('diachi') }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-8">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    6. {{ 'FORM_UYQUYEN.CHILD_INFO.RELATION' | translate }} <span class="request"> *</span>
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'conten'"
+                    [ngClass]="{'valid': giayuyquyen.get('conten').invalid && (giayuyquyen.get('conten').dirty || giayuyquyen.get('conten').touched)}"
+                    [placeholder]="placeholder"
+                  />
+                  <span class="error-message" *ngIf="this.getErrorMessage('conten') != ''">
+                    {{ this.getErrorMessage('conten') }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-xs-12">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                   7. {{ 'FORM_UYQUYEN.CHILD_INFO.BIRTH_DATE' | translate }}
+                  </label>
+                  <p-calendar placeholder="dd/mm/yyyy"
+                  [dateFormat]="'dd/mm/yy'"
+                  formControlName="datecon"
+                  (onSelect)="onDateChange($event, 'datecon')"
+                  (onInput)="onInputChange($event, 'datecon')"
+                  >
+                    <ng-template pTemplate="date" let-date>
+                        <span>
+                            {{ date.day }}
+                        </span>
+                    </ng-template>
+                </p-calendar>
+
+                <span class="error-message" *ngIf="getErrorMessage('datecon') != ''">
+                  {{ getErrorMessage('datecon') }}
+                </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="header-child header-a position-relative">
+              <div class="stt"><span>2</span></div>
+              <div class="content-header">
+                <h2 class="header-title-child d-flex flex-column">THÔNG TIN NGƯỜI ĐƯỢC ỦY QUYỀN
+                  <b class="sub-title-child"><i>AUTHORIZED PERSON INFORMATION</i></b>
+                </h2>
+              </div>
+            </div>
+
+            <div class="row" style="padding-top: 15px;">
+
+              <div class="col-md-8">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    1. {{ 'FORM_UYQUYEN.AUTHORIZED_PERSON.NAME' | translate }} <span class="request"> *</span>
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'nameuq'"
+                    [ngClass]="{'valid': giayuyquyen.get('nameuq').invalid && (giayuyquyen.get('nameuq').dirty || giayuyquyen.get('nameuq').touched)}"
+                    [placeholder]="placeholder"
+                  />
+                  <span class="error-message" *ngIf="this.getErrorMessage('nameuq') != ''">
+                    {{ this.getErrorMessage('nameuq') }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                   2. {{ 'FORM_UYQUYEN.AUTHORIZED_PERSON.BIRTH_DATE' | translate }} <span class="request"> *</span>
+                  </label>
+                  <p-calendar placeholder="dd/mm/yyyy"
+                  [dateFormat]="'dd/mm/yy'"
+                  formControlName="dateuq"
+                  (onSelect)="onDateChange($event, 'dateuq')"
+                  (onInput)="onInputChange($event, 'dateuq')"
+                  >
+                    <ng-template pTemplate="date" let-date>
+                        <span>
+                            {{ date.day }}
+                        </span>
+                    </ng-template>
+                </p-calendar>
+
+                <span class="error-message" *ngIf="getErrorMessage('dateuq') != ''">
+                  {{ getErrorMessage('dateuq') }}
+                </span>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    3. {{ 'FORM_UYQUYEN.AUTHORIZED_PERSON.ID_NUMBER' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'cmnduq'"
+                    [ngClass]="{'valid': giayuyquyen.get('cmnduq').invalid && (giayuyquyen.get('cmnduq').dirty || giayuyquyen.get('cmnduq').touched)}"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-4 col-xs-12">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                   4. {{ 'FORM_UYQUYEN.AUTHORIZED_PERSON.ISSUE_DATE' | translate }}
+                  </label>
+                  <p-calendar placeholder="dd/mm/yyyy"
+                  [dateFormat]="'dd/mm/yy'"
+                  formControlName="capngayuq"
+                  (onSelect)="onDateChange($event, 'capngayuq')"
+                  (onInput)="onInputChange($event, 'capngayuq')"
+                  >
+                    <ng-template pTemplate="date" let-date>
+                        <span>
+                            {{ date.day }}
+                        </span>
+                    </ng-template>
+                </p-calendar>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    5. {{ 'FORM_UYQUYEN.AUTHORIZED_PERSON.ISSUE_PLACE' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'noicapuq'"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    6. {{ 'FORM_UYQUYEN.AUTHORIZED_PERSON.CURRENT_ADDRESS' | translate }}
+                  </label>
+                  <input type="text" pInputText #autocomplete2
+                    [id]="inputId"
+                    [formControlName]="'diachiuq'"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    7. {{ 'FORM_UYQUYEN.PERMISSION.RELATION_TO_CHILD' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'quanheuq'"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    8. {{ 'FORM_UYQUYEN.PERMISSION.PURPOSE' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'dulichuq'"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <label class="d-block font-weight-bold mb-2 title-input" style="color: red; text-transform: uppercase;">
+                {{ 'FORM_UYQUYEN.PERMISSION.FLIGHT_DETAILS' | translate }}
+              </label>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    {{ 'FORM_UYQUYEN.PERMISSION.FLIGHT_TO' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'tubayuq'"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    {{ 'FORM_UYQUYEN.PERMISSION.FLIGHT_FROM' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'denbayuq'"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    {{ 'FORM_UYQUYEN.PERMISSION.FLIGHT_START' | translate }}
+                  </label>
+                  <p-calendar placeholder="dd/mm/yyyy"
+                  [dateFormat]="'dd/mm/yy'"
+                  formControlName="ngaybayuq"
+                  (onSelect)="onDateChange($event, 'ngaybayuq')"
+                  (onInput)="onInputChange($event, 'ngaybayuq')"
+                  >
+                    <ng-template pTemplate="date" let-date>
+                        <span>
+                            {{ date.day }}
+                        </span>
+                    </ng-template>
+                </p-calendar>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    {{ 'FORM_UYQUYEN.PERMISSION.FLIGHT_TIME' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                  [formControlName]="'giobayuq'"
+                  [placeholder]="placeholder"
+                />
+                </div>
+              </div>
+
+            </div>
+
+            <div class="header-child header-a position-relative" style="margin-top: 10px;">
+              <div class="stt"><span>3</span></div>
+              <div class="content-header">
+                <h2 class="header-title-child d-flex flex-column">HỒ SƠ ĐÍNH KÈM
+                  <b class="sub-title-child"><i> UPLOAD FILE</i></b>
+                </h2>
+              </div>
+            </div>
+            <div class="row" style="padding-top: 15px;">
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Một số loại giấy tờ khác nếu không có trong form vui lòng gửi lên
+                  </label>
+
+                <p>1. Tờ khai yêu cầu cấp phiếu <a class="xanh" [href]="this.api.URL + '/uploads/' + 'mau_so_03_LLTP.docx'">(In tờ khai online)</a></p>
+                <p>2. Chứng minh nhân dân (scan 2 mặt) <a [href]="this.api.URL +'/document/'+ 'cmnd.pdf'" target="_blank" >Xem ví dụ CMND</a></p>
+                <p>3. Hộ khẩu thường trú (scan đầy đủ trang bìa và các trang đã ghi thông tin liên quan đến bản thân) <a [href]="this.api.URL +'/document/'+ 'hk.pdf'" target="_blank">Xem ví dụ HK</a></p>
+
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Nơi upload File (lưu ý tối đa 5mb)
+                  </label>
+
+                  <p-toast />
+                  <p-fileUpload
+                      name="demo[]"
+                      (onUpload)="onUpload($event)"
+                      [multiple]="true"
+                      maxFileSize="10000000"
+                      [auto]="false"
+                      [customUpload]="true"
+                      (onSelect)="onSelect($event)">
+                      <ng-template pTemplate="content">
+                          <ul *ngIf="uploadedFiles.length">
+                              <li *ngFor="let file of uploadedFiles">
+                                  {{ file.name }} - {{ file.size }} bytes
+                              </li>
+                          </ul>
+                      </ng-template>
+                  </p-fileUpload>
+
+                  <label for="" class="form-label label-title">Hoặc bạn có thể gửi đến Trợ giúp pháp lý việt nam với địa chỉ Email : hotro@trogiupphaply.com.au</label>
+                </div>
+              </div>
+            </div>
+            <p-toast position="bottom-right" key="br"/>
+            <button
+                (click)="submit()"
+                pButton
+                pRipple
+                label="Hoàn Thành"
+                type="submit"
+                class="p-button-success submit_button"
+                >
+            </button>
+
+          </div>
+        </div>
+      </form>
+  </div>
+</section>

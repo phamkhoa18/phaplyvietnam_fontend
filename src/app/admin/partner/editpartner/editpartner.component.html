@@ -1,0 +1,54 @@
+<app-loading *ngIf="isLoading" ></app-loading>
+
+   <!-- Begin Page Content -->
+   <div class="container-fluid" *ngIf="!isLoading">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-3 text-gray-800" style="margin-top: 30px;" routerLink="addcategory">THAY ĐỔI ĐỐI TÁC - KHÁCH HÀNG</h1>
+    <!-- <div class="khung_button" style="display: flex;">
+      <p class="mb-4" style="padding: 10px; padding-left: 0 !important;"><a routerLink="add" class="btn btn-success" role="button">Thêm mới menu</a></p>
+      <p class="mb-4"  style="padding: 10px;"><a name="" id="" class="btn btn-danger" role="button">Vị trí menu</a></p>
+    </div> -->
+
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="container-fluid" style="padding: 15px !important;">
+              <div class="row">
+                  <div class="col-7">
+                    <form class="row g-3" [formGroup]="menu" (ngSubmit)="submit()">
+                      <input type="hidden" formControlName="_id" >
+                      <div class="col-md-12">
+                        <label for="inputEmail4" class="form-label">Tên danh mục</label>
+                        <input type="text" formControlName="name" class="form-control" id="inputEmail4">
+                        <small class="text-danger" *ngIf="menu.get('name')?.invalid && menu.get('name')?.touched">
+                          Tên không được để trống
+                        </small>
+                      </div>
+                      
+                      <div class="col-md-12">
+                        <label for="inputEmail4" class="form-label">Link liên kết</label>
+                        <input type="text" formControlName="href" class="form-control" id="inputEmail4">
+                      </div>
+
+                      <div class="col-md-12">
+                        <label for="inputPassword4" class="form-label">Image</label>
+                        <input type="file" (change)="onFileSelected($event)" formControlName="image" class="form-control" id="inputPassword4">
+                      </div>
+
+                      <div class="col-md-12">
+                        <label for="inputPassword4" class="form-label">Image Hiện có </label>
+                        <img [src]="this.api.URL + '/uploads/' + item.background" class="form-control" id="inputPassword4"  style="width: auto;"   height="100px"  alt="">
+                      </div>
+
+                      <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+                    </form>
+                  </div>
+              </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

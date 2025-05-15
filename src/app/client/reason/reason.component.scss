@@ -1,0 +1,139 @@
+
+.title_services {
+  text-align: center;
+  width: 100%;
+  font-family: "Alfa Slab One", serif;
+  font-size: 24px;
+  font-weight: 100;
+  font-style: normal;
+  color: #4DC1B8;
+  text-decoration: underline;
+}
+.diemnhan_services {
+  font-family: "Roboto Serif", serif;
+  font-size: 18px;
+  font-optical-sizing: auto;
+  font-variation-settings:
+    "wdth" 100,
+    "GRAD" 0;
+  color: #6e6d6d;
+  text-align: justify;
+  display: flex;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+   align-items: center;
+   margin-bottom: 15px;
+}
+
+hr {
+  color: #b69d74 !important;
+  margin: 0 !important;
+  width: 10%;
+  border: 1px solid;
+  margin: 10px !important;
+}
+
+
+
+.item_customer {
+  padding: 50px;
+  color: #fff;
+  background: rgba(0, 0, 0, .5);
+
+  i {
+    color: #b69d74;
+    font-size: 35px;
+  }
+
+  h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  p {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7em;
+  }
+  .de_testi_by span {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.7em;
+    color: #b69d74;
+  }
+}
+
+.row_customer {
+  padding-top: 30px;
+}
+
+.description {
+  text-align: center;
+}
+
+
+
+
+
+
+
+.icon_quangcao {
+    border-radius: 50%;
+    font-size: 45px;
+    margin: 0;
+    padding-bottom: 10px;
+    transition: all .3s ease 0s;
+    color: #ffff;
+
+    img {
+      height: auto ;
+      width: 100%;
+      width: 60px ;
+    }
+}
+
+.item_quangcao {
+  padding: 50px 30px;
+  display: flex;
+  background: linear-gradient(45deg, #2ed8b6, #59e0c5);
+  box-shadow: 0 1px 2.94px 0.06px rgba(107, 126, 151, 0.16);
+  border-radius: 5px;
+}
+
+.item_success {
+  text-align: center;
+  flex-direction: column !important;
+}
+
+.des_quangcao_title {
+  color: #101010;
+  font-size: 20px;
+}
+
+.des_quangcao_des {
+  font-size: 15px;
+  padding-bottom: 0 !important;
+}
+
+@media screen and (max-width : 768px) {
+
+  .quangcao {
+    margin-top: 0 !important;
+  }
+  .item_quangcao {
+    flex-direction: column;
+  }
+}
+
+
+@media screen  and (max-width : 767px){
+  .col_quangcao {
+    padding: 0 15px !important;
+  }
+  .item_quangcao {
+    justify-content: center;
+  }
+}
+
+

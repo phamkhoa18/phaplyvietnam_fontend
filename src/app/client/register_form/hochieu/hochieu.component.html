@@ -1,0 +1,353 @@
+<!-- <app-loading *ngIf="isLoading"></app-loading> -->
+
+
+<section class="news_detail">
+  <div class="top_news" [ngStyle]="{ 'background-image': 'url(' + api.URL + '/uploads/' + 'contact.webp' + ')' }" >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="content_news_detail">
+                    <h1 class="content_news_detail_title">
+                      Thông tin tờ khai đăng kí làm hộ chiếu
+                    </h1>
+                  </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+  <div class="content_news" >
+    <div class="container">
+      <h2 class="content_news_detail_title" style="color:black !important; padding-bottom: 25px !important; font-size: 2rem !important; " >
+        Tờ khai khai đăng kí làm hộ chiếu
+      </h2>
+
+      <div class="row row_content_news">
+          <!-- HỌ VÀ TÊN -->
+          <form  [formGroup]="hochieu" (ngSubmit)="submit()" >
+              <div class="row form">
+                    <!-- Ho va ten -->
+                <div class="col-md-4">
+                    <div class="mb-3">
+                      <label for="" class="form-label label-title">1. Họ <span class="request"> *</span> </label>
+                      <input type="text"  formControlName="firstname"
+                        class="form-control" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ">
+                        <small class="text-danger" *ngIf="hochieu.get('firstname')?.invalid && hochieu.get('firstname')?.touched">
+                          Họ không được để trống
+                        </small>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="mb-3">
+                    <label for="" class="form-label label-title">Chữ đệm và tên <span class="request"> *</span> </label>
+                    <input type="text"  formControlName="lastname"
+                      class="form-control" name="" id="" aria-describedby="helpId"  placeholder="Nhập Chữ đệm và tên ">
+                      <small class="text-danger" *ngIf="hochieu.get('lastname')?.invalid && hochieu.get('lastname')?.touched">
+                        Tên không được để trống
+                      </small>
+                  </div>
+              </div>
+              <div class="col-md-3">
+                <label for="" class="form-label label-title">2. Giới tính<span class="request"> *</span> </label>
+               <div class="form-check">
+                 <input class="form-check-input" type="radio"  formControlName="gender" value="Nam" id="" checked>
+                 <label class="form-check-label" for="nam">
+                   Nam
+                 </label>
+               </div>
+               <div class="form-check">
+                 <input class="form-check-input" type="radio" formControlName="gender" value="Nữ" id="">
+                 <label class="form-check-label" for="nu">
+                   Nữ
+                 </label>
+               </div>
+            </div>
+            <!-- end -->
+
+            <!-- Ngày tháng năm -->
+                <div class="col-md-3">
+                  <div class="mb-3">
+                    <label for="" class="form-label label-title">3. Sinh ngày<span class="request"> *</span> </label>
+                    <input type="number"
+                      class="form-control"  formControlName="date_day" aria-describedby="helpId" placeholder="Nhập ngày">
+                      <small class="text-danger" *ngIf="hochieu.get('date_day')?.invalid && hochieu.get('date_day')?.touched">
+                        Ngày sinh không được để trống
+                      </small>
+                  </div>
+              </div>
+              <div class="col-md-3">
+                <div class="mb-3">
+                  <label for="" class="form-label label-title">Tháng<span class="request"> *</span> </label>
+                  <input type="number" formControlName="date_month"
+                    class="form-control"  id="" aria-describedby="helpId"placeholder="Nhập tháng">
+                    <small class="text-danger" *ngIf="hochieu.get('date_month')?.invalid && hochieu.get('date_month')?.touched">
+                      Tháng sinh không được để trống
+                    </small>
+                </div>
+            </div>
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="" class="form-label label-title">Năm<span class="request"> *</span> </label>
+                <input type="number" formControlName="date_year"
+                  class="form-control" aria-describedby="helpId"placeholder="Nhập năm">
+                  <small class="text-danger" *ngIf="hochieu.get('date_year')?.invalid && hochieu.get('date_year')?.touched">
+                    Năm sinh không được để trống
+                  </small>
+              </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label for="" class="form-label label-title">Nơi sinh ( tỉnh,TP )</label>
+              <input type="text"
+                class="form-control"formControlName="date_address" aria-describedby="helpId" placeholder="Nhập nơi sinh">
+
+            </div>
+        </div>
+            <!-- end -->
+
+
+
+            <!-- 4. Số ĐDCN/CMND (nếu có) -->
+              <div class="col-md-8">
+                <div class="mb-3">
+                  <label for="" class="form-label label-title">4. Số ĐDCN/CMND (nếu có)</label>
+                  <input type="text"
+                    class="form-control" formControlName="cmnd"  aria-describedby="helpId"placeholder="Nhập Số ĐDCN/CMND (nếu có)">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label for="" class="form-label label-title">Ngày cấp</label>
+                <input type="date"
+                  class="form-control" formControlName="cmnd_day" aria-describedby="helpId" placeholder="">
+
+              </div>
+          </div>
+            <!-- end -->
+
+
+            <!-- 5. Dân tộc -->
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label for="" class="form-label label-title">5. Dân tộc</label>
+                <input type="input"
+                  class="form-control" formControlName="nation" name="" id="" aria-describedby="helpId" placeholder="Nhập Dân tộc">
+              </div>
+          </div>
+          <!-- end -->
+             <!-- 6. Tôn giáo -->
+             <div class="col-md-4">
+              <div class="mb-3">
+                <label for="" class="form-label label-title">6. Tôn giáo</label>
+                <input type="input"
+                  class="form-control" formControlName="religion" name="" id="" aria-describedby="helpId" placeholder="Nhập Tôn giáo">
+              </div>
+          </div>
+          <!-- end -->
+
+           <!-- 7. Số điện thoại -->
+           <div class="col-md-4">
+            <div class="mb-3">
+              <label for="" class="form-label label-title">7. Số điện thoại<span class="request"> *</span> </label>
+              <input type="text"
+                class="form-control" name="" formControlName="phone" id="" aria-describedby="helpId" placeholder="Nhập Số điện thoại">
+                <small class="text-danger" *ngIf="hochieu.get('phone')?.invalid && hochieu.get('phone')?.touched">
+                 Số điện thoại không được để trống
+                 </small>
+            </div>
+        </div>
+        <!-- end -->
+
+        <!-- 8. Địa chỉ cư trú tại nước ngoài* -->
+        <div class="col-md-12">
+          <div class="mb-3">
+            <label for="" class="form-label label-title">8. Địa chỉ cư trú tại nước ngoài</label>
+            <input type="text"
+              class="form-control" name="" formControlName="address_foreign" id="" aria-describedby="helpId" placeholder="Nhập Địa chỉ cư trú tại nước ngoài">
+          </div>
+      </div>
+      <!-- end -->
+
+        <!-- 9. Địa chỉ thường trú ở trong nước trước khi xuất cảnh* -->
+        <div class="col-md-12">
+          <div class="mb-3">
+            <label for="" class="form-label label-title">9. Địa chỉ thường trú ở trong nước trước khi xuất cảnh</label>
+            <input type="text"
+              class="form-control" formControlName="address_vn" name="" id="" aria-describedby="helpId" placeholder="Nhập Địa chỉ thường trú ở trong nước trước khi xuất cảnh">
+          </div>
+      </div>
+      <!-- end -->
+
+       <!-- 10. Nghề nghiệp -->
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="" class="form-label label-title">10. Nghề nghiệp</label>
+            <input type="text"
+              class="form-control" formControlName="job" name="" id="" aria-describedby="helpId" placeholder="Nhập Nghề nghiệp">
+
+          </div>
+      </div>
+      <!-- end -->
+      <!-- 11. Tên và địa chỉ cơ quan (nếu có) -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">11. Tên và địa chỉ cơ quan (nếu có)</label>
+          <input type="text"
+            class="form-control" formControlName="address_organ" name="" id="" aria-describedby="helpId" placeholder="Nhập Tên và địa chỉ cơ quan (nếu có)">
+        </div>
+    </div>
+    <!-- end -->
+
+      <!-- 12. Họ tên cha -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">12. Họ tên cha</label>
+          <input type="text"
+            class="form-control" formControlName="name_dad" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ tên cha">
+
+        </div>
+    </div>
+    <!-- end -->
+    <!-- 12. Họ tên cha -->
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="" class="form-label label-title">Năm sinh của Cha</label>
+        <input type="date"
+          class="form-control" formControlName="date_dad" name="" id="" aria-describedby="helpId" placeholder="Nhập Năm sinh">
+      </div>
+  </div>
+  <!-- end -->
+
+
+            <!-- 12. Họ tên mẹ -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">Họ tên mẹ</label>
+          <input type="text"
+            class="form-control" formControlName="name_mother" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ tên mẹ">
+
+        </div>
+    </div>
+    <!-- end -->
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="" class="form-label label-title">Năm sinh của Mẹ</label>
+        <input type="date"
+          class="form-control" formControlName="date_mother" name="" id="" aria-describedby="helpId" placeholder="Nhập Năm sinh">
+
+      </div>
+  </div>
+
+
+              <!-- 12. Họ tên Vợ/Chồng -->
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="" class="form-label label-title">Họ và tên vợ / chồng</label>
+            <input type="text"
+              class="form-control" formControlName="name_chong_vo" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ và tên vợ / chồng">
+          </div>
+      </div>
+      <!-- end -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">Năm sinh của vợ / chồng</label>
+          <input type="date"
+            class="form-control" formControlName="date_cv" name="" id="" aria-describedby="helpId" placeholder="Nhập Năm sinh">
+        </div>
+    </div>
+
+                <!-- 13. Hộ chiếu phổ thông lần gần nhất (nếu có) số -->
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="" class="form-label label-title">13. Hộ chiếu phổ thông lần gần nhất (nếu có) số</label>
+              <input type="text"
+                class="form-control" formControlName="passport" name="" id="" aria-describedby="helpId" placeholder="Nhập Hộ chiếu phổ thông lần gần nhất (nếu có) số">
+
+            </div>
+        </div>
+        <!-- end -->
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="" class="form-label label-title">Cấp ngày</label>
+            <input type="date"
+              class="form-control" formControlName="day_pp" name="" id="" aria-describedby="helpId" placeholder="Nhập dữ liệu">
+          </div>
+        </div>
+      <!-- 14. Nội dung đề nghị / Offered content -->
+      <div class="col-md-12">
+        <div class="mb-3">
+        <label for="" class="form-label label-title">14. Nội dung đề nghị / Offered content<span class="request"> *</span> </label>
+               <div class="form-check">
+                 <input class="form-check-input" formControlName="de_nghi" type="radio" value="Cấp hộ chiếu có gắn chíp điện tử" id="" checked>
+                 <label class="form-check-label" for="">
+                  Cấp hộ chiếu có gắn chíp điện tử
+                 </label>
+               </div>
+               <div class="form-check">
+                 <input class="form-check-input" formControlName="de_nghi" type="radio" value="Cấp hộ chiếu không gắn chíp điện tử" id="">
+                 <label class="form-check-label" for="">
+                  Cấp hộ chiếu không gắn chíp điện tử
+                 </label>
+               </div>
+               </div>
+    </div>
+
+      <div class="col-md-6">
+              <div class="mb-3">
+                <label for="" class="form-label label-title">Làm đơn tại<span class="request"> *</span> </label>
+                <select  class="form-control"  formControlName="address_single" name="" id="">
+                  <option value="New South Wales" >New South Wales</option>
+                  <option value="Victoria">Victoria</option>
+                  <option value="Queensland">Queensland</option>
+                  <option value="Western Australia">Western Australia</option>
+                  <option value="South Australia">South Australia</option>
+                  <option value="Tasmania">Tasmania</option>
+                </select>
+              </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+          <div class="mb-3">
+            <label for="" class="form-label label-title">Ngày</label>
+            <input type="date"
+              class="form-control" formControlName="day_address_single" name="" id="" aria-describedby="helpId" placeholder="Nhập ngày">
+          </div>
+      </div>
+  </div>
+
+  <div class="col-md-12">
+    <label for="" class="form-label label-title title-big">HỒ SƠ ĐÍNH KÈM / UPLOAD FILE (KHÔNG BẮT BUỘC)
+    </label>
+  </div>
+
+  <div class="col-md-6">
+    <div class="mb-3 khung">
+      <label for="" class="form-label label-title">HỒ SƠ BAO GỒM CÁC GIẤY TỜ ĐÍNH KÈM SAU: </label>
+        <p>1. Hình thẻ </p>
+       <p>2. Hộ chiếu</p>
+       <p>3. Visa </p>
+       <p>4. Hình CMND/CCCD</p>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="mb-3 khung">
+      <label for="" class="form-label label-title">Nơi upload File (lưu ý chỉ nhận JPG , PDF)</label>
+  <input  type="file" (change)="onFileSelected($event)" class="form-control" name="" id="" aria-describedby="helpId" multiple placeholder="Chọn file">
+    </div>
+    <label for="" class="form-label label-title">Hoặc bạn có thể gửi đến Trợ giúp pháp lý việt nam với địa chỉ Email : hotro@trogiupphaply.com.au</label>
+  </div>
+    <!-- end -->
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+      </div>
+    </div>
+
+
+  </div>
+
+</section>

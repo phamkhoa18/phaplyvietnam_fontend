@@ -1,0 +1,65 @@
+<app-loading *ngIf="isLoading"></app-loading>
+
+<!-- Begin Page Content -->
+ <div class="container-fluid" *ngIf="!isLoading">
+
+  <!-- Page Heading -->
+  <h1 class="h3 mb-3 text-gray-800" style="margin-top: 30px;">SLIDERSHOW</h1>
+  <div class="khung_button" style="display: flex;">
+    <p class="mb-4" style="padding: 10px; padding-left: 0 !important;"><a routerLink="add" class="btn btn-success" role="button">Thêm mới menu</a></p>
+  </div>
+
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+      <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">DANH SÁCH SLIDER</h6>
+      </div>
+      <div class="card-body">
+          <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                      <tr>
+                          <th>Stt</th>
+                          <th>Tên</th>
+                          <th>Hình</th>
+                          <th>Link</th>
+                          <th>Content</th>
+                          <th>Trạng thái</th>
+                          <th>Tác vụ</th>
+                      </tr>
+                  </thead>
+
+
+                    <tbody>
+                      <tr  *ngFor="let item of listslider , let i = index">
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ i+1 }}</h6></td>
+                        <td class="border-bottom-0">
+                          <p class="mb-0 fw-normal">{{item.title}}</p>
+                        </td>
+                        <td  class="border-bottom-0" style="text-align: center;" ><img  [src]="this.api.URL + '/uploads/' + item.image" width="150px" height="100px" alt=""></td>
+                        <td class="border-bottom-0">
+                          <p class="mb-0 fw-normal">{{item.link}}</p>
+                        </td>
+                        <td class="border-bottom-0" style=" width: 300px;">
+                          <p class="mb-0 fw-normal" [innerHTML]="item.description"></p>
+                        </td>
+                        <td class="border-bottom-0">
+                          <div class="d-flex align-items-center gap-2">
+                            <span class="badge bg-primary rounded-3 fw-semibold">Active</span>
+                          </div>
+                        </td>
+                        <td style="width: 180px;">
+                          <a name="" id="" class="btn btn-warning"role="button" [routerLink]="'/admin/sliders/edit/' + item._id" style="margin-right: 10px;" >Edit</a>
+                          <a name="" id="" class="btn btn-danger" (click)="remove(item)" role="button">Delete</a>
+                      </td>
+                    </tr>
+                    </tbody>
+
+              </table>
+          </div>
+      </div>
+  </div>
+
+</div>
+<!-- /.container-fluid -->

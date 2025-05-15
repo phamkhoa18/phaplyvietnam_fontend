@@ -1,0 +1,404 @@
+<section class="form lylichtuphap">
+  <div class="container">
+      <form [formGroup]="hochieu" (ngSubmit)="submit()">
+        <div class="form_80" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;">
+          <!-- title -->
+          <div class="mat-card" style="border: 2px solid #1A8B83;">
+              <div class="HeaderCenter">
+                <span class="d-flex align-items-center flex-column" >
+                  <b class="header-title">{{'FORM_CHUBAOLANH.TITLE' | translate}}</b>
+                  <b class="sub-title"><i>{{'FORM_CHUBAOLANH.DES' | translate}}</i></b>
+                </span>
+              </div>
+          </div>
+
+           <!-- content -->
+           <div class="mat-card">
+            <div class="header-child header-a position-relative">
+              <div class="stt"><span>1</span></div>
+              <div class="content-header">
+                <h2 class="header-title-child d-flex flex-column">THÔNG TIN DOANH NGHIỆP
+                  <b class="sub-title-child"><i>UNION INFORMATION</i></b>
+                </h2>
+              </div>
+            </div>
+            <div class="row" style="padding-top: 15px;">
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    1. {{"FORM_CHUBAOLANH.1" | translate}} <span class="request"> *</span>
+                  </label>
+                  <input type="text"
+                    [formControlName]="'Business'"
+                    pInputText
+                    [placeholder]="placeholder"
+                    [ngClass]="{'valid': hochieu.get('Business').invalid && (hochieu.get('Business').dirty || hochieu.get('Business').touched)}"
+                  />
+
+                    <span class="error-message" *ngIf="getErrorMessage('Business') != ''">
+                      {{ getErrorMessage('Business') }}
+                    </span>
+
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    2. {{"FORM_CHUBAOLANH.2" | translate}} <span class="request"> *</span>
+                  </label>
+                  <input type="text"
+                    [formControlName]="'Location'"
+                    #autocomplete
+                    pInputText
+                    [placeholder]="placeholder"
+                    [ngClass]="{'valid': hochieu.get('Location').invalid && (hochieu.get('Location').dirty || hochieu.get('Location').touched)}"
+                  />
+
+                    <span class="error-message" *ngIf="getErrorMessage('Location') != ''">
+                      {{ getErrorMessage('Location') }}
+                    </span>
+
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    3. {{"FORM_CHUBAOLANH.3" | translate}} <span class="request"> *</span>
+                  </label>
+                  <input type="text"
+                    [formControlName]="'Contact'"
+                    pInputText
+                    [placeholder]="placeholder"
+                    [ngClass]="{'valid': hochieu.get('Contact').invalid && (hochieu.get('Contact').dirty || hochieu.get('Contact').touched)}"
+                  />
+
+                    <span class="error-message" *ngIf="getErrorMessage('Contact') != ''">
+                      {{ getErrorMessage('Contact') }}
+                    </span>
+
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    4.1 {{"FORM_CHUBAOLANH.4.1" | translate}} <span class="request"> *</span>
+                  </label>
+                  <input type="text"
+                    [formControlName]="'Email'"
+                    pInputText
+                    [placeholder]="placeholder"
+                    [ngClass]="{'valid': hochieu.get('Email').invalid && (hochieu.get('Email').dirty || hochieu.get('Email').touched)}"
+                  />
+
+                    <span class="error-message" *ngIf="getErrorMessage('Email') != ''">
+                      {{ getErrorMessage('Email') }}
+                    </span>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    4.2 {{"FORM_CHUBAOLANH.4.2" | translate}}
+                  </label>
+                  <input type="text"
+                    [formControlName]="'Website'"
+                    pInputText
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    5. {{"FORM_CHUBAOLANH.5" | translate}}
+                  </label>
+                  <input type="text"
+                    [formControlName]="'Reprensentative'"
+                    pInputText
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    6. {{"FORM_CHUBAOLANH.6" | translate}}
+                  </label>
+                  <p-calendar placeholder="dd/mm/yyyy"
+                  [dateFormat]="'dd/mm/yy'"
+                  (onSelect)="onDateChange($event, 'Date' , null)"
+                  (onInput)="onInputChange($event, 'Date', null)"
+                  formControlName="Date"
+                  >
+                    <ng-template pTemplate="Date" let-date>
+                        <span>
+                            {{ date.day }}
+                        </span>
+                    </ng-template>
+                </p-calendar>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    7. {{"FORM_CHUBAOLANH.7" | translate}}
+                    <span class="sub-title">
+                      {{"FORM_CHUBAOLANH.7.1" | translate}}
+                    </span>
+                  </label>
+                  <input type="text"
+                    [formControlName]="'Type'"
+                    pInputText
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    8. {{"FORM_CHUBAOLANH.8" | translate}}
+                  </label>
+                  <textarea
+                      rows="3"
+                      cols="30"
+                      style="resize: none;"
+                      pInputTextarea
+                      [placeholder]="placeholder"
+                      [formControlName]="'Have'">
+                  </textarea>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    9. {{"FORM_CHUBAOLANH.9" | translate}}
+                  </label>
+                  <textarea
+                      rows="3"
+                      cols="30"
+                      style="resize: none;"
+                      pInputTextarea
+                      [placeholder]="placeholder"
+                      [formControlName]="'obligations'">
+                  </textarea>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    10. {{"FORM_CHUBAOLANH.10" | translate}}
+                  </label>
+                  <textarea
+                      rows="3"
+                      cols="30"
+                      style="resize: none;"
+                      pInputTextarea
+                      [placeholder]="placeholder"
+                      [formControlName]="'Currently'">
+                  </textarea>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    11. {{"FORM_CHUBAOLANH.11" | translate}}
+                  </label>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    11.1. {{"FORM_CHUBAOLANH.11.1" | translate}}
+                  </label>
+                  <input type="text"
+                    [formControlName]="'fulltime'"
+                    pInputText
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    11.2. {{"FORM_CHUBAOLANH.11.2" | translate}}
+                  </label>
+                  <input type="text"
+                    [formControlName]="'parttime'"
+                    pInputText
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    11.3. {{"FORM_CHUBAOLANH.11.3" | translate}}
+                  </label>
+                  <input type="text"
+                    [formControlName]="'casual'"
+                    pInputText
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    {{"FORM_CHUBAOLANH.12" | translate}}
+                  </label>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    11.4. {{"FORM_CHUBAOLANH.11.4" | translate}}
+                  </label>
+                  <input type="text"
+                    [formControlName]="'pr'"
+                    pInputText
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    11.5. {{"FORM_CHUBAOLANH.11.5" | translate}}
+                  </label>
+                  <input type="text"
+                    [formControlName]="'ac'"
+                    pInputText
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    11.6. {{"FORM_CHUBAOLANH.11.6" | translate}}
+                  </label>
+                  <textarea
+                  rows="3"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder"
+                  [formControlName]="'annual'">
+              </textarea>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    11.7. {{"FORM_CHUBAOLANH.11.7" | translate}}
+                  </label>
+                  <textarea
+                  rows="3"
+                  cols="30"
+                  style="resize: none;"
+                  pInputTextarea
+                  [placeholder]="placeholder"
+                  [formControlName]="'company'">
+              </textarea>
+                </div>
+              </div>
+          </div>
+
+          <div class="header-child header-a position-relative" style="margin-top: 10px;">
+            <div class="stt"><span>2</span></div>
+            <div class="content-header">
+              <h2 class="header-title-child d-flex flex-column">HỒ SƠ ĐÍNH KÈM ( KHÔNG BẮT BUỘC )
+                <b class="sub-title-child"><i> UPLOAD FILE</i></b>
+              </h2>
+            </div>
+          </div>
+
+
+          <div class="row" style="padding-top: 15px;">
+
+            <div class="col-md-6">
+              <div class="d-flex flex-column pb-3">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  HỒ SƠ BAO GỒM CÁC GIẤY TỜ ĐÍNH KÈM SAU:
+                </label>
+
+                <p>1. Australian Business Number (ABN) Registration Certificate</p>
+                <p>2. Business Names Extract (Trading Name/s)</p>
+                <p>3. Financial Report, including:
+                   <ul>
+                     <li>Profit & Loss Statement - last 2 FY</li>
+                     <li>Balance Sheet - last 2 FY</li>
+                     <li>02 x lastest Business Activity Statement (BAS)</li>
+                   </ul>
+
+                <p>4. Previous and Current Lease Agreement</p>
+                <p>5. Professional Indemnity Insurance</p>
+                <p>6. Worker's Compensation Insurance</p>
+                <p>7. Advertisements/Promotional information (Facebook page; Website...)</p>
+
+                <p style="color: blue;"><b>Ghi chú:</b> Thông tin, và giấy tờ nào chưa có hãy để trống. Hãy hỏi kế toán của quí khách những giấy tờ này nếu công ty quí vị có kế toán</p>
+
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="d-flex flex-column pb-3">
+                <label class="d-block font-weight-bold mb-2 title-input">
+                  Nơi upload File (lưu ý tối đa 5mb)
+                </label>
+
+                <p-toast />
+                <p-fileUpload
+                    name="demo[]"
+                    (onUpload)="onUpload($event)"
+                    [multiple]="true"
+                    maxFileSize="10000000"
+                    [auto]="false"
+                    [customUpload]="true"
+                    (onSelect)="onSelect($event)">
+                    <ng-template pTemplate="content">
+                        <ul *ngIf="uploadedFiles.length">
+                            <li *ngFor="let file of uploadedFiles">
+                                {{ file.name }} - {{ file.size }} bytes
+                            </li>
+                        </ul>
+                    </ng-template>
+                </p-fileUpload>
+
+                <label for="" class="form-label label-title">Hoặc bạn có thể gửi đến Trợ giúp pháp lý việt nam với địa chỉ Email : hotro@trogiupphaply.com.au</label>
+              </div>
+            </div>
+          </div>
+          <p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }" />
+          <button
+              pButton
+              pRipple
+              label="Hoàn Thành"
+              type="submit"
+              class="p-button-success submit_button"
+              >
+          </button>
+        </div>
+        </div>
+      </form>
+  </div>
+</section>

@@ -1,0 +1,312 @@
+.form {
+  background: #f5f5f5;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
+}
+
+.container {
+  padding: 24px;
+}
+
+
+* {
+    color: black;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif ;
+    font-size: 13px ;
+    line-height: 1.5 ;
+}
+
+
+.button_tao {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.form_80 {
+  background-color: #ffff;
+}
+
+.HeaderCenter {
+  text-align: center;
+  padding: 20px 0px;
+  line-height: 1.5;
+}
+.h2, h2 {
+  font-size: 20px;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+.header-title {
+  font-family: "Helve", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  line-height: 1.2;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #1A8B83;
+}
+
+dl, ol, ul {
+  margin: 0;
+  padding: 0;
+}
+
+::ng-deep {
+  .p-inputtext:enabled:focus {
+    box-shadow: none !important;
+    border: 1px solid #1A8B83;
+  }
+
+  .p-inputtext:enabled:hover {
+    border: 1px solid #1A8B83;
+    box-shadow: none !important;
+}
+
+.p-inputtext {
+  font-size: 0.8rem;
+}
+
+.p-element {
+  box-shadow: none ;
+}
+
+.p-dropdown:enabled:focus {
+  box-shadow: none !important;
+  border: 1px solid #1A8B83;
+}
+
+.p-dropdown:enabled:hover {
+  border: 1px solid #1A8B83;
+  box-shadow: none !important;
+}
+
+.p-dropdown:not(.p-disabled):hover {
+  border-color: #1A8B83;
+  box-shadow: none !important;
+}
+
+.p-radiobutton .p-radiobutton-box.p-highlight {
+  border-color: #1A8B83;
+  background: #1A8B83;
+}
+
+.p-stepper.p-stepper-vertical .p-stepper-panel:last-of-type .p-stepper-content {
+  padding-left:  0;
+}
+
+/* CSS để chỉ ẩn nút "Upload" */
+.p-fileupload-buttonbar .p-button.p-fileupload-upload {
+  display: none;
+}
+
+/* CSS để ẩn nút "Cancel" nếu cần */
+.p-fileupload-buttonbar .p-button.p-fileupload-cancel {
+  display: none;
+}
+
+
+
+.p-stepper .p-stepper-header {
+  padding: 0;
+}
+.p-stepper.p-stepper-vertical .p-stepper-panel .p-stepper-separator {
+  margin: 0;
+  margin-inline-start: 1rem;
+}
+.p-stepper-header .p-stepper-action {
+  display: block;
+  width: 100%;
+}
+.p-button {
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px !important;
+  font-size: 0.8rem;
+}
+
+.p-calendar {
+  width: 100%;
+}
+
+.p-dropdown {
+  width: 100%;
+}
+
+.p-dropdown-panel .p-dropdown-items {
+  padding-left: 0 !important;
+}
+
+.p-inputtext.ng-dirty.ng-invalid {
+  border: 2px solid #e24c4c;
+}
+
+.p-button-success {
+  background-color: #1A8B83; color: #ffff ;
+  transition: all 0.3ms;
+}
+
+.p-button-success:hover {
+  background-color: #cac80c  ;
+  color: black;
+}
+
+.ui-tooltip {
+  background-color: #ff4d4d; /* Màu nền cho tooltip */
+  color: #ffffff;           /* Màu chữ cho tooltip */
+  font-size: 12px;          /* Kích thước chữ */
+  border-radius: 4px;       /* Bo góc cho tooltip */
+}
+
+.p-message .p-message-wrapper {
+  padding: 0.8rem 1rem;
+}
+
+.p-component {
+  font-size: 0.75rem;
+}
+}
+
+.error-message {
+  color: #e24c4c;
+  margin-top: 2px;
+}
+
+.box-child {
+  padding: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  background-color: #f5f5f5;
+  margin-top: 10px;
+}
+
+.sub-title {
+  display: block;
+  font-weight: 500;
+  font-style: italic;
+}
+
+@media screen and (max-width: 768px) {
+    .title-input {
+      font-size: 13px !important;
+    }
+
+    .mat-card {
+      padding: 15px !important;
+    }
+
+    .container {
+      padding: 15px 10px ;
+    }
+
+    .header-title {
+      font-size: 20px;
+    }
+
+    .HeaderCenter {
+     padding: 0;
+     padding-top: 15px !important;
+    }
+
+    .header-title-child  {
+      font-size: 16px !important;
+
+      .sub-title-child {
+        i {
+          font-size: 12px  !important;
+        }
+      }
+    }
+
+}
+
+.mat-card {
+  padding: 20px ;
+}
+
+.header-child {
+  .stt {
+      font-size: 18px;
+      line-height: 1.2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #1A8B83;
+      color: #fff;
+      width: 30px;
+      height: 100%;
+      display: flex;
+      span {
+          display: block;
+          margin: auto;
+          color: #ffff;
+          font-family: "Helve", Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+      }
+  }
+
+  .content-header {
+    margin-left: 40px;
+    .header-title-child {
+      font-family: "Helve", Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+      color: #1A8B83;
+      position: relative;
+      padding-bottom: 10px;
+      font-size: 18px;
+      text-transform: uppercase;
+      line-height: 1.2;
+      font-weight: 300;
+    }
+
+    .header-title-child::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #1A8B83;
+  }
+
+  .sub-title-child {
+    padding-top: 5px;
+  }
+  }
+}
+
+
+
+
+.title-input {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+
+.w-100 {
+  width: 100%;
+}
+
+
+.request {
+  color: red ;
+}
+
+
+.valid {
+  border: 2px solid #e24c4c;
+  border-radius: 10px;
+}
+
+a {
+  color: #0d6efd;
+}
+
+
+.xanh {
+  color: red;
+  cursor: pointer;
+}
+
+
+.submit_button {
+  width: fit-content;
+}

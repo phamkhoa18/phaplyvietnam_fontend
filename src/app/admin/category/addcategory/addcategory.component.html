@@ -1,0 +1,55 @@
+   <!-- Begin Page Content -->
+   <div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-3 text-gray-800" style="margin-top: 30px;" routerLink="addcategory">THÊM MỚI DANH MỤC</h1>
+    <!-- <div class="khung_button" style="display: flex;">
+      <p class="mb-4" style="padding: 10px; padding-left: 0 !important;"><a routerLink="add" class="btn btn-success" role="button">Thêm mới menu</a></p>
+      <p class="mb-4"  style="padding: 10px;"><a name="" id="" class="btn btn-danger" role="button">Vị trí menu</a></p>
+    </div> -->
+
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="container-fluid" style="padding: 15px !important;">
+              <div class="row">
+                  <div class="col-7">
+                    <form class="row g-3" [formGroup]="menu" (ngSubmit)="submit()">
+                      <div class="col-md-12">
+                        <label for="inputEmail4" class="form-label">Tên danh mục</label>
+                        <input type="text" formControlName="name" class="form-control" id="inputEmail4">
+                        <small class="text-danger" *ngIf="menu.get('name')?.invalid && menu.get('name')?.touched">
+                          Tên không được để trống
+                        </small>
+                      </div>
+
+                      <div class="col-md-12">
+                        <label for="inputEmail4" class="form-label">Show/Hide Filter</label>
+                        <input type="checkbox" formControlName="filter">
+                      </div>
+
+                      <div class="col-md-12">
+                        <label for="inputState" class="form-label">Parent danh mục</label>
+                        <select class="form-select" formControlName="parentcategory" id="select">
+                          <option value="" disabled  style="color: red;" >Tạo danh mục mới thì không chọn !!! </option>
+                          <option [value]="item._id" *ngFor="let item of listselectdanhmuc" >{{item.title}}</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-12">
+                        <label for="inputPassword4" class="form-label">Image</label>
+                        <input type="file" (change)="onFileSelected($event)" formControlName="image" class="form-control" id="inputPassword4">
+                      </div>
+
+
+                      <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+                    </form>
+                  </div>
+              </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

@@ -1,0 +1,199 @@
+<form [formGroup]="form80">
+  <div class="form_child">
+
+    <div class="header-child header-a position-relative">
+      <div class="stt"><span>E</span></div>
+      <div class="content-header">
+        <h2 class="header-title-child d-flex flex-column">{{'SECTION_E.TITLE' | translate}}</h2>
+      </div>
+    </div>
+
+    <div class="row" style="padding-top: 15px;" [formGroupName]="sectionGroupContainer">
+
+      <div class="col-md-12">
+        <div class="d-flex flex-column pb-3">
+          <label class="d-block font-weight-bold mb-2 title-input">
+            18. {{'SECTION_E.18' | translate}}
+          </label>
+          <div class="d-flex flex-wrap gap-3 align-content-center pb-2" style="height: 100%;">
+            <div class="d-flex align-items-center">
+              <p-radioButton [formControlName]="'ap.visit oth country'" [value]="'2'"  />
+              <label for="male" class="ms-2">{{'SECTION_HOME.YES' | translate}}</label>
+            </div>
+            <div class="d-flex align-items-center">
+              <p-radioButton [formControlName]="'ap.visit oth country'" [value]="'1'"  />
+              <label for="female" class="ms-2">{{'SECTION_HOME.NO' | translate}}</label>
+            </div>
+          </div>
+
+          <span class="error-message" *ngIf="form80service.getErrorMessage(sectionGroupContainer,'ap.visit oth country') != ''">
+            {{ form80service.getErrorMessage(sectionGroupContainer, 'ap.visit oth country') }}
+          </span>
+
+          <div class="d-flex rounded flex-column pb-3 pt-2"  *ngIf="form80.get([sectionGroupContainer, 'ap.visit oth country']).value === '2'">
+            <div class="row" [formGroup]="itemthongtin">
+              <label class="d-block font-weight-bold mb-2 title-input" style="color: red; text-transform: uppercase;">
+                {{'SECTION_HOME.INFORMATION' | translate}}
+              </label>
+                <div class="col-md-2 d-flex align-items-end">
+                  <div class="d-flex flex-column pb-3" style="width: 100%;">
+                    <label class="d-block font-weight-bold mb-2 title-input">
+                      {{'SECTION_E.18_1' | translate}}
+                    </label>
+                    <p-calendar
+                    placeholder="mm/yyyy"
+                    formControlName="ap.visit oth doa"
+                    view="month"
+                    dateFormat="mm/yy"
+                    (onSelect)="this.form80service.onDateChange(
+                        $event, null ,  'ap.visit oth doa' , null, itemthongtin, 'monthyear'
+                    )"
+                    (onInput)="this.form80service.onInputChange(
+                        $event,  'ap.visit oth doa' , null, null, itemthongtin, 'monthyear'
+                    )"
+                    [readonlyInput]="false"
+                    >
+                    <ng-template pTemplate="date" let-date>
+                      <span>
+                        {{ date.month }}/{{ date.year }}
+                      </span>
+                    </ng-template>
+                  </p-calendar>
+                  </div>
+                </div>
+
+                <div class="col-md-2 d-flex align-items-end">
+                  <div class="d-flex flex-column pb-3" style="width: 100%;">
+                    <label class="d-block font-weight-bold mb-2 title-input">
+                      {{'SECTION_E.18_2' | translate}}
+                    </label>
+                    <p-calendar
+                    placeholder="mm/yyyy"
+                    formControlName="ap.visit oth dod"
+                    view="month"
+                    dateFormat="mm/yy"
+                    (onSelect)="this.form80service.onDateChange(
+                        $event, null ,  'ap.visit oth dod' , null, itemthongtin, 'monthyear'
+                    )"
+                    (onInput)="this.form80service.onInputChange(
+                        $event,  'ap.visit oth dod' , null, null, itemthongtin, 'monthyear'
+                    )"
+                    [readonlyInput]="false"
+                    >
+                    <ng-template pTemplate="date" let-date>
+                      <span>
+                        {{ date.month }}/{{ date.year }}
+                      </span>
+                    </ng-template>
+                  </p-calendar>
+                  </div>
+                </div>
+
+                <div class="col-md-3 d-flex align-items-end">
+                  <div class="d-flex flex-column pb-3" style="width: 100%;">
+                    <label class="d-block font-weight-bold mb-2 title-input">
+                      {{'SECTION_E.18_3' | translate}}
+                    </label>
+                    <p-dropdown [options]="this.arrayvisit"
+                      formControlName="ap.visit oth country reason"
+                      placeholder="Vui lòng chọn lý do du lịch"
+                      [ngClass]="{'valid': itemthongtin.get(['ap.visit oth country reason']).invalid && (itemthongtin.get(['ap.visit oth country reason']).dirty || itemthongtin.get(['ap.visit oth country reason']).touched)}"
+                      optionLabel="name" optionValue="name">
+                        <ng-template let-item pTemplate="item">
+                          <div class="d-flex align-items-center">
+                            <span class="ms-2">{{item.name}}</span>
+                          </div>
+                        </ng-template>
+                      </p-dropdown>
+                  </div>
+                </div>
+
+                <div class="col-md-3 d-flex align-items-end">
+                  <div class="d-flex flex-column pb-3" style="width: 100%;">
+                    <label class="d-block font-weight-bold mb-2 title-input">
+                      {{'SECTION_E.18_4' | translate}}
+                    </label>
+                    <p-dropdown [options]="countries"
+                      formControlName="ap.visit oth country"
+                      placeholder="Vui lòng chọn quốc gia"
+                      [filter]="true"
+                      filterBy="name"
+                      [ngClass]="{'valid': itemthongtin.get(['ap.visit oth country']).invalid && (itemthongtin.get(['ap.visit oth country']).dirty || itemthongtin.get(['ap.visit oth country']).touched)}"
+                      [showClear]="true"
+                      optionLabel="name" optionValue="name">
+                        <ng-template let-item pTemplate="item">
+                          <div class="d-flex align-items-center">
+                            <span class="fi fi-{{item.code.toLowerCase()}}"></span>
+                            <span class="ms-2">{{item.name}}</span>
+                          </div>
+                        </ng-template>
+                      </p-dropdown>
+                  </div>
+                </div>
+
+                <div class="col-md-2 d-flex align-items-end">
+                  <div class="d-flex flex-column pb-3" style="width: 100%;">
+                      <p-toast />
+                      <p-confirmDialog />
+                      <p-button (onClick)="confirm()" [disabled]="this.thongtinarray.length >= 5" [label]="'SECTION_HOME.BUTTON_INFORMATION' | translate" severity="danger" />
+                  </div>
+                </div>
+            </div>
+
+            <div class="row">
+              <label class="d-block font-weight-bold mb-2 title-input" style="color: red; text-transform: uppercase;">
+                {{'SECTION_HOME.LIST_INFORMATION' | translate}}
+              </label>
+                <div class="col-md-7 d-flex align-items-end">
+                  <div class="d-flex flex-column pb-3" style="width: 100%;">
+                    <p-table
+                    [value]="thongtinarray"
+                    [tableStyle]="{ 'min-width': '35rem' }">
+                    <!-- Header -->
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>#</th>
+                            <th>{{'SECTION_E.18_1' | translate}}</th>
+                            <th>{{'SECTION_E.18_2' | translate}}</th>
+                            <th>{{'SECTION_E.18_3' | translate}}</th>
+                            <th>{{'SECTION_E.18_4' | translate}}</th>
+                        </tr>
+                    </ng-template>
+
+                    <!-- Body -->
+                    <ng-template pTemplate="body" let-row let-i="rowIndex" let-thongtin>
+                        <tr>
+                            <td>
+                              <svg width="20px" height="20px" viewBox="0 0 512 512" (click)="remove(i, thongtin)" style="cursor: pointer;" xmlns="http://www.w3.org/2000/svg"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"/></svg>
+                            </td>
+                            <td>{{thongtin['ap.visit oth doa']}}</td>
+                            <td>{{thongtin['ap.visit oth dod']}}</td>
+                            <td>{{thongtin['ap.visit oth country reason']}}</td>
+                            <td>{{thongtin['ap.visit oth country']}}</td>
+                        <tr>
+                    </ng-template>
+                </p-table>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }" />
+  <div class="grid grid-nogutter justify-content-end d-flex">
+    <p-button [label]="'SECTION_HOME.BUTTON_BACK' | translate" severity="secondary" (click)="goBack()" class="back" />
+    <button
+    (click)="nextStep(sectionGroupContainer , 'ap.visit array')"
+      pButton
+      pRipple
+      [label]="'SECTION_HOME.BUTTON_NEXT' | translate"
+      type="button"
+      class="p-button-success submit_button"
+      >
+    </button>
+  </div>
+
+  </form>

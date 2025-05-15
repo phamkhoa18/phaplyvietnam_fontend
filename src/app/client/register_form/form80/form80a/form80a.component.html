@@ -1,0 +1,366 @@
+<form [formGroup]="form80">
+<div class="form_child">
+
+  <div class="header-child header-a position-relative">
+    <div class="stt"><span>A</span></div>
+    <div class="content-header">
+      <h2 class="header-title-child d-flex flex-column">{{'SECTION_A.TITLE' | translate}}</h2>
+    </div>
+  </div>
+
+  <div class="row" style="padding-top: 15px;" [formGroupName]="sectionGroupContainer">
+    <div class="col-md-4">
+      <div class="d-flex flex-column pb-3">
+        <label class="d-block font-weight-bold mb-2 title-input">
+          1. {{ 'SECTION_A.FIRST_NAME' | translate }}<span class="request"> *</span>
+        </label>
+        <input type="text"
+          [formControlName]="'ap.name fam'"
+          pInputText
+          [placeholder]="placeholder"
+          [ngClass]="{'valid': form80.get([sectionGroupContainer, 'ap.name fam']).invalid && (form80.get([sectionGroupContainer, 'ap.name fam']).dirty || form80.get([sectionGroupContainer, 'ap.name fam']).touched)}"
+        />
+
+
+          <span class="error-message" *ngIf="form80service.getErrorMessage(sectionGroupContainer, 'ap.name fam') != ''">
+            {{ form80service.getErrorMessage(sectionGroupContainer, 'ap.name fam') }}
+          </span>
+
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="d-flex flex-column pb-3">
+        <label class="d-block font-weight-bold mb-2 title-input">
+          {{ 'SECTION_A.LAST_NAME' | translate }} <span class="request"> *</span>
+        </label>
+        <input type="text" pInputText
+          [formControlName]="'ap.name giv'"
+          [placeholder]="placeholder"
+          [ngClass]="{'valid': form80.get([sectionGroupContainer, 'ap.name giv']).invalid && (form80.get([sectionGroupContainer, 'ap.name giv']).dirty || form80.get([sectionGroupContainer, 'ap.name giv']).touched)}"
+        />
+
+        <span class="error-message" *ngIf="form80service.getErrorMessage(sectionGroupContainer, 'ap.name giv') != ''">
+          {{ form80service.getErrorMessage(sectionGroupContainer, 'ap.name giv') }}
+        </span>
+
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="d-flex flex-column pb-3" style="height: 100%;">
+        <label class="d-block font-weight-bold mb-2 title-input">
+          {{ 'SECTION_A.SEX' | translate }} <span class="request"> *</span>
+        </label>
+        <div class="d-flex flex-wrap gap-3 align-content-center" style="height: 100%;">
+          <div class="d-flex align-items-center">
+            <p-radioButton [formControlName]="'ap.sex'" value="1"  />
+            <label for="male" class="ms-2">{{ 'SECTION_HOME.MALE' | translate }}</label>
+          </div>
+          <div class="d-flex align-items-center">
+            <p-radioButton [formControlName]="'ap.sex'" value="2" />
+            <label for="female" class="ms-2">{{ 'SECTION_HOME.FEMALE' | translate }}</label>
+          </div>
+        </div>
+
+        <span class="error-message" *ngIf="form80service.getErrorMessage(sectionGroupContainer, 'ap.sex') != ''">
+          {{ form80service.getErrorMessage(sectionGroupContainer, 'ap.sex') }}
+        </span>
+
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="d-flex flex-column pb-3">
+        <label class="d-block font-weight-bold mb-2 title-input">
+          {{ 'SECTION_A.DATE' | translate }} <span class="request"> *</span>
+        </label>
+        <p-calendar placeholder="dd/mm/yyyy"
+        [dateFormat]="'dd/mm/yy'"
+        formControlName="ap.dob"
+        (onSelect)="onDateChange($event, 'ap.dob')"
+        (onInput)="onInputChange($event, 'ap.dob')"
+        [ngClass]="{'valid': form80.get([sectionGroupContainer, 'ap.dob']).invalid && (form80.get([sectionGroupContainer, 'ap.dob']).dirty || form80.get([sectionGroupContainer, 'ap.dob']).touched)}"
+        >
+          <ng-template pTemplate="date" let-date>
+              <span>
+                  {{ date.day }}
+              </span>
+          </ng-template>
+      </p-calendar>
+
+      <span class="error-message" *ngIf="form80service.getErrorMessage(sectionGroupContainer, 'ap.dob') != ''">
+        {{ form80service.getErrorMessage(sectionGroupContainer, 'ap.dob') }}
+      </span>
+
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="d-flex flex-column pb-3">
+        <label class="d-block font-weight-bold mb-2 title-input">
+          {{ 'SECTION_A.BIRTH' | translate }} <span class="request"> *</span>
+        </label>
+        <input type="text"
+        pInputText
+        [placeholder]="placeholder"
+        formControlName="ap.birth state"
+        [ngClass]="{'valid': form80.get([sectionGroupContainer, 'ap.birth state']).invalid && (form80.get([sectionGroupContainer, 'ap.birth state']).dirty || form80.get([sectionGroupContainer, 'ap.birth state']).touched)}"
+        />
+
+        <span class="error-message" *ngIf="form80service.getErrorMessage(sectionGroupContainer, 'ap.birth state') != ''">
+          {{ form80service.getErrorMessage(sectionGroupContainer, 'ap.birth state') }}
+        </span>
+
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="d-flex flex-column pb-3">
+        <label class="d-block font-weight-bold mb-2 title-input">
+          {{ 'SECTION_A.COUNTRY' | translate }} <span class="request"> *</span>
+        </label>
+        <p-dropdown [options]="countries"
+                  formControlName="ap.birth cntry"
+                  placeholder="Vui lòng chọn quốc gia"
+                  [filter]="true"
+                  filterBy="name"
+                  [showClear]="true"
+                  [ngClass]="{'valid': form80.get([sectionGroupContainer, 'ap.birth cntry']).invalid && (form80.get([sectionGroupContainer, 'ap.birth cntry']).dirty || form80.get([sectionGroupContainer, 'ap.birth cntry']).touched)}"
+                  optionLabel="name" optionValue="name">
+                    <ng-template let-item pTemplate="item">
+                      <div class="d-flex align-items-center">
+                        <span class="fi fi-{{item.code.toLowerCase()}}"></span>
+                        <span class="ms-2">{{item.name}}</span>
+                      </div>
+                    </ng-template>
+          </p-dropdown>
+
+        <span class="error-message" *ngIf="form80service.getErrorMessage(sectionGroupContainer, 'ap.birth cntry') != ''">
+          {{ form80service.getErrorMessage(sectionGroupContainer, 'ap.birth cntry') }}
+        </span>
+
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="d-flex flex-column pb-3" style="height: 100%;">
+        <label class="d-block font-weight-bold mb-2 title-input">
+          4. {{ 'SECTION_A.4' | translate }}
+        </label>
+        <div class="d-flex flex-wrap gap-3 align-content-center pb-2" style="height: 100%;">
+          <div class="d-flex align-items-center">
+            <p-radioButton [formControlName]="'ap.known other name'" [value]="'2'"  />
+            <label for="male" class="ms-2">{{ 'SECTION_HOME.YES' | translate }}</label>
+          </div>
+          <div class="d-flex align-items-center">
+            <p-radioButton [formControlName]="'ap.known other name'" [value]="'1'"  />
+            <label for="female" class="ms-2">{{ 'SECTION_HOME.NO' | translate }}</label>
+          </div>
+        </div>
+
+        <span class="error-message" *ngIf="form80service.getErrorMessage(sectionGroupContainer, 'ap.known other name') != ''">
+          {{ form80service.getErrorMessage(sectionGroupContainer, 'ap.known other name') }}
+        </span>
+
+        <div class="d-flex rounded flex-column pb-3" *ngIf="form80.get([sectionGroupContainer, 'ap.known other name']).value === '2'">
+            <div class="row">
+                <div class="col-md-6">
+                  <div class="d-flex flex-column pb-3">
+                    <label class="d-block font-weight-bold mb-2 title-input">
+                      {{ 'SECTION_A.FIRST_NAME' | translate }}
+                    </label>
+                    <input type="text" pInputText
+                    [placeholder]="placeholder"
+                    formControlName="ap.name fam other" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                 <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    {{ 'SECTION_A.LAST_NAME' | translate }}
+                  </label>
+                  <input type="text" pInputText
+                  [placeholder]="placeholder"
+                  formControlName="ap.name giv other" />
+                 </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-12">
+      <div class="d-flex flex-column pb-3" style="height: 100%;">
+        <label class="d-block font-weight-bold mb-2 title-input">
+         5. {{ 'SECTION_A.5' | translate }}
+        </label>
+        <div class="d-flex flex-wrap gap-3 align-content-center pb-2" style="height: 100%;">
+          <div class="d-flex align-items-center">
+            <p-radioButton [formControlName]="'ap.altbirth'" [value]="'2'"  />
+            <label for="male" class="ms-2">{{ 'SECTION_HOME.YES' | translate }}</label>
+          </div>
+          <div class="d-flex align-items-center">
+            <p-radioButton [formControlName]="'ap.altbirth'" [value]="'1'"  />
+            <label for="female" class="ms-2">{{ 'SECTION_HOME.NO' | translate }}</label>
+          </div>
+        </div>
+
+        <span class="error-message" *ngIf="form80service.getErrorMessage(sectionGroupContainer, 'ap.altbirth') != ''">
+          {{ form80service.getErrorMessage(sectionGroupContainer, 'ap.altbirth') }}
+        </span>
+
+        <div class="d-flex rounded flex-column pt-2" *ngIf="form80.get([sectionGroupContainer, 'ap.altbirth']).value === '2'">
+            <div class="row">
+                <div class="col-md-4 d-flex align-items-end">
+                  <div class="d-flex flex-column pb-3" style="width: 100%;">
+                    <label class="d-block font-weight-bold mb-2 title-input">
+                     {{ 'SECTION_A.DATE' | translate }}
+                    </label>
+                  <p-calendar placeholder="dd/mm/yyyy"
+                    [dateFormat]="'dd/mm/yy'"
+                    formControlName="ap.alt dob"
+                    (onSelect)="onDateChange($event, 'ap.alt dob')"
+                    (onInput)="onInputChange($event, 'ap.alt dob')"
+                    [ngClass]="{'valid': form80.get([sectionGroupContainer, 'ap.alt dob']).invalid && (form80.get([sectionGroupContainer, 'ap.alt dob']).dirty || form80.get([sectionGroupContainer, 'ap.alt dob']).touched)}"
+                    >
+                      <ng-template pTemplate="date" let-date>
+                          <span>
+                              {{ date.day }}
+                          </span>
+                      </ng-template>
+                  </p-calendar>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-12">
+      <div class="d-flex flex-column pb-3" style="height: 100%;">
+        <label class="d-block font-weight-bold mb-2 title-input">
+         6. {{ 'SECTION_A.6' | translate }}
+        </label>
+        <div class="d-flex flex-wrap gap-3 align-content-center pb-2" style="height: 100%;">
+          <div class="d-flex align-items-center">
+            <p-radioButton [formControlName]="'ap.citizen country'" [value]="'2'"  />
+            <label for="male" class="ms-2"> {{ 'SECTION_HOME.YES' | translate }}</label>
+          </div>
+          <div class="d-flex align-items-center">
+            <p-radioButton [formControlName]="'ap.citizen country'" [value]="'1'"  />
+            <label for="female" class="ms-2">{{'SECTION_HOME.NO' | translate}}</label>
+          </div>
+        </div>
+
+        <span class="error-message" *ngIf="form80service.getErrorMessage(sectionGroupContainer, 'ap.citizen country') != ''">
+          {{ form80service.getErrorMessage(sectionGroupContainer, 'ap.citizen country') }}
+        </span>
+
+        <div class="d-flex rounded flex-column pt-2" *ngIf="form80.get([sectionGroupContainer, 'ap.citizen country']).value === '2'">
+            <div class="row">
+                <div class="col-md-5 d-flex align-items-end">
+                  <div class="d-flex flex-column pb-3">
+                    <label class="d-block font-weight-bold mb-2 title-input">
+                      {{ 'SECTION_A.6_1' | translate }}
+                    </label>
+                    <input type="text" pInputText
+                    [placeholder]="placeholder"
+                    formControlName="ap.gain citizenship" />
+                  </div>
+                </div>
+                <div class="col-md-4 d-flex align-items-end">
+                 <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    {{ 'SECTION_A.6_2' | translate }}
+                  </label>
+                <p-calendar placeholder="dd/mm/yyyy"
+                [dateFormat]="'dd/mm/yy'"
+                formControlName="ap.citgain date"
+                (onSelect)="onDateChange($event, 'ap.citgain date')"
+                (onInput)="onInputChange($event, 'ap.citgain date')"
+                [ngClass]="{'valid': form80.get([sectionGroupContainer, 'ap.citgain date']).invalid && (form80.get([sectionGroupContainer, 'ap.citgain date']).dirty || form80.get([sectionGroupContainer, 'ap.citgain date']).touched)}"
+                >
+                  <ng-template pTemplate="date" let-date>
+                      <span>
+                          {{ date.day }}
+                      </span>
+                  </ng-template>
+              </p-calendar>
+                 </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-12">
+      <div class="d-flex flex-column pb-3" style="height: 100%;">
+        <label class="d-block font-weight-bold mb-2 title-input">
+         8. {{ 'SECTION_A.8' | translate }}
+        </label>
+        <div class="d-flex flex-wrap gap-3 align-content-center pb-2" style="height: 100%;">
+          <div class="d-flex align-items-center">
+            <p-radioButton [formControlName]="'ap.perm res rights'" [value]="'2'"  />
+            <label for="male" class="ms-2">{{ 'SECTION_HOME.YES' | translate }}</label>
+          </div>
+          <div class="d-flex align-items-center">
+            <p-radioButton [formControlName]="'ap.perm res rights'" [value]="'1'"  />
+            <label for="female" class="ms-2">{{ 'SECTION_HOME.NO' | translate }}</label>
+          </div>
+        </div>
+
+        <span class="error-message" *ngIf="form80service.getErrorMessage(sectionGroupContainer, 'ap.perm res rights') != ''">
+          {{ form80service.getErrorMessage(sectionGroupContainer, 'ap.perm res rights') }}
+        </span>
+
+        <div class="d-flex rounded flex-column pt-2"  *ngIf="form80.get([sectionGroupContainer, 'ap.perm res rights']).value === '2'">
+            <div class="row">
+                <div class="col-md-5 d-flex align-items-end">
+                  <div class="d-flex flex-column pb-3" style="width: 100%;">
+                    <label class="d-block font-weight-bold mb-2 title-input">
+                      {{ 'SECTION_A.COUNTRY' | translate }}
+                    </label>
+                    <p-dropdown [options]="countries"
+                      formControlName="ap.perm res rights cntry"
+                      placeholder="Vui lòng chọn quốc gia"
+                      [filter]="true"
+                      filterBy="name"
+                      [showClear]="true"
+                      optionLabel="name" optionValue="name">
+                        <ng-template let-item pTemplate="item">
+                          <div class="d-flex align-items-center">
+                            <span class="fi fi-{{item.code.toLowerCase()}}"></span>
+                            <span class="ms-2">{{item.name}}</span>
+                          </div>
+                        </ng-template>
+                      </p-dropdown>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
+<p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }" />
+<div class="grid grid-nogutter justify-content-end d-flex">
+  <button
+  (click)="nextStep(sectionGroupContainer)"
+    pButton
+    pRipple
+    [label]="'SECTION_HOME.BUTTON_NEXT' | translate"
+    type="button"
+    class="p-button-success submit_button"
+    >
+  </button>
+</div>
+
+</form>

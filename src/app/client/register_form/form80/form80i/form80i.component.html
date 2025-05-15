@@ -1,0 +1,153 @@
+<form [formGroup]="form80">
+  <div class="form_child">
+
+    <div class="header-child header-a position-relative">
+      <div class="stt"><span>I</span></div>
+      <div class="content-header">
+        <h2 class="header-title-child d-flex flex-column">{{'SECTION_I.TITLE' | translate}}
+        </h2>
+      </div>
+    </div>
+
+    <div class="row" style="padding-top: 15px;" [formGroupName]="sectionGroupContainer">
+      <div class="col-md-12">
+        <div class="d-flex flex-column pb-3">
+          <label class="d-block font-weight-bold mb-2 title-input">
+            30. {{'SECTION_I.30' | translate}}
+          </label>
+          <div class="d-flex flex-wrap gap-3 align-content-center pb-2" style="height: 100%;">
+            <div class="d-flex align-items-center">
+              <p-radioButton [formControlName]="'ap.inau'" [value]="'2'"  />
+              <label for="male" class="ms-2">{{'SECTION_HOME.YES' | translate}}</label>
+            </div>
+            <div class="d-flex align-items-center">
+              <p-radioButton [formControlName]="'ap.inau'" [value]="'1'"  />
+              <label for="female" class="ms-2">{{'SECTION_HOME.NO' | translate}}</label>
+            </div>
+          </div>
+
+          <span class="error-message" *ngIf="form80service.getErrorMessage(sectionGroupContainer,'ap.inau') != ''">
+            {{ form80service.getErrorMessage(sectionGroupContainer, 'ap.inau') }}
+          </span>
+
+          <!-- yes -->
+          <div class="d-flex rounded flex-column pb-3 pt-2"  *ngIf="form80.get([sectionGroupContainer, 'ap.inau']).value === '2'">
+            <div class="row" >
+                <div class="col-md-12 d-flex align-items-end">
+                  <div class="d-flex flex-column pb-3" style="width: 100%;">
+                    <label class="d-block font-weight-bold mb-2 title-input">
+                      31. {{'SECTION_I.31' | translate}}
+                    </label>
+                    <div class="d-flex flex-wrap gap-3 align-content-center pb-2" style="height: 100%;">
+                      <div class="d-flex align-items-center">
+                        <p-radioButton [formControlName]="'ap.in aus add'" [value]="'2'"  />
+                        <label for="male" class="ms-2">{{'SECTION_HOME.YES' | translate}}</label>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <p-radioButton [formControlName]="'ap.in aus add'" [value]="'1'"  />
+                        <label for="female" class="ms-2">{{'SECTION_HOME.NO' | translate}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="row"  *ngIf="form80.get([sectionGroupContainer, 'ap.in aus add']).value === '2'">
+              <div class="col-md-4 d-flex align-items-end">
+                <div class="d-flex flex-column pb-3" style="width: 100%;" >
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    {{'SECTION_I.31_1' | translate}}
+                  </label>
+                  <textarea
+                        rows="1"
+                        cols="30"
+                        pInputTextarea
+                        #autocomplete
+                        [id]="inputId"
+                        placeholder="Nhập địa chỉ"
+                        style="resize: none;"
+                        formControlName="ap.in aus add line 1">
+                  </textarea>
+                </div>
+              </div>
+
+              <div class="col-md-4 d-flex align-items-end">
+                <div class="d-flex flex-column pb-3" style="width: 100%;" >
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    {{'SECTION_I.31_2' | translate}}
+                  </label>
+                  <input type="text" formControlName="ap.in aus mob 1" [placeholder]="placeholder" pInputText />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- no -->
+          <div class="d-flex rounded flex-column pb-3 pt-2"  *ngIf="form80.get([sectionGroupContainer, 'ap.inau']).value === '1' || form80.get([sectionGroupContainer, 'ap.in aus add']).value === '1' || form80.get([sectionGroupContainer, 'ap.in aus add']).value === '2' ">
+            <div class="row" >
+                <div class="col-md-12 d-flex align-items-end">
+                  <div class="d-flex flex-column pb-3" style="width: 100%;">
+                    <label class="d-block font-weight-bold mb-2 title-input">
+                      33. {{'SECTION_I.33' | translate}}
+                    </label>
+                    <div class="d-flex flex-wrap gap-3 align-content-center pb-2" style="height: 100%;">
+                      <div class="d-flex align-items-center">
+                        <p-radioButton [formControlName]="'ap.cur in aus add'" [value]="'2'"  />
+                        <label for="male" class="ms-2">{{'SECTION_HOME.YES' | translate}}</label>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <p-radioButton [formControlName]="'ap.cur in aus add'" [value]="'1'"  />
+                        <label for="female" class="ms-2">{{'SECTION_HOME.NO' | translate}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="row"  *ngIf="form80.get([sectionGroupContainer, 'ap.cur in aus add']).value === '2'">
+              <div class="col-md-4 d-flex align-items-end">
+                <div class="d-flex flex-column pb-3" style="width: 100%;" >
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    {{'SECTION_I.31_1' | translate}}
+                  </label>
+                  <textarea
+                        rows="1"
+                        cols="30"
+                        pInputTextarea
+                        #autocomplete2
+                        [id]="inputId"
+                        placeholder="Nhập địa chỉ"
+                        style="resize: none;"
+                        formControlName="ap.cur in aus add line 1">
+                  </textarea>
+                </div>
+              </div>
+
+              <div class="col-md-4 d-flex align-items-end">
+                <div class="d-flex flex-column pb-3" style="width: 100%;" >
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    {{'SECTION_I.31_2' | translate}}
+                  </label>
+                  <input type="text" formControlName="ap.in aus mob 2" [placeholder]="placeholder" pInputText />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }" />
+  <div class="grid grid-nogutter justify-content-end d-flex">
+    <p-button  [label]="'SECTION_HOME.BUTTON_BACK' | translate" severity="secondary" (click)="goBack()" class="back" />
+    <button
+    (click)="nextStep(sectionGroupContainer)"
+      pButton
+      pRipple
+      [label]="'SECTION_HOME.BUTTON_NEXT' | translate"
+      type="button"
+      class="p-button-success submit_button"
+      >
+    </button>
+  </div>
+
+  </form>

@@ -1,0 +1,366 @@
+<!-- <app-loading *ngIf="isLoading"></app-loading> -->
+
+
+<section class="news_detail">
+  <div class="top_news" [ngStyle]="{ 'background-image': 'url(' + api.URL + '/uploads/' + 'contact.webp' + ')' }" >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="content_news_detail">
+                    <h1 class="content_news_detail_title">
+                      Thông tin tờ khai đăng kí miễn thị thực
+                    </h1>
+                  </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+  <div class="content_news" >
+    <div class="container">
+      <h2 class="content_news_detail_title" style="color:black !important; padding-bottom: 25px !important; font-size: 2rem !important; " >
+        Tờ khai đăng kí miễn thị thực
+      </h2>
+
+      <div class="row row_content_news">
+          <!-- HỌ VÀ TÊN -->
+          <form  [formGroup]="hochieu" (ngSubmit)="submit()" >
+              <div class="row form">
+                    <!-- Ho va ten -->
+                    <label class="form-label label-title">1. Họ và tên trong hộ chiếu/giấy tờ thường trú do nước ngoài cấp
+                      Full name, as it appears in your Passport/Permanent Residence Document issued by foreign country</label>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="" class="form-label label-title">Tên (First Name)<span class="request"> *</span> </label>
+                      <input type="text"  formControlName="firstname_foreign"
+                        class="form-control" name="" id="" aria-describedby="helpId" placeholder="Nhập Tên">
+                        <small class="text-danger" *ngIf="hochieu.get('firstname_foreign')?.invalid && hochieu.get('firstname_foreign')?.touched">
+                          Tên không được để trống
+                        </small>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="" class="form-label label-title">Họ (LastName) </label>
+                    <input type="text"  formControlName="lastname_foreign"
+                      class="form-control" name="" id="" aria-describedby="helpId"  placeholder="Nhập Họ">
+                  </div>
+              </div>
+               <!-- Ho va ten -->
+               <label class="form-label label-title">Họ và tên sẽ được in trong Giấy miễn thị thực. Đề nghị kiểm tra khớp tên trong Hộ chiếu / giấy thường trú:
+                Full name will be printed in Visa Exemption. Please verify if this matches your full name in your Passport / Permanent Residence Document</label>
+          <div class="col-md-6">
+              <div class="mb-3">
+                <label for="" class="form-label label-title">Tên (First Name)</label>
+                <input type="text"  formControlName="firstname_vn"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="Nhập Tên">
+              </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="" class="form-label label-title">Họ (LastName) </label>
+              <input type="text"  formControlName="lastname_vn"
+                class="form-control" name="" id="" aria-describedby="helpId"  placeholder="Nhập Họ">
+            </div>
+        </div>
+              <div class="col-md-3">
+                <label for="" class="form-label label-title">2. Giới tính<span class="request"> *</span> </label>
+               <div class="form-check">
+                 <input class="form-check-input" type="radio"  formControlName="gender" value="Nam" id="" checked>
+                 <label class="form-check-label" for="nam">
+                   Nam
+                 </label>
+               </div>
+               <div class="form-check">
+                 <input class="form-check-input" type="radio" formControlName="gender" value="Nữ" id="">
+                 <label class="form-check-label" for="nu">
+                   Nữ
+                 </label>
+               </div>
+            </div>
+            <!-- end -->
+
+            <!-- Ngày tháng năm -->
+                <div class="col-md-3">
+                  <div class="mb-3">
+                    <label for="" class="form-label label-title">3. Sinh ngày / Date of birth<span class="request"> *</span> </label>
+                    <input type="date"
+                      class="form-control"  formControlName="date" aria-describedby="helpId" placeholder="Nhập ngày">
+                      <small class="text-danger" *ngIf="hochieu.get('date')?.invalid && hochieu.get('date')?.touched">
+                        Ngày sinh không được để trống
+                      </small>
+                  </div>
+              </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="" class="form-label label-title">4. Nơi sinh / Place of birth<span class="request"> *</span> </label>
+              <input type="text"
+                class="form-control"formControlName="date_address" aria-describedby="helpId" placeholder="Nhập nơi sinh">
+                <small class="text-danger" *ngIf="hochieu.get('date_address')?.invalid && hochieu.get('date_address')?.touched">
+                  Địa chỉ nơi sinh không được để trống
+                </small>
+            </div>
+        </div>
+            <!-- end -->
+
+
+
+            <!-- 4. Số ĐDCN/CMND (nếu có) -->
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="" class="form-label label-title">5. Quốc tịch gốc / Place of Birth<span class="request"> *</span> </label>
+                  <select  class="form-control"  formControlName="national_original" name="" id="">
+                      <option value="" disabled>Vui lòng chọn quốc gia - Vùng lãnh thổ</option>
+                      <option [value]="item.name" *ngFor="let item of listnation" >{{item.name}}</option>
+                  </select>
+                  <small class="text-danger" *ngIf="hochieu.get('national_original')?.invalid && hochieu.get('national_original')?.touched">
+                    Vui lòng chọn
+                   </small>
+                </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="" class="form-label label-title">6. Quốc tịch hiện nay / Current Citizenship<span class="request"> *</span> </label>
+                <select  class="form-control"  formControlName="national_now" name="" id="">
+                    <option value="" disabled>Vui lòng chọn quốc gia - Vùng lãnh thổ</option>
+                    <option [value]="item.name" *ngFor="let item of listnation" >{{item.name}}</option>
+                </select>
+                <small class="text-danger" *ngIf="hochieu.get('national_now')?.invalid && hochieu.get('national_now')?.touched">
+                  Vui lòng chọn
+                 </small>
+              </div>
+          </div>
+            <!-- end -->
+
+            <div class="col-md-12">
+              <label for=""  class="form-label label-title">7. Hộ chiếu/giấy tờ có giá trị đi lại quốc tế số
+                Passport / Permanent Residence Document issued by foreign country</label>
+            <div class="mb-3">
+              <label for="" class="form-label label-title">Số / No<span class="request"> *</span></label>
+              <input type="text"
+                class="form-control" formControlName="passport" name="" id="" aria-describedby="helpId" placeholder="Nhập Hộ chiếu số">
+                <small class="text-danger" *ngIf="hochieu.get('passport')?.invalid && hochieu.get('passport')?.touched">
+                 Hộ chiếu không được để trống
+                </small>
+            </div>
+        </div>
+        <!-- end -->
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="" class="form-label label-title">Giá trị đến / Date of Expiring (dd/MM/yyyy)</label>
+            <input type="date"
+              class="form-control" formControlName="day_passport" name="" id="" aria-describedby="helpId" placeholder="">
+          </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">Cơ quan cấp / Issuing Authority</label>
+          <input type="text"
+            class="form-control" formControlName="address_passport" name="" id="" aria-describedby="helpId" placeholder="Cơ quan cấp ">
+        </div>
+    </div>
+     <!-- 10. Nghề nghiệp -->
+     <div class="col-md-12">
+      <div class="mb-3">
+        <label for="" class="form-label label-title">8. Nghề nghiệp / Occupation<span class="request"> *</span></label>
+        <input type="text"
+          class="form-control" formControlName="job" name="" id="" aria-describedby="helpId" placeholder="Nhập Nghề nghiệp">
+          <small class="text-danger" *ngIf="hochieu.get('job')?.invalid && hochieu.get('job')?.touched">
+            Nghề nghiệp không được để trống
+           </small>
+      </div>
+  </div>
+    <div class="col-md-12">
+      <div class="mb-3">
+        <label for="" class="form-label label-title">9. Địa chỉ cư trú, nơi làm việc hiện nay ở nước ngoài / Current residential, business address abroad<span class="request"> *</span></label>
+        <input type="text"
+          class="form-control" formControlName="address_foreign" name="" id="" aria-describedby="helpId" placeholder="Nhập Địa chỉ">
+          <small class="text-danger" *ngIf="hochieu.get('address_foreign')?.invalid && hochieu.get('address_foreign')?.touched">
+            Địa chỉ không được để trống
+          </small>
+      </div>
+  </div>
+
+          <!-- end -->
+          <!-- end -->
+
+           <!-- 7. Số điện thoại -->
+           <div class="col-md-12">
+            <div class="mb-3">
+              <label for="" class="form-label label-title">Điện thoại <span class="request"> *</span> </label>
+              <input type="number"
+                class="form-control" name="" formControlName="phone" id="" aria-describedby="helpId" placeholder="Nhập Số điện thoại">
+                <small class="text-danger" *ngIf="hochieu.get('phone')?.invalid && hochieu.get('phone')?.touched">
+                 Số điện thoại không được để trống
+                 </small>
+            </div>
+        </div>
+        <!-- end -->
+
+        <!-- 8. Địa chỉ cư trú tại nước ngoài* -->
+        <div class="col-md-12">
+          <div class="mb-3">
+            <label for="" class="form-label label-title">10. Địa chỉ cư trú ở Việt Nam trước khi xuất cảnh định cư ở nước ngoài (nếu có) / Previous residential address in Viet Nam before residing abroad (if any)</label>
+            <input type="text"
+              class="form-control" name="" formControlName="address_before_foreign" id="" aria-describedby="helpId" placeholder="Nhập Địa chỉ cư trú tại nước ngoài">
+              <small class="text-danger" *ngIf="hochieu.get('address_before_foreign')?.invalid && hochieu.get('address_before_foreign')?.touched">
+                Địa chỉ cư trú được để trống
+                </small>
+          </div>
+      </div>
+      <!-- end -->
+
+        <!-- 9. Địa chỉ thường trú ở trong nước trước khi xuất cảnh* -->
+        <div class="col-md-12">
+          <div class="mb-3">
+            <label for="" class="form-label label-title">11. Địa chỉ liên hệ tại Việt Nam / Contact address in Viet Nam<span class="request"> *</span> </label>
+            <input type="text"
+              class="form-control" formControlName="address_vn" name="" id="" aria-describedby="helpId" placeholder="Nhập Địa chỉ thường trú ở trong nước trước khi xuất cảnh">
+              <small class="text-danger" *ngIf="hochieu.get('address_vn')?.invalid && hochieu.get('address_vn')?.touched">
+                Địa chỉ trong nước không được để trống
+                </small>
+          </div>
+      </div>
+      <!-- end -->
+      <label for=""  class="form-label label-title">12. Trẻ em (dưới 14 tuổi) đi cùng hộ chiếu / giấy tờ thường trú
+        Accompanying Children (under 14 years old) included in the applicant's Passport/Permanent Residence Document travelling with</label>
+        <div class="col-md-4">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">Họ tên - Fullname</label>
+          <input type="text"
+            class="form-control" formControlName="name_children_go_small_14" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ và tên trẻ">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="" class="form-label label-title">Giới tính</label>
+       <div class="form-check">
+         <input class="form-check-input" type="radio"  formControlName="gender_children_go_small_14" value="Nam" id="" >
+         <label class="form-check-label" for="nam">
+           Nam
+         </label>
+       </div>
+       <div class="form-check">
+         <input class="form-check-input" type="radio" formControlName="gender_children_go_small_14" value="Nữ" id="">
+         <label class="form-check-label" for="nu">
+           Nữ
+         </label>
+       </div>
+    </div>
+      <div class="col-md-4">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">Ngày sinh - Date of birth</label>
+          <input type="date"
+            class="form-control"formControlName="date_children_go_small_14" aria-describedby="helpId">
+        </div>
+    </div>
+
+       <!-- 10. Nghề nghiệp -->
+       <label for=""  class="form-label label-title">13. Giấy tờ chứng minh thuộc diện cấp giấy MTT
+        Supporting documents to prove the eligibility for a Visa Exemption Certificate
+        Đối với người VN định cư ở nước ngoài / For the Vietnamese residing abroad
+        </label>
+        <div class="col-md-12">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">Đối với người VN định cư ở nước ngoài / For the Vietnamese residing abroad
+          </label>
+          <div class="list-group" >
+            <label class="list-group-item" *ngFor="let item of listcheckbox_MTT; let i = index">
+              <input class="form-check-input me-1" formArrayName="checkmtt" [value]="item.title"  (change)="onCheckboxChange($event, 'checkmtt')" type="checkbox">
+              {{item.title}}
+            </label>
+            </div>
+        </div>
+      </div>
+      <label for=""  class="form-label label-title">Đối với người nước ngoài là vợ, chồng, con của người Việt Nam định cư ở nước ngoài hoặc công dân Việt Nam / For foreigners who are spouses, children of Vietnamese overseas or Vietnamese citizens</label>
+        <div class="col-md-12">
+        <div class="mb-3">
+          <div class="list-group" >
+            <label class="list-group-item" *ngFor="let item of listcheckbox_nc_ngoai; let i = index">
+              <input class="form-check-input me-1" formArrayName="check_people_foreign" [value]="item.title" (change)="onCheckboxChange($event, 'check_people_foreign')" type="checkbox">
+              {{item.title}}
+            </label>
+            </div>
+        </div>
+      </div>
+
+      <label for=""  class="form-label label-title">Đối với trường hợp yêu cầu cấp lại Giấy MTT đã được cấp trước đây
+        For cases of reissuance of visa exemption certificate</label>
+        <div class="col-md-6">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">Số GMTT / Serie</label>
+          <input type="number"
+            class="form-control" formControlName="Gmtt" name="" id="" aria-describedby="helpId" placeholder="Nhập Số GMTT / Serie">
+        </div>
+      </div>
+      <!-- end -->
+      <!-- 11. Tên và địa chỉ cơ quan (nếu có) -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="" class="form-label label-title">Ngày cấp / Date of issue</label>
+          <input type="date"
+            class="form-control" formControlName="day_gmtt" name="" id="" aria-describedby="helpId" >
+        </div>
+    </div>
+    <!-- end -->
+
+    <div class="col-md-12">
+      <div class="mb-3">
+        <label for=""  class="form-label label-title">Lý do / Reason for reissuance:</label>
+        <div class="list-group" >
+          <label class="list-group-item" *ngFor="let item of listlydo; let i = index">
+            <input class="form-check-input me-1" formArrayName="ly_do" [value]="item.title" (change)="onCheckboxChange($event, 'ly_do')" type="checkbox">
+            {{item.title}}
+          </label>
+          </div>
+      </div>
+    </div>
+    <!-- end -->
+    <div class="col-md-12">
+      <div class="mb-3">
+      <label for="" class="form-label label-title">Đề nghị cấp giấy miễn thị thực loại / Requesting for a Visa Exemption Certificate in form of:</label>
+             <div class="form-check">
+               <input class="form-check-input" formControlName="de_nghi" type="radio" value="Quyển rời / A detached certificate" id="" checked>
+               <label class="form-check-label" for="">
+                Quyển rời / A detached certificate
+               </label>
+             </div>
+             <div class="form-check">
+               <input class="form-check-input" formControlName="de_nghi" type="radio" value="Giấy dán vào hộ chiếu / A stamped certificate" id="">
+               <label class="form-check-label" for="">
+                Giấy dán vào hộ chiếu / A stamped certificate
+               </label>
+             </div>
+             </div>
+  </div>
+
+    <div class="col-md-12">
+      <div class="mb-3">
+        <label for="" class="form-label label-title">Nộp hồ sơ xin cấp Giấy miễn thị thực tại / Submit dossiers to apply for Certificate of visa exemption in </label>
+        <select  class="form-control"  formControlName="address_single" name="" id="">
+            <option value="" disabled>Vui lòng chọn quốc gia - Vùng lãnh thổ</option>
+            <option [value]="item.name" *ngFor="let item of listnation" >{{item.name}}</option>
+        </select>
+      </div>
+  </div>
+
+    <div class="col-md-12">
+      <div class="mb-3">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" formControlName="check" type="checkbox" id="">
+          <label class="form-check-label" for="">Tôi xin cam đoan những thông tin trên là đúng sự thật.</label>
+          </div>
+      </div>
+  </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+      </div>
+    </div>
+
+
+  </div>
+
+</section>

@@ -1,0 +1,64 @@
+<app-loading *ngIf="isLoading"></app-loading>
+
+
+<section class="news_detail" *ngIf="!isLoading">
+  <div class="top_news"  [ngStyle]="{ 'background-image': 'url(' + api.URL + '/uploads/' + 'contact.webp' + ')' }" >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="content_news_detail">
+                    <h1 class="content_news_detail_title">
+                       KẾT QUẢ TÌM KIẾM TỪ KHÓA : " {{myId}} "
+                    </h1>
+                  </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="content_news" >
+      <div class="container">
+          <div class="row row_content_news">
+              <div class="col-lg-8 col-md-12 col_blogs" >
+                <div class="row">
+                    <div class="col-md-6" *ngFor="let item of listdata">
+                        <article class="item_blog">
+                          <div class="blog-item">
+                            <div class="blog-img">
+                              <a routerLink="/{{item.link}}"  >
+                                <img width="1400" height="660" [src]="this.api.URL + '/uploads/' + item.image" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" decoding="async" >
+                              </a>
+                            </div>
+                            <div class="content-wrapper">
+                              <div class="blog-img-content">
+                                <h3 class="blog-title blog-title-blog">
+                                  <a routerLink="/{{item.link}}" >{{item.title}}</a></h3>
+                                  <ul class="meta-class-grid">
+                                    <li><div class="meta meta-date"> <span class="month-day">{{item.date | date :'short'}}</span></div></li>
+                                    <li><span class="post-meta author">admin</span></li>
+                                    <li><a class="float-cat"> {{item.type_id.title}} </a></li>
+                                  </ul>
+                                </div>
+                                <div class="full-blog-content">
+                                  <div class="blog-desc">
+                                    <p class="color" [innerText]="this.extractDescriptionPart(item.description)"></p>
+                                  </div><div class="blog-button ">
+                                    <a routerLink="/{{item.link}}" >Đọc thêm <i class="fa-solid fa-arrow-right"></i></a></div><div class="clear">
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </article>
+
+                    </div>
+                </div>
+
+              </div>
+
+              <div class="col-lg-4 col-md-12 util" >
+                <app-filter></app-filter>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>

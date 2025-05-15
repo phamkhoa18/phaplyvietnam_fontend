@@ -1,0 +1,359 @@
+<form [formGroup]="form80">
+  <div class="form_child">
+  <div class="header-child header-a position-relative">
+    <div class="stt"><span>B</span></div>
+    <div class="content-header">
+      <h2 class="header-title-child d-flex flex-column">{{'SECTION_B.TITLE' | translate}}</h2>
+    </div>
+  </div>
+
+  <div class="row" style="padding-top: 15px;"  [formGroupName]="sectionGroupContainer">
+    <div class="col-md-12">
+      <div class="d-flex flex-column pb-3" style="height: 100%;">
+        <label class="d-block font-weight-bold mb-2 title-input">
+          9. {{'SECTION_B.9' | translate}}
+        </label>
+        <div class="d-flex flex-wrap gap-3 align-content-center pb-2" style="height: 100%;">
+          <div class="d-flex align-items-center">
+            <p-radioButton [formControlName]="'ap.curr passport'" [value]="'2'"  />
+            <label for="male" class="ms-2">{{'SECTION_HOME.YES' | translate}}</label>
+          </div>
+          <div class="d-flex align-items-center">
+            <p-radioButton [formControlName]="'ap.curr passport'" [value]="'1'"  />
+            <label for="female" class="ms-2">{{'SECTION_HOME.NO' | translate}}</label>
+          </div>
+        </div>
+
+        <span class="error-message" *ngIf="form80service.getErrorMessage(sectionGroupContainer, 'ap.curr passport') != ''">
+          {{ form80service.getErrorMessage(sectionGroupContainer, 'ap.curr passport') }}
+        </span>
+
+        <div class="d-flex rounded flex-column pb-3 pt-2" *ngIf="form80.get([sectionGroupContainer, 'ap.curr passport']).value === '2'">
+            <div class="row">
+              <label class="d-block font-weight-bold mb-2 title-input" style="color: red; text-transform: uppercase;">
+                {{'SECTION_HOME.INFORMATION' | translate}}
+              </label>
+                <div class="col-md-4 d-flex align-items-end">
+                  <div class="d-flex flex-column pb-3 w-100">
+                    <label class="d-block font-weight-bold mb-2 title-input">
+                      {{'SECTION_B.9_1' | translate}}
+                    </label>
+                    <input type="text" [placeholder]="placeholder" [formControlName]="'ap.pass no'" pInputText formControlName="text" />
+                  </div>
+                </div>
+                <div class="col-md-4 d-flex align-items-end">
+                  <div class="d-flex flex-column pb-3" style="width: 100%;">
+                    <label class="d-block font-weight-bold mb-2 title-input">
+                      {{'SECTION_B.9_2' | translate}}
+                    </label>
+                    <p-dropdown [options]="countries"
+                        [formControlName]="'ap.pass cntry'"
+                        placeholder="Vui lòng chọn quốc gia"
+                        [filter]="true"
+                        filterBy="name"
+                        [showClear]="true"
+                        optionLabel="name" optionValue="name">
+                          <ng-template let-item pTemplate="item">
+                            <div class="d-flex align-items-center">
+                              <span class="fi fi-{{item.code.toLowerCase()}}"></span>
+                              <span class="ms-2">{{item.name}}</span>
+                            </div>
+                          </ng-template>
+                  </p-dropdown>
+                  </div>
+                </div>
+                <div class="col-md-2 d-flex align-items-end">
+                  <div class="d-flex flex-column pb-3" style="width: 100%;">
+                    <label class="d-block font-weight-bold mb-2 title-input">
+                      {{'SECTION_B.9_3' | translate}}
+                    </label>
+                    <p-calendar placeholder="dd/mm/yyyy"
+                    [formControlName]="'ap.pass doi'"
+                    (onSelect)="onDateChange($event, 'ap.pass doi')"
+                    (onInput)="onInputChange($event , 'ap.pass doi')"
+                    [dateFormat]="'dd/mm/yy'">
+                      <ng-template pTemplate="date" let-date>
+                          <span>
+                              {{ date.day }}
+                          </span>
+                      </ng-template>
+                  </p-calendar>
+                  </div>
+                </div>
+
+                <div class="col-md-2 d-flex align-items-end">
+                  <div class="d-flex flex-column pb-3" style="width: 100%;">
+                    <label class="d-block font-weight-bold mb-2 title-input">
+                      {{'SECTION_B.9_4' | translate}}
+                    </label>
+                    <p-calendar placeholder="dd/mm/yyyy"
+                    [formControlName]="'ap.pass doe'"
+                    (onSelect)="onDateChange($event, 'ap.pass doe')"
+                    (onInput)="onInputChange($event , 'ap.pass doe')"
+                    [dateFormat]="'dd/mm/yy'">
+                      <ng-template pTemplate="date" let-date>
+                          <span>
+                              {{ date.day }}
+                          </span>
+                      </ng-template>
+                  </p-calendar>
+                  </div>
+                </div>
+
+                <div class="col-md-3 d-flex align-items-end">
+                  <div class="d-flex flex-column pb-3" style="width: 100%;">
+                    <label class="d-block font-weight-bold mb-2 title-input">
+                      {{'SECTION_B.9_5' | translate}}
+                    </label>
+                    <p-dropdown [options]="countries"
+                      [formControlName]="'ap.pass nationality'"
+                      placeholder="Vui lòng chọn quốc gia"
+                      [filter]="true"
+                      filterBy="name"
+                      [showClear]="true"
+                      optionLabel="name" optionValue="name">
+                        <ng-template let-item pTemplate="item">
+                          <div class="d-flex align-items-center">
+                            <span class="fi fi-{{item.code.toLowerCase()}}"></span>
+                            <span class="ms-2">{{item.name}}</span>
+                          </div>
+                        </ng-template>
+                    </p-dropdown>
+                  </div>
+                </div>
+
+                <div class="col-md-4 d-flex align-items-end">
+                  <div class="d-flex flex-column pb-3 w-100">
+                    <label class="d-block font-weight-bold mb-2 title-input">
+                      {{'SECTION_B.9_6' | translate}}
+                    </label>
+                    <input type="text" [formControlName]="'ap.pass place 1'" [placeholder]="placeholder" pInputText formControlName="text" />
+                  </div>
+                </div>
+
+                <div class="col-md-5 d-flex align-items-end">
+                  <div class="d-flex flex-column pb-3" style="height: 100%;">
+                    <label class="d-block font-weight-bold mb-2 title-input">
+                      {{'SECTION_B.9_7' | translate}}
+                    </label>
+                    <div class="d-flex flex-wrap gap-3 align-content-center" style="height: 100%;">
+                      <div class="d-flex align-items-center">
+                        <p-radioButton [formControlName]="'ap.pass show'" [value]="'2'"  />
+                        <label for="male" class="ms-2">{{'SECTION_HOME.YES' | translate}}</label>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <p-radioButton [formControlName]="'ap.pass show'" [value]="'1'"  />
+                        <label for="female" class="ms-2">{{'SECTION_HOME.NO' | translate}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex rounded flex-column pt-2" *ngIf="form80.get([sectionGroupContainer, 'ap.pass show']).value === '2'">
+                  <div class="row">
+                      <div class="col-md-5 d-flex align-items-end">
+                        <div class="d-flex flex-column pb-3 w-100">
+                          <label class="d-block font-weight-bold mb-2 title-input">
+                            {{'SECTION_A.FIRST_NAME' | translate}}
+                          </label>
+                          <input type="text" [formControlName]="'ap.pass name fam'" [placeholder]="placeholder" pInputText formControlName="text" />
+                        </div>
+                      </div>
+                      <div class="col-md-7 d-flex align-items-end">
+                        <div class="d-flex flex-column pb-3 w-100">
+                          <label class="d-block font-weight-bold mb-2 title-input">
+                            {{'SECTION_A.LAST_NAME' | translate}}
+                          </label>
+                          <input type="text" [formControlName]="'ap.pass name giv'" [placeholder]="placeholder" pInputText formControlName="text" />
+                        </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="d-flex flex-column pb-3" style="height: 100%;">
+        <label class="d-block font-weight-bold mb-2 title-input">
+          10. {{'SECTION_B.10' | translate}}
+        </label>
+        <div class="d-flex flex-wrap gap-3 align-content-center pb-2" style="height: 100%;">
+          <div class="d-flex align-items-center">
+            <p-radioButton [formControlName]="'ap.oth passport'" [value]="'2'"  />
+            <label for="male" class="ms-2">{{'SECTION_HOME.YES' | translate}}</label>
+          </div>
+          <div class="d-flex align-items-center">
+            <p-radioButton [formControlName]="'ap.oth passport'" [value]="'1'"  />
+            <label for="female" class="ms-2">{{'SECTION_HOME.NO' | translate}}</label>
+          </div>
+        </div>
+
+        <span class="error-message" *ngIf="form80service.getErrorMessage(sectionGroupContainer, 'ap.oth passport') != ''">
+          {{ form80service.getErrorMessage(sectionGroupContainer, 'ap.oth passport') }}
+        </span>
+
+        <div class="d-flex rounded flex-column pb-3 pt-2" *ngIf="form80.get([sectionGroupContainer, 'ap.oth passport']).value === '2'">
+          <div class="row">
+            <label class="d-block font-weight-bold mb-2 title-input" style="color: red; text-transform: uppercase;">
+              {{'SECTION_HOME.INFORMATION' | translate}}
+            </label>
+              <div class="col-md-4 d-flex align-items-end">
+                <div class="d-flex flex-column pb-3 w-100">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    {{'SECTION_B.9_1' | translate}}
+                  </label>
+                  <input type="text" [placeholder]="placeholder" [formControlName]="'ap.other pass no'" pInputText formControlName="text" />
+                </div>
+              </div>
+              <div class="col-md-4 d-flex align-items-end">
+                <div class="d-flex flex-column pb-3" style="width: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    {{'SECTION_B.9_2' | translate}}
+                  </label>
+                  <p-dropdown [options]="countries"
+                      [formControlName]="'ap.other pass cntry'"
+                      placeholder="Vui lòng chọn quốc gia"
+                      [filter]="true"
+                      filterBy="name"
+                      [showClear]="true"
+                      optionLabel="name" optionValue="name">
+                        <ng-template let-item pTemplate="item">
+                          <div class="d-flex align-items-center">
+                            <span class="fi fi-{{item.code.toLowerCase()}}"></span>
+                            <span class="ms-2">{{item.name}}</span>
+                          </div>
+                        </ng-template>
+                </p-dropdown>
+                </div>
+              </div>
+              <div class="col-md-2 d-flex align-items-end">
+                <div class="d-flex flex-column pb-3" style="width: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    {{'SECTION_B.9_3' | translate}}
+                  </label>
+                  <p-calendar placeholder="dd/mm/yyyy"
+                  [formControlName]="'ap.other pass doi'"
+                  (onSelect)="onDateChange($event, 'ap.other pass doi')"
+                  (onInput)="onInputChange($event , 'ap.other pass doi')"
+                  [dateFormat]="'dd/mm/yy'">
+                    <ng-template pTemplate="date" let-date>
+                        <span>
+                            {{ date.day }}
+                        </span>
+                    </ng-template>
+                </p-calendar>
+                </div>
+              </div>
+
+              <div class="col-md-2 d-flex align-items-end">
+                <div class="d-flex flex-column pb-3" style="width: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    {{'SECTION_B.9_4' | translate}}
+                  </label>
+                  <p-calendar placeholder="dd/mm/yyyy"
+                  [formControlName]="'ap.other pass doe'"
+                  (onSelect)="onDateChange($event, 'ap.other pass doe')"
+                  (onInput)="onInputChange($event , 'ap.other pass doe')"
+                  [dateFormat]="'dd/mm/yy'">
+                    <ng-template pTemplate="date" let-date>
+                        <span>
+                            {{ date.day }}
+                        </span>
+                    </ng-template>
+                </p-calendar>
+                </div>
+              </div>
+
+              <div class="col-md-3 d-flex align-items-end">
+                <div class="d-flex flex-column pb-3" style="width: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    {{'SECTION_B.9_5' | translate}}
+                  </label>
+                  <p-dropdown [options]="countries"
+                    [formControlName]="'ap.other national'"
+                    placeholder="Vui lòng chọn quốc gia"
+                    [filter]="true"
+                    filterBy="name"
+                    [showClear]="true"
+                    optionLabel="name" optionValue="name">
+                      <ng-template let-item pTemplate="item">
+                        <div class="d-flex align-items-center">
+                          <span class="fi fi-{{item.code.toLowerCase()}}"></span>
+                          <span class="ms-2">{{item.name}}</span>
+                        </div>
+                      </ng-template>
+                  </p-dropdown>
+                </div>
+              </div>
+
+              <div class="col-md-4 d-flex align-items-end">
+                <div class="d-flex flex-column pb-3 w-100">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    {{'SECTION_B.9_6' | translate}}
+                  </label>
+                  <input type="text" [formControlName]="'ap.other pass place'" [placeholder]="placeholder" pInputText formControlName="text" />
+                </div>
+              </div>
+
+              <div class="col-md-5 d-flex align-items-end">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    {{'SECTION_B.9_7' | translate}}
+                  </label>
+                  <div class="d-flex flex-wrap gap-3 align-content-center" style="height: 100%;">
+                    <div class="d-flex align-items-center">
+                      <p-radioButton [formControlName]="'ap.other show'" [value]="'2'"  />
+                      <label for="male" class="ms-2">{{'SECTION_HOME.YES' | translate}}</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <p-radioButton [formControlName]="'ap.other show'" [value]="'1'"  />
+                      <label for="female" class="ms-2">{{'SECTION_HOME.NO' | translate}}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex rounded flex-column pt-2" *ngIf="form80.get([sectionGroupContainer, 'ap.other show']).value === '2'">
+                <div class="row">
+                    <div class="col-md-5 d-flex align-items-end">
+                      <div class="d-flex flex-column pb-3 w-100">
+                        <label class="d-block font-weight-bold mb-2 title-input">
+                          {{'SECTION_A.FIRST_NAME' | translate}}
+                        </label>
+                        <input type="text" [formControlName]="'ap.othe pass name fam'" [placeholder]="placeholder" pInputText formControlName="text" />
+                      </div>
+                    </div>
+                    <div class="col-md-7 d-flex align-items-end">
+                      <div class="d-flex flex-column pb-3 w-100">
+                        <label class="d-block font-weight-bold mb-2 title-input">
+                          {{'SECTION_A.LAST_NAME' | translate}}
+                        </label>
+                        <input type="text" [formControlName]="'ap.othe pass name giv'" [placeholder]="placeholder" pInputText formControlName="text" />
+                      </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }" />
+<div class="grid grid-nogutter justify-content-end d-flex">
+  <p-button [label]="'SECTION_HOME.BUTTON_BACK' | translate" severity="secondary" (click)="goBack()" class="back" />
+  <button
+  (click)="nextStep(sectionGroupContainer)"
+    pButton
+    pRipple
+    [label]="'SECTION_HOME.BUTTON_NEXT' | translate"
+    type="button"
+    class="p-button-success submit_button"
+    >
+  </button>
+</div>
+
+</form>

@@ -1,0 +1,607 @@
+{
+  "SECTION_HOME": {
+    "TITLE" : "Personal particulars for assessment including character assessment" ,
+    "TEXT_PAGE_1": "You are on page" ,
+    "TEXT_PAGE_2": "of",
+    "TEXT_PAGE_3": "pages",
+    "MALE": "Male" ,
+    "FEMALE": "Female",
+    "YES": "Yes",
+    "NO" : "No",
+    "INFORMATION": "WHERE TO ENTER INFORMATION HERE:",
+    "LIST_INFORMATION": "LIST OF INFORMATION",
+    "BUTTON_NEXT": "Next" ,
+    "BUTTON_BACK": "Back" ,
+    "BUTTON_INFORMATION" : "Add Information"
+  },
+  "SECTION_A": {
+    "TITLE": "Applicant Details" ,
+    "FIRST_NAME": "Family Name",
+    "LAST_NAME": "All given names",
+    "SEX": "Sex",
+    "DATE": "Date of birth",
+    "BIRTH": "City of birth",
+    "COUNTRY": "Country" ,
+    "4":"Have you been known by any other name(s) ?" ,
+    "5": "Have you ever had a different date of birth to the one shown at question 1 ?",
+    "6": "Do you currently have citizenship from any country ?" ,
+    "6_1": "How did you gain this citizenship (eg. Birth, descent, naturalisation) ?",
+    "6_2": "Date you gained this citizenship: ",
+    "8": "Do you currently have permanent residency rights in any country other than those declared in questions 6 or 7 ?",
+    "8_1": "List all other countries: "
+  },
+  "SECTION_B": {
+    "TITLE": "Passport/Travel Document Details" ,
+    "9":   "Do you have a current passport or travel document ?",
+    "9_1": "Passport/travel document number: ",
+    "9_2": "Country of passport/travel document: ",
+    "9_3": "Date of issue",
+    "9_4": "Date of expiry: ",
+    "9_5": "Nationality: ",
+    "9_6": "Place of issue/issuing authority: ",
+    "9_7": "Name on the document (if the same as question 1, write ‘same as question 1’) ?",
+    "9_8": "Family name: ",
+    "9_9": "Given names: ",
+    "10" : "Do you have any other current passport or travel document ?"
+  },
+  "SECTION_C": {
+    "TITLE": "Identity Documents" ,
+    "14":   "Do you currently have, or have you ever had, any national identity documents or numbers:",
+    "14_1":   "Type of identification document",
+    "14_2":   "Country of issue",
+    "14_3":   "Identification number shown (if applicable)" ,
+    "14_4": "Document type" ,
+    "14_5": "National" ,
+    "14_6": "Number"
+  },
+  "SECTION_D": {
+    "TITLE": "Address and Contact Details" ,
+    "15":   "Your email",
+    "16":   "Your mobile phone:",
+    "17":   "Your address history for the last 10 years:",
+    "17_sub": "Note: include your current address in Australia if you are in Australia" ,
+    "17_1":   "Date from",
+    "17_2":   "Date to",
+    "17_3":   "Full address",
+    "17_4":   "Country",
+    "17_INFOR": "LIST OF PLACES WHO HAVE RESIDED IN THE PAST 10 YEARS"
+  },
+  "SECTION_E": {
+    "TITLE": "International Travel / Movements" ,
+    "18":   "Have you travelled to any country other than Australia in the last 10 years ?",
+    "18_1":   "Date from",
+    "18_2":   "Date to",
+    "18_3":   "Reason for visit",
+    "18_4":   "Country"
+  },
+  "SECTION_F": {
+    "TITLE": "Employment" ,
+    "19":   "Give Details of All Employment and Unemployment",
+    "19_1":   "Date from",
+    "19_2":   "Date to",
+    "19_3":   "Name of Business/Company",
+    "19_4":   "Type of Business",
+    "19_5":   "Your occupation and duties",
+    "19_6":   "Full address of business/company",
+    "19_7":   "Country"
+  },
+  "SECTION_G": {
+    "TITLE": "Education" ,
+    "20":   "Give details of all tertiary education and qualifications",
+    "20_sub" : "Write down your attendance information from high school until now" ,
+    "20_1":   "Date from",
+    "20_2":   "Date to",
+    "20_3":   "Full name of institution",
+    "20_4":   "Full name of course",
+    "20_5":   "Course status",
+    "20_6":   "Campus/Address of institution",
+    "20_7":   "Country"
+  },
+  "SECTION_H": {
+    "TITLE": "Proposed Travel or Further Stay Details" ,
+    "21":   "Are you currently in Australia ?",
+    "22":   "Why are you travelling to Australia ?",
+    "23":   "Do you have any proposed or booked travel dates for your journey to Australia ?",
+    "23_1":   "Arrival date: ",
+    "23_2":   "Flight number: ",
+    "23_3":   "City of arrival: ",
+    "25":   "What is your main reason for remaining in Australia ?",
+    "26":   "List the Towns/Cities you will visit during your further stay in Australia: "
+  },
+  "SECTION_I": {
+    "TITLE": "Address(es) in Australia" ,
+    "30":   "Are you currently in Australia ?",
+    "31":   "Do you know any details of the places you will stay during your time in Australia (eg. Hotel, friends, relatives) ?",
+    "31_1":   "Address: ",
+    "31_2":   "Mobile: ",
+    "33":   "Do you have any other addresses in Australia that have not been declared at question 17 ?"
+  },
+  "SECTION_J": {
+    "TITLE": "Australian Visa History" ,
+    "34":   "Are you currently in Australia ?",
+    "34_1":   "Type of visa you hold reason for journey (eg. Visitor, business)",
+    "34_2":   "Reason for Journey ",
+    "34_3":   "Name Used on Entry",
+    "34_4":   "Place of Visa issue",
+    "34_5":   "Arrival date",
+    "35":   "Have you been to Australia before ?",
+    "35_1":   "Type of visa you hold reason for ",
+    "35_2":   "Reason for Journey ",
+    "35_3":   "Name Used on Entry",
+    "35_4":   "Place of Visa issue",
+    "35_5":   "Arrival date",
+    "35_6":  "Departure date"
+  },
+  "SECTION_K": {
+    "TITLE": "Character" ,
+    "36": "Have you, or any other person included in this application, ever:",
+    "36_1": "Been charged with any offence that is currently awaiting legal action?",
+    "36_2": "Been convicted of an offence in any country (including any conviction which is now removed from official records)?",
+    "36_3": "Been charged or convicted of family or domestic violence offences or similar related offences?",
+    "36_4": "Been the subject of a domestic or family violence order, or any other order, of a tribunal or court or other similar authority, for the personal protection of another person?",
+    "36_5": "Been the subject of an arrest warrant or Interpol notice?",
+    "36_6": "Been found guilty of a sexually based offence involving a child (including where no conviction was recorded)?",
+    "36_7": "Been named on a sex offender register?",
+    "36_8": "Been acquitted of any offence on the grounds of unsoundness of mind or insanity?",
+    "36_9": "Been found by a court not fit to plead?",
+    "36_10": "Been directly or indirectly involved in, or associated with, activities which would represent a risk to national security in Australia or any other country?",
+    "36_11": "Been charged with, or indicted for: genocide, war crimes, crimes against humanity, torture, slavery, or any other crime that is otherwise of a serious international concern?",
+    "36_12": "Been associated with a person, group or organisation that has been/is involved in criminal conduct?",
+    "36_13": "Been associated with an organisation engaged in violence or engaged in acts of violence (including war, insurgency, freedom fighting, terrorism, protest) either overseas or in Australia?",
+    "36_14": "Served in a military force, police force, state-sponsored/private militia or intelligence agency (including secret police)?",
+    "36_15": "Undergone any military/paramilitary training, been trained in weapons/explosives or in the manufacture of chemical/biological products?",
+    "36_16": "Been involved in people smuggling or people trafficking offences?",
+    "36_17": "Been removed, deported or excluded from any country (including Australia)?",
+    "36_18": "Overstayed a visa in any country (including Australia)?",
+    "36_19": "Had any outstanding debts to the Australian Government or any public authority in Australia?",
+    "36_20": "If you answered ‘Yes’ to any question at Question 36, give details, including the date of the charge, the outcome and any penalty imposed. Also attach court documents (for example sentencing remarks or court transcripts)."
+  },
+  "SECTION_L": {
+    "TITLE": "Military Service",
+    "37": "Have you undertaken any military service ?",
+    "37_1": "Date of enlistment",
+    "37_2": "Date of discharge",
+    "37_3": "Country of service",
+    "37_4": "Full name of unit",
+    "37_5": "Rank",
+    "37_6": "Your main duties",
+    "37_7": "Country of deployment"
+  },
+  "SECTION_M": {
+    "TITLE": "Employed by Intelligence or Security Agency",
+    "38": "Are you currently, or have you been employed as an intelligence officer or an agent of an intelligence or security agency?",
+    "38_1": "Give details of the organisation, your role, and the dates you served"
+  },
+  "SECTION_N": {
+    "TITLE": "Visa Refusals",
+    "39": "Have you ever been refused a visa to any country?",
+    "39_1": "Give dates of refusal, countries, and circumstances of refusal"
+  },
+  "SECTION_O": {
+    "TITLE": "Deportations",
+    "40": "Have you ever been excluded, asked to leave, deported or removed from any country?",
+    "40_1": "Give details of dates, countries, and circumstances"
+  },
+  "SECTION_P": {
+    "TITLE": "Citizenship Refusals",
+    "41": "Have you ever been refused, renounced, or rescinded citizenship of any country?",
+    "41_1": "Give dates of refusal, countries, and circumstances of refusal"
+  },
+  "SECTION_Q": {
+    "TITLE": "Associated people",
+
+    "42": "Do you have a partner?",
+    "42_sub" : "Note: If widowed, you must provide details about the deceased partner.",
+    "42_1": "Relationship to you",
+    "42_2": "Family name",
+    "42_3": "Given names",
+    "42_4": "Any other names",
+    "42_5": "Sex",
+    "42_6": "Date of birth",
+    "42_7": "Chinese commercial codes",
+    "42_8": "Place of birth (Town/City)",
+    "42_9": "Place of birth (Country)",
+    "42_10": "Citizenship(s) and year granted",
+    "42_11": "Country of current residence (If not living, write ‘DECEASED’)",
+    "42_12": "Migrating with you?",
+
+    "43": "Do you have children ?",
+    "43_sub" : "Note: This includes biological and adopted children." ,
+
+    "44": "Do you know details of your parents ?",
+    "44_sub": "Note: This includes biological and adoptive parents." ,
+
+    "45": "Do you have siblings?",
+    "45_sub": "Siblings include full, half, and adopted brothers and sisters.",
+
+    "46": "Other travelling family members ?",
+    "46_sub": "Are there any other family members included in the visa application ?",
+    "46_sub_2": "Family members include nieces, nephews, cousins, in-laws, grandparents etc. who are travelling with you",
+
+    "47": "Do you have any personal contacts in Australia ?",
+    "47_sub": "Personal contacts include visa sponsors, any relatives, friends, family members and acquaintances in Australia",
+
+    "48": "Do you have any other personal contacts in Australia ?",
+
+    "CURRENT_ADDRESS": "Current Address",
+    "PHONE" : "Mobile/Phone",
+    "EMAIL" : "Email",
+    "TABLE_1": "Relationship to you" ,
+    "TABLE_2": "Full name" ,
+    "TABLE_3": "Other name" ,
+    "TABLE_4": "Gender" ,
+    "TABLE_5": "China trade code" ,
+    "TABLE_6": "Place of birth (City + Country)" ,
+    "TABLE_7": "Nationality and year of issue" ,
+    "TABLE_8": "Current country of residence",
+    "TABLE_9": "Co-immigrated or not",
+    "TABLE_10" :"Date of birth"
+  },
+  "SECTION_R": {
+    "TITLE": "Sponsoring employer details",
+    "49": "Are you being sponsored by, or associated with, a business or organisation in Australia?",
+    "49_1": "Organisation/Business name",
+    "49_2": "Organisation/Business description",
+    "49_3": "Organisation/Business commercial address",
+    "49_4": "Name of contact person in business/organisation",
+    "50": "Does the employer/business have any other associated addresses?",
+    "50_1": "Type of address (eg. head office, factory, retail store)",
+    "50_2": "Address (including building number and street name)",
+    "51": "Does the employer/business have an email address?",
+    "51_1": "Email",
+    "52": "Does the employer/business have telephone numbers?",
+    "52_1": "List all contact telephone numbers (including area code)"
+  },
+
+
+
+  "HOME": {
+
+  },
+
+
+  "FORM_CHUBAOLANH": {
+    "TITLE": "Declaration of sponsor in Australia",
+    "DES": "Please provide the following information for your business.",
+    "1": "Business Name / Trading Name / ABN",
+    "2": "Location - Address",
+    "3": "Contact number",
+    "4.1": "Email Address",
+    "4.2": "Business Website",
+    "5": "Representative",
+    "6": "Date Established?",
+    "7": "Type of Business",
+    "7.1": "(Sole Trader / Partnership / Limited Liability Company)",
+    "8": "Have you ever sponsored anyone? When? Are they still working for you or have already left?",
+    "9": "Have you ever been involved in investigations regarding tax obligations / salary issues / unfair dismissal of employees before?",
+    "10": "Currently, how many owners does the business have? If there are more than 1 owner, please provide the percentage of ownership for each owner.",
+    "11": "How many people is the business currently employing? On what basis (Full-time/Part-time/Casual)?",
+    "11.1": "Part-time",
+    "11.2": "Full-time",
+    "11.3": "Casual",
+    "12": "How many employees are Australian citizens or permanent residents?",
+    "11.4" : "How many employees have PR ?",
+    "11.5" : "How many Australian employees are there ?",
+    "11.6": "What are their annual income?",
+    "11.7": "Has the company been making sufficient superannuation contributions and payments for entitlements such as sick leave / annual leave to employees?"
+  },
+
+
+
+    "FORM_VISA600": {
+      "TITLE": "AUSTRALIA TOURIST VISA INFORMATION FORM VISA 600",
+      "DES": "(For individuals applying for Tourist Visa 600)",
+      "yes": "Yes",
+      "no": "No",
+      "male" :"Male",
+      "female" :"Female",
+      "1": "Are you currently outside of Australia?",
+      "2": "Which country are you currently in?",
+      "3": "What is your current nationality?",
+      "4": "What is the purpose of your visit to Australia?",
+      "4.1": "Attend meetings or conferences",
+      "4.2": "Explore business opportunities",
+      "4.3": "Have an immediate family member (sibling or parent) with Australian citizenship sponsoring you",
+      "4.4": "Touring Australia and visiting friends",
+      "5": "Reason for coming to Australia?",
+      "5.1": "Tourism",
+      "5.2": "Business",
+      "5.3": "Attend an event",
+      "5.4": "Other",
+      "6": "What are your planned arrival and departure dates for Australia?",
+      "6.1": "Tourism",
+      "6.2": "Business",
+      "7": "Are you traveling with a group or family members?",
+      "8": "Are you an official representative of the Vietnamese government?",
+      "9": "Are you traveling with a group or family members?",
+      "10": "Last name",
+      "12": "Middle and given name",
+      "13": "Gender",
+      "14": "Date of birth",
+      "15": "Passport number?",
+      "16": "Passport issuing country?",
+      "17": "Passport issuance date?",
+      "18": "Passport expiration date?",
+      "19": "Place of passport issuance?",
+      "20": "Do you have a national ID card or citizen ID?",
+      "21": "National ID or citizen ID number?",
+      "22": "Country that issued your ID?",
+      "23": "Place of birth? (Specify city or province)",
+      "24": "Current marital status?",
+      "24.1": "Married",
+      "24.2": "Divorced",
+      "24.3": "Never married",
+      "24.4": "Spouse deceased",
+      "25": "Is your current nationality Vietnamese?",
+      "26": "Do you hold any nationality other than Vietnamese?",
+      "27": "Have you ever applied for an Australian visa?",
+      "28": "Have you ever been to Australia?",
+      "29": "Previous Australian visa number (if any)",
+      "30": "Current residence address?",
+      "31": "Phone number",
+      "32": "Email",
+      "33": "List the full name, date of birth, and current country of residence of parents, spouse, biological children, and siblings",
+      "33.1": "Relationship",
+      "33.1.2": "(mother, father, spouse, children, siblings)",
+      "33.2": "Full Name",
+      "33.3": "Date of Birth",
+      "33.4": "Current Country of Residence",
+      "more": "Add",
+      "desarray": "If there are more members, please click 'Add' to continue entering information",
+      "infor": "LIST OF INFORMATION ENTERED",
+      "34": "Do you have any relatives or close friends currently residing in Australia?",
+      "34.des": "Please specify the full name, address, and contact phone number of your relatives or friends in Australia",
+      "34.1": "Address",
+      "34.2": "Occupation",
+      "35": "Your current job?",
+    "35.1": "Specify your position, current company name, company address, and company phone number",
+    "36": "Have you ever been refused a visa for Australia or any other country? If yes, please provide the month and year of the visa refusal.",
+    "37": "THE APPLICATION INCLUDES THE FOLLOWING ATTACHED DOCUMENTS:",
+    "37.1": "Passport",
+    "37.2": "Birth certificates, ID card",
+    "submit" : "Submit"
+    },
+
+    "SKILL" : {
+      "TITLE": "The Core Skills Occupation List (CSOL)",
+      "DES": "List of occupations",
+      "CODE": "ANZSCO code",
+      "NAME": "Occupation"
+    },
+"FORM_UYQUYEN": {
+    "TITLE": "LETTER OF AUTHORIZATION",
+    "DESCRIPTION": "(Allowing a relative to accompany a child under 12 years old on a flight)",
+    "RECIPIENT": "To: Embassy of Vietnam in Australia",
+    "APPLICANT_INFO": {
+      "NAME": "My name is:",
+      "BIRTH_YEAR": "Year of birth:",
+      "ID_NUMBER": "ID card number:",
+      "ISSUE_DATE": "Issued on:",
+      "ISSUE_PLACE": "Issued at:",
+      "CURRENT_ADDRESS": "Current address:"
+    },
+    "CHILD_INFO": {
+      "RELATION": "I am the father/mother of the child:",
+      "BIRTH_DATE": "Date of birth:"
+    },
+    "AUTHORIZED_PERSON": {
+      "NAME": "Mr./Mrs.:",
+      "BIRTH_DATE": "Date of birth:",
+      "CURRENT_ADDRESS": "Current address:",
+      "ID_NUMBER": "ID card number:",
+      "ISSUE_DATE": "Issued on:",
+      "ISSUE_PLACE": "Issued at:"
+    },
+    "PERMISSION": {
+      "RELATION_TO_CHILD": "What is the relationship with the child (Aunt, Uncle, ....)",
+      "PURPOSE": "Authorized to accompany the child on a trip to:",
+      "FLIGHT_DETAILS": "Traveling on a flight from date to flight departure date and time:",
+      "FLIGHT_TO": "From: ",
+      "FLIGHT_FROM": "To: ",
+      "FLIGHT_START": "Departure date: ",
+      "FLIGHT_TIME": "Departure time: "
+    },
+    "DECLARATION": "I confirm that I will not raise any complaints regarding the content above.",
+    "DATE": "Date",
+    "SIGNATURE": "Authorized person"
+  },
+
+
+    "FORM_MOIQUANHEVOCHONG": {
+      "TITLE": "QUESTIONS ABOUT MARITAL RELATIONSHIP",
+      "DESCRIPTION": "(FOR VISA 309/820)",
+      "PHAN_1": {
+        "TITLE": "General Information",
+        "NAME": "Your full name:",
+        "BIRTH": "Your date of birth:",
+        "ADDRESS": "Your current address:",
+        "PHONE": "Phone number:",
+        "EMAIL": "Email:",
+        "NAME_2": "Your spouse's full name:",
+        "BIRTH_2": "Your spouse's date of birth:",
+        "ADDRESS_2": "Your spouse's current address (if different):",
+        "START_MQH": "Date your relationship started:",
+        "CHINHTHUC_VOCHONG": "Date you officially became spouses (if married):",
+        "NGAY_CHUNGSONG": "Date you started living together (if applicable):"
+      },
+      "PHAN_2": {
+        "TITLE": "Meeting Circumstances",
+        "FIRST_MEET_PLACE": "Where and when did you first meet?",
+        "FIRST_CONVERSATION": "Who initiated the first conversation?",
+        "FIRST_IMPRESSION": "What was your first impression of your spouse?",
+        "ATTRACTION": "What attracted you to your spouse?",
+        "INITIAL_DISCUSSIONS": "What activities or topics did you usually discuss when you first met?",
+        "OFFICIAL_DATING": "When did you officially start dating?",
+        "MEETING_FREQUENCY": "At the beginning of your relationship, how often did you meet per week?"
+      },
+      "PHAN_3": {
+        "TITLE": "Living Together and Daily Life",
+        "START_LIVING_TOGETHER": "When did you start living together?",
+        "FIRST_HOME_ADDRESS": "What was the first address where you lived together?",
+        "WHO_SUGGESTED": "Who suggested that you move in together?",
+        "HOUSEWORK_DIVISION": "How do you divide household chores?",
+        "DES_HOUSEWORK_DIVISION": "(Who does what tasks?)",
+        "DAILY_ACTIVITIES": "What daily activities do you often do together?",
+        "COVID_ADAPTATION": "How did you adapt to life during the COVID-19 pandemic?"
+      },
+      "PHAN_4": {
+        "TITLE": "Work and Finances",
+        "WORK_TOGETHER": "Do you work together at the same place?",
+        "DES_WORK_TOGETHER": "If yes, please describe each person's job.",
+        "JOINT_BANK_ACCOUNT": "Do you have a joint bank account?",
+        "DES_JOINT_BANK_ACCOUNT": "If yes, please specify the bank and the date the account was opened.",
+        "SHARED_EXPENSES": "What are the shared expenses that you both contribute to monthly?",
+        "JOINT_LOANS_INVESTMENTS": "Do you have any joint loans or financial investments?",
+        "JOINT_ASSETS": "If you have shared assets (such as a car, house), please describe them in detail."
+      },
+      "PHAN_5": {
+        "TITLE": "Traveling Together",
+        "TRAVEL_HISTORY": "Have you traveled together?",
+        "DES_TRAVEL_HISTORY": "If yes, please list the places you have visited.",
+        "MEMORABLE_TRIP": "Describe a memorable experience from a trip you took together.",
+        "FUTURE_TRAVEL_PLANS": "Do you have any future travel plans together?"
+      },
+      "PHAN_6": {
+        "TITLE": "Family and Friends",
+        "INTRODUCING_FAMILY": {
+          "QUESTION": "How did you introduce each other to your families?",
+          "DES": "Describe the process, timing, and your families' reactions when you introduced each other."
+        },
+        "MEETING_IN_LAWS": {
+          "QUESTION": "Have you met your spouse’s parents? What were their thoughts about you?",
+          "DES": "Provide details about the meeting, location, and any comments from your spouse’s parents."
+        },
+        "SPOUSE_MEETING_PARENTS": {
+          "QUESTION": "Has your spouse met your parents? What were their thoughts about your spouse?",
+          "DES": "Describe your family’s reaction, especially your parents’ opinions about your spouse."
+        },
+        "FAMILY_EVENTS": {
+          "QUESTION": "Have you participated in family events or gatherings with mutual friends?",
+          "DES": "List important occasions such as weddings, birthdays, family reunions, or special events."
+        },
+        "COMMON_FRIENDS": {
+          "QUESTION": "Do you have mutual friends? If so, who are your closest mutual friends?",
+          "DES": "List significant mutual friends and their role in your relationship."
+        }
+      },
+      "PHAN_7": {
+        "TITLE": "Future Plans",
+        "MARRIAGE_PLANS": {
+          "QUESTION": "Do you have plans to get married? If already married, how do you plan to celebrate your wedding anniversaries?",
+          "DES": "If not married, share specific plans. If married, describe how you plan to celebrate anniversaries."
+        },
+        "CHILD_PLANS": {
+          "QUESTION": "Do you plan to have children? If so, describe your parenting and educational aspirations.",
+          "DES": "Share your desired number of children, parenting style, education plans, and family values you wish to pass on."
+        },
+        "SETTLEMENT_PLANS": {
+          "QUESTION": "Do you plan to buy a house or settle permanently in Australia?",
+          "DES": "If yes, describe your financial plans, preferred location, and reasons for choosing that place."
+        },
+        "OTHER_FUTURE_PLANS": {
+          "QUESTION": "What other future plans do you have together?",
+          "DES": "This may include travel plans, joint investments, education, or career development."
+        }
+      },
+      "PHAN_8": {
+        "TITLE": "Commitment Statement",
+        "RELATIONSHIP_BELIEF": {
+          "QUESTION": "What makes you believe that your relationship is genuine and long-lasting?",
+          "DES": "Share factors such as love, trust, shared values, and common goals."
+        },
+        "CONFLICT_RESOLUTION": {
+          "QUESTION": "If difficulties arise in your relationship, how do you resolve them?",
+          "DES": "Describe how you handle conflicts, communicate, and the lessons you've learned."
+        },
+        "ADDITIONAL_SHARING": {
+          "QUESTION": "Is there anything else you would like to share about your relationship?",
+          "DES": "Anything important or special about your relationship that hasn't been covered."
+        }
+      }
+    },
+
+    "FORM_888": {
+    "TITLE": "WITNESS DECLARATION FORM 888",
+    "DESCRIPTION": "(FOR FORM 888)",
+
+    "PHAN_1": {
+      "TITLE": "GENERAL INFORMATION",
+      "NAME": "Full name of the sponsored person (applicant):",
+      "FIRST_NAME": "First name",
+      "LAST_NAME": "Last name and middle name",
+      "NAME_BL": "Full name of the sponsor:"
+    },
+
+    "PHAN_2": {
+      "TITLE": "DETAILED INFORMATION ABOUT THE DECLARANT",
+      "NAME": "Full name (as per passport)",
+      "FIRST_NAME": "First name",
+      "LAST_NAME": "Last name and middle name",
+      "SEX": "Gender",
+      "MALE": "Male",
+      "FEMALE": "Female",
+      "DATE": "Date of birth:",
+      "PHONE": "Phone number:",
+      "WORK": "Current occupation:",
+      "ADDRESS": "Address:",
+      "PASSPORT": "Passport number:",
+      "EMAIL": "Personal email:",
+      "QUENBIET": "Years of acquaintance with the applicant:",
+      "BAOLANH": "Years of acquaintance with the sponsor:"
+    },
+
+    "PHAN_3": {
+      "TITLE": "INFORMATION RELATED TO IMMIGRATION STATUS AND OTHER DETAILS",
+      "QUESTION_1": "What is your immigration status?",
+      "QUESTION_2": "Is your passport still valid?",
+      "QUESTION_3": {
+        "TITLE": "Answer the following questions:",
+        "SUB_QUESTION_1": "Have you ever lived with these two people?",
+        "SUB_QUESTION_2": "If yes, how long have you lived with them?",
+        "SUB_QUESTION_3": "Reason for living with one of them?",
+        "SUB_QUESTION_4": "Was the rental shared or how was it arranged?"
+      },
+      "QUESTION_4": {
+        "TITLE": "Answer the following questions:",
+        "SUB_QUESTION_1": "How long have you known the couple, and under what circumstances?",
+        "SUB_QUESTION_2": "Who did you know first?",
+        "SUB_QUESTION_3": "When did you meet the other person?",
+        "SUB_QUESTION_4": "Please list the number of years you have known the couple and the circumstances.",
+        "EXAMPLE": "Example: Have known them for 5 years, worked together, met through mutual friends..."
+      },
+      "QUESTION_5": {
+        "TITLE": "Answer the following questions:",
+        "SUB_QUESTION_1": "Do you often meet the couple (or one of them)?",
+        "SUB_QUESTION_2": "On what occasions?",
+        "SUB_QUESTION_3": "When was the last time you saw them?",
+        "SUB_QUESTION_4": "Who are you closer to, and with whom do you talk more often?"
+      },
+      "QUESTION_6": {
+        "TITLE": "Answer the following questions:",
+        "SUB_QUESTION_1": "If the couple is married, did you attend their wedding?",
+        "SUB_QUESTION_2": "Do you remember the time and location of their wedding?",
+        "SUB_QUESTION_3": "How did they behave towards each other at the wedding?",
+        "SUB_QUESTION_4": "Did they show any affectionate gestures towards each other?"
+      },
+      "QUESTION_7": {
+        "TITLE": "Answer the following questions:",
+        "SUB_QUESTION_1": "What are your thoughts on each person's personality?",
+        "SUB_QUESTION_2": "Are they compatible in terms of personality?",
+        "SUB_QUESTION_3": "If yes, please list the reasons why you think so."
+      },
+      "QUESTION_8": {
+        "TITLE": "Answer the following questions:",
+        "SUB_QUESTION_1": "Do you believe their relationship is real and ongoing?",
+        "SUB_QUESTION_2": "Please list the reasons why you believe in their relationship.",
+        "SUB_QUESTION_3": "Have you noticed any changes in them because of each other?"
+      },
+      "QUESTION_9": {
+        "TITLE": "Answer the following questions:",
+        "SUB_QUESTION_1": "Have you ever heard them talk about or are you aware of their future plans?",
+        "SUB_QUESTION_2": "Housing, job, children, etc."
+      }
+    }
+  }
+
+
+}

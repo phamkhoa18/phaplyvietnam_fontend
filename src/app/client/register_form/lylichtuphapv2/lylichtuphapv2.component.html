@@ -1,0 +1,693 @@
+<section class="form lylichtuphap">
+  <div class="container">
+      <form [formGroup]="lylichtuphap" (ngSubmit)="submit()">
+        <div class="form_80" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;">
+          <!-- title -->
+          <div class="mat-card" style="border: 2px solid #1A8B83;">
+              <div class="HeaderCenter">
+                <span class="d-flex align-items-center flex-column" >
+                  <b class="header-title">TỜ KHAI YÊU CẦU CẤP PHIẾU LÝ LỊCH TƯ PHÁP</b>
+                  <b class="sub-title"><i>(Dùng cho cá nhân có yêu cầu cấp Phiếu lý lịch tư pháp)</i></b>
+                </span>
+              </div>
+          </div>
+
+           <!-- content -->
+           <div class="mat-card">
+            <div class="header-child header-a position-relative">
+              <div class="stt"><span>1</span></div>
+              <div class="content-header">
+                <h2 class="header-title-child d-flex flex-column">THÔNG TIN CƠ BẢN
+                  <b class="sub-title-child"><i>PERSONAL INFORMATION</i></b>
+                </h2>
+              </div>
+            </div>
+            <div class="row" style="padding-top: 15px;">
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Họ và tên <span class="request"> *</span>
+                    <span class="sub-title">
+                      Full name
+                    </span>
+                  </label>
+                  <input type="text"
+                    [formControlName]="'fullname'"
+                    pInputText
+                    [placeholder]="placeholder"
+                    [ngClass]="{'valid': lylichtuphap.get('fullname').invalid && (lylichtuphap.get('fullname').dirty || lylichtuphap.get('fullname').touched)}"
+                  />
+
+
+                    <span class="error-message" *ngIf="getErrorMessage('fullname') != ''">
+                      {{ getErrorMessage('fullname') }}
+                    </span>
+
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Tên gọi khác(nếu có) <span class="request"> *</span>
+                    <span class="sub-title">
+                      Other name
+                    </span>
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'fullname_new'"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Giới tính<span class="request"> *</span>
+                    <span class="sub-title">
+                      Sex
+                    </span>
+                  </label>
+                  <div class="d-flex flex-wrap gap-3 align-content-center" style="height: 100%;">
+                    <div class="d-flex align-items-center">
+                      <p-radioButton [formControlName]="'gender'" value="Nam"  />
+                      <label for="male" class="ms-2">Nam / Male</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <p-radioButton [formControlName]="'gender'" value="Nữ" />
+                      <label for="female" class="ms-2">Nữ / Female</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Ngày Tháng Năm Sinh <span class="request"> *</span>
+                    <span class="sub-title">
+                      Date of birth:
+                    </span>
+                  </label>
+                  <p-calendar placeholder="dd-mm-yyyy"
+                  [dateFormat]="'dd-mm-yy'"
+                  formControlName="date"
+                  [ngClass]="{'valid': lylichtuphap.get(['date']).invalid && (lylichtuphap.get(['date']).dirty || lylichtuphap.get(['date']).touched)}"
+                  >
+                    <ng-template pTemplate="date" let-date>
+                        <span>
+                            {{ date.day }}
+                        </span>
+                    </ng-template>
+                </p-calendar>
+
+                <span class="error-message" *ngIf="getErrorMessage('date') != ''">
+                  {{ getErrorMessage('date') }}
+                </span>
+
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Nơi Sinh (tỉnh , TP): <span class="request"> *</span>
+                    <span class="sub-title">
+                      Place of birth
+                    </span>
+                  </label>
+                  <input type="text"
+                  pInputText
+                  [placeholder]="placeholder"
+                  formControlName="date_address"
+                  />
+
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Dân tộc
+                    <span class="sub-title">
+                      Ethnicity
+                    </span>
+                  </label>
+                  <input type="text"
+                    pInputText
+                    [placeholder]="placeholder"
+                    formControlName="nation"
+                  />
+                </div>
+              </div>
+
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Quốc tịch
+                    <span class="sub-title">
+                      Nationality
+                    </span>
+                  </label>
+                  <input type="text"
+                    pInputText
+                    [placeholder]="placeholder"
+                    formControlName="national"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Giấy tờ tùy thân<span class="request"> *</span>
+                    <span class="sub-title">
+                      Identity documents
+                    </span>
+                  </label>
+                  <p-dropdown [options]="listgiayto"
+                   optionLabel="name"
+                   optionValue="name"
+                   formControlName="loai_giay_to"
+                   [placeholder]="'Vui lòng loại giấy tờ'"
+                   [ngClass]="{'valid': lylichtuphap.get('loai_giay_to').invalid && (lylichtuphap.get('loai_giay_to').dirty || lylichtuphap.get('loai_giay_to').touched)}"
+                   >
+                    <ng-template let-item pTemplate="item">
+                      <div class="d-flex align-items-center">
+                        <span class="ms-2">{{item.name}}</span>
+                      </div>
+                    </ng-template>
+                  </p-dropdown>
+
+                  <span class="error-message" *ngIf="getErrorMessage('loai_giay_to') != ''">
+                    {{ getErrorMessage('loai_giay_to') }}
+                  </span>
+
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Số hoặc Chữ của loại giấy tờ <span class="request"> *</span>
+                    <span class="sub-title">
+                      Number or letter of the scrap paper
+                    </span>
+                  </label>
+                  <input type="text"
+                    pInputText
+                    [placeholder]="placeholder"
+                    formControlName="number_giay_to"
+                    [ngClass]="{'valid': lylichtuphap.get(['number_giay_to']).invalid && (lylichtuphap.get(['number_giay_to']).dirty || lylichtuphap.get(['number_giay_to']).touched)}"
+                  />
+
+                  <span class="error-message" *ngIf="getErrorMessage('number_giay_to') != ''">
+                    {{ getErrorMessage('number_giay_to') }}
+                  </span>
+
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Nơi thường trú
+                    <span class="sub-title">
+                      Permanent address
+                    </span>
+                  </label>
+                  <textarea
+                      rows="3"
+                      cols="30"
+                      style="resize: none;"
+                      pInputTextarea
+                      [placeholder]="'Ghi rõ số nhà, xã/phường (Number, ward/commune)'"
+                      [formControlName]="'address_thuong_tru'">
+                  </textarea>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Nơi tạm trú
+                    <span class="sub-title">
+                      Current address
+                    </span>
+                  </label>
+                  <textarea
+                      rows="3"
+                      cols="30"
+                      pInputTextarea
+                      style="resize: none;"
+                      [placeholder]="'Ghi rõ số nhà, xã/phường (Number, ward/commune)'"
+                      [formControlName]="'address_tam_tru'">
+                  </textarea>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Ngày cấp
+                    <span class="sub-title">
+                      Date of issue:
+                    </span>
+                  </label>
+                  <p-calendar placeholder="dd-mm-yyyy"
+                  [dateFormat]="'dd-mm-yy'"
+                  formControlName="ngay_cap_giay_to"
+                  >
+                    <ng-template pTemplate="date" let-date>
+                        <span>
+                            {{ date.day }}
+                        </span>
+                    </ng-template>
+                </p-calendar>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Nơi cấp
+                    <span class="sub-title">
+                     Place of issue
+                    </span>
+                  </label>
+                  <input type="text"
+                    pInputText
+                    [placeholder]="placeholder"
+                    formControlName="noi_cap_giay_to"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Số diện thoại <span class="request"> *</span>
+                    <span class="sub-title">
+                      Phone number
+                    </span>
+                  </label>
+                  <input type="text"
+                    pInputText
+                    [placeholder]="placeholder"
+                    [ngClass]="{'valid': lylichtuphap.get('phone').invalid && (lylichtuphap.get('phone').dirty || lylichtuphap.get('phone').touched)}"
+                    formControlName="phone"
+                  />
+
+                  <span class="error-message" *ngIf="getErrorMessage('phone') != ''">
+                    {{ getErrorMessage('phone') }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Email nhận lại kết quả
+                    <span class="sub-title">
+                      Email to receive results
+                    </span>
+                  </label>
+                  <input type="text"
+                    pInputText
+                    [placeholder]="placeholder"
+                    formControlName="email"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="header-child header-a position-relative" style="margin-top: 10px;">
+              <div class="stt"><span>2</span></div>
+              <div class="content-header">
+                <h2 class="header-title-child d-flex flex-column">THÔNG TIN VỀ CHA, MẸ, VỢ(CHỒNG)
+                  <b class="sub-title-child"><i>INFORMATION OF FAMILY MEMBERS</i></b>
+                </h2>
+              </div>
+            </div>
+            <div class="row" style="padding-top: 15px;">
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Họ và tên Bố
+                    <span class="sub-title">
+                      Full name of Father
+                    </span>
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'name_dad'"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Năm sinh của Bố
+                    <span class="sub-title">
+                      Date of birth:
+                    </span>
+                  </label>
+                  <p-calendar
+                  placeholder="yyyy"
+                  dateFormat="yy"
+                  view="year"
+                  formControlName="date_dad"
+                  >
+                    <ng-template pTemplate="date" let-date>
+                        <span>
+                            {{ date.day }}
+                        </span>
+                    </ng-template>
+                </p-calendar>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Họ và tên Mẹ
+                    <span class="sub-title">
+                      Full name of Mother
+                    </span>
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'name_mother'"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Năm sinh của Mẹ
+                    <span class="sub-title">
+                      Year of Mother’s birth
+                    </span>
+                  </label>
+                  <p-calendar
+                  placeholder="yyyy"
+                  dateFormat="yy"
+                  view="year"
+                  formControlName="date_mother"
+                  >
+                    <ng-template pTemplate="date" let-date>
+                        <span>
+                            {{ date.day }}
+                        </span>
+                    </ng-template>
+                </p-calendar>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Họ và tên vợ/chồng
+                    <span class="sub-title">
+                      Full name of wife/husband
+                    </span>
+                  </label>
+                  <input type="text" pInputText
+                    [formControlName]="'name_cv'"
+                    [placeholder]="placeholder"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Năm sinh của vợ/chồng
+                    <span class="sub-title">
+                      Year of wife/husband’s birth
+                    </span>
+                  </label>
+                  <p-calendar
+                  placeholder="yyyy"
+                  dateFormat="yy"
+                  view="year"
+                  formControlName="date_cv"
+                  >
+                    <ng-template pTemplate="date" let-date>
+                        <span>
+                            {{ date.day }}
+                        </span>
+                    </ng-template>
+                </p-calendar>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="header-child header-a position-relative" style="margin-top: 10px;">
+              <div class="stt"><span>3</span></div>
+              <div class="content-header">
+                <h2 class="header-title-child d-flex flex-column">QUÁ TRÌNH CƯ TRÚ (TÍNH TỪ KHI ĐỦ 14 TUỔI)
+                  <b class="sub-title-child"><i>RESIDENCE PROCESS (FROM AGE OF 14 TO PRESENT)</i></b>
+                </h2>
+              </div>
+            </div>
+            <div class="row" style="padding-top: 15px;">
+
+              <div class="col-md-12">
+                <div class="d-flex flex-column pb-3">
+                  <p-table
+                      [value]="addDynamicRow.controls"
+                      [tableStyle]="{ 'min-width': '40rem' }"
+                      formArrayName="datacutru">
+
+                      <!-- Header -->
+                      <ng-template pTemplate="header">
+                          <tr>
+                              <th>STT</th>
+                              <th>Từ ngày*</th>
+                              <th>Đến ngày*</th>
+                              <th>Nơi thường trú/ tạm trú*</th>
+                              <th>Nghề nghiệp</th>
+                              <th>Nơi làm</th>
+                          </tr>
+                      </ng-template>
+
+                      <!-- Body -->
+                      <ng-template pTemplate="body" let-row let-i="rowIndex">
+                          <tr [formGroupName]="i">
+                              <td>{{ i + 1 }}</td>
+                              <td><input type="text" pInputText [formControlName]="'tu_ngay'" [placeholder]="placeholder"></td>
+                              <td><input type="text" pInputText [formControlName]="'den_ngay'" [placeholder]="placeholder"></td>
+                              <td><input type="text" pInputText [formControlName]="'noi_cu_tru'" [placeholder]="placeholder"></td>
+                              <td><input type="text" pInputText [formControlName]="'nghe_nghiep'" [placeholder]="placeholder"></td>
+                              <td><input type="text" pInputText [formControlName]="'noi_lam'" [placeholder]="placeholder"></td>
+                          </tr>
+                      </ng-template>
+                  </p-table>
+
+                  <div class="button_tao" >
+                    <p-button label="Tạo mới thông tin cư trú" (click)="addtr()" severity="warning" />
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+            <div class="header-child header-a position-relative" style="margin-top: 10px;">
+              <div class="stt"><span>4</span></div>
+              <div class="content-header">
+                <h2 class="header-title-child d-flex flex-column">THÔNG TIN KHÁC
+                  <b class="sub-title-child"><i>OTHER INFORMATION</i></b>
+                </h2>
+              </div>
+            </div>
+
+            <div class="row" style="padding-top: 15px;">
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Loại tờ khai<span class="request"> *</span>
+                    <span class="sub-title">
+                      Type of declaration
+                    </span>
+                  </label>
+                  <p-dropdown [options]="listtokhai"
+                   optionLabel="name"
+                   optionValue="name"
+                   formControlName="to_khai"
+                   [placeholder]="'Vui lòng loại giấy tờ'"
+                   >
+                    <ng-template let-item pTemplate="item">
+                      <div class="d-flex align-items-center">
+                        <span class="ms-2">{{item.name}}</span>
+                      </div>
+                    </ng-template>
+                  </p-dropdown>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Đối tượng
+                    <span class="sub-title">
+                      Object of declaration
+                    </span>
+                  </label>
+                  <p-dropdown [options]="listdoituong"
+                   optionLabel="name"
+                   optionValue="name"
+                   formControlName="doi_tuong"
+                   [placeholder]="'Vui lòng loại giấy tờ'"
+                   >
+                    <ng-template let-item pTemplate="item">
+                      <div class="d-flex align-items-center">
+                        <span class="ms-2">{{item.name}}</span>
+                      </div>
+                    </ng-template>
+                  </p-dropdown>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Mục đích cấp phiếu
+                    <span class="sub-title">
+                      Purpose
+                    </span>
+                  </label>
+                  <input type="text"
+                    pInputText
+                    [placeholder]="placeholder"
+                    formControlName="muc_dich_cap_phieu"
+                  />
+
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Số lượng phiếu cấp thêm
+                    <span class="sub-title">
+                      Number of additional
+                    </span>
+                  </label>
+                  <input type="text"
+                    pInputText
+                    [placeholder]="placeholder"
+                    formControlName="so_luong_cap_them"
+                  />
+
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Thông tin án tích
+                    <span class="sub-title">
+                      Judgments
+                    </span>
+                  </label>
+                  <input type="text"
+                    pInputText
+                    [placeholder]="placeholder"
+                    formControlName="thong_tin_an_tich"
+                  />
+
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3" style="height: 100%;">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Yêu cầu cấp Phiếu lý lịch tư pháp
+                  </label>
+                  <div class="d-flex flex-wrap gap-3 align-content-center" style="height: 100%;">
+                    <div class="d-flex align-items-center">
+                      <p-radioButton [formControlName]="'yeu_cau_cap_ly_lich'" value="Số 1"  />
+                      <label for="male" class="ms-2">Số 1</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <p-radioButton [formControlName]="'yeu_cau_cap_ly_lich'" value="Số 2" />
+                      <label for="female" class="ms-2">Số 2</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="header-child header-a position-relative" style="margin-top: 10px;">
+              <div class="stt"><span>5</span></div>
+              <div class="content-header">
+                <h2 class="header-title-child d-flex flex-column">HỒ SƠ ĐÍNH KÈM
+                  <b class="sub-title-child"><i> UPLOAD FILE</i></b>
+                </h2>
+              </div>
+            </div>
+            <div class="row" style="padding-top: 15px;">
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    HỒ SƠ BAO GỒM CÁC GIẤY TỜ ĐÍNH KÈM SAU:
+                  </label>
+
+                <p>1. Tờ khai yêu cầu cấp phiếu <a class="xanh" [href]="this.api.URL + '/uploads/' + 'mau_so_03_LLTP.docx'">(In tờ khai online)</a></p>
+                <p>2. Chứng minh nhân dân (scan 2 mặt) <a [href]="this.api.URL +'/document/'+ 'cmnd.pdf'" target="_blank" >Xem ví dụ CMND</a></p>
+                <p>3. Hộ khẩu thường trú (scan đầy đủ trang bìa và các trang đã ghi thông tin liên quan đến bản thân) <a [href]="this.api.URL +'/document/'+ 'hk.pdf'" target="_blank">Xem ví dụ HK</a></p>
+
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="d-flex flex-column pb-3">
+                  <label class="d-block font-weight-bold mb-2 title-input">
+                    Nơi upload File (lưu ý tối đa 5mb)
+                  </label>
+
+                  <p-toast />
+                  <p-fileUpload
+                      name="demo[]"
+                      (onUpload)="onUpload($event)"
+                      [multiple]="true"
+                      maxFileSize="10000000"
+                      [auto]="false"
+                      [customUpload]="true"
+                      (onSelect)="onSelect($event)">
+                      <ng-template pTemplate="content">
+                          <ul *ngIf="uploadedFiles.length">
+                              <li *ngFor="let file of uploadedFiles">
+                                  {{ file.name }} - {{ file.size }} bytes
+                              </li>
+                          </ul>
+                      </ng-template>
+                  </p-fileUpload>
+
+                  <label for="" class="form-label label-title">Hoặc bạn có thể gửi đến Trợ giúp pháp lý việt nam với địa chỉ Email : hotro@trogiupphaply.com.au</label>
+                </div>
+              </div>
+            </div>
+            <p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }" />
+            <button
+                pButton
+                pRipple
+                label="Hoàn Thành"
+                type="submit"
+                class="p-button-success submit_button"
+                >
+            </button>
+
+          </div>
+        </div>
+      </form>
+  </div>
+</section>

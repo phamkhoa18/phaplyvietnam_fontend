@@ -1,0 +1,41 @@
+.logo-pdf a img {
+  width: 200px;
+  height: auto;
+}
+
+.header-pdf {
+  background-color: #ffff;
+}
+
+.header-pdf-container {
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.item-button-pdf {
+  button {
+    background-color: #0f72ff;
+    border-color: #0f72ff;
+    color: #ffff;
+    height: 48px;
+    padding: 10px 16px;
+    border-radius: 24px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    line-height: 24px;
+    font-family: inherit;
+    font-weight: 700;
+    user-select: none;
+    white-space: nowrap;
+    transition: background-color 0.2s ease-in-out 0s, border 0.2s ease-in-out 0s, color 0.2s ease-in-out 0s;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0259d6;
+  }
+}

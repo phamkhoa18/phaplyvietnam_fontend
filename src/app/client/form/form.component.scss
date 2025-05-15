@@ -1,0 +1,162 @@
+.item_cauhoi {
+ padding-top: 70px !important ;
+  padding-right: 60px !important;
+  padding-bottom : 70px !important;
+  padding-left: 60px !important;
+}
+.form {
+  padding-bottom: 90px;
+}
+
+
+.item_cauhoi_title {
+  margin-bottom: 40px;
+  h3 {
+    margin-top: 10px ;
+  }
+}
+
+
+
+.item_cauhoi_title span {
+  color: #6e6d6d !important;
+}
+
+.item_cauhoi_title h3 {
+  color: #4DC1B8;
+  font-family: "Alfa Slab One", serif;
+}
+
+
+.col_form {
+  padding: 0 !important;
+}
+
+.col_form_bg {
+  background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.khung {
+  padding-bottom: 20px;
+}
+
+
+.title_btn {
+  border-color: #4DC1B8 !important;
+
+  h5 button {
+    color: #1A8B83;
+    text-decoration: none ;
+
+  }
+
+}
+
+
+.des_card {
+  color: black;
+  font-style: italic;
+  font-size: 13px;
+}
+
+
+.btn {
+  box-shadow: none;
+}
+
+
+// form
+
+.item_form {
+ padding-top: 70px !important ;
+  padding-right: 60px !important;
+  padding-bottom : 70px !important;
+  padding-left: 60px !important;
+}
+
+
+.form-control {
+  height: calc(1.5em + 0.75rem + 10px) !important;
+  border-radius: 20px;
+  color: #767676;
+  background: 0 0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.textarea {
+  height: 140px !important;
+  margin-bottom: 12px;
+}
+
+
+.btn_item {
+    font-family: "Noto Sans JP", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 700;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 3px solid #4DC1B8;
+    color: #4DC1B8;
+    background-color: white;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+  transition: all 0.3s;
+}
+
+.btn_item:hover {
+  background-color: #4DC1B8;
+  color: #ffff;
+}
+
+
+
+.diemnhan_services {
+  font-family: "Roboto Serif", serif;
+  font-size: 18px;
+  font-optical-sizing: auto;
+  font-variation-settings:
+    "wdth" 100,
+    "GRAD" 0;
+  color: #6e6d6d;
+  text-align: justify;
+  display: flex;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+   align-items: center;
+   margin-bottom: 15px;
+}
+
+.sec1  {
+  padding-bottom: 120px !important;
+}
+
+.title_services {
+  text-align: center;
+  width: 100%;
+  font-family: "Alfa Slab One", serif;
+  font-size: 24px;
+  font-weight: 100;
+  font-style: normal;
+  color: #4DC1B8 !important;
+  text-decoration: underline;
+}
+hr {
+  color: #b69d74 !important;
+  margin: 0 !important;
+  width: 10%;
+  border: 1px solid;
+  margin: 10px !important;
+}
+
+

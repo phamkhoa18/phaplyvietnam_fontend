@@ -1,0 +1,45 @@
+<section class="skill landing-themes landing layout-light">
+    <div class="container">
+        <div class="title">
+            <div class="category-item layout-item">
+                <label class="item-wrapper" for="buddy_projects">
+                    <div class="item-title">
+                        <span class="in-one-line">{{ 'SKILL.TITLE' | translate }}</span><br>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="theme-table d-flex mt-4 justify-content-center px-5 px-lg-8">
+      <div class="box overflow-hidden z-1 p-5 table-container">
+          <p-table [value]="jobs"
+                   [paginator]="true"
+                   [rows]="10"
+                   [responsive]="true"
+                   [globalFilterFields]="['name', 'code']"
+                   [(first)]="first"
+                   [showCurrentPageReport]="true"
+                   currentPageReportTemplate="Hiển thị {first} đến {last} trong tổng số {totalRecords}">
+              <ng-template pTemplate="caption">
+                  <div class="table-header">
+                      <span>{{ 'SKILL.DES' | translate }}</span>
+                      <input pInputText type="text" (input)="onGlobalFilter($event)" placeholder="Tìm kiếm...">
+                  </div>
+              </ng-template>
+              <ng-template pTemplate="header">
+                  <tr>
+                      <th pSortableColumn="code">{{ 'SKILL.CODE' | translate }}<p-sortIcon field="code"></p-sortIcon></th>
+                      <th pSortableColumn="name">{{ 'SKILL.NAME' | translate }}<p-sortIcon field="name"></p-sortIcon></th>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-job>
+                  <tr>
+                      <td>{{ job.code }}</td>
+                      <td>{{ job.vi }} <span class="d-block"><i style="font-size: small;">{{ job.en }}</i></span> </td>
+                  </tr>
+              </ng-template>
+          </p-table>
+      </div>
+  </div>
+
+</section>

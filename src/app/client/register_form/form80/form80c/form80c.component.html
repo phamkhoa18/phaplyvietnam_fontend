@@ -1,0 +1,157 @@
+<form [formGroup]="form80">
+  <div class="form_child">
+
+    <div class="header-child header-a position-relative">
+      <div class="stt"><span>C</span></div>
+      <div class="content-header">
+        <h2 class="header-title-child d-flex flex-column">{{'SECTION_C.TITLE' | translate}}</h2>
+      </div>
+    </div>
+
+    <div class="row" style="padding-top: 15px;" [formGroupName]="sectionGroupContainer">
+
+      <div class="col-md-12">
+        <div class="d-flex flex-column pb-3" style="height: 100%;">
+          <label class="d-block font-weight-bold mb-2 title-input">
+            14. {{'SECTION_C.14' | translate}}
+          </label>
+          <div class="d-flex flex-wrap gap-3 align-content-center pb-2" style="height: 100%;">
+            <div class="d-flex align-items-center">
+              <p-radioButton [formControlName]="'ap.nat id num'" [value]="'2'"  />
+              <label for="male" class="ms-2">{{'SECTION_HOME.YES' | translate}}</label>
+            </div>
+            <div class="d-flex align-items-center">
+              <p-radioButton [formControlName]="'ap.nat id num'" [value]="'1'"  />
+              <label for="female" class="ms-2">{{'SECTION_HOME.NO' | translate}}</label>
+            </div>
+          </div>
+
+          <span class="error-message" *ngIf="form80service.getErrorMessage(sectionGroupContainer, 'ap.nat id num') != ''">
+            {{ form80service.getErrorMessage(sectionGroupContainer, 'ap.nat id num') }}
+          </span>
+
+          <div class="d-flex rounded flex-column pb-3 pt-2"  *ngIf="form80.get([sectionGroupContainer, 'ap.nat id num']).value === '2'">
+              <div class="row" [formGroup]="itemthongtin">
+                <label class="d-block font-weight-bold mb-2 title-input" style="color: red; text-transform: uppercase;">
+                  {{'SECTION_HOME.INFORMATION' | translate}}
+                </label>
+                  <div class="col-md-3 d-flex align-items-end">
+                    <div class="d-flex flex-column pb-3" style="width: 100%;">
+                      <label class="d-block font-weight-bold mb-2 title-input">
+                        {{'SECTION_C.14_1' | translate}}
+                      </label>
+                      <p-dropdown [options]="this.form80service.giaytos"
+                      formControlName="ap.nat id num type"
+                      placeholder="Vui lòng chọn loại giấy tờ"
+                      [ngClass]="{'valid': itemthongtin.get(['ap.nat id num type']).invalid && (itemthongtin.get(['ap.nat id num type']).dirty || itemthongtin.get(['ap.nat id num type']).touched)}"
+                      optionLabel="name" optionValue="name">
+                        <ng-template let-item pTemplate="item">
+                          <div class="d-flex align-items-center">
+                            <span class="ms-2">{{item.name}}</span>
+                          </div>
+                        </ng-template>
+                      </p-dropdown>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3 d-flex align-items-end">
+                    <div class="d-flex flex-column pb-3" style="width: 100%;">
+                      <label class="d-block font-weight-bold mb-2 title-input">
+                        {{'SECTION_C.14_2' | translate}}
+                      </label>
+                      <p-dropdown [options]="countries"
+                          [formControlName]="'ap.cntry issue'"
+                          placeholder="Vui lòng chọn quốc gia"
+                          [filter]="true"
+                          filterBy="name"
+                          [showClear]="true"
+                          [ngClass]="{'valid': itemthongtin.get(['ap.cntry issue']).invalid && (itemthongtin.get(['ap.cntry issue']).dirty || itemthongtin.get(['ap.cntry issue']).touched)}"
+                          optionLabel="name" optionValue="name">
+                            <ng-template let-item pTemplate="item">
+                              <div class="d-flex align-items-center">
+                                <span class="fi fi-{{item.code.toLowerCase()}}"></span>
+                                <span class="ms-2">{{item.name}}</span>
+                              </div>
+                            </ng-template>
+                        </p-dropdown>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 d-flex align-items-end">
+                    <div class="d-flex flex-column pb-3" style="width: 100%;">
+                      <label class="d-block font-weight-bold mb-2 title-input">
+                        {{'SECTION_C.14_3' | translate}}
+                      </label>
+                      <input type="text" formControlName="ap.id num"
+                      [ngClass]="{'valid': itemthongtin.get(['ap.id num']).invalid && (itemthongtin.get(['ap.id num']).dirty || itemthongtin.get(['ap.id num']).touched)}"
+                      [placeholder]="placeholder" pInputText />
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 d-flex align-items-end">
+                    <div class="d-flex flex-column pb-3" style="width: 100%;">
+                        <p-toast />
+                        <p-confirmDialog />
+                        <p-button (onClick)="confirm()" [disabled]="this.thongtinarray.length >= 5" [label]="'SECTION_HOME.BUTTON_INFORMATION' | translate" severity="danger" />
+                    </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                <label class="d-block font-weight-bold mb-2 title-input" style="color: red; text-transform: uppercase;">
+                  {{"SECTION_HOME.LIST_INFORMATION" | translate}}
+                </label>
+                  <div class="col-md-7 d-flex align-items-end">
+                    <div class="d-flex flex-column pb-3" style="width: 100%;">
+                      <p-table
+                      [value]="thongtinarray"
+                      [tableStyle]="{ 'min-width': '30rem' }">
+                      <!-- Header -->
+                      <ng-template pTemplate="header">
+                          <tr>
+                              <th>#</th>
+                              <th>{{"SECTION_C.14_4" | translate}}</th>
+                              <th>{{"SECTION_C.14_5" | translate}}</th>
+                              <th>{{"SECTION_C.14_6" | translate}}</th>
+                          </tr>
+                      </ng-template>
+
+                      <!-- Body -->
+                      <ng-template pTemplate="body" let-row let-i="rowIndex" let-thongtin>
+                          <tr>
+                              <td>
+                                <svg width="20px" height="20px" viewBox="0 0 512 512" (click)="remove(i, thongtin)" style="cursor: pointer;" xmlns="http://www.w3.org/2000/svg"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"/></svg>
+                              </td>
+                              <td>{{thongtin['ap.nat id num type']}}</td>
+                              <td>{{thongtin['ap.cntry issue']}}</td>
+                              <td>{{thongtin['ap.id num']}}</td>
+                          <tr>
+                      </ng-template>
+                  </p-table>
+                    </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+  <p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }" />
+  <div class="grid grid-nogutter justify-content-end d-flex">
+    <p-button [label]="'SECTION_HOME.BUTTON_BACK' | translate" severity="secondary" (click)="goBack()" class="back" />
+    <button
+    (click)="nextStep(sectionGroupContainer)"
+      pButton
+      pRipple
+      [label]="'SECTION_HOME.BUTTON_NEXT' | translate"
+      type="button"
+      class="p-button-success submit_button"
+      >
+    </button>
+  </div>
+
+  </form>

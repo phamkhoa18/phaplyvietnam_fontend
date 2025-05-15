@@ -1,0 +1,313 @@
+<!-- <app-loading *ngIf="isLoading"></app-loading> -->
+
+
+<section class="news_detail">
+  <div class="top_news" [ngStyle]="{ 'background-image': 'url(' + api.URL + '/uploads/' + 'student.jpg' + ')' }" >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="content_news_detail">
+                    <h1 class="content_news_detail_title">
+                      CÂU HỎI GIẢI TRÌNH DÀNH CHO SINH VIÊN NỘP HỒ SƠ DU HỌC ÚC
+                    </h1>
+                  </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+  <div class="content_news" >
+    <div class="container">
+      <h2 class="content_news_detail_title" style="color:black !important; padding-bottom: 30px !important; font-size: 2rem !important; " >
+        GENUINE STUDENT
+      </h2>
+
+      <div class="row row_content_news">
+          <!-- HỌ VÀ TÊN -->
+          <form  [formGroup]="hochieu" (ngSubmit)="submit()" >
+              <div class="row form">
+                <div class="col-md-12 fv-row mb-5">
+                  <label class=" fs-6 fw-semibold mb-2">
+                    <b>*Lưu ý:</b><i class="text-dark fs-6"> Quý khách bắt buộc điền đầy đủ những mục có dấu (<span class="text-danger">*</span>)</i>
+                </label>
+                <label class=" fs-6 fw-semibold mb-2">
+                  <b>*Lưu ý:</b><i class="text-dark fs-6"> Quý khách bắt buộc điền đầy đủ những mục có dấu (<span class="text-danger">*</span>)</i>
+              </label>
+              </div>
+                <div class="col-md-12">
+                  <label for="" class="form-label label-title title-big">MỤC A. THÔNG TIN CÁ NHÂN</label>
+                </div>
+
+                    <!-- Ho va ten -->
+                <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="" class="form-label label-title">1.	HỌ VÀ TÊN<span class="request"> *</span> </label>
+                      <input type="text"  formControlName="ten"
+                        class="form-control" name="" id="" aria-describedby="helpId" [placeholder]="thongtinplace">
+                        <small class="text-danger" *ngIf="hochieu.get('ten')?.invalid && hochieu.get('ten')?.touched">
+                          {{detrong}}
+                        </small>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="" class="form-label label-title">2. NGÀY THÁNG NĂM SINH<span class="request"> *</span> </label>
+                    <input type="date"  formControlName="ngay"
+                      class="form-control" name="" id="" aria-describedby="helpId" [placeholder]="thongtinplace">
+                      <small class="text-danger" *ngIf="hochieu.get('ngay')?.invalid && hochieu.get('ngay')?.touched">
+                        {{detrong}}
+                      </small>
+                  </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="mb-3">
+                  <label for="" class="form-label label-title">3.	BỐ MẸ BẠN HIỆN NGHỀ NGHIỆP LÀ GÌ ?
+                    <span class="d-block mt-2 mb-2">
+                      (Hãy ghi càng chi tiết càng tốt, ví dụ: kinh doanh nghành nghề gì, hay làm công việc cụ thể là gì, hoặc đang lãnh lương hưu, hoặc thất nghiệp....)
+                    </span>
+                  </label>
+                    <textarea class="form-control " rows="4" id="id_GhiChu" formControlName="bomenghe" [placeholder]="thongtinplace"></textarea>
+
+                </div>
+            </div>
+
+
+              <div class="col-md-12">
+                <div class="mb-3">
+                  <label for="" class="form-label label-title">4. BỐ MẸ BẠN HOẶC BẠN CÓ SỞ HỮU TÀI SẢN NHÀ ĐẤT KHÔNG ?
+                    <span class="d-block mt-2 mb-2">
+                      (Hãy liệt kê chi tiết bạn sở hữu tài sản nào hoặc bố mẹ bạn sở hữu tài sản nào, và mô tả căn bản về bất động sản thuộc sở hữu của bạn hoặc bố mẹ, ví dụ: sở hữu nhà phố, miếng đất 1000m2 ...)
+                    </span>
+                  </label>
+                    <textarea class="form-control " rows="4" id="id_GhiChu" formControlName="taisanbome" [placeholder]="thongtinplace"></textarea>
+                </div>
+            </div>
+
+              <div class="col-md-12">
+                <div class="mb-3">
+                  <label for="" class="form-label label-title">5. BẠN CÓ VỢ/ CHỒNG, CÓ CON CÁI CHƯA ?
+                    <span class="d-block mt-2 mb-2">
+                      (Nếu có hay mô tả rõ về gia đình bạn, vợ bạn đang làm nghề nghiệp gì, bạn có bao nhiêu người con, con bạn đang học lớp mấy (bạn mô tả càng chi tiết càng tốt) )
+                    </span>
+                  </label>
+                    <textarea class="form-control " rows="4" id="id_GhiChu" formControlName="vochong" [placeholder]="thongtinplace"></textarea>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="mb-3">
+                <label for="" class="form-label label-title">6. HIỆN TẠI BẠN ĐANG ?</label>
+                  <div class="row mb-3" *ngFor="let item of hientai" >
+                      <div class="col-md-12">
+                        <div class="mt-3">
+                          <div class="form-check form-check-custom form-check-solid">
+                            <input class="form-check-input" [value]="item.title" (change)="onChange($event, item)" type="checkbox">
+                            <label class="form-check-label" style="padding-left: 10px;" >
+                                {{item.title}}
+                            </label>
+                        </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- <div class="col-md-12" style="text-align: center;">
+              <label class="form-label label-title" style="text-align: center; color: #003eb5; font-size: large;">NẾU BẠN ĐANG LÀ HỌC SINH SINH VIÊN </label>
+              <span class="d-block mb-7">
+                (nếu bạn vừa tốt nghiệp, hãy trả lời phần câu hỏi này về ngành bạn vừa tốt nghiệp)
+              </span>
+          </div> -->
+
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="" class="form-label label-title">7.	Bạn đang học hoặc đã tốt nghiệp trường tên gì ?</label>
+              <input type="text"  formControlName="hoctruong"
+                class="form-control" name="" id="" aria-describedby="helpId" [placeholder]="thongtinplace">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="" class="form-label label-title">8.	Bạn đang học lớp mấy, nếu là sinh viên thì là sinh viên năm mấy, hoặc tốt nghiệp rồi thì ghi là "Đã tốt nghiệp" ?</label>
+            <input type="text"  formControlName="lop"
+              class="form-control" name="" id="" aria-describedby="helpId" [placeholder]="thongtinplace">
+          </div>
+      </div>
+
+        <div class="col-md-12">
+          <div class="mb-3">
+            <label for="" class="form-label label-title">9.	Ngành bạn đang học hoặc ngành học bạn đã tốt nghiệp ?</label>
+            <input type="text"  formControlName="nganh"
+              class="form-control" name="" id="" aria-describedby="helpId" [placeholder]="thongtinplace">
+          </div>
+      </div>
+
+        <div class="col-md-12">
+          <div class="mb-3">
+            <label for="" class="form-label label-title">10. Hãy mô tả tại sao bạn yêu thích ngành học này, bạn mong sẽ được làm công việc gì trong tương lai:</label>
+            <textarea class="form-control " rows="4" id="id_GhiChu" formControlName="motanganh" [placeholder]="thongtinplace"></textarea>
+          </div>
+      </div>
+
+    <div class="col-md-12" style="text-align: center;">
+        <label class="form-label label-title mb-7" style="text-align: center; color: #003eb5; font-size: large; ">NẾU BẠN ĐANG ĐI LÀM</label>
+    </div>
+
+    <div class="col-md-12">
+      <div class="mb-3">
+        <label for="" class="form-label label-title">11.	Bạn đang làm ngành nghề gì:</label>
+        <input type="text"  formControlName="lamnghegi"
+          class="form-control" name="" id="" aria-describedby="helpId" [placeholder]="thongtinplace">
+      </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="mb-3">
+      <label for="" class="form-label label-title">12. Bạn làm công việc này đã được bao lâu rồi: </label>
+      <span class="d-block mb-2">
+        (bao nhiêu năm hoặc bao nhiêu tháng)
+      </span>
+      <input type="text"  formControlName="lamcvbaolau"
+        class="form-control" name="" id="" aria-describedby="helpId" [placeholder]="thongtinplace">
+    </div>
+</div>
+
+<div class="col-md-12">
+  <div class="mb-3">
+    <label for="" class="form-label label-title">13. Những điểm gì làm cho bạn yêu thích công việc của mình:</label>
+    <textarea class="form-control " rows="4" id="id_GhiChu" formControlName="cvyeuthich" [placeholder]="thongtinplace"></textarea>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="mb-3">
+    <label for="" class="form-label label-title">14. Lương tháng của bạn hiện tại bao nhiêu:</label>
+    <input type="text"  formControlName="luong"
+        class="form-control" name="" id="" aria-describedby="helpId" [placeholder]="thongtinplace">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="mb-3">
+    <label for="" class="form-label label-title">15. Ngoài tiền lương bạn còn nguồn thu nhập nào khác không:
+      <span class="d-block mb-2 mt-1">
+        (hãy ghi rõ chi tiết, thu nhập bao nhiêu tiền một tháng, nguồn tiền ở đâu)
+      </span>
+    </label>
+    <textarea class="form-control " rows="4" id="id_GhiChu" formControlName="thunhapkhac" [placeholder]="thongtinplace"></textarea>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <label for="" class="form-label label-title title-big">MỤC B. MÔ TẢ LÝ DO TẠI SAO CHỌN ÚC DU HỌC</label>
+</div>
+
+<div class="col-md-12">
+  <div class="mb-3">
+    <label for="" class="form-label label-title">16. Trường bạn đã chọn học tại Úc tên gì:</label>
+    <input type="text"  formControlName="truonguc"
+        class="form-control" name="" id="" aria-describedby="helpId" [placeholder]="thongtinplace">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="mb-3">
+    <label for="" class="form-label label-title">17. Ngôi trường này ở bang nào:  <span class="request"> *</span></label>
+        <select class="form-control" formControlName="tieubang" name="" id="">
+          <option disabled value="">Vui lòng chọn tiểu bang</option>
+          <option *ngFor="let item of tieubang" [value]="item.value"> {{item.title}}</option>
+        </select>
+
+        <small class="text-danger" *ngIf="hochieu.get('tieubang')?.invalid && hochieu.get('tieubang')?.touched">
+          {{detrong}}
+        </small>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="mb-3">
+    <label for="" class="form-label label-title">18. Lý do tại sao bạn lại chọn địa điểm (Bang) này để học:
+      <span class="d-block mb-2 mt-1">
+        (hãy mô tả chi tiết những điều kiện thuận lợi khi bạn chọn nước Úc để học tập, môi trường học tập Úc có gì đặc biệt hơn Việt Nam để bạn quyết định chọn Úc để phát triển con đường học tập, nêu rõ lý do tại sao bạn lại chọn địa điểm này để học – Bang này có đặc điểm gì, môi trường ăn ở học tập ra sao mà bạn quyết định chọn để ở và học tập tại đây)
+      </span>
+
+      <span class="d-block mb-2 mt-1 " style="color: #F1416C !important;">
+        câu hỏi này rất quan trọng bạn hãy mô tả càng chi tiết càng tốt
+      </span>
+    </label>
+    <textarea class="form-control " rows="4" id="id_GhiChu" formControlName="lydohoc" [placeholder]="thongtinplace"></textarea>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="mb-3">
+    <label for="" class="form-label label-title">19. Ngành học của bạn là ngành gì:</label>
+    <input type="text"  formControlName="nganhmuontheo"
+        class="form-control" name="" id="" aria-describedby="helpId" [placeholder]="thongtinplace">
+  </div>
+</div>
+
+
+<div class="col-md-12">
+  <div class="mb-3">
+    <label for="" class="form-label label-title">20. Lý do tại sao bạn chọn ngành học này:
+      <span class="d-block mb-2 mt-1">
+        (hãy mô tả chi tiết lý do yêu ngành học này, ngành học này sẽ hỗ trợ hay giúp ích gì cho tương lai của bạn tại Việt Nam sau này: bạn sẽ đóng góp được gì cho bản thân bạn hay đất nước Việt Nam sau khi bạn tốt nghiệp)
+      </span>
+    </label>
+    <textarea class="form-control " rows="4" id="id_GhiChu" formControlName="lydohocuc" [placeholder]="thongtinplace"></textarea>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="mb-3">
+    <label for="" class="form-label label-title">21. Bạn có từng du học trên nước Úc trước đây chưa:
+      <span class="d-block mb-2 mt-1">
+        (nếu có bạn hãy ghi rõ, bạn đã từng học ngành gì, trường tên gì vào khoảng thời gian nào trên nước Úc, thời gian đó ngày đầu tiên bạn đến Úc là ngày tháng năm nào, bạn đã tốt nghiệp chưa, và kết quả học tập ra sao – nếu chưa từng du học úc hãy ghi: tôi chưa từng du học trên nước Úc)
+      </span>
+    </label>
+    <textarea class="form-control " rows="4" id="id_GhiChu" formControlName="tungduhocuc" [placeholder]="thongtinplace"></textarea>
+  </div>
+</div>
+
+
+
+
+
+  <div class="col-md-12">
+    <label for="" class="form-label label-title title-big">HỒ SƠ ĐÍNH KÈM / UPLOAD FILE (KHÔNG BẮT BUỘC)
+    </label>
+  </div>
+
+  <div class="col-md-7">
+    <div class="mb-3 khung">
+      <label for="" class="form-label label-title">HỒ SƠ BAO GỒM CÁC GIẤY TỜ ĐÍNH KÈM SAU: </label>
+      <p>1. Những giấy tờ bạn nào bạn muốn gửi cho công ty hoặc đơn đã làm sẵn </p>
+      <p>2. Bạn có thể gửi những giấy tờ còn thiếu hoặc cần khi làm đơn </p>
+      <p>3. Lưu ý nơi upload File chỉ nhận JPG , PDF (nếu file bạn khác thì vui lòng chuyển đúng định dạng)</p>
+      </div>
+  </div>
+
+  <div class="col-md-5">
+    <div class="mb-3 khung">
+      <label for="" class="form-label label-title">Nơi upload File (lưu ý chỉ nhận JPG , PDF)</label>
+  <input  type="file" (change)="onFileSelected($event)" class="form-control" name="" id="" aria-describedby="helpId" multiple placeholder="Chọn file">
+    </div>
+    <label for="" class="form-label label-title">Hoặc bạn có thể gửi đến Trợ giúp pháp lý việt nam với địa chỉ Email : hotro@trogiupphaply.com.au</label>
+  </div>
+    <!-- end -->
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+      </div>
+    </div>
+
+
+  </div>
+
+</section>

@@ -1,0 +1,20 @@
+
+<app-loading *ngIf="isLoading"> </app-loading>
+
+<!-- quy trình -->
+
+<section class="tieubieu sec" *ngIf="!isLoading" style="padding-bottom: 0 !important;">
+  <div class="container">
+    <span class="diemnhan_services"> <hr>Đối tác chúng tôi là những công ty nào ?<hr></span>
+    <h3 class="title_services">ĐỐI TÁC - KHÁCH HÀNG TIÊU BIỂU</h3>
+
+    <div class="row row_tieubieu center">
+      <div class="col-lg-3 col_partner" *ngFor="let item of listpartner">
+        <div class="partner-item"> <a target="_blank"><img [src]="this.api.URL + '/uploads/' + item.background" ></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- end quy trình -->

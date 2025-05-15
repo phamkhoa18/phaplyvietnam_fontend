@@ -1,0 +1,605 @@
+{
+  "SECTION_HOME": {
+    "TITLE": "Tờ khai Lý lịch trích ngang",
+    "TEXT_PAGE_1": "Bạn đang ở trang",
+    "TEXT_PAGE_2": "của",
+    "TEXT_PAGE_3": "các trang",
+    "YES": "Có",
+    "NO" : "Không",
+    "MALE": "Nam" ,
+    "FEMALE": "Nữ",
+    "INFORMATION": "NƠI NHẬP THÔNG TIN TẠI ĐÂY: ",
+    "LIST_INFORMATION": "DANH SÁCH CÁC THÔNG TIN: ",
+    "BUTTON_NEXT": "Tiếp tục" ,
+    "BUTTON_BACK": "Quay lại" ,
+    "BUTTON_INFORMATION": "Thêm thông tin"
+  },
+  "SECTION_A": {
+    "TITLE": "Thông tin người nộp đơn",
+    "FIRST_NAME": "Họ",
+    "LAST_NAME": "Tên và tên lót",
+    "SEX": "Giới tính",
+    "DATE": "Ngày sinh",
+    "BIRTH": "Thành phố sinh",
+    "COUNTRY": "Quốc gia",
+    "4": "Bạn có từng được biết đến bằng tên khác không?",
+    "5": "Bạn có từng có ngày sinh khác với ngày được ghi ở câu hỏi 1 không?",
+    "6": "Hiện tại bạn có quốc tịch của quốc gia nào không?",
+    "6_1": "Bạn đã có quốc tịch này như thế nào (ví dụ: Sinh ra, tổ tiên, nhập tịch)?",
+    "6_2": "Ngày bạn có quốc tịch này:",
+    "8": "Bạn có hiện tại có quyền cư trú vĩnh viễn ở quốc gia nào khác ngoài những quốc gia đã khai ở câu hỏi 6 hoặc 7 không?",
+    "8_1": "Liệt kê tất cả các quốc gia khác:"
+  },
+  "SECTION_B": {
+    "TITLE": "Thông tin hộ chiếu/Tài liệu du lịch",
+    "9": "Bạn có hộ chiếu hoặc tài liệu du lịch hiện tại không?",
+    "9_1": "Số hộ chiếu/tài liệu du lịch:",
+    "9_2": "Quốc gia cấp hộ chiếu/tài liệu du lịch:",
+    "9_3": "Ngày phát hành: ",
+    "9_4": "Ngày hết hạn:",
+    "9_5": "Quốc tịch:",
+    "9_6": "Nơi cấp/Nơi cấp phát:",
+    "9_7": "Tên trên tài liệu (nếu giống như câu hỏi 1, ghi 'giống như câu hỏi 1')?",
+    "9_8": "Họ:",
+    "9_9": "Tên được cho:",
+    "10": "Bạn có hộ chiếu hoặc tài liệu du lịch hiện tại nào khác không?"
+  },
+  "SECTION_C": {
+    "TITLE": "Giấy tờ tùy thân",
+    "14": "Bạn hiện có, hoặc đã từng có, bất kỳ tài liệu hoặc số định danh quốc gia nào không:",
+    "14_1": "Loại tài liệu định danh",
+    "14_2": "Quốc gia cấp",
+    "14_3": "Số định danh được hiển thị (nếu có)",
+    "14_4": "Loại giấy tờ" ,
+    "14_5": "Quốc gia cấp" ,
+    "14_6": "Số cấp"
+  },
+  "SECTION_D": {
+    "TITLE": "Địa chỉ và thông tin liên hệ",
+    "15": "Email của bạn",
+    "16": "Số điện thoại di động của bạn:",
+    "17": "Lịch sử địa chỉ của bạn trong 10 năm qua:",
+    "17_sub": "Ghi chú: ghi cả địa chỉ hiện tại tại úc nếu bạn đang ở trên nước úc" ,
+    "17_1": "Từ ngày",
+    "17_2": "Ngày đến",
+    "17_3": "Địa chỉ đầy đủ",
+    "17_4": "Quốc gia",
+    "17_INFOR": "DANH SÁCH NƠI TỪNG CƯ TRÚ TRONG 10 NĂM QUA"
+  },
+  "SECTION_E": {
+    "TITLE": "Thông tin từng đi du lịch nước ngoài",
+    "18": "Bạn đã đi đến bất kỳ quốc gia nào khác ngoài Úc trong 10 năm qua không?",
+    "18_1": "Từ ngày",
+    "18_2": "Ngày đến",
+    "18_3": "Lý do đi du lịch",
+    "18_4": "Quốc gia"
+  },
+  "SECTION_F": {
+    "TITLE": "LỊCH SỦ CÔNG VIỆC ĐÃ VÀ ĐANG LÀM",
+    "19": "Lịch sử công việc đã và đang làm",
+    "19_1": "Từ ngày",
+    "19_2": "Ngày đến",
+    "19_3": "Tên doanh nghiệp",
+    "19_4": "Loại hình kinh doanh",
+    "19_5": "Chức vụ, vị trí trong doanh nghiệp, cơ quan",
+    "19_6": "Địa chỉ doanh nghiệp",
+    "19_7": "Quốc gia"
+  },
+  "SECTION_G": {
+    "TITLE": "Trình độ học vấn",
+    "20": "Liệt kê lịch sử học vấn",
+    "20_sub": "Ghi chú: ghi từ thông tin đi học từ trường cấp ba đến bây giờ",
+    "20_1": "Từ ngày",
+    "20_2": "Ngày đến",
+    "20_3": "Tên đầy đủ của cơ sở",
+    "20_4": "Tên đầy đủ của khóa học",
+    "20_5": "Tình trạng khóa học",
+    "20_6": "Cơ sở/Địa chỉ của cơ sở",
+    "20_7": "Quốc gia"
+  },
+  "SECTION_H": {
+    "TITLE": "MỤC ĐÍCH KHI ĐẾN NƯỚC ÚC HOẶC KẾ HOẠCH TƯƠNG LAI Ở LẠI ÚC",
+    "21": "Bạn hiện có ở Úc không?",
+    "22": "Tại sao bạn lại du lịch đến Úc?",
+    "23": "Bạn có bất kỳ ngày du lịch đề xuất hoặc đã đặt trước cho chuyến đi đến Úc không?",
+    "23_1": "Ngày đến:",
+    "23_2": "Số chuyến bay:",
+    "23_3": "Thành phố đến:",
+    "25": "Lý do chính của bạn để ở lại Úc là gì?",
+    "26": "Liệt kê các Thị trấn/Thành phố bạn sẽ thăm trong thời gian ở lại Úc:"
+  },
+  "SECTION_I": {
+    "TITLE": "Địa chỉ của bạn tại Úc",
+    "30": "Bạn hiện có ở Úc không ?",
+    "31": "Bạn có biết chi tiết về các địa điểm bạn sẽ ở trong thời gian ở Úc (ví dụ: Khách sạn, bạn bè, người thân) không?",
+    "31_1": "Địa chỉ:",
+    "31_2": "Di động:",
+    "33": "Bạn có bất kỳ địa chỉ nào khác ở Úc mà chưa được khai ở câu hỏi 17 không?"
+  },
+  "SECTION_J": {
+    "TITLE": "Lịch sử visa Úc",
+    "34": "Bạn hiện có ở Úc không?",
+    "34_1": "Loại visa bạn đang có và lý do chuyến đi (ví dụ: Du lịch, kinh doanh)",
+    "34_2": "Nơi cấp visa",
+    "34_3": "Bạn sử dụng tên gì khi đến Úc",
+    "34_4": "Nơi cấp visa này cho bạn",
+    "34_5": "Ngày đến úc",
+    "35": "Bạn đã từng đến Úc chưa?",
+    "35_1": "Loại visa hiện tại của bạn",
+    "35_2": "Lý do của chuyến đi này",
+    "35_3": "Bạn sử dụng tên gì khi đến Úc",
+    "35_4": "Nơi cấp visa này cho bạn",
+    "35_5": "Ngày đến Úc",
+    "35_6": "Ngày rời khỏi nước Úc"
+  },
+  "SECTION_K": {
+    "TITLE": "Tiền Án tiền sự",
+    "36": "Bạn, hoặc bất kỳ người nào khác được bao gồm trong đơn này, đã từng:",
+  "36_1": "Bị buộc tội với bất kỳ hành vi vi phạm nào và hiện đang chờ xử lý pháp lý?",
+  "36_2": "Bị kết án về bất kỳ hành vi vi phạm nào ở bất kỳ quốc gia nào (bao gồm cả những bản án đã bị xóa khỏi hồ sơ chính thức)?",
+  "36_3": "Bị buộc tội hoặc bị kết án về các hành vi bạo lực gia đình hoặc các hành vi liên quan tương tự?",
+  "36_4": "Là đối tượng của một lệnh bảo vệ bạo lực gia đình, hoặc bất kỳ lệnh nào khác của tòa án, hội đồng xét xử hoặc cơ quan có thẩm quyền tương tự để bảo vệ cá nhân khác?",
+  "36_5": "Là đối tượng của một lệnh bắt giữ hoặc thông báo của Interpol?",
+  "36_6": "Bị kết tội về bất kỳ hành vi phạm tội tình dục nào liên quan đến trẻ em (bao gồm cả trường hợp không có bản án được ghi lại)?",
+  "36_7": "Đã từng có tên trong danh sách tội phạm tình dục?",
+  "36_8": "Được trắng án do mất khả năng nhận thức hoặc bị tâm thần?",
+  "36_9": "Bị tòa án kết luận không đủ năng lực để biện hộ?",
+  "36_10": "Tham gia trực tiếp hoặc gián tiếp vào, hoặc có liên quan đến các hoạt động có thể gây nguy cơ cho an ninh quốc gia tại Úc hoặc bất kỳ quốc gia nào khác?",
+  "36_11": "Bị buộc tội hoặc bị truy tố về: tội ác diệt chủng, tội ác chiến tranh, tội ác chống lại loài người, tra tấn, nô lệ, hoặc bất kỳ tội danh nào khác có tầm quan trọng quốc tế nghiêm trọng?",
+  "36_12": "Có liên quan đến một người, nhóm hoặc tổ chức đã hoặc đang tham gia vào các hành vi tội phạm?",
+  "36_13": "Có liên quan đến một tổ chức tham gia vào bạo lực hoặc thực hiện các hành vi bạo lực (bao gồm chiến tranh, nổi dậy, đấu tranh giành tự do, khủng bố, biểu tình) ở nước ngoài hoặc tại Úc?",
+  "36_14": "Đã phục vụ trong lực lượng quân đội, cảnh sát, dân quân được nhà nước tài trợ/tư nhân, hoặc cơ quan tình báo (bao gồm cả cảnh sát mật)?",
+  "36_15": "Đã trải qua đào tạo quân sự/bán quân sự, được huấn luyện về vũ khí/chất nổ hoặc trong sản xuất các sản phẩm hóa học/sinh học?",
+  "36_16": "Tham gia vào các hành vi buôn lậu hoặc buôn bán người?",
+  "36_17": "Đã bị trục xuất, bị đuổi khỏi hoặc bị cấm nhập cảnh vào bất kỳ quốc gia nào (bao gồm cả Úc)?",
+  "36_18": "Đã từng ở quá hạn visa tại bất kỳ quốc gia nào (bao gồm cả Úc)?",
+  "36_19": "Có bất kỳ khoản nợ nào chưa thanh toán với Chính phủ Úc hoặc bất kỳ cơ quan công quyền nào ở Úc?",
+  "36_20": "Nếu bạn trả lời 'Có' cho bất kỳ câu hỏi nào ở Câu hỏi 36, hãy cung cấp chi tiết, bao gồm ngày buộc tội, kết quả và bất kỳ hình phạt nào đã được áp dụng. Vui lòng đính kèm tài liệu của tòa án (ví dụ như nhận xét về bản án hoặc bản ghi lời khai của tòa án)."
+  },
+  "SECTION_L": {
+    "TITLE": "Phục vụ Quân đội",
+    "37": "Bạn đã từng tham gia phục vụ quân đội chưa?",
+    "37_1": "Ngày nhập ngũ",
+    "37_2": "Ngày xuất ngũ",
+    "37_3": "Quốc gia phục vụ",
+    "37_4": "Tên đầy đủ của đơn vị",
+    "37_5": "Cấp bậc",
+    "37_6": "Nhiệm vụ chính của bạn",
+    "37_7": "Quốc gia triển khai"
+  },
+  "SECTION_M": {
+    "TITLE": "BẠN CÓ ĐANG HOẶC TỪNG PHỤC VỤ CHO ĐƠN VỊ AN NINH MẠNG QUỐC GIA",
+    "38": "Bạn có đang, hoặc đã từng làm việc như một sĩ quan tình báo hoặc là đặc vụ của cơ quan tình báo hoặc an ninh không?",
+    "38_1": "Cung cấp chi tiết về tổ chức, vai trò của bạn và thời gian bạn phục vụ"
+  },
+  "SECTION_N": {
+    "TITLE": "BỊ TỪ CHỐI CẤP VISA",
+    "39": "Bạn đã từng bị từ chối visa vào bất kỳ quốc gia nào chưa?",
+    "39_1": "Cung cấp ngày từ chối, quốc gia và hoàn cảnh của việc từ chối"
+  },
+  "SECTION_O": {
+    "TITLE": "Trục xuất",
+    "40": "Bạn đã từng bị loại khỏi, yêu cầu rời đi, trục xuất hoặc bị đưa ra khỏi bất kỳ quốc gia nào chưa?",
+    "40_1": "Cung cấp chi tiết về ngày tháng, quốc gia và hoàn cảnh"
+  },
+  "SECTION_P": {
+    "TITLE": "BỊ TỪ CHỐI CẤP QUỐC TỊCH",
+    "41": "Bạn đã từng bị từ chối, từ bỏ hoặc bị hủy bỏ quyền công dân của bất kỳ quốc gia nào chưa?",
+    "41_1": "Cung cấp ngày từ chối, quốc gia và hoàn cảnh của việc từ chối"
+  },
+  "SECTION_Q": {
+    "TITLE": "NGƯỜI THÂN LIÊN QUAN",
+
+    "42": "Bạn có người đồng hành/bạn đời hoặc vợ của bạn không ?",
+    "42_sub": "Lưu ý: Nếu là góa phụ/góa bạn phải cung cấp chi tiết về người đồng hành/bạn đời quá cố.",
+    "42_1": "Mối quan hệ với bạn",
+    "42_2": "Họ",
+    "42_3": "Tên",
+    "42_4": "Tên gọi khác",
+    "42_5": "Giới tính",
+    "42_6": "Ngày sinh",
+    "42_7": "Mã thương mại Trung Quốc",
+    "42_8": "Nơi sinh (Thị trấn/Thành phố)",
+    "42_9": "Nơi sinh (Quốc gia)",
+    "42_10": "Quốc tịch và năm được cấp",
+    "42_11": "Quốc gia cư trú hiện tại (Nếu đã mất, ghi 'ĐÃ MẤT')",
+    "42_12": "Có nhập cư cùng bạn không ?",
+
+    "43": "Bạn có con cái không ?",
+    "43_sub": "Lưu ý: Điều này bao gồm con ruột và con nuôi.",
+
+    "44": "Bạn có biết chi tiết về cha mẹ của mình không ?",
+    "44_sub": "Lưu ý: Điều này bao gồm cha mẹ ruột và cha mẹ nuôi.",
+
+    "45": "Bạn có anh chị em không ?",
+    "45_sub": "Anh chị em bao gồm anh chị em ruột, cùng cha khác mẹ, và anh chị em nuôi.",
+
+    "46": "Các thành viên gia đình khác đang đi cùng không ?",
+    "46_sub": "Có thành viên gia đình nào khác được bao gồm trong đơn xin visa không ?",
+    "46_sub_2": "Các thành viên gia đình bao gồm cháu trai, cháu gái, anh chị em họ, người thân bên vợ/chồng, ông bà, v.v., đang đi cùng bạn.",
+
+
+    "47": "Bạn có bất kỳ người liên lạc cá nhân nào tại Úc không ?",
+    "47_sub": "Người liên lạc cá nhân bao gồm người bảo lãnh thị thực, bất kỳ người thân, bạn bè, thành viên gia đình và người quen ở Úc",
+
+    "48": "Bạn có bất kỳ người liên lạc cá nhân khác nào tại Úc không ?",
+    "CURRENT_ADDRESS": "Địa chỉ hiện tại",
+    "PHONE" : "Số điện thoại",
+    "EMAIL" : "Địa chỉ Email",
+    "TABLE_1": "Mối quan hệ với bạn",
+    "TABLE_2": "Họ và Tên",
+    "TABLE_3": "Tên khác",
+    "TABLE_4": "Giới tính",
+    "TABLE_5": "Mã thương mại Trung Quốc",
+    "TABLE_6": "Nơi sinh (Thành Phố + Quốc gia)",
+    "TABLE_7": "Quốc tịch và năm được cấp",
+    "TABLE_8": "Quốc gia nơi hiện cư trú",
+    "TABLE_9": "Có nhập cư cùng không",
+    "TABLE_10": "Ngày sinh"
+  },
+  "SECTION_R": {
+    "TITLE": "THÔNG TIN CỦA BÊN TÀI TRỢ TUYỂN DỤNG",
+    "49": "Bạn có được bảo trợ hay liên kết với một doanh nghiệp hoặc tổ chức tại Úc không?",
+    "49_1": "Tên doanh nghiệp/ tổ chức",
+    "49_2": "Mô tả doanh nghiệp/ tổ chức",
+    "49_3": "Địa chỉ kinh doanh của Tổ chức/Doanh nghiệp",
+    "49_4": "Tên của người liên lạc tại doanh nghiệp/tổ chức",
+    "50": "Người sử dụng lao động/doanh nghiệp có bất kỳ địa chỉ liên quan nào không?",
+    "50_1": "Loại địa chỉ (vd: trụ sở, nhà máy, cửa hàng)",
+    "50_2": "Địa chỉ (gồm số nhà và tên đường)",
+    "51": "Bạn có địa chỉ email của doanh nghiệp/ người sử dụng lao động không?",
+    "51_1": "Email",
+    "52": "Bạn có số điện thoại của doanh nghiệp/ người sử dụng lao động không?",
+    "52_1": "Số điện thoại"
+  },
+
+  "HOME": {
+
+  },
+
+  "FORM_CHUBAOLANH": {
+    "TITLE": "Tờ khai chủ bảo lãnh trên nước Úc",
+    "DES": "Vui lòng cung cấp các thông tin sau cho doanh nghiệp của bạn.",
+    "1": "Tên doanh nghiệp / Tên thương mại / Mã số kinh doanh",
+    "2": "Địa chỉ",
+    "3": "Số điện thoại liên hệ",
+    "4.1": "Địa chỉ Email",
+    "4.2": "Website doanh nghiệp",
+    "5": "Người đại diện",
+    "6": "Thời gian thành lập?",
+    "7": "Loại hình doanh nghiệp",
+    "7.1": "(Doanh nghiệp tư nhân / Hợp danh / Công ty TNHH)",
+    "8": "Đã từng bảo lãnh nhân viên nào trước đây chưa? Nếu có, khi nào? Hiện tại người đó còn làm việc hay đã nghỉ rồi?",
+    "9": "Đã từng vướng vào điều tra về nghĩa vụ thuế / vấn đề lương bổng / cho nhân viên nghỉ việc không công bằng trước đây chưa?",
+    "10": "Hiện tại, doanh nghiệp có bao nhiêu chủ sở hữu? Nếu nhiều hơn 1 chủ, vui lòng cung cấp tỷ lệ sở hữu của từng người.",
+    "11": "Doanh nghiệp hiện có bao nhiêu nhân viên? Theo hình thức nào (Full-time/Part-time/Casual)?",
+    "11.1": "Nhân viên Part-time",
+    "11.2": "Nhân viên Full-time",
+    "11.3": "Nhân viên Casual",
+    "12": "Có bao nhiêu nhân viên có quốc tịch hoặc thường trú Úc ?",
+    "11.4" : "Có bao nhiêu nhân viên có PR ?",
+    "11.5" : "Có bao nhiêu nhân viên quốc tịch Úc ?",
+    "11.6": "Thu nhập hàng năm của họ là bao nhiêu ?",
+    "11.7": "Doanh nghiệp có đóng đủ superannuation và thanh toán các quyền lợi như nghỉ ốm / nghỉ phép hàng năm cho nhân viên không?"
+  },
+
+
+  "FORM_VISA600": {
+    "TITLE": "TỜ KHAI THÔNG TIN VISA DU LỊCH ÚC VISA 600" ,
+    "DES": "(Dùng cho cá nhân có yêu cầu cấp Visa du lịch 600)",
+    "yes": "Có" ,
+    "no" :"Không" ,
+    "male" :"Nam",
+    "female" :"Nữ",
+    "1" : "Hiện tại bạn đang ở ngoài nước Úc ?" ,
+    "2" : "Bạn hiện tại đang ở quốc gia nào ?",
+    "3" : "Hiện tại quốc tịch bạn đang giữ là gì ?" ,
+    "4": "Mục tiêu bạn đến Úc là gì ?" ,
+    "4.1" : "Tham dự cuộc họp, dự hội nghị",
+    "4.2" : "Tham quan tìm hiểu cơ hội làm ăn",
+    "4.3" : "Có người nhà là anh chị em ruột, bố mẹ ruột có quốc tịch Úc bảo lãnh",
+    "4.4" : "Đi du lịch tham quan Úc và thăm bạn bè",
+    "5" : "Lý do đến Úc ?",
+    "5.1" : "Du lịch",
+    "5.2" : "Làm ăn",
+    "5.3" : "Tham dự sự kiện",
+    "5.4" : "Khác",
+    "6" : "Ngày tháng năm bạn sẽ đến Úc và dự định rời khỏi Úc ?",
+    "6.1" : "Du lịch",
+    "6.2" : "Làm ăn",
+    "7": "Bạn có đăng ký đi theo nhóm cùng bạn hoặc cùng gia đình không ?",
+    "8": "Bạn có phải là nhân viên đại diện cho chính phủ Việt Nam không ?",
+    "9": "Bạn có đăng ký đi theo nhóm cùng bạn hoặc cùng gia đình không ?" ,
+    "10" : "Họ" ,
+    "12" : "Chữ lót và tên" ,
+    "13" : "Giới tính" ,
+    "14" : "Ngày, tháng, năm sinh" ,
+    "15" : "Số hiệu chiếu ?" ,
+    "16" : "Quốc gia cấp hộ chiếu ?" ,
+    "17" : "Ngày tháng năm cấp hộ chiếu ?" ,
+    "18" : "Ngày tháng năm hộ chiếu hết hạn ?" ,
+    "19" : "Nơi cấp hộ chiếu ?" ,
+    "20" : "Bạn có căn cước công dân hoặc chứng minh nhân dân không ?" ,
+    "21" : "Số căn cước công dân hoặc số chứng minh nhân dân ?" ,
+    "22" : "Quốc gia cấp căn cước công dân hoặc chứng minh nhân dân ?" ,
+    "23" : "Nơi sinh ? (Ghi rõ thành phố hoặc tỉnh) " ,
+    "24" : "Tình trạng hôn nhân hiện tại ?" ,
+    "24.1" : "Kết hôn" ,
+    "24.2" : "Đã ly hôn" ,
+    "24.3" : "Chưa kết hôn bao giờ" ,
+    "24.4" : "Chồng hoặc vợ đã mất" ,
+    "25" : "Quốc tịch hiện tại của bạn là Việt Nam ?" ,
+    "26" : "Bạn có quốc tịch nào khác ngoài quốc tịch Việt Nam không ?" ,
+    "27" : "Bạn từng nộp xin visa Úc bao giờ chưa ?" ,
+    "28" : "Bạn từng đến nước Úc chưa ? " ,
+    "29" : "Số visa Úc từng được cấp (nếu có)" ,
+    "30" : "Địa chỉ nơi ở hiện tại ?" ,
+    "31" : "Số điện thoại" ,
+    "32" : "Email",
+    "33" : "Liệt kê họ tên, ngày tháng năm sinh, quốc gia đang ở hiện tại của cha mẹ, vợ chồng, con ruột, anh chị em ruột",
+    "33.1" : "Mối quan hệ",
+    "33.1.2" : "(mẹ, bố, vợ/chồng, con, anh chị em ruột)",
+    "33.2" : "Họ và tên",
+    "33.3" : "Ngày tháng năm sinh",
+    "33.4" : "Quốc gia sinh sống hiện tại",
+    "more" : "Thêm",
+    "desarray" : "Nếu có thêm thành viên hãy nhấn vào 'Thêm' để nhập tiếp tục",
+    "infor" : "DANH SÁCH THÔNG TIN ĐÃ NHẬP",
+    "34" : "Bạn có họ hàng hay bạn bè thân hiện tại đang ở Úc không ?",
+    "34.des" : "Ghi rõ họ tên, địa chỉ, số điện thoại liên lạc của người thân tại Úc",
+    "34.1" : "Địa chỉ",
+    "34.2" : "Nghề nghiệp",
+    "35" : "Công việc hiện tại của bạn ?",
+    "35.1" : "Ghi rõ chức vụ, tên công ty đang làm, địa chỉ công ty, số điện thoại của công ty",
+    "36" : "Bạn có từng bị từ chối visa Úc hay nước nào khác chưa? Nếu có thì ghi tháng năm đã từng bị từ chối visa.",
+    "37" : "HỒ SƠ BAO GỒM CÁC GIẤY TỜ ĐÍNH KÈM SAU:",
+    "37.1" : "Hộ chiếu",
+    "37.2" : "Các giấy tờ khai sinh, cmnd",
+    "submit" : "Hoàn Thành"
+  },
+
+  "SKILL": {
+  "TITLE": "Danh sách nghề nghiệp kỹ năng cốt lõi (CSOL)",
+  "DES": "Danh sách nghề nghiệp",
+  "CODE": "Mã ANZSCO",
+  "NAME": "Tên ngành nghề"
+  },
+  "FORM_UYQUYEN": {
+    "TITLE": "GIẤY ỦY QUYỀN",
+    "DESCRIPTION": "(Người thân dẫn trẻ dưới 12 tuổi đi máy bay)",
+    "RECIPIENT": "Kính gửi: Đại sứ quán Việt Nam tại Úc",
+    "APPLICANT_INFO": {
+      "NAME": "Tôi tên là:",
+      "BIRTH_YEAR": "Sinh năm:",
+      "ID_NUMBER": "Số CMND:",
+      "ISSUE_DATE": "Cấp ngày:",
+      "ISSUE_PLACE": "Nơi cấp:",
+      "CURRENT_ADDRESS": "Nơi ở hiện tại:"
+    },
+    "CHILD_INFO": {
+      "RELATION": "Là Cha (hoặc mẹ) của bé:",
+      "BIRTH_DATE": "Sinh ngày:"
+    },
+    "AUTHORIZED_PERSON": {
+      "NAME": "Ông/Bà:",
+      "BIRTH_DATE": "Sinh ngày:",
+      "CURRENT_ADDRESS": "Nơi ở hiện tại:",
+      "ID_NUMBER": "Số CMND:",
+      "ISSUE_DATE": "Cấp ngày:",
+      "ISSUE_PLACE": "Nơi cấp:"
+    },
+    "PERMISSION": {
+      "RELATION_TO_CHILD": "Mối quan hệ gì với bé ( Cô, Chú, .... )",
+      "PURPOSE": "Thay tôi đưa bé đi du lịch ở:",
+      "FLIGHT_DETAILS": "Đi trên chuyến bay từ ngày đến ngày và giờ khởi hành bay: ",
+      "FLIGHT_TO": "Từ nơi: ",
+      "FLIGHT_FROM": "Đến nơi: ",
+      "FLIGHT_START": "Ngày khởi hành: ",
+      "FLIGHT_TIME": "Thời gian khởi hành: "
+    },
+    "DECLARATION": "Tôi cam đoan không khiếu nại gì về nội dung trên!",
+    "DATE": "Ngày tháng năm",
+    "SIGNATURE": "Người ủy quyền"
+  },
+  "FORM_MOIQUANHEVOCHONG": {
+    "TITLE": "CÂU HỎI VỀ MỐI QUAN HỆ VỢ CHỒNG",
+    "DESCRIPTION": "( DÀNH CHO VISA 309/820 )",
+    "PHAN_1": {
+      "TITLE": "Thông tin chung",
+      "NAME": "Họ và tên đầy đủ của bạn:",
+      "BIRTH": "Ngày sinh của bạn:",
+      "ADDRESS": "Địa chỉ hiện tại của bạn:",
+      "PHONE": "Số điện thoại:",
+      "EMAIL": "Email:",
+      "NAME_2": "Họ và tên đầy đủ của vợ/chồng bạn:",
+      "BIRTH_2": "Ngày sinh của vợ/chồng bạn:",
+      "ADDRESS_2": "Địa chỉ hiện tại của vợ/chồng bạn (nếu khác):",
+      "START_MQH": "Ngày bắt đầu mối quan hệ:",
+      "CHINHTHUC_VOCHONG": "Ngày chính thức trở thành vợ chồng (nếu đã kết hôn):",
+      "NGAY_CHUNGSONG": "Ngày bắt đầu sống chung (nếu có):"
+    },
+    "PHAN_2": {
+      "TITLE": "Hoàn cảnh gặp nhau",
+      "FIRST_MEET_PLACE": "Hai bạn gặp nhau lần đầu ở đâu và vào thời gian nào ?",
+      "FIRST_CONVERSATION": "Ai là người chủ động bắt chuyện trước ?",
+      "FIRST_IMPRESSION": "Ấn tượng đầu tiên của bạn về vợ/chồng mình là gì ?",
+      "ATTRACTION": "Điều gì ở vợ/chồng bạn khiến bạn cảm thấy thu hút ?",
+      "INITIAL_DISCUSSIONS": "Những hoạt động hoặc chủ đề hai bạn thường thảo luận vào thời gian đầu quen nhau ?",
+      "OFFICIAL_DATING": "Hai bạn chính thức hẹn hò từ khi nào ?",
+      "MEETING_FREQUENCY": "Khi bắt đầu mối quan hệ, hai bạn thường gặp nhau bao nhiêu lần mỗi tuần ?"
+    },
+    "PHAN_3": {
+      "TITLE": "Sống chung và cuộc sống hàng ngày",
+      "START_LIVING_TOGETHER": "Hai bạn bắt đầu sống chung từ khi nào ?",
+      "FIRST_HOME_ADDRESS": "Địa chỉ đầu tiên hai bạn sống cùng nhau ?",
+      "WHO_SUGGESTED": "Ai là người đề nghị hai bạn chuyển về sống chung ?",
+      "HOUSEWORK_DIVISION": "Phân công việc nhà giữa hai bạn như thế nào ?",
+      "DES_HOUSEWORK_DIVISION": " ( Ai làm những công việc gì ? )",
+      "DAILY_ACTIVITIES": "Những hoạt động thường ngày mà hai bạn thường làm cùng nhau là gì ?",
+      "COVID_ADAPTATION": "Trong thời gian đại dịch COVID-19, hai bạn đã thích nghi như thế nào với cuộc sống ?"
+    },
+    "PHAN_4": {
+      "TITLE": "Công việc và tài chính",
+      "WORK_TOGETHER": "Hai bạn có làm việc chung tại cùng một nơi không ?",
+      "DES_WORK_TOGETHER": "Nếu có, vui lòng mô tả công việc của từng người.",
+      "JOINT_BANK_ACCOUNT": "Hai bạn có tài khoản ngân hàng chung không?",
+      "DES_JOINT_BANK_ACCOUNT": "Nếu có, vui lòng ghi rõ ngân hàng và thời gian mở tài khoản.",
+      "SHARED_EXPENSES": "Các khoản chi phí chung mà hai bạn cùng chi trả hàng tháng là gì?",
+      "JOINT_LOANS_INVESTMENTS": "Hai bạn có khoản vay hay đầu tư tài chính nào chung không?",
+      "JOINT_ASSETS": "Nếu có tài sản chung (như xe, nhà), vui lòng mô tả chi tiết."
+    },
+
+    "PHAN_5": {
+      "TITLE": "Du lịch cùng nhau",
+      "TRAVEL_HISTORY": "Hai bạn đã từng đi du lịch cùng nhau chưa?",
+      "DES_TRAVEL_HISTORY": "Nếu có, vui lòng liệt kê những địa điểm đã đi",
+      "MEMORABLE_TRIP": "Kể về một kỷ niệm đáng nhớ trong một chuyến du lịch mà hai bạn từng có.",
+      "FUTURE_TRAVEL_PLANS": "Hai bạn có kế hoạch du lịch nào trong tương lai không?"
+    },
+
+    "PHAN_6": {
+      "TITLE": "Gia đình và bạn bè",
+      "INTRODUCING_FAMILY": {
+            "QUESTION": "Hai bạn đã giới thiệu nhau với gia đình hai bên như thế nào?",
+            "DES": "Mô tả cách thức, thời gian, và phản ứng của gia đình hai bên khi hai bạn giới thiệu nhau."
+      },
+      "MEETING_IN_LAWS": {
+            "QUESTION": "Bạn đã gặp bố mẹ của vợ/chồng mình chưa? Họ có nhận xét gì về bạn?",
+            "DES": "Ghi rõ thời gian gặp gỡ, địa điểm và những lời nhận xét từ bố mẹ vợ/chồng."
+      },
+      "SPOUSE_MEETING_PARENTS": {
+            "QUESTION": "Vợ/chồng bạn đã gặp bố mẹ bạn chưa? Gia đình bạn có ý kiến gì về vợ/chồng bạn?",
+            "DES": "Ghi rõ phản ứng của gia đình bạn, đặc biệt là ý kiến của bố mẹ bạn về vợ/chồng."
+      },
+      "FAMILY_EVENTS": {
+            "QUESTION": "Hai bạn có từng tham gia các sự kiện gia đình hoặc gặp gỡ bạn bè chung không?",
+            "DES": "Liệt kê những dịp quan trọng như lễ cưới, sinh nhật, họp mặt gia đình hoặc các sự kiện đặc biệt."
+      },
+      "COMMON_FRIENDS": {
+            "QUESTION": "Hai bạn có bạn bè chung không? Nếu có, ai là những người bạn chung thân thiết nhất?",
+            "DES": "Liệt kê những người bạn chung quan trọng và vai trò của họ trong mối quan hệ của hai bạn."
+      }
+    },
+
+    "PHAN_7": {
+      "TITLE": "Kế hoạch tương lai",
+      "MARRIAGE_PLANS": {
+            "QUESTION": "Hai bạn có kế hoạch kết hôn không? Nếu đã kết hôn, hai bạn dự định tổ chức kỷ niệm đám cưới như thế nào?",
+            "DES": "Nếu chưa kết hôn, hãy chia sẻ kế hoạch cụ thể. Nếu đã kết hôn, mô tả cách hai bạn dự định tổ chức kỷ niệm."
+      },
+      "CHILD_PLANS": {
+            "QUESTION": "Hai bạn có kế hoạch sinh con không? Nếu có, vui lòng mô tả mong muốn của hai bạn về việc nuôi dạy con cái.",
+            "DES": "Chia sẻ số lượng con mong muốn, cách nuôi dạy, giáo dục và giá trị gia đình mà hai bạn muốn truyền đạt."
+      },
+      "SETTLEMENT_PLANS": {
+            "QUESTION": "Hai bạn có dự định mua nhà hoặc định cư lâu dài tại Úc không?",
+            "DES": "Nếu có, hãy mô tả kế hoạch tài chính, địa điểm mong muốn và lý do lựa chọn nơi định cư."
+      },
+      "OTHER_FUTURE_PLANS": {
+            "QUESTION": "Những dự định tương lai khác mà hai bạn muốn thực hiện cùng nhau là gì?",
+            "DES": "Có thể bao gồm kế hoạch du lịch, đầu tư chung, học tập hoặc phát triển sự nghiệp."
+      }
+    },
+
+    "PHAN_8": {
+      "TITLE": "Lời cam kết",
+      "RELATIONSHIP_BELIEF": {
+            "QUESTION": "Điều gì khiến bạn tin rằng mối quan hệ của hai bạn là chân thật và lâu dài?",
+            "DES": "Chia sẻ những yếu tố như tình yêu, sự tin tưởng, sự đồng điệu về giá trị sống và mục tiêu chung."
+      },
+      "CONFLICT_RESOLUTION": {
+            "QUESTION": "Nếu có khó khăn trong mối quan hệ, hai bạn đã giải quyết như thế nào?",
+            "DES": "Mô tả cách hai bạn xử lý mâu thuẫn, cách giao tiếp và những bài học đã rút ra."
+      },
+      "ADDITIONAL_SHARING": {
+            "QUESTION": "Bạn có điều gì muốn chia sẻ thêm về mối quan hệ của mình?",
+            "DES": "Bất kỳ điều gì bạn cảm thấy quan trọng hoặc đặc biệt về mối quan hệ mà chưa được đề cập."
+      }
+    }
+
+  },
+
+  "FORM_888": {
+      "TITLE": "TỜ KHAI NHÂN CHỨNG 888",
+      "DESCRIPTION": "( DÀNH CHO FORM 888 )",
+
+      "PHAN_1": {
+        "TITLE": "THÔNG TIN CHUNG",
+        "NAME": "Họ tên của người được bảo lãnh (đương đơn):",
+        "FIRST_NAME": "Họ",
+        "LAST_NAME": "Tên và tên lót",
+        "NAME_BL": "Họ tên của người bảo lãnh:"
+      },
+
+      "PHAN_2": {
+        "TITLE": "THÔNG TIN CHI TIẾT VỀ NGƯỜI KHAI BÁO",
+        "NAME": "Họ và tên (theo hộ chiếu)",
+        "FIRST_NAME": "Họ",
+        "LAST_NAME": "Tên và tên lót",
+        "SEX": "Giới tính",
+        "MALE": "Nam",
+        "FEMALE": "Nữ",
+        "DATE": "Ngày sinh:",
+        "PHONE": "Số điện thoại:",
+        "WORK": "Nghề Nghiệp hiện tại:",
+        "ADDRESS": "Địa chỉ:",
+        "PASSPORT": "Số hộ chiếu: ",
+        "EMAIL": "Email cá nhân:",
+        "QUENBIET": "Số năm quen biết đương đơn:",
+        "BAOLANH": "Số năm quen biết người bảo lãnh:"
+      },
+
+      "PHAN_3": {
+        "TITLE": "THÔNG TIN VỀ LIÊN QUAN ĐẾN TÌNH TRẠNG DI TRÚ VÀ CÁC THÔNG TIN KHÁC",
+        "QUESTION_1": "Tình trạng di trú của bạn như thế nào?",
+        "QUESTION_2": "Passport của anh chị còn hạn hay không?",
+        "QUESTION_3": {
+          "TITLE": "Trả lời theo những câu hỏi này?",
+          "SUB_QUESTION_1": "Bạn có sống chung với 2 người này chưa?",
+          "SUB_QUESTION_2": "Nếu có bạn đã ở cùng họ bao lâu?",
+          "SUB_QUESTION_3": "Lý do sống chung với 1 trong 2 người?",
+          "SUB_QUESTION_4": "Thuê này chung hay như thế nào?"
+        },
+        "QUESTION_4": {
+          "TITLE": "Trả lời theo những câu hỏi này?",
+          "SUB_QUESTION_1": "Anh chị đã quen biết cặp đôi được bao lâu, qua tình huống nào?",
+          "SUB_QUESTION_2": "Anh chị quen biết ai trước?",
+          "SUB_QUESTION_3": "Quen người còn lại khi nào?",
+          "SUB_QUESTION_4": "Vui lòng liệt kê số năm quen biết cặp đôi và trong hoàn cảnh nào?",
+          "EXAMPLE": "Ví dụ: Biết nhau được 5 năm, do làm việc chung, quen qua bạn chung..."
+        },
+        "QUESTION_5": {
+          "TITLE": "Trả lời theo những câu hỏi này?",
+          "SUB_QUESTION_1": "Anh chị có thường gặp cặp đôi (hoặc 1 trong 2 người) không?",
+          "SUB_QUESTION_2": "Vào dịp nào?",
+          "SUB_QUESTION_3": "Lần gần đây là khi nào?",
+          "SUB_QUESTION_4": "Anh chị thân với ai hơn và thường nói chuyện với ai nhiều hơn?"
+        },
+        "QUESTION_6": {
+          "TITLE": "Trả lời theo những câu hỏi này?",
+          "SUB_QUESTION_1": "Nếu cặp đôi đã cưới, anh chị có tham dự lễ cưới của họ không?",
+          "SUB_QUESTION_2": "Anh chị có nhớ thời gian, địa điểm họ tổ chức tiệc cưới không?",
+          "SUB_QUESTION_3": "Trong tiệc cưới thấy cả 2 cư xử với nhau như thế nào?",
+          "SUB_QUESTION_4": "Có hành động thân mật gì cho nhau không?"
+        },
+        "QUESTION_7": {
+          "TITLE": "Trả lời theo những câu hỏi này?",
+          "SUB_QUESTION_1": "Anh chị nhận xét gì về tính cách của mỗi người?",
+          "SUB_QUESTION_2": "Họ có phù hợp với nhau về tính cách hay không?",
+          "SUB_QUESTION_3": "Nếu có thì xin vui lòng liệt kê điều gì làm quý anh chị nghĩ như vậy?"
+        },
+        "QUESTION_8": {
+          "TITLE": "Trả lời theo những câu hỏi này?",
+          "SUB_QUESTION_1": "Anh chị có tin mối quan hệ của cặp đôi là thật và vẫn đang tiếp diễn không?",
+          "SUB_QUESTION_2": "Vui lòng liệt kê lý do vì sao anh chị tin vào mối quan hệ này?",
+          "SUB_QUESTION_3": "Anh chị có thấy họ thay đổi vì nhau không?"
+        },
+        "QUESTION_9": {
+          "TITLE": "Trả lời theo những câu hỏi này?",
+          "SUB_QUESTION_1": "Bạn có từng nghe họ tâm sự hay biết gì về kế hoạch tương lai của cặp đôi không?",
+          "SUB_QUESTION_2": "Nhà cửa, Công việc, Con cái, ....."
+        }
+      }
+  }
+
+}
