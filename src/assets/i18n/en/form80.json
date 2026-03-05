@@ -523,6 +523,7 @@
     "FORM_888": {
     "TITLE": "WITNESS DECLARATION FORM 888",
     "DESCRIPTION": "(FOR FORM 888)",
+    "PLEASE_CHOOSE": "Please choose",
 
     "PHAN_1": {
       "TITLE": "GENERAL INFORMATION",
@@ -601,7 +602,89 @@
         "SUB_QUESTION_2": "Housing, job, children, etc."
       }
     }
-  }
+  },
 
+  "FORM_HOCHIEUV2": {
+    "TITLE": "PASSPORT APPLICATION FORM",
+    "DESCRIPTION": "(For individuals applying for a passport)",
+    "PHAN_1": {
+      "TITLE": "APPLICATION INFORMATION",
+      "TITLE_EN": "PERSONAL INFORMATION",
+      "FIRST_NAME": "First name",
+      "FIRST_NAME_EN": "First Name",
+      "MIDDLE_AND_GIVEN": "Middle and given name",
+      "MIDDLE_AND_GIVEN_EN": "Middle and given name",
+      "SEX": "Sex",
+      "SEX_EN": "Sex",
+      "MALE": "Male",
+      "MALE_EN": "Male",
+      "FEMALE": "Female",
+      "FEMALE_EN": "Female",
+      "DATE_OF_BIRTH": "Date of birth",
+      "DATE_OF_BIRTH_EN": "Date of birth",
+      "PLACE_OF_BIRTH": "Place of birth (province, city)",
+      "PLACE_OF_BIRTH_EN": "Place of birth",
+      "ETHNICITY": "Ethnicity",
+      "ETHNICITY_EN": "Ethnicity",
+      "RELIGION": "Religion",
+      "RELIGION_EN": "Religion",
+      "ID_CARD": "ID card/Citizen ID number (if any)",
+      "ID_CARD_EN": "ID card/Citizen ID",
+      "DATE_OF_ISSUE": "Date of issue",
+      "DATE_OF_ISSUE_EN": "Date of issue",
+      "ADDRESS_FOREIGN": "Overseas residential address",
+      "ADDRESS_FOREIGN_EN": "Overseas residential address",
+      "ADDRESS_VN": "Permanent address in Vietnam before departure",
+      "ADDRESS_VN_EN": "Permanent address in VN",
+      "PHONE": "Phone number",
+      "PHONE_EN": "Phone number",
+      "OCCUPATION": "Occupation",
+      "OCCUPATION_EN": "Occupation",
+      "WORKPLACE": "Name and address of workplace (if any)",
+      "WORKPLACE_EN": "Workplace"
+    },
+    "PHAN_2": {
+      "TITLE": "INFORMATION ABOUT FATHER, MOTHER, SPOUSE",
+      "TITLE_EN": "INFORMATION OF FAMILY MEMBERS",
+      "FATHER_NAME": "Full name of Father",
+      "FATHER_NAME_EN": "Full name of Father",
+      "FATHER_DOB": "Father's date of birth",
+      "FATHER_DOB_EN": "Date of birth",
+      "MOTHER_NAME": "Full name of Mother",
+      "MOTHER_NAME_EN": "Full name of Mother",
+      "MOTHER_DOB": "Mother's year of birth",
+      "MOTHER_DOB_EN": "Year of Mother's birth",
+      "SPOUSE_NAME": "Full name of wife/husband",
+      "SPOUSE_NAME_EN": "Full name of wife/husband",
+      "SPOUSE_DOB": "Wife/husband's year of birth",
+      "SPOUSE_DOB_EN": "Year of wife/husband's birth"
+    },
+    "PHAN_3": {
+      "TITLE": "OTHER INFORMATION",
+      "TITLE_EN": "OTHER INFORMATION",
+      "PASSPORT_NUMBER": "Most recent passport number (if any)",
+      "PASSPORT_NUMBER_EN": "Most recent passport number",
+      "DATE_OF_ISSUE_PP": "Date of issue",
+      "DATE_OF_ISSUE_PP_EN": "Date of issue",
+      "OFFERED_CONTENT": "Requested content",
+      "OFFERED_CONTENT_EN": "Offered content"
+    },
+    "PHAN_4": {
+      "TITLE": "ATTACHMENTS",
+      "TITLE_EN": "UPLOAD FILE",
+      "ATTACH_LIST": "APPLICATION INCLUDES THE FOLLOWING DOCUMENTS:",
+      "UPLOAD_PLACE": "Upload file",
+      "UPLOAD_MAX": "(max 5MB)",
+      "OR_EMAIL": "Or send to Vietnam Legal Aid:",
+      "ITEM_1": "ID photo",
+      "ITEM_2": "Passport",
+      "ITEM_3": "Visa",
+      "ITEM_4": "ID card/Citizen ID photo"
+    },
+    "CHOOSE_DOC": "Please select document type",
+    "SUBMIT": "Submit",
+    "RESET": "Reset",
+    "PLACEHOLDER_ADDRESS": "Enter address, ward/commune (Number, ward/commune)"
+  }
 
 }

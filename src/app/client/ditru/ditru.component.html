@@ -1,0 +1,82 @@
+<div class="lanhsu-page">
+  <div class="lanhsu-container">
+    <!-- Header Section -->
+    <section class="page-header">
+      <div class="header-content">
+        <h1 class="page-title">Biểu mẫu Di trú</h1>
+        <p class="page-subtitle">Danh sách các biểu mẫu hỗ trợ thủ tục Di trú</p>
+      </div>
+      
+      <!-- Search Bar -->
+      <div class="search-wrapper">
+        <div class="search-box">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="8" cy="8" r="6"></circle>
+            <path d="m14 14-3-3"></path>
+          </svg>
+          <input
+            type="text"
+            [(ngModel)]="search"
+            placeholder="Tìm kiếm biểu mẫu..."
+            class="search-input"
+          />
+          <button 
+            *ngIf="search" 
+            (click)="search = ''"
+            class="search-clear"
+            aria-label="Clear search"
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M11 3L3 11M3 3l8 8"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forms Grid -->
+    <section class="forms-section">
+      <div *ngIf="filteredForms.length > 0" class="forms-grid">
+        <div
+          *ngFor="let form of filteredForms"
+          class="form-card"
+          [routerLink]="form.link"
+        >
+          <div class="card-header">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <div class="card-arrow">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 12l4-4-4-4"></path>
+              </svg>
+            </div>
+          </div>
+          
+          <div class="card-body">
+            <h3 class="card-title">{{ form.title }}</h3>
+            <p class="card-description">{{ form.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div *ngIf="filteredForms.length === 0" class="empty-state">
+        <div class="empty-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </div>
+        <h3 class="empty-title">Không tìm thấy biểu mẫu</h3>
+        <p class="empty-description">Thử tìm kiếm với từ khóa khác hoặc kiểm tra lại chính tả</p>
+      </div>
+    </section>
+  </div>
+</div>

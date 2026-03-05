@@ -1,0 +1,103 @@
+<div class="sponsor-documents-page">
+  <div class="container">
+    <!-- Header Section -->
+    <div class="page-header">
+      <h1 class="page-title">{{ pageTitle }}</h1>
+      <p class="page-subtitle">{{ pageSubtitle }}</p>
+    </div>
+
+    <!-- Quick Navigation -->
+    <div class="quick-nav">
+      <div class="nav-title">Danh mục:</div>
+      <div class="nav-links">
+        <a *ngFor="let section of sections" 
+           (click)="scrollToSection(section.id)" 
+           class="nav-link">
+          {{ section.title }}
+        </a>
+      </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="sections-container">
+      <div *ngFor="let section of sections" 
+           [id]="section.id" 
+           class="section-card">
+        
+        <!-- Section Header -->
+        <div class="section-header">
+          <div class="section-icon">
+            <svg *ngIf="section.icon === 'person'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <svg *ngIf="section.icon === 'account_balance'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+            <svg *ngIf="section.icon === 'home'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <svg *ngIf="section.icon === 'mail'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <svg *ngIf="section.icon === 'info'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+          </div>
+          <div class="section-title-group">
+            <h2 class="section-title">{{ section.title }}</h2>
+            <h3 class="section-subtitle">{{ section.subtitle }}</h3>
+          </div>
+        </div>
+
+        <!-- Purpose -->
+        <div *ngIf="section.purpose" class="section-purpose">
+          <strong>Mục đích:</strong> {{ section.purpose }}
+        </div>
+
+        <!-- Main Items -->
+        <div class="section-items">
+          <div *ngFor="let item of section.items" class="document-item">
+            <div class="item-header">
+              <span class="item-bullet">•</span>
+              <h4 class="item-title">{{ item.title }}</h4>
+            </div>
+            <ul class="item-description">
+              <li *ngFor="let desc of item.description">{{ desc }}</li>
+            </ul>
+            <div *ngIf="item.notes" class="item-notes">
+              <div *ngFor="let note of item.notes" class="note-item">
+                <span class="note-icon">⚠</span>
+                <span>{{ note }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subsections -->
+        <div *ngIf="section.subsections" class="subsections">
+          <div *ngFor="let subsection of section.subsections" class="subsection">
+            <h4 class="subsection-title">{{ subsection.title }}</h4>
+            <div class="subsection-items">
+              <div *ngFor="let item of subsection.items" class="document-item">
+                <div class="item-header">
+                  <span class="item-bullet">•</span>
+                  <h4 class="item-title">{{ item.title }}</h4>
+                </div>
+                <ul *ngIf="item.description.length > 0" class="item-description">
+                  <li *ngFor="let desc of item.description">{{ desc }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

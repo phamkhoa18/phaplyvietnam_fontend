@@ -18,6 +18,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { CheckboxModule } from 'primeng/checkbox';
+import { CardModule } from 'primeng/card';
 import { TooltipModule } from 'primeng/tooltip';
 import { TableModule } from 'primeng/table';
 import { InputTextareaModule } from 'primeng/inputtextarea';
@@ -50,7 +51,8 @@ import { SliderModule } from 'primeng/slider';
       TagModule,
       InputIconModule,
       IconFieldModule,
-      SliderModule
+      SliderModule,
+      CardModule
     ]
 })
 export class PrimeNgModule { }

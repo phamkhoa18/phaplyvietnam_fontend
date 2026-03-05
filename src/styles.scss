@@ -1,10 +1,366 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @import "primeicons/primeicons.css";
 @import "flag-icons/css/flag-icons.min.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+
 * {
-  font-family: "Montserrat", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Apple-like PrimeNG look */
+:root {
+  --apple-font-size: 16px;
+  --apple-radius: 10px;
+  --apple-border: #e5e7eb;
+  --apple-border-focus: #cbd5e1;
+  --apple-text: #111827;
+  --apple-bg: #ffffff;
+  --apple-shadow: 0 0 0 1px rgba(17, 24, 39, 0.02) inset;
+  --apple-focus-ring: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+.p-inputtext,
+.p-inputtextarea,
+.p-dropdown,
+.p-dropdown-label,
+.p-calendar .p-inputtext {
+  font-size: var(--apple-font-size);
+  color: var(--apple-text);
+  background-color: var(--apple-bg);
+  border: 1px solid var(--apple-border);
+  border-radius: var(--apple-radius);
+  padding: 8px 12px;
+  line-height: 1.45;
+  box-shadow: var(--apple-shadow);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+/* Cùng chiều cao với input: p-inputtext (trừ textarea) và p-calendar */
+.p-inputtext:not(textarea) {
+  min-height: 2.75rem;
+  height: 2.75rem;
+  box-sizing: border-box;
+}
+.p-dropdown .p-dropdown-label {
+  min-height: 2.75rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.p-inputtext:enabled:focus,
+.p-inputtextarea:enabled:focus,
+.p-dropdown:not(.p-disabled).p-focus,
+.p-calendar .p-inputtext:enabled:focus {
+  border-color: var(--apple-border-focus);
+  box-shadow: var(--apple-focus-ring);
+}
+
+/* Invalid state: border đỏ + nền đỏ nhạt để người dùng biết nhập thiếu/sai */
+.p-inputtext.ng-invalid.ng-touched,
+.p-inputtext.ng-invalid.ng-dirty {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+  box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.2);
+}
+.p-inputtextarea.ng-invalid.ng-touched,
+.p-inputtextarea.ng-invalid.ng-dirty {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+  box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.2);
+}
+.p-calendar.ng-invalid.ng-touched .p-inputtext,
+.p-calendar.ng-invalid.ng-dirty .p-inputtext,
+.p-calendar.ng-invalid.ng-touched input,
+.p-calendar.ng-invalid.ng-dirty input {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+  box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.2);
+}
+.p-calendar.ng-invalid.ng-touched.p-calendar-w-btn .p-datepicker-trigger,
+.p-calendar.ng-invalid.ng-dirty.p-calendar-w-btn .p-datepicker-trigger {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+}
+.p-dropdown.ng-invalid.ng-touched,
+.p-dropdown.ng-invalid.ng-dirty {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.2);
+}
+.p-dropdown.ng-invalid.ng-touched .p-dropdown-label,
+.p-dropdown.ng-invalid.ng-dirty .p-dropdown-label {
+  background-color: #fef2f2 !important;
+}
+
+.p-dropdown-label {
+  padding: 8px 12px;
+}
+
+/* p-calendar - cùng chiều cao, đồng bộ với p-inputtext */
+.p-calendar {
+  width: 100%;
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: stretch;
+}
+.p-calendar .p-inputtext {
+  min-height: 2.75rem;
+  height: 2.75rem;
+  padding: 8px 12px;
+  font-size: var(--apple-font-size);
+  box-sizing: border-box;
+  flex: 1;
+}
+.p-calendar.p-calendar-w-btn {
+  display: inline-flex;
+  align-items: stretch;
+  min-height: 2.75rem;
+}
+.p-calendar.p-calendar-w-btn .p-inputtext {
+  padding-right: 2.75rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.p-calendar.p-calendar-w-btn .p-datepicker-trigger {
+  width: 2.75rem;
+  min-width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  flex-shrink: 0;
+}
+.p-calendar.p-calendar-w-btn .p-datepicker-trigger .p-icon {
+  width: 1rem;
+  height: 1rem;
+  font-size: 1rem;
+}
+.p-calendar.p-calendar-clearable .p-inputtext {
+  padding-right: 2.5rem;
+}
+
+.p-button {
+  font-size: var(--apple-font-size);
+  padding: 6px 12px;
+  border-radius: 10px;
+}
+
+.p-dropdown-item {
+  font-size: var(--apple-font-size);
+  padding: 8px 10px;
+}
+
+/* Checkbox - rõ ràng, unchecked không chìm */
+.p-checkbox {
+  width: 20px;
+  height: 20px;
+}
+.p-checkbox .p-checkbox-box {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #9ca3af;
+  background: #f9fafb;
+  border-radius: 6px;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
+  border-color: #6b7280;
+  background: #f3f4f6;
+}
+.p-checkbox .p-checkbox-box.p-highlight {
+  border-color: #14b8a6;
+  background: #14b8a6;
+  color: #fff;
+}
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-highlight:hover {
+  border-color: #0d9488;
+  background: #0d9488;
+  color: #fff;
+}
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-focus {
+  outline: 0 none;
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.25);
+}
+.p-checkbox .p-checkbox-box .p-checkbox-icon,
+.p-checkbox .p-checkbox-box .p-icon {
+  color: #fff;
+  font-size: 12px;
+  width: 12px;
+  height: 12px;
+}
+p-checkbox.ng-dirty.ng-invalid > .p-checkbox > .p-checkbox-box {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+/* Radio button - vuông, đẹp, unchecked rõ */
+.p-radiobutton {
+  width: 20px;
+  height: 20px;
+}
+.p-radiobutton .p-radiobutton-box {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #9ca3af;
+  background: #f9fafb;
+  border-radius: 6px;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.p-radiobutton .p-radiobutton-box:not(.p-disabled):not(.p-highlight):hover {
+  border-color: #6b7280;
+  background: #f3f4f6;
+}
+.p-radiobutton .p-radiobutton-box.p-highlight {
+  border-color: #14b8a6;
+  background: #14b8a6;
+}
+.p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {
+  border-color: #0d9488;
+  background: #0d9488;
+}
+.p-radiobutton .p-radiobutton-box:not(.p-disabled).p-focus {
+  outline: 0 none;
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.25);
+}
+.p-radiobutton .p-radiobutton-box .p-radiobutton-icon,
+.p-radiobutton .p-radiobutton-box .p-icon {
+  background-color: #fff;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.p-radiobutton .p-radiobutton-box.p-highlight .p-radiobutton-icon,
+.p-radiobutton .p-radiobutton-box.p-highlight .p-icon {
+  background-color: #fff;
+}
+p-radiobutton.ng-dirty.ng-invalid > .p-radiobutton > .p-radiobutton-box {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+/* Toast notification - nhỏ gọn, đẹp */
+.p-toast {
+  max-width: 300px;
+  width: 100%;
+}
+.p-toast .p-toast-message {
+  margin: 0 0 6px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+.p-toast .p-toast-message .p-toast-message-content {
+  padding: 8px 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.p-toast .p-toast-message .p-toast-message-icon {
+  font-size: 11px;
+  margin: 0;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.p-toast .p-toast-message .p-toast-message-icon .p-icon,
+.p-toast .p-toast-message .p-toast-message-icon [class^="pi-"] {
+  font-size: 11px;
+  width: 11px;
+  height: 11px;
+}
+.p-toast .p-toast-message .p-toast-message-text {
+  flex: 1;
+  margin: 0;
+  min-width: 0;
+}
+.p-toast .p-toast-message .p-toast-summary {
+  font-size: 12px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+.p-toast .p-toast-message .p-toast-detail {
+  font-size: 11px;
+  color: #6b7280;
+  line-height: 1.35;
+  margin: 0;
+}
+.p-toast .p-toast-icon-close {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 6px;
+  margin-left: 6px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.p-toast .p-toast-icon-close .p-icon,
+.p-toast .p-toast-icon-close-icon {
+  width: 12px;
+  height: 12px;
+  font-size: 12px;
+}
+.p-toast.p-toast-top-right,
+.p-toast.p-toast-top-center {
+  top: 12px;
+}
+.p-toast.p-toast-bottom-right,
+.p-toast.p-toast-bottom-center {
+  bottom: 12px;
+}
+.p-toast.p-toast-top-right,
+.p-toast.p-toast-bottom-right {
+  right: 12px;
+}
+.p-toast.p-toast-top-left,
+.p-toast.p-toast-bottom-left {
+  left: 12px;
+}
+
+/* Mobile: toast căn giữa màn hình (ngang), từ dưới lên */
+@media (max-width: 920px) {
+  .p-toast {
+    left: 50% !important;
+    right: auto !important;
+    margin-left: 0 !important;
+    top: auto !important;
+    bottom: 20px !important;
+    transform: translateX(-50%) !important;
+    max-width: min(360px, calc(100% - 32px));
+    width: min(360px, calc(100% - 32px));
+  }
+  .p-toast .p-toast-message {
+    animation: toast-slide-up 0.3s ease-out;
+  }
+}
+@keyframes toast-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .bevietnam {
   font-family: "Be Vietnam Pro", sans-serif;
@@ -84,8 +440,15 @@ a {
 
 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { 
+  height: 100%; 
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body { 
+  margin: 0; 
+}
 
 
 .back {
@@ -93,57 +456,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 
-.landing.layout-light {
-  --home-highlight-color: #3B82F6;
-  --home-highlight-darker-color: #2563eb;
-  --home-highlight-fore-color: #ffffff;
-  /* --home-bg: #F9FAFB; */
-  --home-border-color: rgba(0, 0, 0, .1);
-  --home-primary-text-color: #030712;
-  --home-secondary-text-color: #6b7280;
-  --home-card-shadow: 0px 7px 15px 0px rgba(0, 0, 0, .02), 0px 28px 28px 0px rgba(0, 0, 0, .02), 0px 63px 38px 0px rgba(0, 0, 0, .01);
-  --home-box-bg: #ffffff;
-  --home-linkbox-bg: #ffffff;
-  --home-linkbox-border: 1px solid rgba(0, 0, 0, .1);
-  --home-linkbox-text-color: #030712;
-  --home-linkbox-hover-bg: #e5e7eb;
-  --home-blocks-bg: transparent;
-  --home-blocks-block-bg: #ffffff;
-  --home-blocks-block-shadow: -10px 4px 10px 0px rgba(0, 0, 0, .1), -10px 4px 25px rgba(0, 0, 0, .1);
-  --home-blocks-border-left: 5px solid rgba(0, 0, 0, .1);
-  --home-blocks-border-bottom: 7px solid rgba(0, 0, 0, .1);
-  --home-blocks-border: 1px solid rgba(0, 0, 0, .1);
-  --home-blocks-sidebar-bg: #f3f4f6;
-  --home-blocks-list-bg: #f9fafb;
-  --home-blocks-main-bg: #ffffff;
-  --home-blocks-main-border: 1px solid rgba(0, 0, 0, .1);
-  --home-blocks-item-bg: #f4f5f7;
-  --home-blocks-image-bg: #e5e7eb;
-  --home-blocks-text-color: #d1d5db;
-  --home-blocks-active-shadow: 0px 30px 50px 0px rgba(0, 0, 0, .1);
-  --home-blocks-active-border-top: 1px solid rgba(0, 0, 0, .07);
-  --home-blocks-active-border-right: 1px solid rgba(0, 0, 0, .07);
-  --home-blocks-active-border-bottom: 4px solid rgba(0, 0, 0, .07);
-  --home-blocks-active-border-left: 4px solid rgba(0, 0, 0, .07);
-  --home-blocks-animation-shadow: 0px 30px 50px 10px rgba(0, 0, 0, .2);
-  --home-blocks-tablebar-bg: #d1d5db;
-  --home-blocks-bar-bg: #d1d5db;
-  --home-blocks-bar-button-bg: #ffffff;
-  --home-blocks-circle-bg: #c7cad0;
-  --home-templates-bg: transparent;
-  --home-templates-block-shadow: 0px 5px 10px 0px rgba(0, 0, 0, .1);
-  --home-templates-block-border-left: 5px solid #d1d5db;
-  --home-templates-block-border-bottom: 7px solid #d1d5db;
-  --home-templates-line: rgba(0, 0, 0, .1);
-  --home-templates-block-hover-bg: rgba(0, 0, 0, .2);
-  --home-templates-btn-bg: rgba(0, 0, 0, .5);
-  --home-templates-btn-text-color: #ffffff;
-  --home-templates-btn-shadow: 0px 10px 15px 0px rgba(0, 0, 0, .5);
-  --home-templates-btn-border-top: 1px solid rgba(0, 0, 0, .1);
-  --home-templates-btn-border-right: 1px solid rgba(0, 0, 0, .1);
-  --home-templates-btn-border-bottom: 4px solid rgba(0, 0, 0, .1);
-  --home-templates-btn-border-left: 3px solid rgba(0, 0, 0, .1);
-  --home-features-card-shadow: 0px 7px 15px 0px rgba(0, 0, 0, .02), 0px 28px 28px 0px rgba(0, 0, 0, .02), 0px 63px 38px 0px rgba(0, 0, 0, .01);
-  --home-box-ring-color: var(--primary-100);
-}
+
 

@@ -1,35 +1,43 @@
-import { Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
+import { formatDate } from '@angular/common';
 import { ApiService } from 'src/app/services/api.service';
 import { DataService } from 'src/app/services/data.service';
+import { MessageService } from 'primeng/api';
+import { DropdownFilterOptions } from 'primeng/dropdown';
 
 @Component({
   selector: 'app-hochieuduoi14',
   templateUrl: './hochieuduoi14.component.html',
-  styleUrls: ['./hochieuduoi14.component.scss']
+  styleUrls: ['./hochieuduoi14.component.scss'],
+  providers: [MessageService]
 })
-export class Hochieuduoi14Component {
+export class Hochieuduoi14Component implements OnInit {
 
-  @Input() name: string | undefined;
-  @ViewChild('sigPad', { static: true }) sigPad!: ElementRef<HTMLCanvasElement>; // Sử dụng khai báo "!" để cho TypeScript biết sigPad đã được khởi tạo
-  sigPadElement!: HTMLCanvasElement; // Sử dụng khai báo "!" để cho TypeScript biết sigPadElement đã được khởi tạo
-  context!: CanvasRenderingContext2D; // Sử dụng khai báo "!" để cho TypeScript biết context đã được khởi tạo
-  isDrawing = false;
-  img: any;
-  checkdongy: Boolean = false;
+  placeholder: String = 'Nhập dữ liệu';
+  selectedFiles: File[] = [];
+  fileError: string | undefined;
+  uploadedFiles: any[] = [];
+
+  listdenghi : any = [
+    {name : 'Cấp hộ chiếu có gắn chíp điện tử'},
+    {name : "Cấp hộ chiếu không gắn chíp điện tử"},
+  ]
 
   public hochieu : any ;
 
-
-  constructor(private data : DataService , public api : ApiService , private titleService : Title , private fb : FormBuilder) {
-    this.titleService.setTitle('Thông tin tờ khai đăng kí làm hộ chiếu');
+  constructor(
+    private data : DataService , 
+    public api : ApiService , 
+    private titleService : Title , 
+    private fb : FormBuilder,
+    private mess : MessageService
+  ) {
+    this.titleService.setTitle('Tờ khai hộ chiếu dưới 14 tuổi');
   }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-
     this.hochieu = this.fb.group({
       fullname : new FormControl('' , Validators.required),
       firstname : new FormControl('' , Validators.required),
@@ -69,138 +77,255 @@ export class Hochieuduoi14Component {
       d14m : new FormControl(''),
       d14y : new FormControl(''),
     })
-
   }
 
-
-
-
-
-
-  toDateFormat(value : String) {
-    const valuenew = value.split('-');
-    return `${valuenew[2]}/${valuenew[1]}/${valuenew[0]}`
+  onSelect(event: any) {
+    this.selectedFiles = event.currentFiles;
   }
 
-  toDateVariable(value: String ) {
-    const valuenew = value.split('-');
-    return valuenew ;
-  }
+  // Hàm xử lý khi người dùng nhập ngày bằng tay
+  onInputChange(event: any, namefield: string, items: any = null) {
+    const inputValue = event.target.value;
 
-  selectedFiles: File[] = [];
-  fileError: string | undefined;
-
-  onFileSelected(event: any) {
-    this.selectedFiles = event.target.files;
-    // Reset the file error message
-  this.fileError = undefined;
-
-  if (this.selectedFiles) {
-    let totalSize = 0;
-    const allowedFormats = ['image/jpeg', 'application/pdf'];
-
-    for (let i = 0; i < this.selectedFiles.length; i++) {
-      const file = this.selectedFiles[i];
-
-      if (!allowedFormats.includes(file.type)) {
-        alert( `Định dạng tệp ${file.name} không hợp lệ. Chỉ hỗ trợ JPG và PDF.`);
-        return;
+    // Kiểm tra xem giá trị nhập có đúng định dạng không
+    if (this.isValidDate(inputValue)) {
+      const parsedDate = this.parseDate(inputValue); // Chuyển chuỗi thành đối tượng Date
+      this.hochieu.get(namefield)?.setValue(parsedDate);
+    } else {
+      // Nếu không hợp lệ, có thể giữ nguyên hoặc clear
+      if (inputValue.trim() === '') {
+        this.hochieu.get(namefield)?.setValue(null);
       }
-
-      totalSize += file.size;
-    }
-
-    if (totalSize > 6 * 1024 * 1024) {
-      this.fileError = "Tổng kích thước tệp vượt quá 6MB.";
-      alert(this.fileError);
-      return;
     }
   }
-}
 
+  // Kiểm tra xem chuỗi có phải là ngày hợp lệ hay không
+  isValidDate(dateString: string): boolean {
+    const regex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/; // dd/MM/yyyy
+    return regex.test(dateString);
+  }
 
+  // Chuyển chuỗi ngày thành đối tượng Date
+  parseDate(dateString: string): Date {
+    const [day, month, year] = dateString.split('/');
+    return new Date(+year, +month - 1, +day);
+  }
 
+  onUpload(event: any) {
+    for(let file of event.files) {
+        this.uploadedFiles.push(file);
+    }
+    this.mess.add({severity: 'info', summary: 'Đã tải lên', detail: `${event.files.length} file`, key: 'br', life: 2000 });
+  }
 
+  customFilterFunction(event: KeyboardEvent, options: DropdownFilterOptions) {
+      options.filter(event);
+  }
 
+  getErrorMessage(controlName: string): string {
+    const control = this.hochieu.get(controlName);
+    if (control && control.touched) {
+      if (control.hasError('required')) {
+        return 'Vui lòng không để trống';
+      }
+      if (control.hasError('email')) {
+        return 'Please enter a valid email address.';
+      }
+      if (control.hasError('minlength')) {
+        const minLength = control.errors?.['minlength'].requiredLength;
+        return `Minimum length is ${minLength} characters.`;
+      }
+      if (control.hasError('maxlength')) {
+        const maxLength = control.errors?.['maxlength'].requiredLength;
+        return `Maximum length is ${maxLength} characters.`;
+      }
+      if (control.hasError('pattern')) {
+        return 'Invalid format.';
+      }
+    }
+    return '';
+  }
+
+  toDateFormat(value : any) {
+    if (!value) return '';
+    const date = value instanceof Date ? value : new Date(value.toString());
+    return date.toLocaleDateString('vi-VN', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+  }
+
+  formatDateToVN(dateInput: string | Date): string {
+    if (!dateInput) return '';
+    const date = dateInput instanceof Date ? dateInput : new Date(dateInput);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  } 
+
+  formatDateToVietnamese(dateStr: string): string {
+    if (!dateStr) return '';
+    const [day, month, year] = dateStr.split('/');
+    return `${day} tháng ${month} năm ${year}`;
+  }
+
+  showWarn() {
+    this.mess.add({ severity: 'error', summary: 'Lỗi' , detail: 'Vui lòng điền đầy đủ thông tin bắt buộc' , key: 'br', life: 3000 });
+  }
+
+  extractYear(dateString: string): number | null {
+    if (!dateString) return null;
+    const parts = dateString.split('/');
+    return parts.length === 3 ? parseInt(parts[2], 10) : null;
+  }
 
   async submit() {
     if (this.hochieu.valid) {
+        try {
+          var contentObject: any = this.hochieu.value;
+              
+          if(this.hochieu.value.cmnd && this.hochieu.value.cmnd.toString().trim() != '') {
+              const trimarray = this.hochieu.value.cmnd.toString().trim() ;
+              const arraycmnd = trimarray.split('');
+              contentObject.cmnd = arraycmnd;
+          } else {
+              contentObject.cmnd = '';
+          }
 
-            var contentObject: any = this.hochieu.value;
+          const date = new Date(Date.now()) ;
 
-            if(this.hochieu.value.cmnd) {
-                const trimarray = this.hochieu.value.cmnd.trim() ;
-                const arraycmnd = trimarray.split('');
-                contentObject.cmnd = arraycmnd;
-            }
+          this.hochieu.value.date_ngay_now = date.getDate().toString() ;
+          this.hochieu.value.date_nam_now = date.getFullYear().toString() ;
+          this.hochieu.value.date_thang_now = (date.getMonth() + 1).toString() ;
 
+          // Handle date to format date function toDateFormat(input)
+          const value = this.hochieu.value.date ? this.toDateVariable(this.hochieu.value.date) : null;
+          const value2 = this.hochieu.value.date_14 ? this.toDateVariable(this.hochieu.value.date_14) : null;
 
-            const date = new Date(Date.now()) ;
-
-            this.hochieu.value.date_ngay_now = date.getDate().toString() ;
-            this.hochieu.value.date_nam_now = date.getFullYear().toString() ;
-            this.hochieu.value.date_thang_now = (date.getMonth() + 1).toString() ;
-
-            // handle date to format date funtion toDateFormat(input)
-
-            const value = this.toDateVariable(this.hochieu.value.date) ;
-            const value2 = this.toDateVariable(this.hochieu.value.date_14);
-
+          if (value && value.length >= 3) {
             this.hochieu.value.date_day = value[2] ;
             this.hochieu.value.date_month = value[1] ;
             this.hochieu.value.date_year = value[0] ;
+          }
 
+          if (value2 && value2.length >= 3) {
             this.hochieu.value.d14d = value2[2] ;
             this.hochieu.value.d14m = value2[1] ;
             this.hochieu.value.d14y = value2[0] ;
+          }
 
-            const validDates = [
-              'cmnd_day',
-              'ngay_cap_giay_to',
-              'date_dad',
-              'date_mother',
-              'day_pp'
+          const validDates = [
+            'cmnd_day',
+            'date_dad',
+            'date_mother',
+            'day_pp'
           ];
 
           const formattedValues = { ...this.hochieu.value };
 
+          // Format dates
           for (const field of validDates) {
             if (formattedValues[field]) {
                 formattedValues[field] = this.toDateFormat(formattedValues[field]);
+            } else {
+                formattedValues[field] = '';
             }
           }
 
-            const arraycontent = [];
-            arraycontent.push(formattedValues);
+          // Format date and date_14 to Vietnamese format
+          if (formattedValues.date) {
+            formattedValues.date = this.toDateFormat(formattedValues.date);
+            const objectVN = this.formatDateToVietnamese(formattedValues.date);
+            formattedValues.date = objectVN;
+          } else {
+            formattedValues.date = '';
+          }
 
-            const data = new FormData() ;
-            data.append('name' , this.hochieu.value.fullname ?? '') ;
-            data.append('title' , 'Đăng ký hộ chiếu dưới 14') ;
-            data.append('content' , JSON.stringify(arraycontent));
-            data.append('posision' , "ho_chieu_duoi_14");
-            for (const image of this.selectedFiles) {
-              data.append('images', image);
-            };
+          if (formattedValues.date_14) {
+            formattedValues.date_14 = this.toDateFormat(formattedValues.date_14);
+            const objectVN = this.formatDateToVietnamese(formattedValues.date_14);
+            formattedValues.date_14 = objectVN;
+          } else {
+            formattedValues.date_14 = '';
+          }
 
-            // Chuyển dữ liệu từ canvas thành định dạng hình ảnh
+          // Ensure all fields are strings, not null/undefined
+          for (const key in formattedValues) {
+            if (formattedValues[key] === null || formattedValues[key] === undefined) {
+              formattedValues[key] = '';
+            } else if (formattedValues[key] instanceof Date) {
+              // Convert Date to string format
+              formattedValues[key] = this.toDateFormat(formattedValues[key]);
+            } else if (typeof formattedValues[key] === 'object' && !Array.isArray(formattedValues[key])) {
+              // Skip non-array objects
+              continue;
+            } else if (Array.isArray(formattedValues[key]) && formattedValues[key].length === 0) {
+              // Empty arrays should be empty string
+              formattedValues[key] = '';
+            }
+          }
 
-          (await this.api.post('/addform' , data)).subscribe((v : any ) => {
-            if(v.status == 200) {
-              this.data.notification('Thông tin gửi lên đã thành công' , 'Cảm ơn bạn , chúng tôi sẽ hỗ trợ bạn nhanh nhất !' , 'success' , v.filename , 'output_docx');
-              console.log(v.filename);
-              this.resetForm();
-            } else {
+          const arraycontent = [];
+          arraycontent.push(formattedValues);
+
+          console.log('Form data to send:', formattedValues);
+
+          const data = new FormData() ;
+          data.append('name' , this.hochieu.value.fullname ?? '') ;
+          data.append('title' , 'Đăng ký hộ chiếu dưới 14') ;
+          data.append('content' , JSON.stringify(arraycontent));
+          data.append('posision' , "ho_chieu_duoi_14");
+          for (const image of this.selectedFiles) {
+            data.append('images', image);
+          };
+
+          console.log('Sending form data...');
+
+          (await this.api.post('/addform' , data)).subscribe({
+            next: (v : any ) => {
+              console.log('Response received:', v);
+              if(v && v.status == 200) {
+                this.data.notification('Thông tin gửi lên đã thành công' , 'Cảm ơn bạn , chúng tôi sẽ hỗ trợ bạn nhanh nhất !' , 'success' , v.filename , 'output_docx');
+                console.log('Success - filename:', v.filename);
+                this.resetForm();
+              } else {
+                console.error('Response error:', v);
                 this.data.notification('Thông tin gửi lên đã thất bại' , 'Bạn hãy kiểm tra lại xem mạng có ổn định chưa !' , 'error' , '' , '');
+              }
+            },
+            error: (error: any) => {
+              console.error('Error submitting form:', error);
+              this.mess.add({ severity: 'error', summary: 'Lỗi', detail: 'Gửi form thất bại. Vui lòng thử lại!' , key: 'br', life: 3000 });
+              this.data.notification('Thông tin gửi lên đã thất bại' , 'Đã xảy ra lỗi khi gửi form. Vui lòng thử lại sau!' , 'error' , '' , '');
             }
           })
+        } catch (error) {
+          console.error('Error in submit function:', error);
+          this.mess.add({ severity: 'error', summary: 'Lỗi', detail: 'Xử lý form thất bại!' , key: 'br', life: 3000 });
+        }
     } else {
-      // Hiển thị thông báo lỗi hoặc thực hiện các xử lý khác khi form không hợp lệ
-      // Ví dụ: thông báo lỗi trên giao diện
+      this.showWarn() ;
       this.hochieu.markAllAsTouched();
     }
   }
 
+  toDateVariable(value: any ) {
+    if (!value) return [];
+    if (value instanceof Date) {
+      const year = value.getFullYear();
+      const month = (value.getMonth() + 1).toString().padStart(2, '0');
+      const day = value.getDate().toString().padStart(2, '0');
+      return [year, month, day];
+    }
+    const valuenew = value.toString().split('-');
+    return valuenew ;
+  }
+
   resetForm(): void {
     this.hochieu.reset();
+    this.uploadedFiles = [];
+    this.selectedFiles = [];
   }
 }

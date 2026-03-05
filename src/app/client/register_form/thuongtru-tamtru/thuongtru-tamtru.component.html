@@ -1,273 +1,232 @@
-<!-- <app-loading *ngIf="isLoading"></app-loading> -->
-
-
-<section class="news_detail">
-  <div class="top_news" [ngStyle]="{ 'background-image': 'url(' + api.URL + '/uploads/' + 'contact.webp' + ')' }" >
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-
-              <div class="content_news_detail">
-
-                    <h1 class="content_news_detail_title">
-                      XÁC NHẬN THÔNG TIN VỀ CƯ TRÚ
-                    </h1>
-
-              </div>
+<section class="min-h-screen bg-gray-50 py-8">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <form [formGroup]="lylichtuphap" (ngSubmit)="submit()">
+      <div class="bg-white rounded-xl shadow-sm">
+        <!-- Title Header -->
+        <div class="relative bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800 rounded-t-xl">
+          <div class="px-6 py-8 sm:px-10 sm:py-10">
+            <div class="mx-auto max-w-3xl text-center">
+              <h1 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white tracking-tight">
+                XÁC NHẬN THÔNG TIN VỀ CƯ TRÚ
+              </h1>
+              <p class="mt-2 text-xs sm:text-sm text-teal-50/90 font-normal">
+                (Thường trú / Tạm trú)
+              </p>
             </div>
+          </div>
         </div>
-    </div>
-  </div>
 
-
-  <div class="content_news" >
-    <div class="container">
-      <h2 class="content_news_detail_title" style="color:black !important; padding-bottom: 25px !important; font-size: 2rem !important; " >
-        XÁC NHẬN THÔNG TIN VỀ CƯ TRÚ
-      </h2>
-
-      <div class="row row_content_news">
-          <!-- HỌ VÀ TÊN -->
-          <form  [formGroup]="lylichtuphap" (ngSubmit)="submit()" >
-              <div class="row form">
-
-                <div class="col-md-12">
-                  <label for="" class="form-label label-title title-big">I. Theo đề nghị của Ông/Bà: </label>
-                </div>
-
-                    <!-- Ho va ten -->
-                <div class="col-md-12">
-                    <div class="mb-3">
-                      <label for="" class="form-label label-title">Họ, chữ đệm và tên <span class="request"> *</span> </label>
-                      <input type="text"  formControlName="fullname"
-                        class="form-control" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ và Tên">
-                        <small class="text-danger" *ngIf="lylichtuphap.get('fullname')?.invalid && lylichtuphap.get('fullname')?.touched">
-                          Họ và tên không được để trống
-                        </small>
-                    </div>
-                </div>
-
-              <div class="col-md-6">
-                <div class="mb-3">
-                <label for="" class="form-label label-title">Giới tính <span class="request"> *</span> </label>
-               <div class="form-check">
-                 <input class="form-check-input" type="radio"  formControlName="gender" value="Nam" id="" checked>
-                 <label class="form-check-label" for="nam">
-                   Nam / Male
-                 </label>
-               </div>
-               <div class="form-check">
-                 <input class="form-check-input" type="radio" formControlName="gender" value="Nữ" id="">
-                 <label class="form-check-label" for="nu">
-                   Nữ / Female
-                 </label>
-               </div>
-
-              </div>
+        <div class="p-6 md:p-8">
+          <!-- Section 1: Theo đề nghị -->
+          <div class="relative flex items-center mb-6 border-b-2 border-teal-600 pb-3">
+            <div class="flex-shrink-0 w-10 h-10 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">1</div>
+            <div class="ml-4">
+              <h2 class="text-xl md:text-2xl font-semibold text-teal-700 uppercase">Theo đề nghị của Ông/Bà</h2>
             </div>
-            <!-- end -->
-
-            <!-- Ngày tháng năm -->
-              <div class="col-md-6">
-                <div class="mb-3">
-                  <label for="" class="form-label label-title">Ngày, tháng, năm sinh <span class="request"> *</span> </label>
-                  <input type="date" formControlName="date"
-                    class="form-control"  id="" aria-describedby="helpId" >
-                    <small class="text-danger" *ngIf="lylichtuphap.get('date')?.invalid && lylichtuphap.get('date')?.touched">
-                      Ngày tháng năm sinh / Date of birth
-                    </small>
-                </div>
-            </div>
-
-            <div class="col-md-12">
-              <div class="mb-3">
-                <label for="" class="form-label label-title">Số định danh cá nhân/CMND <span class="request"> *</span> </label>
-                <input type="number"
-                  class="form-control" formControlName="number_giay_to" name="" id="" aria-describedby="helpId" placeholder="Nhập số giấy tờ tùy thân">
-                  <small class="text-danger" *ngIf="lylichtuphap.get('number_giay_to')?.invalid && lylichtuphap.get('number_giay_to')?.touched">
-                   Vui lòng nhập số
-                   </small>
-              </div>
           </div>
 
-          <div class="col-md-4">
-            <div class="mb-3">
-              <label for="" class="form-label label-title">Dân tộc </label>
-              <input type="input"
-                class="form-control" formControlName="nation" name="" id="" aria-describedby="helpId" placeholder="Nhập dân tộc">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-8">
+            <div class="md:col-span-12 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700 mb-2">1. Họ, chữ đệm và tên <span class="text-red-600 font-bold">*</span></label>
+              <input type="text" formControlName="fullname" pInputText placeholder="Nhập họ và tên"
+                [ngClass]="{'border-red-500 bg-red-50': lylichtuphap.get('fullname')?.invalid && (lylichtuphap.get('fullname')?.dirty || lylichtuphap.get('fullname')?.touched)}"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all" />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('fullname') != ''">{{ getErrorMessage('fullname') }}</span>
             </div>
-        </div>
-        <div class="col-md-4">
-          <div class="mb-3">
-            <label for="" class="form-label label-title">Tôn giáo</label>
-            <input type="input"
-              class="form-control" formControlName="tongiao" name="" id="" aria-describedby="helpId" placeholder="Nhập tôn giáo">
-          </div>
-      </div>
-            <!-- 5. Dân tộc -->
-            <div class="col-md-4">
-              <div class="mb-3">
-                <label for="" class="form-label label-title">Quốc tịch<span class="request"> *</span> </label>
-                <input type="input"
-                  class="form-control" formControlName="national" name="" id="" aria-describedby="helpId" placeholder="Nhập Quốc tịch">
-                  <small class="text-danger" *ngIf="lylichtuphap.get('national')?.invalid && lylichtuphap.get('national')?.touched">
-                   Quốc tịch không được để trống
-                  </small>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700 mb-2">2. Giới tính <span class="text-red-600 font-bold">*</span></label>
+              <div class="flex flex-wrap gap-4">
+                <div class="flex items-center gap-2">
+                  <p-radioButton [formControlName]="'gender'" [value]="'Nam'"></p-radioButton>
+                  <span class="text-sm text-gray-700">Nam</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <p-radioButton [formControlName]="'gender'" [value]="'Nữ'"></p-radioButton>
+                  <span class="text-sm text-gray-700">Nữ</span>
+                </div>
               </div>
+            </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700 mb-2">3. Ngày, tháng, năm sinh <span class="text-red-600 font-bold">*</span></label>
+              <p-calendar placeholder="dd/mm/yyyy" [dateFormat]="'dd/mm/yy'" formControlName="date" styleClass="w-full"
+                inputStyleClass="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all"
+                [ngClass]="{'border-red-500 bg-red-50': lylichtuphap.get('date')?.invalid && (lylichtuphap.get('date')?.dirty || lylichtuphap.get('date')?.touched)}"></p-calendar>
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('date') != ''">{{ getErrorMessage('date') }}</span>
+            </div>
+            <div class="md:col-span-12 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700 mb-2">4. Số định danh cá nhân / CMND <span class="text-red-600 font-bold">*</span></label>
+              <input type="text" pInputText formControlName="number_giay_to" placeholder="Nhập số giấy tờ"
+                [ngClass]="{'border-red-500 bg-red-50': lylichtuphap.get('number_giay_to')?.invalid && (lylichtuphap.get('number_giay_to')?.dirty || lylichtuphap.get('number_giay_to')?.touched)}"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all" />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('number_giay_to') != ''">{{ getErrorMessage('number_giay_to') }}</span>
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700 mb-2">5. Dân tộc</label>
+              <input type="text" pInputText formControlName="nation" placeholder="Nhập dân tộc"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all" />
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700 mb-2">6. Tôn giáo</label>
+              <input type="text" pInputText formControlName="tongiao" placeholder="Nhập tôn giáo"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all" />
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700 mb-2">7. Quốc tịch <span class="text-red-600 font-bold">*</span></label>
+              <input type="text" pInputText formControlName="national" placeholder="Nhập quốc tịch"
+                [ngClass]="{'border-red-500 bg-red-50': lylichtuphap.get('national')?.invalid && (lylichtuphap.get('national')?.dirty || lylichtuphap.get('national')?.touched)}"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all" />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('national') != ''">{{ getErrorMessage('national') }}</span>
+            </div>
+            <div class="md:col-span-12 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700 mb-2">8. Quê quán <span class="text-red-600 font-bold">*</span></label>
+              <input type="text" pInputText formControlName="que_quan" placeholder="Nhập quê quán"
+                [ngClass]="{'border-red-500 bg-red-50': lylichtuphap.get('que_quan')?.invalid && (lylichtuphap.get('que_quan')?.dirty || lylichtuphap.get('que_quan')?.touched)}"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all" />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('que_quan') != ''">{{ getErrorMessage('que_quan') }}</span>
+            </div>
           </div>
 
-          <div class="col-md-12">
-            <div class="mb-3">
-              <label for="" class="form-label label-title">Quê quán<span class="request"> *</span> </label>
-              <input type="input"
-                class="form-control" formControlName="que_quan" name="" id="" aria-describedby="helpId" placeholder="Nhập Quê quán">
-                <small class="text-danger" *ngIf="lylichtuphap.get('que_quan')?.invalid && lylichtuphap.get('que_quan')?.touched">
-                 Quê quán không được để trống
-                </small>
+          <!-- Section 2: Công an xác nhận -->
+          <div class="relative flex items-center mb-6 border-b-2 border-teal-600 pb-3">
+            <div class="flex-shrink-0 w-10 h-10 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">2</div>
+            <div class="ml-4">
+              <h2 class="text-xl md:text-2xl font-semibold text-teal-700 uppercase">Công an xác nhận thông tin về cư trú</h2>
             </div>
-        </div>
+          </div>
 
-        <div class="col-md-12">
-          <label for="" class="form-label label-title title-big">II. Công an ( 2 ).................... xác nhận thông tin về cư trú của Ông/Bà có tên tại
-            mục I, như sau: </label>
-        </div>
-
-
-          <div class="col-md-12">
-            <div class="mb-3">
-              <label for="" class="form-label label-title">Nơi thường trú</label>
-              <input type="input"
-                class="form-control" formControlName="address_thuong_tru" name="" id="" aria-describedby="helpId" placeholder="Nhập địa chỉ">
-                <small style="font-size: 12px; font-style: italic;">Ghi rõ số nhà, xã/phường (Number, ward/commune)</small>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-8">
+            <div class="md:col-span-12 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700 mb-2">9. Nơi thường trú</label>
+              <input type="text" pInputText formControlName="address_thuong_tru" placeholder="Ghi rõ số nhà, xã/phường"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all" />
             </div>
-        </div>
+            <div class="md:col-span-12 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700 mb-2">10. Nơi tạm trú</label>
+              <input type="text" pInputText formControlName="address_tam_tru" placeholder="Ghi rõ số nhà, xã/phường"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all" />
+            </div>
+            <div class="md:col-span-12 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700 mb-2">11. Nơi ở hiện tại</label>
+              <input type="text" pInputText formControlName="address_hien_tai" placeholder="Ghi rõ số nhà, xã/phường"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all" />
+            </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700 mb-2">12. Họ, tên đệm và tên chủ hộ</label>
+              <input type="text" pInputText formControlName="fullname_chu_ho" placeholder="Nhập họ tên chủ hộ"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all" />
+            </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700 mb-2">13. Quan hệ với chủ hộ</label>
+              <input type="text" pInputText formControlName="quan_he_chu_ho" placeholder="Nhập quan hệ"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all" />
+            </div>
+            <div class="md:col-span-12 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700 mb-2">14. Số định danh của chủ hộ</label>
+              <input type="text" pInputText formControlName="number_dinh_danh" placeholder="Nhập số định danh"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all" />
+            </div>
+          </div>
 
-      <!-- tạm trú -->
-      <div class="col-md-12">
-        <div class="mb-3">
-          <label for="" class="form-label label-title">Nơi tạm trú </label>
-          <input type="input"
-            class="form-control" formControlName="address_tam_tru" name="" id="" aria-describedby="helpId" placeholder="Nhập địa chỉ">
-            <small style="font-size: 12px; font-style: italic;">Ghi rõ số nhà, xã/phường (Number, ward/commune)</small>
-        </div>
-    </div>
+          <!-- Section 3: Thành viên hộ gia đình -->
+          <div class="relative flex items-center mb-6 border-b-2 border-teal-600 pb-3">
+            <div class="flex-shrink-0 w-10 h-10 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">3</div>
+            <div class="ml-4">
+              <h2 class="text-xl md:text-2xl font-semibold text-teal-700 uppercase">Thông tin các thành viên khác trong hộ gia đình</h2>
+            </div>
+          </div>
 
-    <div class="col-md-12">
-      <div class="mb-3">
-        <label for="" class="form-label label-title">Nơi ở hiện tại</label>
-        <input type="input"
-          class="form-control" formControlName="address_hien_tai" name="" id="" aria-describedby="helpId" placeholder="Nhập địa chỉ">
-          <small style="font-size: 12px; font-style: italic;">Ghi rõ số nhà, xã/phường (Number, ward/commune)</small>
+          <div class="mb-8 overflow-x-auto" formArrayName="datacutru">
+            <p-table [value]="addDynamicRow.controls" [tableStyle]="{ 'min-width': '40rem' }"
+              styleClass="p-datatable-sm p-datatable-striped p-datatable-gridlines w-full">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th class="text-left font-semibold text-teal-700 bg-teal-50 px-3 py-2">STT</th>
+                  <th class="text-left font-semibold text-teal-700 bg-teal-50 px-3 py-2">Họ, chữ đệm và tên</th>
+                  <th class="text-left font-semibold text-teal-700 bg-teal-50 px-3 py-2">Ngày, tháng, năm sinh</th>
+                  <th class="text-left font-semibold text-teal-700 bg-teal-50 px-3 py-2">Giới tính</th>
+                  <th class="text-left font-semibold text-teal-700 bg-teal-50 px-3 py-2">Số định danh / CMND</th>
+                  <th class="text-left font-semibold text-teal-700 bg-teal-50 px-3 py-2">Quan hệ với chủ hộ</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-row let-i="rowIndex">
+                <tr [formGroupName]="i" class="border-b border-gray-200">
+                  <td class="px-3 py-2">{{ i + 1 }}</td>
+                  <td class="px-3 py-2"><input type="text" pInputText [formControlName]="'ho_ten'" placeholder="Họ tên" class="w-full px-2 py-1.5 text-sm border border-gray-300 rounded focus:ring-1 focus:ring-gray-300 focus:border-gray-300"></td>
+                  <td class="px-3 py-2"><input type="text" pInputText [formControlName]="'ngay'" placeholder="Ngày sinh" class="w-full px-2 py-1.5 text-sm border border-gray-300 rounded focus:ring-1 focus:ring-gray-300 focus:border-gray-300"></td>
+                  <td class="px-3 py-2"><input type="text" pInputText [formControlName]="'gioi_tinh'" placeholder="Giới tính" class="w-full px-2 py-1.5 text-sm border border-gray-300 rounded focus:ring-1 focus:ring-gray-300 focus:border-gray-300"></td>
+                  <td class="px-3 py-2"><input type="text" pInputText [formControlName]="'cmnd'" placeholder="Số CMND" class="w-full px-2 py-1.5 text-sm border border-gray-300 rounded focus:ring-1 focus:ring-gray-300 focus:border-gray-300"></td>
+                  <td class="px-3 py-2"><input type="text" pInputText [formControlName]="'quan_he'" placeholder="Quan hệ" class="w-full px-2 py-1.5 text-sm border border-gray-300 rounded focus:ring-1 focus:ring-gray-300 focus:border-gray-300"></td>
+                </tr>
+              </ng-template>
+            </p-table>
+            <button type="button" (click)="addtr()"
+              class="mt-3 inline-flex items-center px-4 py-2 text-sm font-medium text-teal-700 bg-teal-50 border border-teal-200 rounded-lg hover:bg-teal-100 transition-colors">
+              <i class="pi pi-plus mr-2"></i>Tạo mới thông tin
+            </button>
+          </div>
+
+          <!-- Section 4: Nội dung khác -->
+          <div class="relative flex items-center mb-6 border-b-2 border-teal-600 pb-3">
+            <div class="flex-shrink-0 w-10 h-10 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">4</div>
+            <div class="ml-4">
+              <h2 class="text-xl md:text-2xl font-semibold text-teal-700 uppercase">Nội dung khác</h2>
+            </div>
+          </div>
+          <div class="mb-8">
+            <label class="block text-sm font-semibold text-gray-700 mb-2">15. Nội dung xác nhận khác</label>
+            <input type="text" pInputText formControlName="noi_dung" placeholder="Nhập nội dung"
+              class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all" />
+          </div>
+
+          <!-- Section 5: Hồ sơ đính kèm -->
+          <div class="relative flex items-center mb-6 border-b-2 border-teal-600 pb-3">
+            <div class="flex-shrink-0 w-10 h-10 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">5</div>
+            <div class="ml-4">
+              <h2 class="text-xl md:text-2xl font-semibold text-teal-700 uppercase">
+                Hồ sơ đính kèm
+                <span class="block text-sm font-normal text-teal-500 italic">UPLOAD FILE</span>
+              </h2>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mt-4 mb-8">
+            <div class="md:col-span-6 flex flex-col gap-3">
+              <label class="block text-sm font-semibold text-gray-700">Một số loại giấy tờ đính kèm</label>
+              <div class="space-y-2 text-[15px] text-gray-700">
+                <p>1. Tờ khai yêu cầu cấp phiếu <a (click)="download()" class="text-teal-600 hover:text-teal-700 underline cursor-pointer">(In tờ khai online)</a></p>
+                <p>2. Chứng minh nhân dân (scan 2 mặt) <a class="text-teal-600 hover:text-teal-700 underline" [href]="api.URL + '/document/cmnd.pdf'" target="_blank">Xem ví dụ CMND</a></p>
+                <p>3. Hộ khẩu thường trú <a class="text-teal-600 hover:text-teal-700 underline" [href]="api.URL + '/document/hk.pdf'" target="_blank">Xem ví dụ HK</a></p>
+              </div>
+            </div>
+            <div class="md:col-span-6 flex flex-col gap-3">
+              <label class="block text-sm font-semibold text-gray-700">Nơi upload file <span class="text-xs text-gray-500 font-normal">(chỉ nhận JPG, PDF – tối đa 3MB)</span></label>
+              <input type="file" (change)="onFileSelected($event)" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 file:cursor-pointer border border-gray-300 rounded-md" accept=".jpg,.jpeg,.pdf" multiple />
+              <p class="text-sm text-gray-600">Hoặc gửi đến Trợ giúp pháp lý Việt Nam: <a href="mailto:hotro@trogiupphaply.com.au" class="text-teal-600 font-medium underline">hotro@trogiupphaply.com.au</a></p>
+            </div>
+          </div>
+
+          <div class="mb-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <label class="flex items-start gap-3 cursor-pointer">
+              <p-checkbox formControlName="xac_nhan" [binary]="true" inputId="xac_nhan"></p-checkbox>
+              <span class="text-sm text-gray-700">Tôi xin cam đoan những lời khai trên là đúng sự thật và chịu trách nhiệm về lời khai, các dịch vụ đã đăng ký của mình.</span>
+            </label>
+          </div>
+
+          <p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { left: '50%', right: 'auto', transform: 'translateX(-50%)', bottom: '20px', width: 'calc(100% - 32px)', maxWidth: '360px' } }" />
+
+          <!-- Submit / Reset -->
+          <div class="flex flex-wrap justify-center gap-4 mt-8">
+            <button type="submit"
+              class="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-white bg-teal-600 rounded-lg shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 transition-all">
+              <i class="pi pi-check-circle mr-2"></i>Hoàn Thành
+            </button>
+            <button type="button" (click)="resetForm()"
+              class="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-all">
+              <i class="pi pi-refresh mr-2"></i>Làm mới
+            </button>
+          </div>
+        </div>
       </div>
-  </div>
-
-  <div class="col-md-6">
-    <div class="mb-3">
-      <label for="" class="form-label label-title">Họ, tên đệm và tên chủ hộ </label>
-      <input type="input"
-        class="form-control" formControlName="fullname_chu_ho" name="" id="" aria-describedby="helpId" placeholder="Nhập họ tên">
-    </div>
-</div>
-<div class="col-md-6">
-  <div class="mb-3">
-    <label for="" class="form-label label-title">Quan hệ với chủ hộ</label>
-    <input type="input"
-      class="form-control" formControlName="quan_he_chu_ho" name="" id="" aria-describedby="helpId" placeholder="Nhập quan hệ">
-  </div>
-</div>
-
-<div class="col-md-12">
-  <div class="mb-3">
-    <label for="" class="form-label label-title">Số định danh của chủ hộ</label>
-    <input type="input"
-      class="form-control" formControlName="number_dinh_danh" name="" id="" aria-describedby="helpId" placeholder="Nhập quan hệ">
-  </div>
-</div>
-
-
-    <!-- thông tin bố mẹ -->
-    <div class="col-md-12">
-      <label for="" class="form-label label-title title-big">Thông tin các thành viên khác trong hộ gia đình
-      </label>
-    </div>
-
-    <div class="col-md-12">
-        <table class="table table-striped table-inverse table-responsive">
-          <thead class="thead-inverse">
-            <tr>
-              <th>STT</th>
-              <th>Họ, chữ đệm và tên</th>
-              <th>Ngày, tháng, năm sinh</th>
-              <th>Giới tính</th>
-              <th>Số định danh cá nhân/CMND</th>
-              <th>Quan hệ với chủ hộ</th>
-            </tr>
-            </thead>
-            <tbody formArrayName="datacutru">
-              <tr *ngFor="let item of addDynamicRow.controls; let i = index" [formGroupName]="i">
-                <td scope="row">{{ i + 1 }}</td>
-                <td><input type="text" class="form-control" [formControlName]="'ho_ten'" placeholder=""></td>
-                <td><input type="text" class="form-control" [formControlName]="'ngay'" placeholder=""></td>
-                <td><input type="text" class="form-control" [formControlName]="'gioi_tinh'" placeholder=""></td>
-                <td><input type="text" class="form-control" [formControlName]="'cmnd'" placeholder=""></td>
-                <td><input type="text" class="form-control" [formControlName]="'quan_he'" placeholder=""></td>
-              </tr>
-            </tbody>
-        </table>
-        <div class="button_tao" >
-          <button type="button" (click)="addtr()" class="btn btn-primary">Tạo mới thông tin </button>
-        </div>
-    </div>
-
-  <div class="col-md-12">
-    <div class="mb-3">
-      <label for="" class="form-label label-title">Nội dung xác nhận khác</label>
-      <input type="text"
-      class="form-control" formControlName="noi_dung" placeholder="Nhập nội dung" name="" id="" aria-describedby="helpId" >
-    </div>
-  </div>
-
-
-<div class="col-md-12">
-  <label for="" class="form-label label-title title-big">HỒ SƠ ĐÍNH KÈM / UPLOAD FILE
-  </label>
-</div>
-
-<div class="col-md-6">
-  <div class="mb-3 khung">
-    <label for="" class="form-label label-title">HỒ SƠ BAO GỒM CÁC GIẤY TỜ ĐÍNH KÈM SAU: </label>
-    <p>1. Tờ khai yêu cầu cấp phiếu <a (click)="download()" class="xanh">(In tờ khai online)</a></p>
-    <p>2. Chứng minh nhân dân (scan 2 mặt) <a [href]="this.api.URL +'/document/'+ 'cmnd.pdf'" target="_blank" >Xem ví dụ CMND</a></p>
-    <p>3. Hộ khẩu thường trú (scan đầy đủ trang bìa và các trang đã ghi thông tin liên quan đến bản thân) <a [href]="this.api.URL +'/document/'+ 'hk.pdf'" target="_blank">Xem ví dụ HK</a></p>
-  </div>
-</div>
-
-<div class="col-md-6">
-  <div class="mb-3 khung">
-    <label for="" class="form-label label-title">Nơi upload File (lưu ý chỉ nhận JPG , PDF)</label>
-<input  type="file" (change)="onFileSelected($event)" class="form-control" name="" id="" aria-describedby="helpId" multiple placeholder="Chọn file">
-  </div>
-  <label for="" class="form-label label-title">Hoặc bạn có thể gửi đến Trợ giúp pháp lý việt nam với địa chỉ Email : hotro@trogiupphaply.com.au</label>
-</div>
-
-  <div class="col-md-12">
-    <div class="mb-3">
-      <div class="form-check form-check-inline">
-        <label class="form-check-label label-title">
-          <input class="form-check-input" type="checkbox" formControlName="xac_nhan" name="" id="" > Tôi xin cam đoan những lời khai trên là đúng sự thật và chịu trách nhiệm về lời khai, các dịch vụ đã đăng ký của mình.
-        </label>
-      </div>
-
-    </div>
-</div>
-
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-      </div>
-    </div>
-
-
   </div>
 </section>

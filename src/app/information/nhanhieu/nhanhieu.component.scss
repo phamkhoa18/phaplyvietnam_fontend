@@ -1,0 +1,41 @@
+.body-code {
+    background: linear-gradient(135deg, #e0e7ff, #fef9f9);
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .icon-hover:hover {
+    color: #4f46e5 !important;
+    transform: scale(1.05);
+    transition: 0.2s ease-in-out;
+  }
+  .card-hover:hover {
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  .accordion-button:not(.collapsed) {
+    background-color: #e0e7ff !important;
+    color: #3730a3 !important;
+  }
+  .accordion-button {
+    transition: all 0.2s ease-in-out;
+  }
+
+
+.gradient-icon {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+
+  .icon-hover:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+  }

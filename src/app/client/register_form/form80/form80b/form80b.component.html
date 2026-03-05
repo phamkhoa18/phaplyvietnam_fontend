@@ -342,7 +342,7 @@
   </div>
 </div>
 
-<p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }" />
+<p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { left: '50%', right: 'auto', transform: 'translateX(-50%)', bottom: '20px', width: 'calc(100% - 32px)', maxWidth: '360px' } }" />
 <div class="grid grid-nogutter justify-content-end d-flex">
   <p-button [label]="'SECTION_HOME.BUTTON_BACK' | translate" severity="secondary" (click)="goBack()" class="back" />
   <button

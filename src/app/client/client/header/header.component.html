@@ -1,114 +1,244 @@
+<header class="header-apple">
+  <div class="header-container">
+    <!-- Logo -->
+    <a href="/" class="logo" aria-label="Trang chủ">
+      <span class="logo-text">Biểu Mẫu</span>
+    </a>
 
-
-<div class="header" [ngClass]="{'ScrollNav': permanent}">
-  <nav class="navbar navbar-expand-sm navbar-dark menu" style="background-color: #ffffff;">
-
-      <div class="container-fluid">
-        <div class="menu_logo" routerLink="/" style="cursor: pointer;">
-          <img [src]="this.api.URL + '/uploads/' + logo[0].image" alt="" width="200px">
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      <a href="/" class="nav-link">
+        <svg class="nav-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M3 9.5L10 4l7 5.5v6.5a1 1 0 0 1-1 1h-4.5V11H8.5v6.5H4a1 1 0 0 1-1-1V9.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+        {{ lang === 'vi' ? 'Trang chủ' : 'Home' }}
+      </a>
+      
+      <!-- Consular Dropdown -->
+      <div class="nav-dropdown">
+        <button 
+          (click)="toggleConsularDropdown()" 
+          class="nav-dropdown-btn"
+          [class.active]="showConsularDropdown"
+        >
+          <svg class="nav-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <rect x="4" y="4" width="12" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="10" cy="9" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M7 14.5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>{{ lang === 'vi' ? 'Lãnh sự' : 'Consular' }}</span>
+          <svg 
+            class="dropdown-icon" 
+            [class.rotated]="showConsularDropdown"
+            width="12" 
+            height="12" 
+            viewBox="0 0 12 12" 
+            fill="none"
+          >
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div 
+          class="dropdown-menu"
+          [class.show]="showConsularDropdown"
+          [@fadeIn]="showConsularDropdown ? 'open' : 'closed'"
+          *ngIf="showConsularDropdown"
+        >
+          <a
+            *ngFor="let item of consularItems"
+            [routerLink]="item.link"
+            (click)="showConsularDropdown = false"
+            class="dropdown-item"
+          >
+            {{ item.title }}
+          </a>
         </div>
+      </div>
 
-        <div class="menu_option">
-          <div class="collapse navbar-collapse" id="collapsibleNavId">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li class="nav-item" *ngFor="let item of listmenu" routerLinkActive="click" ariaCurrentWhenActive="page">
-                <ng-container *ngIf="isExternalLink(item.link); else routerLink">
-                  <a class="nav-link" [attr.href]="item.link" target="_blank" >
-                    <span class="menu_item_hov">{{ item.title }}<span class="triangle-container"><span   *ngIf="item.children" class="triangle"></span></span>
-                    </span>
-                  </a>
-                </ng-container>
-                <ng-template #routerLink>
-                  <a class="nav-link" [routerLink]="item.link">
-                    <span class="menu_item_hov">{{ item.title }}<span   *ngIf="item.children" class="triangle-container"><span class="triangle"></span></span>
-                    </span>
-                  </a>
-                </ng-template>
-                <div class="dropdown-content" *ngIf="item.children">
-                  <ng-container *ngFor="let itemchildren of item.children">
-                    <ng-container *ngIf="isExternalLink(itemchildren.link); else childrenRouterLink">
-                      <a [attr.href]="itemchildren.link" target="_blank" class="bevietnam">{{ itemchildren.title }}</a>
-                    </ng-container>
-                  <ng-template #childrenRouterLink>
-                    <a [routerLink]="itemchildren.link" class="bevietnam">{{ itemchildren.title }}</a>
-                  </ng-template>
-                </ng-container>
-                </div>
-              </li>
-            </ul>
-          </div>
+      <!-- Immigration Dropdown -->
+      <div class="nav-dropdown">
+        <button 
+          (click)="toggleImmigrationDropdown()" 
+          class="nav-dropdown-btn"
+          [class.active]="showImmigrationDropdown"
+        >
+          <svg class="nav-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M3 11.5l14-6-4 7-6 2-4-3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M10 12.5v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>{{ lang === 'vi' ? 'Di trú' : 'Immigration' }}</span>
+          <svg 
+            class="dropdown-icon" 
+            [class.rotated]="showImmigrationDropdown"
+            width="12" 
+            height="12" 
+            viewBox="0 0 12 12" 
+            fill="none"
+          >
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div 
+          class="dropdown-menu"
+          [class.show]="showImmigrationDropdown"
+          [@fadeIn]="showImmigrationDropdown ? 'open' : 'closed'"
+          *ngIf="showImmigrationDropdown"
+        >
+          <a
+            *ngFor="let item of immigrationItems"
+            [routerLink]="item.link"
+            (click)="showImmigrationDropdown = false"
+            class="dropdown-item"
+          >
+            {{ item.title }}
+          </a>
         </div>
-        <div class="menu_icon">
-          <div class="collapse navbar-collapse item-contact" id="collapsibleNavId">
-            <ul class="navbar-nav mr-auto mt-lg-0">
-              <li class="nav-item active d-flex align-items-center">
-                <a class="nav-link_color d-flex" *ngIf="this.lang == 'en'" >
-                    <img src="/assets/vn.svg" (click)="onLanguageToggle('vi')" style="width: 24px;" alt="">
-                </a>
-                <a class="nav-link_color d-flex" *ngIf="this.lang == 'vi'" >
-                  <img src="/assets/us.svg" (click)="onLanguageToggle('en')" style="width: 24px;" alt="">
-              </a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link_color" >
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
+      </div>
+    </nav>
 
-          <ul class="navbar-nav-mb mr-auto mt-lg-0">
-            <li class="nav-item active d-flex align-items-center">
-              <a class="nav-link_color d-flex" *ngIf="this.lang == 'en'" >
-                  <img src="/assets/vn.svg" (click)="onLanguageToggle('vi')" style="width: 24px;" alt="">
-              </a>
-              <a class="nav-link_color d-flex" *ngIf="this.lang == 'vi'" >
-                <img src="/assets/us.svg" (click)="onLanguageToggle('en')" style="width: 24px;" alt="">
-            </a>
-            </li>
-          </ul>
-
-          <div class="toggle_menu"  (click)="show()">
-            <i class="fa-solid fa-bars mt-1" style="font-size: 25px;"></i>
-          </div>
-
-        </div>
-        </div>
-  </nav>
-</div>
-
-
-
-
-
-<!-- mobile -->
-<div class="site-mobile-menu site-navbar-target " [ngClass]="{'active_show': isShow}"  >
-  <div class="site-mobile-menu-header">
-    <div class="site-mobile-menu-close mt-3">
-      <span class="icon-close2 js-menu-toggle" (click)="show()"></span>
+    <!-- VN/EN + Toggle (nhóm bên phải, VN EN sát nút toggle) -->
+    <div class="header-right">
+      <div class="language-toggle">
+        <button
+          (click)="onLanguageToggle('vi')"
+          class="lang-btn"
+          [class.active]="lang === 'vi'"
+          aria-label="Chọn tiếng Việt"
+        >
+          VN
+        </button>
+        <button
+          (click)="onLanguageToggle('en')"
+          class="lang-btn"
+          [class.active]="lang === 'en'"
+          aria-label="Select English"
+        >
+          EN
+        </button>
+      </div>
+      <button
+        (click)="toggleMobileMenu()"
+        class="mobile-menu-btn"
+        [class.active]="isMobileMenuOpen"
+        aria-label="Toggle Menu"
+      >
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
     </div>
   </div>
-  <div class="site-mobile-menu-body">
-    <ul class="site-nav-wrap">
-      <li *ngFor="let item of listmenu; let i = index">
-        <span [ngClass]="{'collapsed arrow-collapse': item.children}" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseItem' + i"></span>
-        <ng-container *ngIf="isExternalLink(item.link); else routerLink">
-          <a [attr.href]="item.link" (click)="show()" [ngClass]="{'has-children': item.children}" class="nav-link active">{{ item.title }}</a>
-        </ng-container>
-        <ng-template #routerLink>
-          <a [routerLink]="item.link" (click)="show()" [ngClass]="{'has-children': item.children}" class="nav-link active">{{ item.title }}</a>
-        </ng-template>
-        <ul class="collapse" [id]="'collapseItem' + i">
-          <li *ngFor="let item1 of item.children">
-            <ng-container *ngIf="isExternalLink(item1.link); else childrenRouterLink">
-              <a [attr.href]="item1.link" (click)="show()">{{ item1.title }}</a>
-            </ng-container>
-            <ng-template #childrenRouterLink>
-              <a [routerLink]="item1.link" (click)="show()">{{ item1.title }}</a>
-            </ng-template>
-          </li>
-        </ul>
-      </li>
-    </ul>
+
+  <!-- Mobile Menu -->
+  <div
+    *ngIf="isMobileMenuOpen"
+    class="mobile-menu"
+    [@slideInRight]="isMobileMenuOpen ? 'open' : 'closed'"
+  >
+    <button
+      type="button"
+      (click)="toggleMobileMenu()"
+      class="mobile-menu-close"
+      aria-label="Đóng menu"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <nav class="mobile-nav">
+      <a
+        href="/"
+        (click)="toggleMobileMenu()"
+        class="mobile-nav-link"
+      >
+        <span class="mobile-label">
+          <svg class="mobile-nav-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M3 9.5L10 4l7 5.5v6.5a1 1 0 0 1-1 1h-4.5V11H8.5v6.5H4a1 1 0 0 1-1-1V9.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+          <span>{{ lang === 'vi' ? 'Trang chủ' : 'Home' }}</span>
+        </span>
+      </a>
+
+      <!-- Consular Dropdown Mobile -->
+      <div class="mobile-dropdown">
+        <button
+          (click)="toggleConsularMenu()"
+          class="mobile-dropdown-btn"
+          [class.active]="isConsularMenuOpen"
+        >
+          <span class="mobile-label">
+            <svg class="mobile-nav-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <rect x="4" y="4" width="12" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="10" cy="9" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M7 14.5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>{{ lang === 'vi' ? 'Lãnh sự' : 'Consular' }}</span>
+          </span>
+          <svg 
+            class="dropdown-icon" 
+            [class.rotated]="isConsularMenuOpen"
+            width="12" 
+            height="12" 
+            viewBox="0 0 12 12" 
+            fill="none"
+          >
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div
+          *ngIf="isConsularMenuOpen"
+          class="mobile-dropdown-content"
+        >
+          <a
+            *ngFor="let item of consularItems"
+            [routerLink]="item.link"
+            (click)="toggleMobileMenu()"
+            class="mobile-dropdown-item"
+          >
+            {{ item.title }}
+          </a>
+        </div>
+      </div>
+
+      <!-- Immigration Dropdown Mobile -->
+      <div class="mobile-dropdown">
+        <button
+          (click)="toggleImmigrationMenu()"
+          class="mobile-dropdown-btn"
+          [class.active]="isImmigrationMenuOpen"
+        >
+          <span class="mobile-label">
+            <svg class="mobile-nav-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M3 11.5l14-6-4 7-6 2-4-3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M10 12.5v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>{{ lang === 'vi' ? 'Di trú' : 'Immigration' }}</span>
+          </span>
+          <svg 
+            class="dropdown-icon" 
+            [class.rotated]="isImmigrationMenuOpen"
+            width="12" 
+            height="12" 
+            viewBox="0 0 12 12" 
+            fill="none"
+          >
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div
+          *ngIf="isImmigrationMenuOpen"
+          class="mobile-dropdown-content"
+        >
+          <a
+            *ngFor="let item of immigrationItems"
+            [routerLink]="item.link"
+            (click)="toggleMobileMenu()"
+            class="mobile-dropdown-item"
+          >
+            {{ item.title }}
+          </a>
+        </div>
+      </div>
+    </nav>
   </div>
-</div>
+</header>

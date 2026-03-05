@@ -6,7 +6,6 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { MessageService } from 'primeng/api';
 import { DataService } from 'src/app/services/data.service';
 import { Title } from '@angular/platform-browser';
-import { GooglemapsService } from 'src/app/services/googlemaps.service';
 import { formatDate } from '@angular/common';
 declare var google: any;
 @Component({
@@ -23,9 +22,6 @@ export class DangkychubaolanhComponent {
   hochieu: any ;
   selectedFiles: File[] = [];
   fileError: string | undefined;
-  inputId: string = `autocomplete-${Math.random().toString(36).substr(2, 9)}`;
-  @ViewChild('autocomplete', { static: false }) autocompleteInput!: ElementRef;
-  autocomplete: any;
 
   tooltipOptions = {
     showDelay: 150,
@@ -45,7 +41,6 @@ export class DangkychubaolanhComponent {
     private mess : MessageService,
     private data : DataService,
     private title : Title,
-    private googleMapservice: GooglemapsService,
     private ngZone: NgZone,
   ) {
 
@@ -74,12 +69,6 @@ export class DangkychubaolanhComponent {
       });
 
       this.title.setTitle('Điều kiện trở thành chủ bảo lãnh trên nước Úc');
-
-      this.googleMapservice.loadGoogleMaps().then(() => {
-        this.initializeAutocomplete();
-      }).catch(error => {
-        console.error('Error loading Google Maps script:', error);
-      });
   }
 
 
@@ -178,41 +167,6 @@ parseDate(dateString: string): Date {
     });
   }
 
-  initializeAutocomplete(): void {
-    if (!this.autocompleteInput) {
-      console.error('Autocomplete input không được tìm thấy.');
-      return;
-    }
-
-    const autocompleteOptions = {
-      types: ['geocode']
-    };
-
-    this.autocomplete = new google.maps.places.Autocomplete(this.autocompleteInput.nativeElement, autocompleteOptions);
-
-    this.autocomplete.addListener('place_changed', () => {
-      this.ngZone.run(() => {
-        const place = this.autocomplete.getPlace();
-        if (place.geometry) {
-          console.log('Địa điểm đã chọn:', place.formatted_address);
-          this.hochieu.get(['Location']).setValue(place.formatted_address);
-          // Lấy ra thành phần địa chỉ
-          const addressComponents = place.address_components;
-          let country = '';
-
-          // Tìm quốc gia trong các thành phần địa chỉ
-          for (const component of addressComponents) {
-            if (component.types.includes('country')) {
-              country = component.long_name; // Quốc gia (tên đầy đủ)
-              break;
-            }
-          }
-        } else {
-          console.log('Không có thông tin địa điểm hợp lệ');
-        }
-      });
-    });
-  }
 
   getErrorMessage(controlName: string): string {
     const control = this.hochieu.get(controlName);
@@ -253,6 +207,8 @@ parseDate(dateString: string): Date {
 
   async submit() {
     if (this.hochieu.valid) {
+      console.log(this.hochieu.value);
+      
       var fullname : any ;
       fullname = this.hochieu.value.Business
 
@@ -277,6 +233,8 @@ parseDate(dateString: string): Date {
         };
 
       (await this.api.post('/addform' , data)).subscribe((v : any ) => {
+        console.log(v);
+        
         if(v.status == 200) {
           this.data.notification('Thông tin gửi lên đã thành công' , 'Cảm ơn bạn , chúng tôi sẽ hỗ trợ bạn nhanh nhất !' , 'success' , v.filename , 'output_docx');
           this.resetForm();

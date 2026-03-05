@@ -115,7 +115,6 @@
                         cols="30"
                         [ngClass]="{'valid': itemthongtin.get(['ap.emp add']).invalid && (itemthongtin.get(['ap.emp add']).dirty || itemthongtin.get(['ap.emp add']).touched)}"
                         pInputTextarea
-                        #autocomplete
                         [id]="inputId"
                         placeholder="Nhập địa chỉ"
                         style="resize: none;"
@@ -202,7 +201,7 @@
         </div>
       </div>
     </div>
-  <p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }" />
+  <p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { left: '50%', right: 'auto', transform: 'translateX(-50%)', bottom: '20px', width: 'calc(100% - 32px)', maxWidth: '360px' } }" />
   <div class="grid grid-nogutter justify-content-end d-flex">
     <p-button [label]="'SECTION_HOME.BUTTON_BACK' | translate" severity="secondary" (click)="goBack()" class="back" />
     <button

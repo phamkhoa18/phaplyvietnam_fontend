@@ -4,7 +4,6 @@ import { Form80serviceService } from 'src/app/services/form80service.service';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { formatDate } from '@angular/common';
-import { GooglemapsService } from 'src/app/services/googlemaps.service';
 import { ApiService } from 'src/app/services/api.service';
 import Swal from 'sweetalert2';
 declare var google: any;
@@ -61,7 +60,6 @@ arrayyesno: any = [
 public entries:any = [];
 constructor(
   public form80service: Form80serviceService,
-  private googleMapservice: GooglemapsService,
   private ngZone: NgZone,
   private mess: MessageService,
   private router: Router,
@@ -153,18 +151,6 @@ ngOnInit(): void {
   this.thongtinarray_parent = JSON.parse(sessionStorage.getItem('thongtinarrayq1') || '[]');
   this.thongtinarray_ae = JSON.parse(sessionStorage.getItem('thongtinarrayq2') || '[]');
   this.thongtinarray_thanhvien = JSON.parse(sessionStorage.getItem('thongtinarrayq3') || '[]');
-  this.googleMapservice.loadGoogleMaps().then(() => {
-    this.form80.get([this.sectionGroupContainer, 'ap.contact aus']).valueChanges.subscribe((value: any) => {
-      if (value === '2') {
-        console.log('sub thành công');
-        setTimeout(() => {
-          this.initializeAutocomplete('ap.contact add line 1' , this.autocompleteInput , this.autocomplete);
-        } , 1000)
-      }
-    });
-  }).catch(error => {
-    console.error('Error loading Google Maps script:', error);
-  });
 
   this.getPdfSlug() ;
 }
@@ -352,37 +338,6 @@ addFieldsToFormArray(newArr: any[] , section: string , field: string) {
     apNatArray.push(group);
   });
 }
-
-initializeAutocomplete(field: any = '' , autocompleteInput: any , autocomplete: any): void {
-
-  if(field == '') {
-    return ;
-  }
-
-  if (!autocompleteInput) {
-    console.error('Autocomplete input không được tìm thấy.');
-    return;
-  }
-
-  const autocompleteOptions = {
-    types: ['geocode']
-  };
-
-  autocomplete = new google.maps.places.Autocomplete(autocompleteInput.nativeElement, autocompleteOptions);
-
-  autocomplete.addListener('place_changed', () => {
-    this.ngZone.run(() => {
-      const place = autocomplete.getPlace();
-      if (place.geometry) {
-        console.log('Địa điểm đã chọn:', place.formatted_address);
-        this.form80.get([this.sectionGroupContainer,field]).setValue(place.formatted_address);
-      } else {
-        console.log('Không có thông tin địa điểm hợp lệ');
-      }
-    });
-  });
-}
-
 
 handleKeyValue(array: any) {
   const newArr = array.map((item: any, index: number) => {

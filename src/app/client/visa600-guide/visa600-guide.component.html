@@ -1,0 +1,235 @@
+<div class="visa-guide-page">
+  <div class="visa-guide-container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Hướng dẫn chuẩn bị hồ sơ Visa 600
+        </h1>
+        <p class="hero-subtitle">
+          Danh sách giấy tờ cần cung cấp của đương đơn nộp Visa 600 có người nhà bảo lãnh
+        </p>
+        <div class="hero-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4"></path>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+          </svg>
+          <span>Hướng dẫn chi tiết và đầy đủ</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Navigation -->
+    <section class="quick-nav-section">
+      <div class="quick-nav-header">
+        <h2 class="quick-nav-title">Danh mục nội dung</h2>
+      </div>
+      <div class="quick-nav-grid">
+        <button 
+          *ngFor="let section of sections"
+          (click)="scrollToSection(section.id)"
+          class="quick-nav-item"
+        >
+          <div class="quick-nav-icon">
+            <svg *ngIf="section.icon === 'person'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <svg *ngIf="section.icon === 'people'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <svg *ngIf="section.icon === 'work'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+            <svg *ngIf="section.icon === 'account_balance'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+            <svg *ngIf="section.icon === 'description'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+          </div>
+          <div class="quick-nav-content">
+            <h3 class="quick-nav-item-title">{{ section.title }}</h3>
+            <p class="quick-nav-item-subtitle">{{ section.subtitle }}</p>
+          </div>
+          <div class="quick-nav-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 12l4-4-4-4"></path>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <!-- Main Content Sections -->
+    <section class="content-sections">
+      <div *ngFor="let section of sections; let i = index" [id]="section.id" class="content-section">
+        <!-- Section Header -->
+        <div class="section-header">
+          <div class="section-icon-wrapper">
+            <div class="section-icon">
+              <svg *ngIf="section.icon === 'person'" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <svg *ngIf="section.icon === 'people'" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              <svg *ngIf="section.icon === 'work'" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+              <svg *ngIf="section.icon === 'account_balance'" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+              <svg *ngIf="section.icon === 'description'" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="section-header-content">
+            <h2 class="section-title">{{ section.title }}</h2>
+            <p class="section-subtitle">{{ section.subtitle }}</p>
+          </div>
+        </div>
+
+        <!-- Section Description -->
+        <div class="section-description" *ngIf="section.id === 'identity'">
+          <div class="info-box">
+            <div class="info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <p class="info-text">
+              <strong>LƯU Ý:</strong> Đây là nền tảng để xác định danh tính và sự ràng buộc với Việt Nam.
+            </p>
+          </div>
+        </div>
+        <div class="section-description" *ngIf="section.id === 'relationship'">
+          <div class="info-box info-box-important">
+            <div class="info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <p class="info-text">
+              <strong>QUAN TRỌNG NHẤT:</strong> Vì là diện Bảo lãnh (Sponsored), bạn phải chứng minh được "dây mơ rễ má" với người đang ở Úc.
+            </p>
+          </div>
+        </div>
+
+        <!-- Items List -->
+        <div class="section-items" *ngIf="section.items.length > 0">
+          <div *ngFor="let item of section.items" class="document-item">
+            <div class="document-header">
+              <div class="document-check">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <h3 class="document-title">{{ item.title }}</h3>
+            </div>
+            <div class="document-body">
+              <ul class="document-description">
+                <li *ngFor="let desc of item.description">{{ desc }}</li>
+              </ul>
+              <div class="document-notes" *ngIf="item.notes && item.notes.length > 0">
+                <div class="notes-header">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                  </svg>
+                  <span>Lưu ý:</span>
+                </div>
+                <ul class="notes-list">
+                  <li *ngFor="let note of item.notes">{{ note }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subsections -->
+        <div class="section-subsections" *ngIf="section.subsections && section.subsections.length > 0">
+          <div *ngFor="let subsection of section.subsections" class="subsection">
+            <h3 class="subsection-title">{{ subsection.title }}</h3>
+            <div class="subsection-items">
+              <div *ngFor="let item of subsection.items" class="document-item">
+                <div class="document-header">
+                  <div class="document-check">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                  <h4 class="document-title">{{ item.title }}</h4>
+                </div>
+                <div class="document-body">
+                  <ul class="document-description" *ngIf="item.description.length > 0">
+                    <li *ngFor="let desc of item.description">{{ desc }}</li>
+                  </ul>
+                  <div class="document-notes" *ngIf="item.notes && item.notes.length > 0">
+                    <div class="notes-header">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                      </svg>
+                      <span>Lưu ý:</span>
+                    </div>
+                    <ul class="notes-list">
+                      <li *ngFor="let note of item.notes">{{ note }}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scanning Notes Section -->
+    <section class="scanning-notes-section">
+      <div class="scanning-notes-card">
+        <div class="scanning-notes-header">
+          <div class="scanning-notes-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+          </div>
+          <h2 class="scanning-notes-title">Lưu ý khi scan giấy tờ</h2>
+        </div>
+        <div class="scanning-notes-content">
+          <ul class="scanning-notes-list">
+            <li *ngFor="let note of scanningNotes">{{ note }}</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+

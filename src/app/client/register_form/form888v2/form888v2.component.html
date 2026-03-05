@@ -1,604 +1,672 @@
-<section class="form lylichtuphap">
-  <div class="container">
-      <form [formGroup]="form888">
-        <div class="form_80" style="border-radius: 10px;">
-          <!-- title -->
-          <div class="mat-card" style="padding: 0;">
-              <div class="HeaderCenter" style="
-              border-radius: 10px;">
-                <span class="d-flex align-items-center flex-column"
-                  style="
-                  background-color: #1A8B83;
-                  padding: 20px;
-                  border-radius: 10px;">
-                  <b class="header-title" style="color: #fff;">{{ 'FORM_888.TITLE' | translate }}</b>
-                  <b class="sub-title"><i  style="color: #fff;" >{{ 'FORM_888.DESCRIPTION' | translate }}</i></b>
-                </span>
-              </div>
+<section class="min-h-screen bg-gray-50 py-8">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <form [formGroup]="form888">
+      <div class="bg-white rounded-xl shadow-sm">
+        <!-- Title Header -->
+        <div class="relative bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800 rounded-t-xl">
+          <div class="px-6 py-8 sm:px-10 sm:py-10">
+            <div class="mx-auto max-w-3xl text-center">
+              <h1 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white tracking-tight">
+                {{ 'FORM_888.TITLE' | translate }}
+              </h1>
+              <p class="mt-2 text-xs sm:text-sm text-teal-50/90 font-normal">
+                {{ 'FORM_888.DESCRIPTION' | translate }}
+              </p>
+            </div>
           </div>
 
-           <!-- content -->
-           <div class="mat-card">
-            <div class="header-child header-a position-relative">
-              <div class="stt"><span>1</span></div>
-              <div class="content-header">
-                <h2 class="header-title-child d-flex flex-column">{{ 'FORM_888.PHAN_1.TITLE' | translate }}
-                </h2>
-              </div>
+          <!-- Auto-save Status Indicator -->
+          <div class="absolute top-4 right-4 sm:top-5 sm:right-6 bg-white/95 backdrop-blur rounded-lg shadow-sm px-3 py-2 flex items-center gap-2 transition-all duration-300"
+               *ngIf="autoSaveStatus.status !== 'idle'"
+               [ngClass]="{
+                 'border-l-4 border-blue-500': autoSaveStatus.status === 'saving',
+                 'border-l-4 border-green-500': autoSaveStatus.status === 'saved',
+                 'border-l-4 border-red-500': autoSaveStatus.status === 'error'
+               }">
+            <i [class]="getAutoSaveIcon() + ' text-[13px] ' + getAutoSaveColor()"></i>
+            <div class="flex flex-col text-left">
+              <span class="text-[11px] font-medium text-gray-800">{{ autoSaveStatus.message }}</span>
+              <span class="text-[10px] text-gray-500" *ngIf="autoSaveStatus.lastSaved">
+                {{ autoSaveStatus.lastSaved | date: 'HH:mm:ss' }}
+              </span>
             </div>
+          </div>
+        </div>
 
-          <div class="row" style="padding-top: 15px;">
-
-            <label class="d-block font-weight-bold mb-2 title-input">
-              1. {{ 'FORM_888.PHAN_1.NAME' | translate }} <span class="request"> *</span>
-            </label>
-
-            <div class="col-md-4">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  {{ 'FORM_888.PHAN_1.FIRST_NAME' | translate }} <span class="request"> *</span>
-                </label>
-
-                <input type="text" pInputText
-                  [formControlName]="'hoduongdon'"
-                  [ngClass]="{'valid': form888.get('hoduongdon').invalid && (form888.get('hoduongdon').dirty || form888.get('hoduongdon').touched)}"
-                  [placeholder]="placeholder"
-                />
-                <span class="error-message" *ngIf="this.getErrorMessage('hoduongdon') != ''">
-                  {{ this.getErrorMessage('hoduongdon') }}
-                </span>
-              </div>
-            </div>
-
-            <div class="col-md-8">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  {{ 'FORM_888.PHAN_1.LAST_NAME' | translate }} <span class="request"> *</span>
-                </label>
-
-                <input type="text" pInputText
-                  [formControlName]="'duongdon'"
-                  [ngClass]="{'valid': form888.get('duongdon').invalid && (form888.get('duongdon').dirty || form888.get('duongdon').touched)}"
-                  [placeholder]="placeholder"
-                />
-                <span class="error-message" *ngIf="this.getErrorMessage('duongdon') != ''">
-                  {{ this.getErrorMessage('duongdon') }}
-                </span>
-              </div>
-            </div>
-
-            <label class="d-block font-weight-bold mb-2 title-input">
-              2. {{ 'FORM_888.PHAN_1.NAME_BL' | translate }} <span class="request"> *</span>
-            </label>
-
-            <div class="col-md-4">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  {{ 'FORM_888.PHAN_1.FIRST_NAME' | translate }} <span class="request"> *</span>
-                </label>
-
-                <input type="text" pInputText
-                  [formControlName]="'hobaolanh'"
-                  [ngClass]="{'valid': form888.get('hobaolanh').invalid && (form888.get('hobaolanh').dirty || form888.get('hobaolanh').touched)}"
-                  [placeholder]="placeholder"
-                />
-                <span class="error-message" *ngIf="this.getErrorMessage('hobaolanh') != ''">
-                  {{ this.getErrorMessage('hobaolanh') }}
-                </span>
-              </div>
-            </div>
-
-            <div class="col-md-8">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  {{ 'FORM_888.PHAN_1.LAST_NAME' | translate }} <span class="request"> *</span>
-                </label>
-
-                <input type="text" pInputText
-                  [formControlName]="'baolanh'"
-                  [ngClass]="{'valid': form888.get('baolanh').invalid && (form888.get('baolanh').dirty || form888.get('baolanh').touched)}"
-                  [placeholder]="placeholder"
-                />
-                <span class="error-message" *ngIf="this.getErrorMessage('baolanh') != ''">
-                  {{ this.getErrorMessage('baolanh') }}
-                </span>
+          <!-- Restore Data Prompt -->
+          <div class="mx-auto my-4 max-w-3xl" *ngIf="showRestorePrompt">
+            <div class="bg-blue-50 border-l-4 border-blue-500 rounded-lg p-4 shadow-sm">
+              <div class="flex items-start justify-between">
+                <div class="flex items-start gap-3">
+                  <i class="pi pi-info-circle text-blue-500 text-xl mt-1"></i>
+                  <div>
+                    <h3 class="text-base font-semibold text-blue-900 mb-1">Dữ liệu đã lưu</h3>
+                    <p class="text-sm text-blue-700 mb-3">
+                      Chúng tôi đã tìm thấy dữ liệu form được lưu tự động {{ lastSavedTime }}. 
+                      Bạn có muốn khôi phục dữ liệu này không?
+                    </p>
+                    <div class="flex gap-2">
+                      <button type="button" 
+                              (click)="restoreSavedData()"
+                              class="px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-md hover:bg-blue-600 transition-colors duration-200 flex items-center gap-2">
+                        <i class="pi pi-refresh text-xs"></i>
+                        Khôi phục dữ liệu
+                      </button>
+                      <button type="button"
+                              (click)="dismissRestorePrompt()"
+                              class="px-4 py-2 bg-gray-200 text-gray-700 text-sm font-medium rounded-md hover:bg-gray-300 transition-colors duration-200 flex items-center gap-2">
+                        <i class="pi pi-times text-xs"></i>
+                        Bỏ qua
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="header-child header-a position-relative">
-            <div class="stt"><span>2</span></div>
-            <div class="content-header">
-              <h2 class="header-title-child d-flex flex-column">{{ 'FORM_888.PHAN_2.TITLE' | translate }}
+        <!-- Content Body -->
+        <div class="p-6 md:p-8">
+          <!-- Section 1 Header -->
+          <div class="relative flex items-center mb-6 border-b-2 border-teal-600 pb-3">
+            <div class="flex-shrink-0 w-10 h-10 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
+              1
+            </div>
+            <div class="ml-4">
+              <h2 class="text-xl md:text-2xl font-semibold text-teal-700 uppercase">
+                {{ 'FORM_888.PHAN_1.TITLE' | translate }}
               </h2>
             </div>
           </div>
 
-          <div class="row" style="padding-top: 15px;">
-
-            <label class="d-block font-weight-bold mb-2 title-input">
-              3. {{ 'FORM_888.PHAN_2.NAME' | translate }} <span class="request"> *</span>
-            </label>
-
-            <div class="col-md-4">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  {{ 'FORM_888.PHAN_2.FIRST_NAME' | translate }} <span class="request"> *</span>
-                </label>
-
-                <input type="text" pInputText
-                  [formControlName]="'hofullname'"
-                  [ngClass]="{'valid': form888.get('hofullname').invalid && (form888.get('hofullname').dirty || form888.get('hofullname').touched)}"
-                  [placeholder]="placeholder"
-                />
-                <span class="error-message" *ngIf="this.getErrorMessage('hofullname') != ''">
-                  {{ this.getErrorMessage('hofullname') }}
-                </span>
-              </div>
-            </div>
-
-            <div class="col-md-8">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  {{ 'FORM_888.PHAN_2.LAST_NAME' | translate }} <span class="request"> *</span>
-                </label>
-
-                <input type="text" pInputText
-                  [formControlName]="'fullname'"
-                  [ngClass]="{'valid': form888.get('fullname').invalid && (form888.get('fullname').dirty || form888.get('fullname').touched)}"
-                  [placeholder]="placeholder"
-                />
-                <span class="error-message" *ngIf="this.getErrorMessage('fullname') != ''">
-                  {{ this.getErrorMessage('fullname') }}
-                </span>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  4. {{ 'FORM_888.PHAN_2.SEX' | translate }} <span class="request"> *</span>
-                </label>
-                <div class="d-flex flex-wrap gap-3 align-content-center pb-2" style="height: 100%;">
-                  <div class="d-flex align-items-center">
-                    <p-radioButton [formControlName]="'gender'" [value]="'Nam'"  />
-                    <label for="male" class="ms-2">{{ 'FORM_888.PHAN_2.MALE' | translate }}</label>
-                  </div>
-                  <div class="d-flex align-items-center">
-                    <p-radioButton [formControlName]="'gender'" [value]="'Nữ'"  />
-                    <label for="female" class="ms-2">{{ 'FORM_888.PHAN_2.FEMALE' | translate }}</label>
-                  </div>
+          <!-- Section 1 Fields -->
+          <div class="space-y-6 mb-8">
+            <!-- Question 1: Applicant Name -->
+            <div class="space-y-4">
+              <h3 class="text-base font-semibold text-gray-800">
+                1. {{ 'FORM_888.PHAN_1.NAME' | translate }} <span class="text-red-600 font-bold">*</span>
+              </h3>
+              
+              <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+                <!-- First Name -->
+                <div class="md:col-span-4">
+                  <label class="block text-sm font-medium text-gray-700 mb-2">
+                    {{ 'FORM_888.PHAN_1.FIRST_NAME' | translate }} <span class="text-red-600 font-bold">*</span>
+                  </label>
+                  <input
+                    pInputText
+                    type="text"
+                    formControlName="hoduongdon"
+                    [placeholder]="placeholder"
+                    [ngClass]="{'border-red-500 bg-red-50': form888.get('hoduongdon')?.invalid && (form888.get('hoduongdon')?.dirty || form888.get('hoduongdon')?.touched)}"
+                    class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all"
+                  />
+                  <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('hoduongdon') != ''">
+                    {{ getErrorMessage('hoduongdon') }}
+                  </span>
                 </div>
 
-                <span class="error-message" *ngIf="this.getErrorMessage('gender') != ''">
-                  {{ this.getErrorMessage('gender') }}
-                </span>
+                <!-- Last Name -->
+                <div class="md:col-span-8">
+                  <label class="block text-sm font-medium text-gray-700 mb-2">
+                    {{ 'FORM_888.PHAN_1.LAST_NAME' | translate }} <span class="text-red-600 font-bold">*</span>
+                  </label>
+                  <input
+                    pInputText
+                    type="text"
+                    formControlName="duongdon"
+                    [placeholder]="placeholder"
+                    [ngClass]="{'border-red-500 bg-red-50': form888.get('duongdon')?.invalid && (form888.get('duongdon')?.dirty || form888.get('duongdon')?.touched)}"
+                    class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all"
+                  />
+                  <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('duongdon') != ''">
+                    {{ getErrorMessage('duongdon') }}
+                  </span>
+                </div>
               </div>
             </div>
 
-            <div class="col-md-4">
-              <div class="d-flex flex-column pb-3">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  5. {{ 'FORM_888.PHAN_2.DATE' | translate }} <span class="request"> *</span>
-                </label>
-                <p-calendar placeholder="dd/mm/yyyy"
+            <!-- Question 2: Sponsor Name -->
+            <div class="space-y-4">
+              <h3 class="text-base font-semibold text-gray-800">
+                2. {{ 'FORM_888.PHAN_1.NAME_BL' | translate }} <span class="text-red-600 font-bold">*</span>
+              </h3>
+              
+              <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+                <!-- First Name -->
+                <div class="md:col-span-4">
+                  <label class="block text-sm font-medium text-gray-700 mb-2">
+                    {{ 'FORM_888.PHAN_1.FIRST_NAME' | translate }} <span class="text-red-600 font-bold">*</span>
+                  </label>
+                  <input
+                    pInputText
+                    type="text"
+                    formControlName="hobaolanh"
+                    [placeholder]="placeholder"
+                    [ngClass]="{'border-red-500 bg-red-50': form888.get('hobaolanh')?.invalid && (form888.get('hobaolanh')?.dirty || form888.get('hobaolanh')?.touched)}"
+                    class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all"
+                  />
+                  <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('hobaolanh') != ''">
+                    {{ getErrorMessage('hobaolanh') }}
+                  </span>
+                </div>
+
+                <!-- Last Name -->
+                <div class="md:col-span-8">
+                  <label class="block text-sm font-medium text-gray-700 mb-2">
+                    {{ 'FORM_888.PHAN_1.LAST_NAME' | translate }} <span class="text-red-600 font-bold">*</span>
+                  </label>
+                  <input
+                    pInputText
+                    type="text"
+                    formControlName="baolanh"
+                    [placeholder]="placeholder"
+                    [ngClass]="{'border-red-500 bg-red-50': form888.get('baolanh')?.invalid && (form888.get('baolanh')?.dirty || form888.get('baolanh')?.touched)}"
+                    class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all"
+                  />
+                  <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('baolanh') != ''">
+                    {{ getErrorMessage('baolanh') }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative flex items-center mb-6 border-b-2 border-teal-600 pb-3">
+            <div class="flex-shrink-0 w-10 h-10 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
+              2
+            </div>
+            <div class="ml-4">
+              <h2 class="text-xl md:text-2xl font-semibold text-teal-700 uppercase">
+                {{ 'FORM_888.PHAN_2.TITLE' | translate }}
+              </h2>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4">
+
+            <label class="md:col-span-12 block text-sm font-semibold text-gray-700">
+              3. {{ 'FORM_888.PHAN_2.NAME' | translate }} <span class="text-red-600 font-bold">*</span>
+            </label>
+
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                {{ 'FORM_888.PHAN_2.FIRST_NAME' | translate }} <span class="text-red-600 font-bold">*</span>
+              </label>
+
+              <input
+                pInputText
+                type="text"
+                formControlName="hofullname"
+                [placeholder]="placeholder"
+                [ngClass]="{'border-red-500 bg-red-50': form888.get('hofullname')?.invalid && (form888.get('hofullname')?.dirty || form888.get('hofullname')?.touched)}"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all"
+              />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('hofullname') != ''">
+                {{ getErrorMessage('hofullname') }}
+              </span>
+            </div>
+
+            <div class="md:col-span-8 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                {{ 'FORM_888.PHAN_2.LAST_NAME' | translate }} <span class="text-red-600 font-bold">*</span>
+              </label>
+
+              <input
+                pInputText
+                type="text"
+                formControlName="fullname"
+                [placeholder]="placeholder"
+                [ngClass]="{'border-red-500 bg-red-50': form888.get('fullname')?.invalid && (form888.get('fullname')?.dirty || form888.get('fullname')?.touched)}"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all"
+              />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('fullname') != ''">
+                {{ getErrorMessage('fullname') }}
+              </span>
+            </div>
+
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                4. {{ 'FORM_888.PHAN_2.SEX' | translate }} <span class="text-red-600 font-bold">*</span>
+              </label>
+              <div class="flex flex-wrap gap-4">
+                <div class="flex items-center gap-2">
+                  <p-radioButton formControlName="gender" [value]="'Nam'"></p-radioButton>
+                  <span class="text-sm text-gray-700">{{ 'FORM_888.PHAN_2.MALE' | translate }}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <p-radioButton formControlName="gender" [value]="'Nữ'"></p-radioButton>
+                  <span class="text-sm text-gray-700">{{ 'FORM_888.PHAN_2.FEMALE' | translate }}</span>
+                </div>
+              </div>
+
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('gender') != ''">
+                {{ getErrorMessage('gender') }}
+              </span>
+            </div>
+
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                5. {{ 'FORM_888.PHAN_2.DATE' | translate }} <span class="text-red-600 font-bold">*</span>
+              </label>
+              <p-calendar
+                placeholder="dd/mm/yyyy"
                 [dateFormat]="'dd/mm/yy'"
                 formControlName="date"
-                (onSelect)="onDateChange($event, 'date')"
-                (onInput)="onInputChange($event, 'date')"
-                >
-                  <ng-template pTemplate="date" let-date>
-                      <span>
-                          {{ date.day }}
-                      </span>
-                  </ng-template>
-              </p-calendar>
+                styleClass="w-full"
+                inputStyleClass="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all"
+              ></p-calendar>
 
-              <span class="error-message" *ngIf="getErrorMessage('date') != ''">
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('date') != ''">
                 {{ getErrorMessage('date') }}
               </span>
-              </div>
             </div>
 
-            <div class="col-md-4">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  6. {{ 'FORM_888.PHAN_2.PHONE' | translate }}
-                </label>
-                <input type="text" pInputText
-                  [formControlName]="'phone'"
-                  [placeholder]="placeholder"
-                />
-                <span class="error-message" *ngIf="this.getErrorMessage('phone') != ''">
-                  {{ this.getErrorMessage('phone') }}
-                </span>
-              </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                6. {{ 'FORM_888.PHAN_2.PHONE' | translate }}
+              </label>
+              <input
+                pInputText
+                type="text"
+                formControlName="phone"
+                [placeholder]="placeholder"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all"
+              />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('phone') != ''">
+                {{ getErrorMessage('phone') }}
+              </span>
             </div>
 
-            <div class="col-md-6">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  7. {{ 'FORM_888.PHAN_2.WORK' | translate }}
-                </label>
-                <input type="text" pInputText
-                  [formControlName]="'job'"
-                  [placeholder]="placeholder"
-                />
-                <span class="error-message" *ngIf="this.getErrorMessage('job') != ''">
-                  {{ this.getErrorMessage('job') }}
-                </span>
-              </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                7. {{ 'FORM_888.PHAN_2.WORK' | translate }}
+              </label>
+              <input
+                pInputText
+                type="text"
+                formControlName="job"
+                [placeholder]="placeholder"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all"
+              />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('job') != ''">
+                {{ getErrorMessage('job') }}
+              </span>
             </div>
 
-            <div class="col-md-6">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  8. {{ 'FORM_888.PHAN_2.ADDRESS' | translate }}
-                </label>
-                <input type="text"
-                  pInputText
-                  [formControlName]="'address'"
-                  [placeholder]="placeholder"
-                />
-              </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                8. {{ 'FORM_888.PHAN_2.ADDRESS' | translate }}
+              </label>
+              <input
+                pInputText
+                type="text"
+                formControlName="address"
+                [placeholder]="placeholder"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all"
+              />
             </div>
 
-            <div class="col-md-6">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  9. {{ 'FORM_888.PHAN_2.PASSPORT' | translate }}
-                </label>
-                <input type="text" pInputText
-                  [formControlName]="'hc'"
-                  [placeholder]="placeholder"
-                />
-                <span class="error-message" *ngIf="this.getErrorMessage('hc') != ''">
-                  {{ this.getErrorMessage('hc') }}
-                </span>
-              </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                9. {{ 'FORM_888.PHAN_2.PASSPORT' | translate }}
+              </label>
+              <input
+                pInputText
+                type="text"
+                formControlName="hc"
+                [placeholder]="placeholder"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all"
+              />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('hc') != ''">
+                {{ getErrorMessage('hc') }}
+              </span>
             </div>
 
-            <div class="col-md-6">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  10. {{ 'FORM_888.PHAN_2.EMAIL' | translate }}
-                </label>
-                <input type="text" pInputText
-                  [formControlName]="'email'"
-                  [placeholder]="placeholder"
-                />
-                <span class="error-message" *ngIf="this.getErrorMessage('email') != ''">
-                  {{ this.getErrorMessage('email') }}
-                </span>
-              </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                10. {{ 'FORM_888.PHAN_2.EMAIL' | translate }}
+              </label>
+              <input
+                pInputText
+                type="email"
+                formControlName="email"
+                [placeholder]="placeholder"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all"
+              />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('email') != ''">
+                {{ getErrorMessage('email') }}
+              </span>
             </div>
 
-            <div class="col-md-6">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  11. {{ 'FORM_888.PHAN_2.QUENBIET' | translate }}
-                </label>
-                <input type="number" pInputText
-                  [formControlName]="'sonamquenbiet'"
-                  [placeholder]="placeholder"
-                />
-                <span class="error-message" *ngIf="this.getErrorMessage('sonamquenbiet') != ''">
-                  {{ this.getErrorMessage('sonamquenbiet') }}
-                </span>
-              </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                11. {{ 'FORM_888.PHAN_2.QUENBIET' | translate }}
+              </label>
+              <input
+                pInputText
+                type="number"
+                formControlName="sonamquenbiet"
+                [placeholder]="placeholder"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all"
+              />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('sonamquenbiet') != ''">
+                {{ getErrorMessage('sonamquenbiet') }}
+              </span>
             </div>
 
-            <div class="col-md-6">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  12. {{ 'FORM_888.PHAN_2.BAOLANH' | translate }}
-                </label>
-                <input type="number" pInputText
-                  [formControlName]="'sonamquenbietdc'"
-                  [placeholder]="placeholder"
-                />
-                <span class="error-message" *ngIf="this.getErrorMessage('sonamquenbietdc') != ''">
-                  {{ this.getErrorMessage('sonamquenbietdc') }}
-                </span>
-              </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                12. {{ 'FORM_888.PHAN_2.BAOLANH' | translate }}
+              </label>
+              <input
+                pInputText
+                type="number"
+                formControlName="sonamquenbietdc"
+                [placeholder]="placeholder"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition-all"
+              />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('sonamquenbietdc') != ''">
+                {{ getErrorMessage('sonamquenbietdc') }}
+              </span>
             </div>
           </div>
 
-          <div class="header-child header-a position-relative">
-            <div class="stt"><span>3</span></div>
-            <div class="content-header">
-              <h2 class="header-title-child d-flex flex-column">{{ 'FORM_888.PHAN_3.TITLE' | translate }}
+          <div class="relative flex items-center mb-6 border-b-2 border-teal-600 pb-3 mt-8">
+            <div class="flex-shrink-0 w-10 h-10 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
+              3
+            </div>
+            <div class="ml-4">
+              <h2 class="text-xl md:text-2xl font-semibold text-teal-700 uppercase">
+                {{ 'FORM_888.PHAN_3.TITLE' | translate }}
               </h2>
             </div>
           </div>
 
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4">
 
-          <div class="row" style="padding-top: 15px;">
-
-            <div class="col-md-6">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  13. {{ 'FORM_888.PHAN_3.QUESTION_1' | translate }}
-                </label>
-                <p-dropdown [options]="listditru"
-                  formControlName="ditru"
-                  placeholder="Vui lòng chọn (Please choose)"
-                  [filter]="true"
-                  filterBy="name"
-                  [showClear]="true"
-                  optionLabel="name" optionValue="name">
-                    <ng-template let-item pTemplate="item">
-                      <div class="d-flex align-items-center">
-                        <span class="ms-2" style="font-size: 15px;">{{item.name}}</span>
-                      </div>
-                    </ng-template>
-                </p-dropdown>
-                <span class="error-message" *ngIf="this.getErrorMessage('ditru') != ''">
-                  {{ this.getErrorMessage('ditru') }}
-                </span>
-              </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                13. {{ 'FORM_888.PHAN_3.QUESTION_1' | translate }}
+              </label>
+              <p-dropdown
+                [options]="listditru"
+                formControlName="ditru"
+                [placeholder]="'FORM_888.PLEASE_CHOOSE' | translate"
+                [filter]="true"
+                filterBy="name"
+                [showClear]="true"
+                optionLabel="name"
+                optionValue="name"
+                styleClass="w-full"
+                inputStyleClass="w-full px-3 py-2 text-sm text-gray-900"
+              ></p-dropdown>
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('ditru') != ''">
+                {{ getErrorMessage('ditru') }}
+              </span>
             </div>
 
-            <div class="col-md-6">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  14. {{ 'FORM_888.PHAN_3.QUESTION_2' | translate }}<span class="request"> *</span>
-                </label>
-                <p-dropdown [options]="listthoihan"
-                  formControlName="thoihan"
-                  placeholder="Vui lòng chọn (Please choose)"
-                  [filter]="true"
-                  filterBy="name"
-                  [showClear]="true"
-                  optionLabel="name" optionValue="name">
-                    <ng-template let-item pTemplate="item">
-                      <div class="d-flex align-items-center">
-                        <span class="ms-2" style="font-size: 15px;">{{item.name}}</span>
-                      </div>
-                    </ng-template>
-                </p-dropdown>
-                <span class="error-message" *ngIf="this.getErrorMessage('thoihan') != ''">
-                  {{ this.getErrorMessage('thoihan') }}
-                </span>
-              </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                14. {{ 'FORM_888.PHAN_3.QUESTION_2' | translate }} <span class="text-red-600 font-bold">*</span>
+              </label>
+              <p-dropdown
+                [options]="listthoihan"
+                formControlName="thoihan"
+                [placeholder]="'FORM_888.PLEASE_CHOOSE' | translate"
+                [filter]="true"
+                filterBy="name"
+                [showClear]="true"
+                optionLabel="name"
+                optionValue="name"
+                styleClass="w-full"
+                inputStyleClass="w-full px-3 py-2 text-sm text-gray-900"
+              ></p-dropdown>
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('thoihan') != ''">
+                {{ getErrorMessage('thoihan') }}
+              </span>
             </div>
 
-            <div class="col-md-12">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  15. {{ 'FORM_888.PHAN_3.QUESTION_3.TITLE' | translate }}
-                    <ul style="padding: 5px 15px;">
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_3.SUB_QUESTION_1' | translate }}</li>
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_3.SUB_QUESTION_2' | translate }}</li>
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_3.SUB_QUESTION_3' | translate }}</li>
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_3.SUB_QUESTION_4' | translate }}</li>
-                    </ul>
-                </label>
-                <textarea
-                  rows="6"
-                  cols="30"
-                  style="resize: none;"
-                  pInputTextarea
-                  [placeholder]="placeholder2"
-                  [formControlName]="'songchung'">
-                </textarea>
-                <span class="error-message" *ngIf="this.getErrorMessage('songchung') != ''">
-                  {{ this.getErrorMessage('songchung') }}
-                </span>
-              </div>
+            <div class="md:col-span-12 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                15. {{ 'FORM_888.PHAN_3.QUESTION_3.TITLE' | translate }}
+                <ul class="mt-2 ml-5 list-disc text-sm text-gray-600 space-y-1">
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_3.SUB_QUESTION_1' | translate }}</li>
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_3.SUB_QUESTION_2' | translate }}</li>
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_3.SUB_QUESTION_3' | translate }}</li>
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_3.SUB_QUESTION_4' | translate }}</li>
+                </ul>
+              </label>
+              <textarea
+                rows="6"
+                pInputTextarea
+                [placeholder]="placeholder2"
+                formControlName="songchung"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 resize-none transition-all"
+              ></textarea>
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('songchung') != ''">
+                {{ getErrorMessage('songchung') }}
+              </span>
             </div>
 
-            <div class="col-md-12">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  16. {{ 'FORM_888.PHAN_3.QUESTION_4.TITLE' | translate }}<span class="request"> *</span>
-                    <ul style="padding: 5px 15px;">
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_4.SUB_QUESTION_1' | translate }}</li>
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_4.SUB_QUESTION_2' | translate }}</li>
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_4.SUB_QUESTION_3' | translate }}</li>
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_4.SUB_QUESTION_4' | translate }}</li>
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_4.EXAMPLE' | translate }}</li>
-                    </ul>
-                </label>
-                <textarea
-                  rows="6"
-                  cols="30"
-                  style="resize: none;"
-                  pInputTextarea
-                  [placeholder]="placeholder2"
-                  [ngClass]="{'valid': form888.get('quenbiet').invalid && (form888.get('quenbiet').dirty || form888.get('quenbiet').touched)}"
-                  [formControlName]="'quenbiet'">
-                </textarea>
-                <span class="error-message" *ngIf="this.getErrorMessage('quenbiet') != ''">
-                  {{ this.getErrorMessage('quenbiet') }}
-                </span>
-              </div>
+            <div class="md:col-span-12 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                16. {{ 'FORM_888.PHAN_3.QUESTION_4.TITLE' | translate }} <span class="text-red-600 font-bold">*</span>
+                <ul class="mt-2 ml-5 list-disc text-sm text-gray-600 space-y-1">
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_4.SUB_QUESTION_1' | translate }}</li>
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_4.SUB_QUESTION_2' | translate }}</li>
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_4.SUB_QUESTION_3' | translate }}</li>
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_4.SUB_QUESTION_4' | translate }}</li>
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_4.EXAMPLE' | translate }}</li>
+                </ul>
+              </label>
+              <textarea
+                rows="6"
+                pInputTextarea
+                [placeholder]="placeholder2"
+                formControlName="quenbiet"
+                [ngClass]="{'border-red-500 bg-red-50': form888.get('quenbiet')?.invalid && (form888.get('quenbiet')?.dirty || form888.get('quenbiet')?.touched)}"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 resize-none transition-all"
+              ></textarea>
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('quenbiet') != ''">
+                {{ getErrorMessage('quenbiet') }}
+              </span>
             </div>
 
-            <div class="col-md-12">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  17. {{ 'FORM_888.PHAN_3.QUESTION_5.TITLE' | translate }}
-                    <ul style="padding: 5px 15px;">
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_5.SUB_QUESTION_1' | translate }}</li>
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_5.SUB_QUESTION_2' | translate }}</li>
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_5.SUB_QUESTION_3' | translate }}</li>
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_5.SUB_QUESTION_4' | translate }}</li>
-                    </ul>
-                </label>
-                <textarea
-                  rows="6"
-                  cols="30"
-                  style="resize: none;"
-                  pInputTextarea
-                  [placeholder]="placeholder2"
-                  [formControlName]="'gapgo'">
-                </textarea>
-                <span class="error-message" *ngIf="this.getErrorMessage('gapgo') != ''">
-                  {{ this.getErrorMessage('gapgo') }}
-                </span>
-              </div>
+            <div class="md:col-span-12 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                17. {{ 'FORM_888.PHAN_3.QUESTION_5.TITLE' | translate }}
+                <ul class="mt-2 ml-5 list-disc text-sm text-gray-600 space-y-1">
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_5.SUB_QUESTION_1' | translate }}</li>
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_5.SUB_QUESTION_2' | translate }}</li>
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_5.SUB_QUESTION_3' | translate }}</li>
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_5.SUB_QUESTION_4' | translate }}</li>
+                </ul>
+              </label>
+              <textarea
+                rows="6"
+                pInputTextarea
+                [placeholder]="placeholder2"
+                formControlName="gapgo"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 resize-none transition-all"
+              ></textarea>
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('gapgo') != ''">
+                {{ getErrorMessage('gapgo') }}
+              </span>
             </div>
 
-            <div class="col-md-12">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  18. {{ 'FORM_888.PHAN_3.QUESTION_6.TITLE' | translate }}<span class="request"> *</span>
-                    <ul style="padding: 5px 15px;">
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_6.SUB_QUESTION_1' | translate }}</li>
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_6.SUB_QUESTION_2' | translate }}</li>
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_6.SUB_QUESTION_3' | translate }}</li>
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_6.SUB_QUESTION_4' | translate }}</li>
-                    </ul>
-                </label>
-                <textarea
-                  rows="6"
-                  cols="30"
-                  style="resize: none;"
-                  pInputTextarea
-                  [ngClass]="{'valid': form888.get('cuxu').invalid && (form888.get('cuxu').dirty || form888.get('cuxu').touched)}"
-                  [placeholder]="placeholder2"
-                  [formControlName]="'cuxu'">
-                </textarea>
-                <span class="error-message" *ngIf="this.getErrorMessage('cuxu') != ''">
-                  {{ this.getErrorMessage('cuxu') }}
-                </span>
-              </div>
+            <div class="md:col-span-12 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                18. {{ 'FORM_888.PHAN_3.QUESTION_6.TITLE' | translate }} <span class="text-red-600 font-bold">*</span>
+                <ul class="mt-2 ml-5 list-disc text-sm text-gray-600 space-y-1">
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_6.SUB_QUESTION_1' | translate }}</li>
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_6.SUB_QUESTION_2' | translate }}</li>
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_6.SUB_QUESTION_3' | translate }}</li>
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_6.SUB_QUESTION_4' | translate }}</li>
+                </ul>
+              </label>
+              <textarea
+                rows="6"
+                pInputTextarea
+                [placeholder]="placeholder2"
+                formControlName="cuxu"
+                [ngClass]="{'border-red-500 bg-red-50': form888.get('cuxu')?.invalid && (form888.get('cuxu')?.dirty || form888.get('cuxu')?.touched)}"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 resize-none transition-all"
+              ></textarea>
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('cuxu') != ''">
+                {{ getErrorMessage('cuxu') }}
+              </span>
             </div>
 
-            <div class="col-md-12">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  19. {{ 'FORM_888.PHAN_3.QUESTION_7.TITLE' | translate }}
-                    <ul style="padding: 5px 15px;">
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_7.SUB_QUESTION_1' | translate }}</li>
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_7.SUB_QUESTION_2' | translate }}</li>
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_7.SUB_QUESTION_3' | translate }}</li>
-                    </ul>
-                </label>
-                <textarea
-                  rows="6"
-                  cols="30"
-                  style="resize: none;"
-                  pInputTextarea
-                  [placeholder]="placeholder2"
-                  [formControlName]="'nhanxet'">
-                </textarea>
-                <span class="error-message" *ngIf="this.getErrorMessage('nhanxet') != ''">
-                  {{ this.getErrorMessage('nhanxet') }}
-                </span>
-              </div>
+            <div class="md:col-span-12 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                19. {{ 'FORM_888.PHAN_3.QUESTION_7.TITLE' | translate }}
+                <ul class="mt-2 ml-5 list-disc text-sm text-gray-600 space-y-1">
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_7.SUB_QUESTION_1' | translate }}</li>
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_7.SUB_QUESTION_2' | translate }}</li>
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_7.SUB_QUESTION_3' | translate }}</li>
+                </ul>
+              </label>
+              <textarea
+                rows="6"
+                pInputTextarea
+                [placeholder]="placeholder2"
+                formControlName="nhanxet"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 resize-none transition-all"
+              ></textarea>
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('nhanxet') != ''">
+                {{ getErrorMessage('nhanxet') }}
+              </span>
             </div>
 
-            <div class="col-md-12">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  20. {{ 'FORM_888.PHAN_3.QUESTION_8.TITLE' | translate }}
-                    <ul style="padding: 5px 15px;">
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_8.SUB_QUESTION_1' | translate }}</li>
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_8.SUB_QUESTION_2' | translate }}</li>
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_8.SUB_QUESTION_3' | translate }}</li>
-                    </ul>
-                </label>
-                <textarea
-                  rows="6"
-                  cols="30"
-                  style="resize: none;"
-                  pInputTextarea
-                  [placeholder]="placeholder2"
-                  [formControlName]="'tinquanhe'">
-                </textarea>
-                <span class="error-message" *ngIf="this.getErrorMessage('tinquanhe') != ''">
-                  {{ this.getErrorMessage('tinquanhe') }}
-                </span>
-              </div>
+            <div class="md:col-span-12 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                20. {{ 'FORM_888.PHAN_3.QUESTION_8.TITLE' | translate }}
+                <ul class="mt-2 ml-5 list-disc text-sm text-gray-600 space-y-1">
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_8.SUB_QUESTION_1' | translate }}</li>
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_8.SUB_QUESTION_2' | translate }}</li>
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_8.SUB_QUESTION_3' | translate }}</li>
+                </ul>
+              </label>
+              <textarea
+                rows="6"
+                pInputTextarea
+                [placeholder]="placeholder2"
+                formControlName="tinquanhe"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 resize-none transition-all"
+              ></textarea>
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('tinquanhe') != ''">
+                {{ getErrorMessage('tinquanhe') }}
+              </span>
             </div>
 
-            <div class="col-md-12">
-              <div class="d-flex flex-column pb-3" style="height: 100%;">
-                <label class="d-block font-weight-bold mb-2 title-input">
-                  21. {{ 'FORM_888.PHAN_3.QUESTION_9.TITLE' | translate }}
-                    <ul style="padding: 5px 15px;">
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_9.SUB_QUESTION_1' | translate }}</li>
-                        <li style="font-size: 14px;">{{ 'FORM_888.PHAN_3.QUESTION_9.SUB_QUESTION_2' | translate }}</li>
-                    </ul>
-                </label>
-                <textarea
-                  rows="6"
-                  cols="30"
-                  style="resize: none;"
-                  pInputTextarea
-                  [placeholder]="placeholder2"
-                  [formControlName]="'tamsu'">
-                </textarea>
-                <span class="error-message" *ngIf="this.getErrorMessage('tamsu') != ''">
-                  {{ this.getErrorMessage('tamsu') }}
-                </span>
-              </div>
+            <div class="md:col-span-12 flex flex-col gap-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                21. {{ 'FORM_888.PHAN_3.QUESTION_9.TITLE' | translate }}
+                <ul class="mt-2 ml-5 list-disc text-sm text-gray-600 space-y-1">
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_9.SUB_QUESTION_1' | translate }}</li>
+                  <li>{{ 'FORM_888.PHAN_3.QUESTION_9.SUB_QUESTION_2' | translate }}</li>
+                </ul>
+              </label>
+              <textarea
+                rows="6"
+                pInputTextarea
+                [placeholder]="placeholder2"
+                formControlName="tamsu"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-gray-300 resize-none transition-all"
+              ></textarea>
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('tamsu') != ''">
+                {{ getErrorMessage('tamsu') }}
+              </span>
             </div>
           </div>
 
-            <div class="header-child header-a position-relative" style="margin-top: 10px;">
-              <div class="stt"><span>9</span></div>
-              <div class="content-header">
-                <h2 class="header-title-child d-flex flex-column">HỒ SƠ ĐÍNH KÈM
-                  <b class="sub-title-child"><i> UPLOAD FILE</i></b>
+            <div class="relative flex items-center mb-6 border-b-2 border-teal-600 pb-3 mt-8">
+              <div class="flex-shrink-0 w-10 h-10 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
+                4
+              </div>
+              <div class="ml-4">
+                <h2 class="text-xl md:text-2xl font-semibold text-teal-700 uppercase">
+                  HỒ SƠ ĐÍNH KÈM
+                  <span class="block text-sm font-normal text-teal-500 italic">UPLOAD FILE</span>
                 </h2>
               </div>
             </div>
-            <div class="row" style="padding-top: 15px;">
 
-              <div class="col-md-6">
-                <div class="d-flex flex-column pb-3">
-                  <label class="d-block font-weight-bold mb-2 title-input">
-                    Một số loại giấy tờ khác nếu không có trong form vui lòng gửi lên
-                  </label>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mt-4">
+              <div class="md:col-span-6 flex flex-col gap-3">
+                <label class="block text-sm font-semibold text-gray-700">
+                  Một số loại giấy tờ khác nếu không có trong form vui lòng gửi lên
+                </label>
 
-                <p>1. Tờ khai yêu cầu cấp phiếu <a class="xanh" [href]="this.api.URL + '/uploads/' + 'mau_so_03_LLTP.docx'">(In tờ khai online)</a></p>
-                <p>2. Chứng minh nhân dân (scan 2 mặt) <a [href]="this.api.URL +'/document/'+ 'cmnd.pdf'" target="_blank" >Xem ví dụ CMND</a></p>
-                <p>3. Hộ khẩu thường trú (scan đầy đủ trang bìa và các trang đã ghi thông tin liên quan đến bản thân) <a [href]="this.api.URL +'/document/'+ 'hk.pdf'" target="_blank">Xem ví dụ HK</a></p>
-
+                <div class="space-y-2 text-[15px] text-gray-700">
+                  <p>
+                    1. Tờ khai yêu cầu cấp phiếu 
+                    <a class="text-teal-600 hover:text-teal-700 underline" [href]="api.URL + '/uploads/' + 'mau_so_03_LLTP.docx'">(In tờ khai online)</a>
+                  </p>
+                  <p>
+                    2. Chứng minh nhân dân (scan 2 mặt) 
+                    <a class="text-teal-600 hover:text-teal-700 underline" [href]="api.URL +'/document/'+ 'cmnd.pdf'" target="_blank">Xem ví dụ CMND</a>
+                  </p>
+                  <p>
+                    3. Hộ khẩu thường trú (scan đầy đủ trang bìa và các trang đã ghi thông tin liên quan đến bản thân) 
+                    <a class="text-teal-600 hover:text-teal-700 underline" [href]="api.URL +'/document/'+ 'hk.pdf'" target="_blank">Xem ví dụ HK</a>
+                  </p>
                 </div>
               </div>
 
-              <div class="col-md-6">
-                <div class="d-flex flex-column pb-3">
-                  <label class="d-block font-weight-bold mb-2 title-input">
-                    Nơi upload File (lưu ý tối đa 5mb)
-                  </label>
+              <div class="md:col-span-6 flex flex-col gap-3">
+                <label class="block text-sm font-semibold text-gray-700">
+                  Nơi upload File (lưu ý tối đa 5mb)
+                </label>
 
-                  <p-toast />
-                  <p-fileUpload
-                      name="demo[]"
-                      (onUpload)="onUpload($event)"
-                      [multiple]="true"
-                      maxFileSize="10000000"
-                      [auto]="false"
-                      [customUpload]="true"
-                      (onSelect)="onSelect($event)">
-                      <ng-template pTemplate="content">
-                          <ul *ngIf="uploadedFiles.length">
-                              <li *ngFor="let file of uploadedFiles">
-                                  {{ file.name }} - {{ file.size }} bytes
-                              </li>
-                          </ul>
-                      </ng-template>
-                  </p-fileUpload>
+                <p-fileUpload
+                  name="demo[]"
+                  (onUpload)="onUpload($event)"
+                  [multiple]="true"
+                  maxFileSize="10000000"
+                  [auto]="false"
+                  [customUpload]="true"
+                  (onSelect)="onSelect($event)"
+                  styleClass="w-full"
+                >
+                  <ng-template pTemplate="content">
+                    <ul class="mt-3 space-y-1 text-sm text-gray-600" *ngIf="uploadedFiles.length">
+                      <li *ngFor="let file of uploadedFiles">
+                        {{ file.name }} - {{ file.size }} bytes
+                      </li>
+                    </ul>
+                  </ng-template>
+                </p-fileUpload>
 
-                  <label for="" class="form-label label-title">Hoặc bạn có thể gửi đến Trợ giúp pháp lý việt nam với địa chỉ Email : hotro@trogiupphaply.com.au</label>
-                </div>
+                <p class="text-sm text-gray-600">
+                  Hoặc bạn có thể gửi đến Trợ giúp pháp lý việt nam với địa chỉ Email: 
+                  <span class="font-medium text-gray-800">hotro@trogiupphaply.com.au</span>
+                </p>
               </div>
             </div>
-            <p-toast position="bottom-right" key="br"/>
-            <button
+            <p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { left: '50%', right: 'auto', transform: 'translateX(-50%)', bottom: '20px', width: 'calc(100% - 32px)', maxWidth: '360px' } }" />
+
+            <!-- Submit Button với Tailwind CSS -->
+            <div class="flex flex-wrap justify-center gap-4 mt-8">
+              <button
                 (click)="submit()"
-                pButton
-                pRipple
-                label="Hoàn Thành"
                 type="submit"
-                class="p-button-success submit_button"
-                >
-            </button>
+                class="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-white bg-teal-600 rounded-lg shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 transition-all"
+              >
+                <i class="pi pi-check-circle mr-2"></i>
+                Hoàn Thành
+              </button>
+
+              <button
+                type="button"
+                (click)="resetForm()"
+                class="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-all"
+              >
+                <i class="pi pi-refresh mr-2"></i>
+                Làm mới
+              </button>
+            </div>
 
           </div>
         </div>

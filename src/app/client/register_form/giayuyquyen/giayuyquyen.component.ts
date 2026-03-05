@@ -8,7 +8,6 @@ import { DataService } from 'src/app/services/data.service';
 import { Title } from '@angular/platform-browser';
 import { formatDate } from '@angular/common';
 import { Form80serviceService } from 'src/app/services/form80service.service';
-import { GooglemapsService } from 'src/app/services/googlemaps.service';
 declare var google: any;
 
 @Component({
@@ -45,7 +44,6 @@ export class GiayuyquyenComponent {
     private mess : MessageService,
     private data : DataService,
     private title : Title,
-    private googleMapservice: GooglemapsService,
     private ngZone: NgZone,
   ) {
 
@@ -81,62 +79,6 @@ export class GiayuyquyenComponent {
   ngAfterViewInit(): void {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
     //Add 'implements AfterViewInit' to the class.
-    this.googleMapservice.loadGoogleMaps().then(() => {
-      this.initializeAutocomplete();
-      this.initializeAutocomplete2();
-    }).catch(error => {
-      console.error('Error loading Google Maps script:', error);
-    });
-  }
-
-  initializeAutocomplete(): void {
-    if (!this.autocompleteInput) {
-      console.error('Autocomplete input không được tìm thấy.');
-      return;
-    }
-
-    const autocompleteOptions = {
-      types: ['geocode']
-    };
-
-    this.autocomplete = new google.maps.places.Autocomplete(this.autocompleteInput.nativeElement, autocompleteOptions);
-
-    this.autocomplete.addListener('place_changed', () => {
-      this.ngZone.run(() => {
-        const place = this.autocomplete.getPlace();
-        if (place.geometry) {
-          console.log('Địa điểm đã chọn:', place.formatted_address);
-          this.giayuyquyen.get(['diachi']).setValue(place.formatted_address);
-        } else {
-          console.log('Không có thông tin địa điểm hợp lệ');
-        }
-      });
-    });
-  }
-
-  initializeAutocomplete2(): void {
-    if (!this.autocompleteInput2) {
-      console.error('Autocomplete input không được tìm thấy.');
-      return;
-    }
-
-    const autocompleteOptions = {
-      types: ['geocode']
-    };
-
-    this.autocomplete2 = new google.maps.places.Autocomplete(this.autocompleteInput2.nativeElement, autocompleteOptions);
-
-    this.autocomplete2.addListener('place_changed', () => {
-      this.ngZone.run(() => {
-        const place = this.autocomplete2.getPlace();
-        if (place.geometry) {
-          console.log('Địa điểm đã chọn:', place.formatted_address);
-          this.giayuyquyen.get(['diachiuq']).setValue(place.formatted_address);
-        } else {
-          console.log('Không có thông tin địa điểm hợp lệ');
-        }
-      });
-    });
   }
 
   onDateChange(event: any , namefield: string , items: any = null): void {

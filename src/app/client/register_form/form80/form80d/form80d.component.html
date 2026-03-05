@@ -102,7 +102,7 @@
                     <label class="d-block font-weight-bold mb-2 title-input">
                       {{"SECTION_D.17_3" | translate}}
                     </label>
-                    <input type="text" #autocomplete
+                    <input type="text"
                     [ngClass]="{'valid': itemthongtin.get(['ap.address live']).invalid && (itemthongtin.get(['ap.address live']).dirty || itemthongtin.get(['ap.address live']).touched)}"
                     formControlName="ap.address live"  [id]="inputId" placeholder="Nhập địa điểm" pInputText />
                   </div>
@@ -184,7 +184,7 @@
     </div>
 
   </div>
-  <p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }" />
+  <p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { left: '50%', right: 'auto', transform: 'translateX(-50%)', bottom: '20px', width: 'calc(100% - 32px)', maxWidth: '360px' } }" />
   <div class="grid grid-nogutter justify-content-end d-flex">
     <p-button [label]="'SECTION_HOME.BUTTON_BACK' | translate" severity="secondary" (click)="goBack()" class="back" />
     <button

@@ -1,360 +1,275 @@
-<!-- <app-loading *ngIf="isLoading"></app-loading> -->
+<section class="min-h-screen bg-gray-50 py-8">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <form [formGroup]="hochieu" (ngSubmit)="submit()">
+      <div class="bg-white rounded-xl shadow-sm">
+        <!-- Title Header -->
+        <div class="relative bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800 rounded-t-xl">
+          <div class="px-6 py-8 sm:px-10 sm:py-10">
+            <div class="mx-auto max-w-3xl text-center">
+              <h1 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white tracking-tight">
+                TỜ KHAI HỘ CHIẾU
+              </h1>
+              <p class="mt-2 text-xs sm:text-sm text-teal-50/90 font-normal">
+                (Dành cho người chưa đủ 14 tuổi)
+              </p>
+            </div>
+          </div>
+        </div>
 
-  <div class="content_news" >
-    <div class="container">
-      <h2 class="content_news_detail_title" style="color:black !important; padding-bottom: 25px !important; font-size: 2rem !important; " >
-        Đề nghị cấp hộ chiếu phổ thông ở nước ngoài dành cho người chưa đủ 14 tuổi
-      </h2>
+        <!-- Content Body -->
+        <div class="p-6 md:p-8">
+          <!-- Section 1: Legal representative -->
+          <div class="relative flex items-center mb-6 border-b-2 border-teal-600 pb-3">
+            <div class="flex-shrink-0 w-10 h-10 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">1</div>
+            <div class="ml-4">
+              <h2 class="text-xl md:text-2xl font-semibold text-teal-700 uppercase">Thông tin người đại diện hợp pháp</h2>
+            </div>
+          </div>
 
-      <div class="row row_content_news">
-          <!-- HỌ VÀ TÊN -->
-          <form  [formGroup]="hochieu" (ngSubmit)="submit()" >
-              <div class="row form">
-
-                <div class="col-md-12">
-                  <label for="" class="form-label label-title title-big">A. Thông tin người đại diện hợp pháp:</label>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-8">
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Họ và tên <span class="text-red-600 font-bold">*</span></label>
+              <input type="text" [formControlName]="'fullname'" pInputText [placeholder]="placeholder"
+                [ngClass]="{'border-red-500 bg-red-50': hochieu.get('fullname')?.invalid && (hochieu.get('fullname')?.dirty || hochieu.get('fullname')?.touched)}"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('fullname') != ''">{{ getErrorMessage('fullname') }}</span>
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Ngày tháng năm sinh <span class="text-red-600 font-bold">*</span></label>
+              <p-calendar placeholder="dd/mm/yyyy" [dateFormat]="'dd/mm/yy'" formControlName="date" styleClass="w-full"
+                [showIcon]="true" [showOnFocus]="false" [showButtonBar]="true"
+                inputStyleClass="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all"
+                (onInput)="onInputChange($event, 'date')"
+                [ngClass]="{'border-red-500 bg-red-50': hochieu.get('date')?.invalid && (hochieu.get('date')?.dirty || hochieu.get('date')?.touched)}"></p-calendar>
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('date') != ''">{{ getErrorMessage('date') }}</span>
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Giới tính <span class="text-red-600 font-bold">*</span></label>
+              <div class="flex flex-wrap gap-4">
+                <div class="flex items-center gap-2">
+                  <p-radioButton [formControlName]="'gender'" value="Nam" />
+                  <span class="text-sm text-gray-700">Nam</span>
                 </div>
-                    <!-- Ho va ten -->
-                <div class="col-md-4">
-                    <div class="mb-3">
-                      <label for="" class="form-label label-title">1. Họ và tên<span class="request"> *</span> </label>
-                      <input type="text"  formControlName="fullname"
-                        class="form-control" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ và Tên">
-                        <small class="text-danger" *ngIf="hochieu.get('fullname')?.invalid && hochieu.get('fullname')?.touched">
-                          Họ và Tên không được để trống
-                        </small>
+                <div class="flex items-center gap-2">
+                  <p-radioButton [formControlName]="'gender'" value="Nữ" />
+                  <span class="text-sm text-gray-700">Nữ</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Số CCCD/CMND, số hộ chiếu (nếu có)</label>
+              <input type="text" pInputText [placeholder]="placeholder" formControlName="cmnd"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Ngày cấp</label>
+              <p-calendar placeholder="dd/mm/yyyy" [dateFormat]="'dd/mm/yy'" formControlName="cmnd_day" styleClass="w-full"
+                [showIcon]="true" [showOnFocus]="false" [showButtonBar]="true"
+                inputStyleClass="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all"
+                (onInput)="onInputChange($event, 'cmnd_day')"></p-calendar>
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Số điện thoại <span class="text-red-600 font-bold">*</span></label>
+              <input type="text" [formControlName]="'phone'" pInputText [placeholder]="placeholder"
+                [ngClass]="{'border-red-500 bg-red-50': hochieu.get('phone')?.invalid && (hochieu.get('phone')?.dirty || hochieu.get('phone')?.touched)}"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('phone') != ''">{{ getErrorMessage('phone') }}</span>
+            </div>
+
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Địa chỉ cư trú tại nước ngoài</label>
+              <textarea rows="3" pInputTextarea [placeholder]="'Ghi rõ số nhà, xã/phường'" [formControlName]="'address_foreign'"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all resize-none"></textarea>
+            </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Quan hệ với người chưa đủ 14 tuổi <span class="text-red-600 font-bold">*</span></label>
+              <input type="text" [formControlName]="'quan_he'" pInputText [placeholder]="placeholder"
+                [ngClass]="{'border-red-500 bg-red-50': hochieu.get('quan_he')?.invalid && (hochieu.get('quan_he')?.dirty || hochieu.get('quan_he')?.touched)}"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('quan_he') != ''">{{ getErrorMessage('quan_he') }}</span>
+            </div>
+          </div>
+
+          <!-- Section 2: Person under 14 -->
+          <div class="relative flex items-center mb-6 border-b-2 border-teal-600 pb-3">
+            <div class="flex-shrink-0 w-10 h-10 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">2</div>
+            <div class="ml-4">
+              <h2 class="text-xl md:text-2xl font-semibold text-teal-700 uppercase">Thông tin về người chưa đủ 14 tuổi đề nghị cấp hộ chiếu</h2>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-8">
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Họ <span class="text-red-600 font-bold">*</span></label>
+              <input type="text" [formControlName]="'firstname'" pInputText [placeholder]="placeholder"
+                [ngClass]="{'border-red-500 bg-red-50': hochieu.get('firstname')?.invalid && (hochieu.get('firstname')?.dirty || hochieu.get('firstname')?.touched)}"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('firstname') != ''">{{ getErrorMessage('firstname') }}</span>
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Chữ đệm và tên <span class="text-red-600 font-bold">*</span></label>
+              <input type="text" [formControlName]="'lastname'" pInputText [placeholder]="placeholder"
+                [ngClass]="{'border-red-500 bg-red-50': hochieu.get('lastname')?.invalid && (hochieu.get('lastname')?.dirty || hochieu.get('lastname')?.touched)}"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('lastname') != ''">{{ getErrorMessage('lastname') }}</span>
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Giới tính <span class="text-red-600 font-bold">*</span></label>
+              <div class="flex flex-wrap gap-4">
+                <div class="flex items-center gap-2">
+                  <p-radioButton [formControlName]="'gender_14'" value="Nam" />
+                  <span class="text-sm text-gray-700">Nam</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <p-radioButton [formControlName]="'gender_14'" value="Nữ" />
+                  <span class="text-sm text-gray-700">Nữ</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Ngày tháng năm sinh <span class="text-red-600 font-bold">*</span></label>
+              <p-calendar placeholder="dd/mm/yyyy" [dateFormat]="'dd/mm/yy'" formControlName="date_14" styleClass="w-full"
+                [showIcon]="true" [showOnFocus]="false" [showButtonBar]="true"
+                inputStyleClass="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all"
+                (onInput)="onInputChange($event, 'date_14')"
+                [ngClass]="{'border-red-500 bg-red-50': hochieu.get('date_14')?.invalid && (hochieu.get('date_14')?.dirty || hochieu.get('date_14')?.touched)}"></p-calendar>
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('date_14') != ''">{{ getErrorMessage('date_14') }}</span>
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Nơi sinh (tỉnh, TP)</label>
+              <input type="text" pInputText [placeholder]="placeholder" formControlName="date_address"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Số định danh cá nhân (nếu có)</label>
+              <input type="text" pInputText [placeholder]="placeholder" formControlName="cmnd_14"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Quốc tịch</label>
+              <input type="text" pInputText [placeholder]="placeholder" formControlName="quoctich"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Dân tộc</label>
+              <input type="text" pInputText [placeholder]="placeholder" formControlName="nation"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Tôn giáo</label>
+              <input type="text" pInputText [placeholder]="placeholder" formControlName="religion"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Địa chỉ cư trú tại nước ngoài</label>
+              <textarea rows="3" pInputTextarea [placeholder]="'Ghi rõ số nhà, xã/phường'" [formControlName]="'address_foreign_14'"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all resize-none"></textarea>
+            </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Địa chỉ đăng ký thường trú tại Việt Nam (nếu có)</label>
+              <textarea rows="3" pInputTextarea [placeholder]="'Ghi rõ số nhà, xã/phường'" [formControlName]="'address_vn'"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all resize-none"></textarea>
+            </div>
+
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Cha: họ và tên</label>
+              <input type="text" pInputText [formControlName]="'name_dad'" [placeholder]="placeholder"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Năm sinh của Cha</label>
+              <p-calendar placeholder="dd/mm/yyyy" [dateFormat]="'dd/mm/yy'" formControlName="date_dad" styleClass="w-full"
+                [showIcon]="true" [showOnFocus]="false" [showButtonBar]="true"
+                inputStyleClass="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all"
+                (onInput)="onInputChange($event, 'date_dad')"></p-calendar>
+            </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Mẹ: họ và tên</label>
+              <input type="text" pInputText [formControlName]="'name_mother'" [placeholder]="placeholder"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Năm sinh của Mẹ</label>
+              <p-calendar placeholder="dd/mm/yyyy" [dateFormat]="'dd/mm/yy'" formControlName="date_mother" styleClass="w-full"
+                [showIcon]="true" [showOnFocus]="false" [showButtonBar]="true"
+                inputStyleClass="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all"
+                (onInput)="onInputChange($event, 'date_mother')"></p-calendar>
+            </div>
+
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Hộ chiếu phổ thông lần gần nhất (nếu có) số</label>
+              <input type="text" pInputText [formControlName]="'passport'" [placeholder]="placeholder"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Cấp ngày</label>
+              <p-calendar placeholder="dd/mm/yyyy" [dateFormat]="'dd/mm/yy'" formControlName="day_pp" styleClass="w-full"
+                [showIcon]="true" [showOnFocus]="false" [showButtonBar]="true"
+                inputStyleClass="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all"
+                (onInput)="onInputChange($event, 'day_pp')"></p-calendar>
+            </div>
+
+            <div class="md:col-span-12 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Nội dung đề nghị <span class="text-red-600 font-bold">*</span></label>
+              <p-dropdown [options]="listdenghi" optionLabel="name" optionValue="name" formControlName="de_nghi"
+                [placeholder]="'Vui lòng chọn loại giấy tờ'" styleClass="w-full" panelStyleClass="rounded-lg shadow-lg"
+                [ngClass]="{'border-red-500 bg-red-50': hochieu.get('de_nghi')?.invalid && (hochieu.get('de_nghi')?.dirty || hochieu.get('de_nghi')?.touched)}"></p-dropdown>
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('de_nghi') != ''">{{ getErrorMessage('de_nghi') }}</span>
+            </div>
+          </div>
+
+          <!-- Section 3: Upload -->
+          <div class="relative flex items-center mb-6 border-b-2 border-teal-600 pb-3">
+            <div class="flex-shrink-0 w-10 h-10 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">3</div>
+            <div class="ml-4">
+              <h2 class="text-xl md:text-2xl font-semibold text-teal-700 uppercase">Hồ sơ đính kèm</h2>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-8">
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-2">Hồ sơ bao gồm các giấy tờ đính kèm sau:</label>
+              <div class="space-y-1 text-sm text-gray-600">
+                <p>1. Hình thẻ</p>
+                <p>2. Hộ chiếu</p>
+                <p>3. Visa</p>
+                <p>4. Hình CMND/CCCD</p>
+              </div>
+            </div>
+            <div class="md:col-span-6 flex flex-col gap-3">
+              <label class="block text-sm font-semibold text-gray-800">Nơi upload file <span class="text-xs text-gray-500 font-normal">(tối đa 5MB)</span></label>
+              <p-fileUpload name="demo[]" [multiple]="true" [auto]="false" [customUpload]="true" [maxFileSize]="5000000"
+                (onSelect)="onSelect($event)" (onUpload)="onUpload($event)" chooseLabel="Chọn File" uploadLabel="Tải lên" cancelLabel="Hủy" styleClass="w-full">
+                <ng-template pTemplate="content">
+                  <div *ngIf="uploadedFiles.length" class="mt-3 space-y-2">
+                    <div *ngFor="let file of uploadedFiles" class="flex items-center justify-between bg-gray-100 text-gray-800 text-sm px-3 py-2 rounded-lg">
+                      <span class="truncate flex-1">📄 {{ file.name }}</span>
+                      <span class="text-gray-500 text-xs ml-2">{{ (file.size / 1024 / 1024).toFixed(2) }} MB</span>
                     </div>
-                </div>
-
-                <div class="col-md-4">
-                  <div class="mb-3">
-                    <label for="" class="form-label label-title">2. Sinh ngày / tháng / năm<span class="request"> *</span> </label>
-                    <input type="date"
-                      class="form-control"  formControlName="date" aria-describedby="helpId" placeholder="Nhập ngày">
-                      <small class="text-danger" *ngIf="hochieu.get('date')?.invalid && hochieu.get('date')?.touched">
-                        Ngày sinh không được để trống
-                      </small>
                   </div>
-              </div>
-
-              <div class="col-md-4">
-                <label for="" class="form-label label-title">3. Giới tính<span class="request"> *</span> </label>
-               <div class="form-check">
-                 <input class="form-check-input" type="radio"  formControlName="gender" value="Nam" id="" checked>
-                 <label class="form-check-label" for="nam">
-                   Nam
-                 </label>
-               </div>
-               <div class="form-check">
-                 <input class="form-check-input" type="radio" formControlName="gender" value="Nữ" id="">
-                 <label class="form-check-label" for="nu">
-                   Nữ
-                 </label>
-               </div>
+                </ng-template>
+              </p-fileUpload>
+              <p class="text-sm text-gray-600">Hoặc gửi đến Trợ giúp pháp lý Việt Nam tại email: <a href="mailto:hotro@trogiupphaply.com.au" class="text-teal-600 font-medium underline">hotro@trogiupphaply.com.au</a></p>
             </div>
-            <!-- end -->
-
-            <!-- Ngày tháng năm -->
-
-          <!-- <div class="col-md-3">
-            <div class="mb-3">
-              <label for="" class="form-label label-title">Nơi sinh ( tỉnh,TP )<span class="request"> *</span> </label>
-              <input type="text"
-                class="form-control"formControlName="date_address" aria-describedby="helpId" placeholder="Nhập nơi sinh">
-                <small class="text-danger" *ngIf="hochieu.get('date_address')?.invalid && hochieu.get('date_address')?.touched">
-                  Địa chỉ không được để trống
-                </small>
-            </div>
-        </div> -->
-            <!-- end -->
-
-
-
-            <!-- 4. Số ĐDCN/CMND (nếu có) -->
-              <div class="col-md-8">
-                <div class="mb-3">
-                  <label for="" class="form-label label-title">4. Số CCCD/CMND, số hộ chiếu (nếu có)</label>
-                  <input type="text"
-                    class="form-control" formControlName="cmnd"  aria-describedby="helpId"placeholder="Nhập Số CCCD/CMND, số hộ chiếu (nếu có)">
-                </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="mb-3">
-                <label for="" class="form-label label-title">Ngày cấp</label>
-                <input type="date"
-                  class="form-control" formControlName="cmnd_day" aria-describedby="helpId" placeholder="">
-
-              </div>
-          </div>
-            <!-- end -->
-
-            <div class="col-md-12">
-              <div class="mb-3">
-                <label for="" class="form-label label-title">5. Địa chỉ cư trú tại nước ngoài </label>
-                <input type="text"
-                  class="form-control" name="" formControlName="address_foreign" id="" aria-describedby="helpId" placeholder="Nhập Địa chỉ cư trú tại nước ngoài">
-              </div>
           </div>
 
-          <div class="col-md-4">
-            <div class="mb-3">
-              <label for="" class="form-label label-title">6. Số điện thoại<span class="request"> *</span> </label>
-              <input type="text"
-                class="form-control" name="" formControlName="phone" id="" aria-describedby="helpId" placeholder="Nhập Số điện thoại">
-                <small class="text-danger" *ngIf="hochieu.get('phone')?.invalid && hochieu.get('phone')?.touched">
-                 Số điện thoại không được để trống
-                 </small>
-            </div>
+          <p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { left: '50%', right: 'auto', transform: 'translateX(-50%)', bottom: '20px', width: 'calc(100% - 32px)', maxWidth: '360px' } }" />
+          <div class="flex flex-wrap justify-center gap-4 mt-8">
+            <button (click)="submit()" type="submit"
+              class="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-white bg-teal-600 rounded-lg shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 transition-all">
+              <i class="pi pi-check-circle mr-2"></i>Hoàn thành
+            </button>
+            <button type="button" (click)="resetForm()"
+              class="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-all">
+              <i class="pi pi-refresh mr-2"></i>Làm mới
+            </button>
+          </div>
         </div>
-
-        <div class="col-md-8">
-          <div class="mb-3">
-            <label for="" class="form-label label-title">7. Quan hệ với người chưa đủ 14 tuổi đề nghị cấp hộ chiếu<span class="request"> *</span> </label>
-            <input type="text"
-              class="form-control" name="" formControlName="quan_he" id="" aria-describedby="helpId" placeholder="Nhập Quan hệ với người chưa đủ 14 tuổi đề nghị cấp hộ chiếu">
-              <small class="text-danger" *ngIf="hochieu.get('quan_he')?.invalid && hochieu.get('quan_he')?.touched">
-                Quan hệ với người chưa đủ 14 tuổi đề nghị cấp hộ chiếu không được để trống
-               </small>
-          </div>
       </div>
-
-      <div class="col-md-12">
-        <label for="" class="form-label label-title title-big">B. Thông tin về người chưa đủ 14 tuổi đề nghị cấp hộ chiếu:</label>
-      </div>
-
-      <div class="col-md-4">
-        <div class="mb-3">
-          <label for="" class="form-label label-title">1. Họ <span class="request"> *</span> </label>
-          <input type="text"  formControlName="firstname"
-            class="form-control" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ">
-            <small class="text-danger" *ngIf="hochieu.get('firstname')?.invalid && hochieu.get('firstname')?.touched">
-              Họ không được để trống
-            </small>
-        </div>
-    </div>
-    <div class="col-md-4">
-      <div class="mb-3">
-        <label for="" class="form-label label-title">Chữ đệm và tên <span class="request"> *</span> </label>
-        <input type="text"  formControlName="lastname"
-          class="form-control" name="" id="" aria-describedby="helpId"  placeholder="Nhập Chữ đệm và tên ">
-          <small class="text-danger" *ngIf="hochieu.get('lastname')?.invalid && hochieu.get('lastname')?.touched">
-            Tên không được để trống
-          </small>
-      </div>
-  </div>
-  <div class="col-md-3">
-    <label for="" class="form-label label-title">2. Giới tính<span class="request"> *</span> </label>
-   <div class="form-check">
-     <input class="form-check-input" type="radio"  formControlName="gender_14" value="Nam" id="" checked>
-     <label class="form-check-label" for="nam">
-       Nam
-     </label>
-   </div>
-   <div class="form-check">
-     <input class="form-check-input" type="radio" formControlName="gender_14" value="Nữ" id="">
-     <label class="form-check-label" for="nu">
-       Nữ
-     </label>
-   </div>
-</div>
-
-<div class="col-md-4">
-  <div class="mb-3">
-    <label for="" class="form-label label-title">2. Sinh ngày / tháng / năm<span class="request"> *</span> </label>
-    <input type="date"
-      class="form-control"  formControlName="date_14" aria-describedby="helpId" placeholder="Nhập ngày">
-      <small class="text-danger" *ngIf="hochieu.get('date_14')?.invalid && hochieu.get('date_14')?.touched">
-        Ngày sinh không được để trống
-      </small>
-  </div>
-</div>
-
-  <div class="col-md-8">
-            <div class="mb-3">
-              <label for="" class="form-label label-title">Nơi sinh ( tỉnh,TP )</label>
-              <input type="text"
-                class="form-control"formControlName="date_address" aria-describedby="helpId" placeholder="Nhập nơi sinh">
-
-            </div>
-        </div>
-
-
-        <div class="col-md-12">
-          <div class="mb-3">
-            <label for="" class="form-label label-title">4. Số định danh cá nhân (nếu có)</label>
-            <input type="text"
-              class="form-control" formControlName="cmnd_14"  aria-describedby="helpId"placeholder="Nhập Số định danh cá nhân (nếu có)">
-          </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="mb-3">
-          <label for="" class="form-label label-title">5. Quốc tịch </label>
-          <input type="input"
-            class="form-control" formControlName="quoctich" name="" id="" aria-describedby="helpId" placeholder="Nhập Quốc tịch">
-
-        </div>
-    </div>
-
-
-            <!-- 5. Dân tộc -->
-            <div class="col-md-4">
-              <div class="mb-3">
-                <label for="" class="form-label label-title">6. Dân tộc </label>
-                <input type="input"
-                  class="form-control" formControlName="nation" name="" id="" aria-describedby="helpId" placeholder="Nhập Dân tộc">
-
-              </div>
-          </div>
-          <!-- end -->
-             <!-- 6. Tôn giáo -->
-             <div class="col-md-4">
-              <div class="mb-3">
-                <label for="" class="form-label label-title">7. Tôn giáo </label>
-                <input type="input"
-                  class="form-control" formControlName="religion" name="" id="" aria-describedby="helpId" placeholder="Nhập Tôn giáo">
-
-              </div>
-          </div>
-          <!-- end -->
-
-          <div class="col-md-12">
-            <div class="mb-3">
-              <label for="" class="form-label label-title">8. Địa chỉ cư trú ở nước ngoài </label>
-              <input type="text"
-                class="form-control" name="" formControlName="address_foreign_14" id="" aria-describedby="helpId" placeholder="Nhập Địa chỉ cư trú tại nước ngoài">
-            </div>
-        </div>
-
-
-        <!-- 8. Địa chỉ cư trú tại nước ngoài* -->
-
-      <!-- end -->
-
-        <!-- 9. Địa chỉ thường trú ở trong nước trước khi xuất cảnh* -->
-        <div class="col-md-12">
-          <div class="mb-3">
-            <label for="" class="form-label label-title">9. Địa chỉ đăng ký thường trú tại Việt Nam (nếu có)</label>
-            <input type="text"
-              class="form-control" formControlName="address_vn" name="" id="" aria-describedby="helpId" placeholder="Nhập Địa chỉ thường trú ở trong nước trước khi xuất cảnh">
-
-          </div>
-      </div>
-      <!-- end -->
-
-       <!-- 10. Nghề nghiệp -->
-      <!-- end -->
-      <!-- 11. Tên và địa chỉ cơ quan (nếu có) -->
-
-    <!-- end -->
-
-      <!-- 12. Họ tên cha -->
-      <div class="col-md-6">
-        <div class="mb-3">
-          <label for="" class="form-label label-title">10. Cha: họ và tên</label>
-          <input type="text"
-            class="form-control" formControlName="name_dad" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ tên cha">
-
-        </div>
-    </div>
-    <!-- end -->
-    <!-- 12. Họ tên cha -->
-    <div class="col-md-6">
-      <div class="mb-3">
-        <label for="" class="form-label label-title">Năm sinh của Cha </label>
-        <input type="date"
-          class="form-control" formControlName="date_dad" name="" id="" aria-describedby="helpId" placeholder="Nhập Năm sinh">
-      </div>
-  </div>
-  <!-- end -->
-
-
-            <!-- 12. Họ tên mẹ -->
-      <div class="col-md-6">
-        <div class="mb-3">
-          <label for="" class="form-label label-title">Mẹ: họ và tên </label>
-          <input type="text"
-            class="form-control" formControlName="name_mother" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ tên mẹ">
-        </div>
-    </div>
-    <!-- end -->
-    <div class="col-md-6">
-      <div class="mb-3">
-        <label for="" class="form-label label-title">Năm sinh của Mẹ</label>
-        <input type="date"
-          class="form-control" formControlName="date_mother" name="" id="" aria-describedby="helpId" placeholder="Nhập Năm sinh">
-      </div>
-  </div>
-
-
-                <!-- 13. Hộ chiếu phổ thông lần gần nhất (nếu có) số -->
-          <div class="col-md-6">
-            <div class="mb-3">
-              <label for="" class="form-label label-title">11. Hộ chiếu phổ thông lần gần nhất (nếu có) số</label>
-              <input type="text"
-                class="form-control" formControlName="passport" name="" id="" aria-describedby="helpId" placeholder="Nhập Hộ chiếu phổ thông lần gần nhất (nếu có) số">
-
-            </div>
-        </div>
-        <!-- end -->
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="" class="form-label label-title">Cấp ngày</label>
-            <input type="date"
-              class="form-control" formControlName="day_pp" name="" id="" aria-describedby="helpId" placeholder="Nhập dữ liệu">
-          </div>
-        </div>
-      <!-- 14. Nội dung đề nghị / Offered content -->
-      <div class="col-md-12">
-        <div class="mb-3">
-        <label for="" class="form-label label-title">12. Nội dung đề nghị<span class="request"> *</span> </label>
-               <div class="form-check">
-                 <input class="form-check-input" formControlName="de_nghi" type="radio" value="Cấp hộ chiếu có gắn chíp điện tử" id="" checked>
-                 <label class="form-check-label" for="">
-                  Cấp hộ chiếu có gắn chíp điện tử
-                 </label>
-               </div>
-               <div class="form-check">
-                 <input class="form-check-input" formControlName="de_nghi" type="radio" value="Cấp hộ chiếu không gắn chíp điện tử" id="">
-                 <label class="form-check-label" for="">
-                  Cấp hộ chiếu không gắn chíp điện tử
-                 </label>
-               </div>
-               </div>
-    </div>
-
-
-  <div class="col-md-12">
-    <label for="" class="form-label label-title title-big">HỒ SƠ ĐÍNH KÈM / UPLOAD FILE (KHÔNG BẮT BUỘC)
-    </label>
-  </div>
-
-  <div class="col-md-6">
-    <div class="mb-3 khung">
-      <label for="" class="form-label label-title">HỒ SƠ BAO GỒM CÁC GIẤY TỜ ĐÍNH KÈM SAU: </label>
-        <p>1. Hình thẻ </p>
-       <p>2. Hộ chiếu</p>
-       <p>3. Visa </p>
-       <p>4. Hình CMND/CCCD</p>
-    </div>
-  </div>
-
-  <div class="col-md-6">
-    <div class="mb-3 khung">
-      <label for="" class="form-label label-title">Nơi upload File (lưu ý chỉ nhận JPG , PDF)</label>
-  <input  type="file" (change)="onFileSelected($event)" class="form-control" name="" id="" aria-describedby="helpId" multiple placeholder="Chọn file">
-    </div>
-    <label for="" class="form-label label-title">Hoặc bạn có thể gửi đến Trợ giúp pháp lý việt nam với địa chỉ Email : hotro@trogiupphaply.com.au</label>
-  </div>
-    <!-- end -->
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-      </div>
-    </div>
-
-
   </div>
-
+</section>

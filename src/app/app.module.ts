@@ -5,11 +5,13 @@ import { AppComponent } from './common/app.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScrollControlDirective } from './scroll-control.directive';
+import { NhanhieuComponent } from './information/nhanhieu/nhanhieu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ScrollControlDirective,
+    NhanhieuComponent,
   ],
   imports: [
     BrowserModule,

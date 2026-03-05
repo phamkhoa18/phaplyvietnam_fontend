@@ -2,15 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientComponent } from './client/client.component';
 import { HomeComponent } from './home/home.component';
-import { NewsdetailComponent } from './newsdetail/newsdetail.component';
-import { BlogComponent } from './blog/blog.component';
-import { ContactComponent } from './contact/contact.component';
 import { HochieuComponent } from './register_form/hochieu/hochieu.component';
-import { LylichtuphapComponent } from './register_form/lylichtuphap/lylichtuphap.component';
 import { MienthithucComponent } from './register_form/mienthithuc/mienthithuc.component';
 import { KhaisinhtrenuocngoaiComponent } from './register_form/khaisinhtrenuocngoai/khaisinhtrenuocngoai.component';
-import { SearchComponent } from './search/search.component';
-import { TokhaiyeucaulylichtuphapComponent } from './register_form/tokhaiyeucaulylichtuphap/tokhaiyeucaulylichtuphap.component';
 import { ThuongtruTamtruComponent } from './register_form/thuongtru-tamtru/thuongtru-tamtru.component';
 import { Hochieuduoi14Component } from './register_form/hochieuduoi14/hochieuduoi14.component';
 import { TokhaisohotichvieckhaisinhComponent } from './register_form/tokhaisohotichvieckhaisinh/tokhaisohotichvieckhaisinh.component';
@@ -40,16 +34,20 @@ import { SkillComponent } from './register_form/skill/skill.component';
 import { GiayuyquyenComponent } from './register_form/giayuyquyen/giayuyquyen.component';
 import { DangkymoiquanhevochongComponent } from './register_form/dangkymoiquanhevochong/dangkymoiquanhevochong.component';
 import { Form888v2Component } from './register_form/form888v2/form888v2.component';
+import { Hochieuv2Component } from './register_form/hochieuv2/hochieuv2.component';
+import { LanhsuComponent } from './lanhsu/lanhsu.component';
+import { DitruComponent } from './ditru/ditru.component';
+import { NhanhieuComponent } from '../information/nhanhieu/nhanhieu.component';
+import { Visa600GuideComponent } from './visa600-guide/visa600-guide.component';
+import { SponsorDocumentsComponent } from './sponsor-documents/sponsor-documents.component';
 
 
 
 const routes: Routes = [
     {path : "" , component : ClientComponent , children : [
-        {path : "trang-chu" , component : HomeComponent },
-        {path : 'bai-viet/:name' , component: NewsdetailComponent},
-        {path : "vn/:name" , component : BlogComponent},
-        {path : "lien-he" , component : ContactComponent},
+        {path : "" , component : HomeComponent },
         {path : "dang-ky/ho-chieu" , component : HochieuComponent},
+        {path : "dang-ky/ho-chieu-v2" , component : Hochieuv2Component},
         {path : "dang-ky/ho-chieu-duoi-14" , component : Hochieuduoi14Component},
         {path : "dang-ky/ho-chieu-duoi-14-v2" , component : Hochieuduoi14v2Component},
         {path : 'dang-ky/to-khai-ly-lich-tu-phap' , component : Lylichtuphapv2Component},
@@ -84,11 +82,15 @@ const routes: Routes = [
         {path : 'dangkychubaolanh' , component : DangkychubaolanhComponent},
         {path : 'dang-ky/visa600' , component : Visa600v2Component} ,
         {path : 'dang-ky/to-khai-ho-tich-viec-khai-sinh' , component : TokhaisohotichvieckhaisinhComponent},
-        {path : 'tim-kiem/:name' , component : SearchComponent},
         {path : 'danh-sach-tay-nghe-cot-loi-csol' , component : SkillComponent} ,
         {path : 'dang-ky/giay-uy-quyen' , component : GiayuyquyenComponent} ,
         {path : 'dang-ky/moi-quan-he-vo-chong' , component : DangkymoiquanhevochongComponent} ,
-        {path : '' , redirectTo : '/trang-chu' , pathMatch : 'full'}
+        {path : 'thong-tin/dang-ky-nhan-hieu' , component : NhanhieuComponent} ,
+        { path: 'lanhsu', component: LanhsuComponent },
+        { path: 'ditru', component: DitruComponent },
+        { path: 'huong-dan/gio-to-co-nguoi-nha-bao-lanh-visa600', component: Visa600GuideComponent },
+        { path: 'huong-dan/giay-to-nguoi-bao-lanh-visa600', component: SponsorDocumentsComponent },
+        {path : '' , redirectTo : '/' , pathMatch : 'full'}
     ]}
 ];
 

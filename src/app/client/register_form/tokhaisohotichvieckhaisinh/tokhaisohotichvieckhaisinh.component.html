@@ -1,320 +1,729 @@
-<!-- <app-loading *ngIf="isLoading"></app-loading> -->
-
-
-<section class="news_detail">
-  <div class="top_news" [ngStyle]="{ 'background-image': 'url(' + api.URL + '/uploads/' + 'contact.webp' + ')' }" >
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-              <div class="content_news_detail">
-                    <h1 class="content_news_detail_title">
-                      TỜ KHAI GHI VÀO SỔ HỘ TỊCH VIỆC KHAI SINH
-                    </h1>
-                  </div>
-            </div>
-        </div>
-    </div>
-  </div>
-
-
-  <div class="content_news" >
-    <div class="container">
-      <h2 class="content_news_detail_title" style="color:black !important; padding-bottom: 25px !important; font-size: 2rem !important; " >
-        TỜ KHAI GHI VÀO SỔ HỘ TỊCH VIỆC KHAI SINH
-      </h2>
-      <div class="row row_content_news">
-          <!-- HỌ VÀ TÊN -->
-          <form  [formGroup]="lylichtuphap" (ngSubmit)="submit()" >
-              <div class="row form">
-                    <!-- Ho va ten -->
-                <div class="col-md-6">
-                    <div class="mb-3">
-                      <label for="" class="form-label label-title">Họ, chữ đệm, tên người yêu cầu:<span class="request"> *</span> </label>
-                      <input type="text"  formControlName="fullname_req"
-                        class="form-control" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ và Tên">
-                        <small class="text-danger" *ngIf="lylichtuphap.get('fullname_req')?.invalid && lylichtuphap.get('fullname_req')?.touched">
-                          Họ và tên không được để trống
-                        </small>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="mb-3">
-                    <label for="" class="form-label label-title">Giấy tờ tùy thân (1)( cmnd/cccd ): <span class="request"> *</span> </label>
-                    <input type="text"
-                      class="form-control" formControlName="cmnd_req" aria-describedby="helpId" placeholder="Nhập Giấy tờ tùy thân">
-                      <small class="text-danger" *ngIf="lylichtuphap.get('cmnd_req')?.invalid && lylichtuphap.get('cmnd_req')?.touched">
-                        Giấy tờ tùy thân không được để trống
-                      </small>
-                  </div>
-              </div>
-            <!-- end -->
-
-            <!-- Ngày tháng năm -->
-              <div class="col-md-6">
-                <div class="mb-3">
-                  <label for="" class="form-label label-title">Nơi cư trú (2):</label>
-                  <input type="text" formControlName="address_req"
-                    class="form-control"  id="" aria-describedby="helpId" placeholder="Nhập Nơi cư trú">
-                </div>
-            </div>
-
-          <div class="col-md-6">
-            <div class="mb-3">
-              <label for="" class="form-label label-title">Quan hệ với người được khai sinh: </label>
-              <input type="text"
-                class="form-control" formControlName="relationship_req" aria-describedby="helpId" placeholder="Nhập Quan hệ với người được khai sinh">
-
-            </div>
-        </div>
-            <!-- end -->
-
-            <label for="" class="form-label label-title">Đề nghị ghi vào sổ hộ tịch việc khai sinh cho người có tên dưới đây:<span class="request"> *</span> </label>
-            <br>
-            <br>
-            <!-- 5. Dân tộc -->
-            <div class="col-md-12">
-              <div class="mb-3">
-                <label for="" class="form-label label-title">Họ, chữ đệm, tên:<span class="request"> *</span> </label>
-                <input type="input"
-                  class="form-control" formControlName="fullname" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ, chữ đệm, tên">
-                  <small class="text-danger" *ngIf="lylichtuphap.get('fullname')?.invalid && lylichtuphap.get('fullname')?.touched">
-                  Tên không được để trống
-                  </small>
-              </div>
+<section class="form lylichtuphap bg-gray-100 py-10">
+  <div class="container mx-auto lg:px-4">
+    <form [formGroup]="lylichtuphap" (ngSubmit)="submit()">
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <!-- Title -->
+        <div class="border-2 border-teal-600 p-4 rounded-lg mb-6">
+          <div class="text-center text-teal-600">
+            <h2 class="text-2xl font-bold" style="color:  #02645c;">
+              TỜ KHAI GHI VÀO SỔ HỘ TỊCH VIỆC KHAI SINH
+            </h2>
           </div>
-          <!-- end -->
-             <!-- 6. Họ chiếu -->
-             <div class="col-md-4">
-              <label for="" class="form-label label-title">Giới tính:<span class="request"> *</span> </label>
-             <div class="form-check">
-               <input class="form-check-input" type="radio"  formControlName="gender" value="Nam" id="" checked>
-               <label class="form-check-label" for="nam">
-                 Nam
-               </label>
-             </div>
-             <div class="form-check">
-               <input class="form-check-input" type="radio" formControlName="gender" value="Nữ" id="">
-               <label class="form-check-label" for="nu">
-                 Nữ
-               </label>
-             </div>
+        </div>
+
+        <!-- Section 1: Thông tin người yêu cầu -->
+        <div class="relative mb-6">
+          <div class="flex items-center">
+            <span class="inline-flex items-center justify-center w-8 h-8 bg-teal-600 text-white rounded-full mr-2">1</span>
+            <h3 class="text-xl font-bold text-gray-800">THÔNG TIN NGƯỜI YÊU CẦU</h3>
           </div>
-          <div class="col-md-4">
-            <div class="mb-3">
-              <label for="" class="form-label label-title">
-                Dân tộc: </label>
-              <input type="text"
-                class="form-control" formControlName="nation" name="" id="" aria-describedby="helpId" placeholder="Nhập dân tộc">
-            </div>
+          <p class="text-sm italic text-gray-500 pl-10">INFORMATION OF THE REQUESTER</p>
         </div>
-        <div class="col-md-4">
-          <div class="mb-3">
-            <label for="" class="form-label label-title">Quốc tịch: </label>
-            <input type="text"
-              class="form-control" formControlName="national" name="" id="" aria-describedby="helpId" placeholder="Nhập Quốc tịch">
-          </div>
-      </div>
-          <!-- end -->
-
-          <!-- 12. Họ tên cha -->
-      <div class="col-md-6">
-        <div class="mb-3">
-          <label for="" class="form-label label-title">Ngày, tháng, năm sinh:<span class="request"> *</span> </label>
-          <input type="date"
-            class="form-control" formControlName="date" name="" id="" aria-describedby="helpId" placeholder="Nhập Năm sinh">
-            <small class="text-danger" *ngIf="lylichtuphap.get('date')?.invalid && lylichtuphap.get('date')?.touched">
-              Năm sinh không được để trống
-              </small>
-        </div>
-    </div>
-
-    <div class="col-md-6">
-      <div class="mb-3">
-        <label for="" class="form-label label-title">Ghi bằng chữ: </label>
-        <input type="text"
-          class="form-control" formControlName="date_text" name="" id="" aria-describedby="helpId" placeholder="Nhập chữ ngày sinh">
-      </div>
-  </div>
-    <!-- end -->
-
-    <div class="col-md-12">
-      <div class="mb-3">
-        <label for="" class="form-label label-title">Nơi sinh (3):</label>
-        <input type="text"
-          class="form-control" formControlName="birthplace" name="" id="" aria-describedby="helpId" placeholder="Nhập nơi sinh">
-
-      </div>
-  </div>
-
-        <!-- 8. Địa chỉ cư trú tại nước ngoài* -->
-        <div class="col-md-12">
-          <div class="mb-3">
-            <label for="" class="form-label label-title">Quê quán: </label>
-            <input type="text"
-              class="form-control" name="" formControlName="nativeland" id="" aria-describedby="helpId" placeholder="Nhập quê quán">
-          </div>
-      </div>
-      <!-- end -->
-         <!-- 12. Họ tên cha -->
-         <div class="col-md-12">
-          <div class="mb-3">
-            <label for="" class="form-label label-title">Họ, chữ đệm, tên Ba:</label>
-            <input type="text"
-              class="form-control" formControlName="name_dad" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ tên cha">
-
-          </div>
-      </div>
-      <!-- 12. Họ tên cha -->
-      <div class="col-md-4">
-        <div class="mb-3">
-          <label for="" class="form-label label-title">Năm sinh của Ba:</label>
-          <input type="date"
-            class="form-control" formControlName="date_dad" name="" id="" aria-describedby="helpId" placeholder="Nhập Năm sinh">
-        </div>
-    </div>
-    <!-- end -->
-      <div class="col-md-4">
-        <div class="mb-3">
-          <label for="" class="form-label label-title">
-            Dân tộc: </label>
-          <input type="text"
-            class="form-control" formControlName="nation_dad" name="" id="" aria-describedby="helpId" placeholder="Nhập dân tộc">
-        </div>
-    </div>
-    <div class="col-md-4">
-      <div class="mb-3">
-        <label for="" class="form-label label-title">Quốc tịch:</label>
-        <input type="text"
-          class="form-control" formControlName="national_dad" name="" id="" aria-describedby="helpId" placeholder="Nhập Quốc tịch">
-
-      </div>
-  </div>
-      <!-- end -->
-      <div class="col-md-6">
-        <div class="mb-3">
-          <label for="" class="form-label label-title">
-            Nơi cư trú: (2)</label>
-          <input type="text"
-            class="form-control" formControlName="address_dad" name="" id="" aria-describedby="helpId" placeholder="Nhập nơi cư trú">
-        </div>
-    </div>
-    <div class="col-md-6">
-      <div class="mb-3">
-        <label for="" class="form-label label-title">Quê quán:</label>
-        <input type="text"
-          class="form-control" formControlName="nativeland_dad" name="" id="" aria-describedby="helpId" placeholder="Nhập Quê quán">
-      </div>
-  </div>
-
-
-       <!-- 12. Họ tên cha -->
-      <div class="col-md-12">
-        <div class="mb-3">
-          <label for="" class="form-label label-title">Họ, chữ đệm, tên mẹ:</label>
-          <input type="text"
-            class="form-control" formControlName="name_mother" name="" id="" aria-describedby="helpId" placeholder="Nhập Họ tên cha">
-
-        </div>
-    </div>
-    <!-- 12. Họ tên cha -->
-    <div class="col-md-4">
-      <div class="mb-3">
-        <label for="" class="form-label label-title">Năm sinh của Mẹ: </label>
-        <input type="date"
-          class="form-control" formControlName="date_mother" name="" id="" aria-describedby="helpId" placeholder="Nhập Năm sinh">
-      </div>
-  </div>
-  <!-- end -->
-    <div class="col-md-4">
-      <div class="mb-3">
-        <label for="" class="form-label label-title">
-          Dân tộc: </label>
-        <input type="text"
-          class="form-control" formControlName="nation_mother" name="" id="" aria-describedby="helpId" placeholder="Nhập dân tộc">
-      </div>
-  </div>
-  <div class="col-md-4">
-    <div class="mb-3">
-      <label for="" class="form-label label-title">Quốc tịch: <span class="request"> *</span> </label>
-      <input type="text"
-        class="form-control" formControlName="national_mother" name="" id="" aria-describedby="helpId" placeholder="Nhập Quốc tịch">
-    </div>
-</div>
-    <!-- end -->
-    <div class="col-md-6">
-      <div class="mb-3">
-        <label for="" class="form-label label-title">
-          Nơi cư trú: (2)</label>
-        <input type="text"
-          class="form-control" formControlName="address_mother" name="" id="" aria-describedby="helpId" placeholder="Nhập nơi cư trú">
-      </div>
-  </div>
-  <div class="col-md-6">
-    <div class="mb-3">
-      <label for="" class="form-label label-title">Quê quán:</label>
-      <input type="text"
-        class="form-control" formControlName="nativeland_mother" name="" id="" aria-describedby="helpId" placeholder="Nhập Quê quán">
-    </div>
-</div>
-
-    <div class="col-md-12">
-      <div class="mb-3">
-        <label for="" class="form-label label-title">Đã được đăng ký khai sinh tại(4): </label>
-        <input type="text"
-          class="form-control" formControlName="register" name="" id="" aria-describedby="helpId" placeholder="Nhập đăng ký khai sinh tại">
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="mb-3">
-        <label for="" class="form-label label-title">Giấy khai sinh số(5): </label>
-        <input type="text"
-          class="form-control" formControlName="numberregister" name="" id="" aria-describedby="helpId" placeholder="Nhập giấy khai sinh số">
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="mb-3">
-        <label for="" class="form-label label-title">Cấp ngày: </label>
-        <input type="date"
-          class="form-control" formControlName="register_date" name="" id="" aria-describedby="helpId" placeholder="Nhập giấy khai sinh số">
-      </div>
-    </div>
-            <!-- 6. Họ chiếu -->
-          <div class="col-md-12">
-          <label for="" class="form-label label-title">Tờ khai này được làm tại: </label>
-          <div class="form-check">
-            <input class="form-check-input" type="radio"  formControlName="address_register" value="Úc (Australia)" id="" checked>
-            <label class="form-check-label" for="nam">
-              Úc (Australia)
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Họ và tên người yêu cầu -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Họ, chữ đệm, tên người yêu cầu <span class="text-red-500">*</span>
+              <span class="block text-sm text-gray-500">Full name</span>
             </label>
+            <input
+              pInputText
+              formControlName="fullname_req"
+              placeholder="Nhập Họ và Tên"
+              class="w-full input-field"
+              [ngClass]="{'border-red-500': lylichtuphap.get('fullname_req')?.invalid && lylichtuphap.get('fullname_req')?.touched}"
+            />
+            <small
+              *ngIf="lylichtuphap.get('fullname_req')?.invalid && lylichtuphap.get('fullname_req')?.touched"
+              class="text-red-500 text-sm mt-1"
+            >
+              Họ và tên không được để trống
+            </small>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" formControlName="address_register" value="Mỹ (USA)" id="">
-            <label class="form-check-label" for="nu">
-              Mỹ (USA)
+
+          <!-- Ngày sinh người yêu cầu -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Sinh ngày / tháng / năm
+              <span class="block text-sm text-gray-500">Date of birth</span>
             </label>
+            <p-calendar
+              formControlName="date_req"
+              placeholder="dd-mm-yyyy"
+              dateFormat="dd-mm-yy"
+              [showIcon]="true"
+              class="w-full input-field"
+            ></p-calendar>
+
           </div>
+
+          <!-- Giới tính người yêu cầu -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Giới tính <span class="text-red-500">*</span>
+              <span class="block text-sm text-gray-500">Sex</span>
+            </label>
+            <div class="flex gap-4">
+              <p-radioButton
+                formControlName="gender_req"
+                value="Nam"
+                label="Nam / Male"
+                name="gender_req"
+              ></p-radioButton>
+              <p-radioButton
+                formControlName="gender_req"
+                value="Nữ"
+                label="Nữ / Female"
+                name="gender_req"
+              ></p-radioButton>
+            </div>
+          </div>
+
+          <!-- Giấy tờ tùy thân -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Giấy tờ tùy thân (CMND/CCCD)
+              <span class="block text-sm text-gray-500">Identity documents</span>
+            </label>
+            <input
+              pInputText
+              formControlName="cmnd_req"
+              placeholder="Nhập Giấy tờ tùy thân"
+              class="w-full input-field"
+              leer
+            />
+          </div>
+
+          <!-- Ngày cấp CMND/CCCD -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Ngày cấp CMND/CCCD
+              <span class="block text-sm text-gray-500">Date of issue</span>
+            </label>
+            <p-calendar
+              formControlName="cmnd_day"
+              placeholder="dd-mm-yyyy"
+              dateFormat="dd-mm-yy"
+              [showIcon]="true"
+              class="w-full input-field"
+            ></p-calendar>
+          </div>
+
+          <!-- Nơi cư trú -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Nơi cư trú
+              <span class="block text-sm text-gray-500">Place of residence</span>
+            </label>
+            <input
+              pInputText
+              formControlName="address_req"
+              placeholder="Nhập Nơi cư trú"
+              class="w-full input-field"
+            />
+          </div>
+
+          <!-- Quan hệ với người được khai sinh -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Quan hệ với người được khai sinh
+              <span class="block text-sm text-gray-500">Relationship with the person registered</span>
+            </label>
+            <input
+              pInputText
+              formControlName="relationship_req"
+              placeholder="Nhập Quan hệ với người được khai sinh"
+              class="w-full input-field"
+            />
+          </div>
+
+          <!-- Số điện thoại -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Số điện thoại
+              <span class="block text-sm text-gray-500">Phone</span>
+            </label>
+            <input
+              pInputText
+              formControlName="phone"
+              placeholder="Nhập Thông tin liên hệ"
+              class="w-full input-field"
+            />
+          </div>
+        </div>
+
+        <!-- Section 2: Thông tin người được khai sinh -->
+        <div class="relative mt-8 mb-6">
+          <div class="flex items-center">
+            <span class="inline-flex items-center justify-center w-8 h-8 bg-teal-600 text-white rounded-full mr-2">2</span>
+            <h3 class="text-xl font-bold text-gray-800">
+              ĐỀ NGHỊ GHI VÀO SỔ HỘ TỊCH VIỆC KHAI SINH CHO NGƯỜI CÓ TÊN DƯỚI ĐÂY
+            </h3>
+          </div>
+          <p class="text-sm italic text-gray-500 pl-10">INFORMATION OF THE PERSON REGISTERED</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Họ -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Họ <span class="text-red-500">*</span>
+              <span class="block text-sm text-gray-500">First Name</span>
+            </label>
+            <input
+              pInputText
+              formControlName="firstname"
+              placeholder="Nhập Họ"
+              class="w-full input-field"
+              [ngClass]="{'border-red-500': lylichtuphap.get('firstname')?.invalid && lylichtuphap.get('firstname')?.touched}"
+            />
+            <small
+              *ngIf="lylichtuphap.get('firstname')?.invalid && lylichtuphap.get('firstname')?.touched"
+              class="text-red-500 text-sm mt-1"
+            >
+              Họ không được để trống
+            </small>
+          </div>
+
+          <!-- Tên -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Chữ đệm, Tên <span class="text-red-500">*</span>
+              <span class="block text-sm text-gray-500">Last Name</span>
+            </label>
+            <input
+              pInputText
+              formControlName="lastname"
+              placeholder="Nhập Chữ đệm, Tên"
+              class="w-full input-field"
+              [ngClass]="{'border-red-500': lylichtuphap.get('lastname')?.invalid && lylichtuphap.get('lastname')?.touched}"
+            />
+            <small
+              *ngIf="lylichtuphap.get('lastname')?.invalid && lylichtuphap.get('lastname')?.touched"
+              class="text-red-500 text-sm mt-1"
+            >
+              Tên không được để trống
+            </small>
+          </div>
+
+          <!-- Giới tính -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Giới tính <span class="text-red-500">*</span>
+              <span class="block text-sm text-gray-500">Sex</span>
+            </label>
+            <div class="flex gap-4">
+              <p-radioButton
+                formControlName="gender"
+                value="Nam"
+                label="Nam / Male"
+                name="gender"
+              ></p-radioButton>
+              <p-radioButton
+                formControlName="gender"
+                value="Nữ"
+                label="Nữ / Female"
+                name="gender"
+              ></p-radioButton>
+            </div>
+          </div>
+
+           <!-- Giấy tờ tùy thân -->
+          <div class="flex flex-col md:col-span-3">
+            <label class="font-bold text-gray-700 mb-2">
+              Số định danh cá nhân (nếu có): 
+              <span class="block text-sm text-gray-500">Personal identification number (if any):</span>
+            </label>
+            <input
+              pInputText
+              formControlName="cmnd_14"
+              placeholder="Nhập Giấy tờ tùy thân"
+              class="w-full input-field"
+              leer
+            />
+          </div>
+
+          <!-- Dân tộc -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Dân tộc
+              <span class="block text-sm text-gray-500">Ethnicity</span>
+            </label>
+            <input
+              pInputText
+              formControlName="nation"
+              placeholder="Nhập Dân tộc"
+              class="w-full input-field"
+            />
+          </div>
+
+          <!-- Quốc tịch -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Quốc tịch
+              <span class="block text-sm text-gray-500">Nationality</span>
+            </label>
+            <input
+              pInputText
+              formControlName="national"
+              placeholder="Nhập Quốc tịch"
+              class="w-full input-field"
+            />
+          </div>
+
+          <!-- Tôn giáo -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Tôn giáo
+              <span class="block text-sm text-gray-500">Religion</span>
+            </label>
+            <input
+              pInputText
+              formControlName="religion"
+              placeholder="Nhập Tôn giáo"
+              class="w-full input-field"
+            />
+          </div>
+
+          <!-- Ngày tháng năm sinh -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Ngày, tháng, năm sinh <span class="text-red-500">*</span>
+              <span class="block text-sm text-gray-500">Date of birth</span>
+            </label>
+            <p-calendar
+              formControlName="date"
+              placeholder="dd-mm-yyyy"
+              dateFormat="dd-mm-yy"
+              [showIcon]="true"
+              class="w-full input-field"
+              [ngClass]="{'ng-invalid ng-dirty': lylichtuphap.get('date')?.invalid && lylichtuphap.get('date')?.touched}"
+            ></p-calendar>
+            <small
+              *ngIf="lylichtuphap.get('date')?.invalid && lylichtuphap.get('date')?.touched"
+              class="text-red-500 text-sm mt-1"
+            >
+              Ngày sinh không được để trống
+            </small>
+          </div>
+
+          <!-- Ghi bằng chữ -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Ghi bằng chữ
+              <span class="block text-sm text-gray-500">Date in words</span>
+            </label>
+            <input
+              pInputText
+              formControlName="date_text"
+              placeholder="Nhập chữ ngày sinh"
+              class="w-full input-field"
+            />
+          </div>
+
+          <!-- Nơi sinh -->
+          <div class="flex flex-col md:col-span-3">
+            <label class="font-bold text-gray-700 mb-2">
+              Nơi sinh
+              <span class="block text-sm text-gray-500">Place of birth</span>
+            </label>
+            <input
+              pInputText
+              formControlName="birthplace"
+              placeholder="Nhập Nơi sinh"
+              class="w-full input-field"
+            />
+          </div>
+
+          <!-- Quê quán -->
+          <div class="flex flex-col md:col-span-3">
+            <label class="font-bold text-gray-700 mb-2">
+              Quê quán
+              <span class="block text-sm text-gray-500">Native land</span>
+            </label>
+            <input
+              pInputText
+              formControlName="nativeland"
+              placeholder="Nhập Quê quán"
+              class="w-full input-field"
+            />
+          </div>
+
+          <!-- Địa chỉ cư trú ở nước ngoài: (Nếu có) -->
+          <div class="flex flex-col md:col-span-3">
+            <label class="font-bold text-gray-700 mb-2">
+              Địa chỉ cư trú ở nước ngoài: (Nếu có)
+              <span class="block text-sm text-gray-500">Overseas residential address:</span>
+            </label>
+            <input
+              pInputText
+              formControlName="address_foreign_14"
+              placeholder="Nhập Địa chỉ cư trú ở nước ngoài: (Nếu có)"
+              class="w-full input-field"
+            />
+          </div>
+
+          <!-- Địa chỉ cư trú ở nước ngoài: (Nếu có) -->
+          <div class="flex flex-col md:col-span-3">
+            <label class="font-bold text-gray-700 mb-2">
+              Địa chỉ đăng ký thường trú tại Việt Nam (nếu có): 
+              <span class="block text-sm text-gray-500">Permanent registered address in Vietnam </span>
+            </label>
+            <input
+              pInputText
+              formControlName="address_vn"
+              placeholder="Nhập Địa chỉ đăng ký thường trú tại Việt Nam (nếu có)"
+              class="w-full input-field"
+            />
+          </div>
+        </div>
+
+        
+
+        <!-- Section 3: Thông tin cha -->
+        <div class="relative mt-8 mb-6">
+          <div class="flex items-center">
+            <span class="inline-flex items-center justify-center w-8 h-8 bg-teal-600 text-white rounded-full mr-2">3</span>
+            <h3 class="text-xl font-bold text-gray-800">THÔNG TIN VỀ CHA</h3>
+          </div>
+          <p class="text-sm italic text-gray-500 pl-10">INFORMATION OF FATHER</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Họ và tên cha -->
+          <div class="flex flex-col md:col-span-3">
+            <label class="font-bold text-gray-700 mb-2">
+              Họ, chữ đệm, tên
+              <span class="block text-sm text-gray-500">Full name of Father</span>
+            </label>
+            <input
+              pInputText
+              formControlName="name_dad"
+              placeholder="Nhập Họ tên cha"
+              class="w-full input-field"
+            />
+          </div>
+
+          <!-- Năm sinh cha -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Năm sinh
+              <span class="block text-sm text-gray-500">Year of birth</span>
+            </label>
+            <p-calendar
+              formControlName="date_dad"
+              placeholder="yyyy"
+              dateFormat="yy"
+              view="year"
+              [showIcon]="true"
+              class="w-full input-field"
+            ></p-calendar>
+          </div>
+
+          <!-- Dân tộc cha -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Dân tộc
+              <span class="block text-sm text-gray-500">Ethnicity</span>
+            </label>
+            <input
+              pInputText
+              formControlName="nation_dad"
+              placeholder="Nhập Dân tộc"
+              class="w-full input-field"
+            />
+          </div>
+
+          <!-- Quốc tịch cha -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Quốc tịch
+              <span class="block text-sm text-gray-500">Nationality</span>
+            </label>
+            <input
+              pInputText
+              formControlName="national_dad"
+              placeholder="Nhập Quốc tịch"
+              class="w-full input-field"
+            />
+          </div>
+
+          <!-- Nơi cư trú cha -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Nơi cư trú
+              <span class="block text-sm text-gray-500">Place of residence</span>
+            </label>
+            <input
+              pInputText
+              formControlName="address_dad"
+              placeholder="Nhập Nơi cư trú"
+              class="w-full input-field"
+            />
+          </div>
+
+          <!-- Quê quán cha -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Quê quán
+              <span class="block text-sm text-gray-500">Native land</span>
+            </label>
+            <input
+              pInputText
+              formControlName="nativeland_dad"
+              placeholder="Nhập Quê quán"
+              class="w-full input-field"
+            />
+          </div>
+        </div>
+
+        <!-- Section 4: Thông tin mẹ -->
+        <div class="relative mt-8 mb-6">
+          <div class="flex items-center">
+            <span class="inline-flex items-center justify-center w-8 h-8 bg-teal-600 text-white rounded-full mr-2">4</span>
+            <h3 class="text-xl font-bold text-gray-800">THÔNG TIN VỀ MẸ</h3>
+          </div>
+          <p class="text-sm italic text-gray-500 pl-10">INFORMATION OF MOTHER</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Họ và tên mẹ -->
+          <div class="flex flex-col md:col-span-3">
+            <label class="font-bold text-gray-700 mb-2">
+              Họ, chữ đệm, tên
+              <span class="block text-sm text-gray-500">Full name of Mother</span>
+            </label>
+            <input
+              pInputText
+              formControlName="name_mother"
+              placeholder="Nhập Họ tên mẹ"
+              class="w-full input-field"
+            />
+          </div>
+
+          <!-- Năm sinh mẹ -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Năm sinh
+              <span class="block text-sm text-gray-500">Year of birth</span>
+            </label>
+            <p-calendar
+              formControlName="date_mother"
+              placeholder="yyyy"
+              dateFormat="yy"
+              view="year"
+              [showIcon]="true"
+              class="w-full input-field"
+            ></p-calendar>
+          </div>
+
+          <!-- Dân tộc mẹ -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Dân tộc
+              <span class="block text-sm text-gray-500">Ethnicity</span>
+            </label>
+            <input
+              pInputText
+              formControlName="nation_mother"
+              placeholder="Nhập Dân tộc"
+              class="w-full input-field"
+            />
+          </div>
+
+          <!-- Quốc tịch mẹ -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Quốc tịch <span class="text-red-500">*</span>
+              <span class="block text-sm text-gray-500">Nationality</span>
+            </label>
+            <input
+              pInputText
+              formControlName="national_mother"
+              placeholder="Nhập Quốc tịch"
+              class="w-full input-field"
+              [ngClass]="{'border-red-500': lylichtuphap.get('national_mother')?.invalid && lylichtuphap.get('national_mother')?.touched}"
+            />
+            <small
+              *ngIf="lylichtuphap.get('national_mother')?.invalid && lylichtuphap.get('national_mother')?.touched"
+              class="text-red-500 text-sm mt-1"
+            >
+              Quốc tịch không được để trống
+            </small>
+          </div>
+
+          <!-- Nơi cư trú mẹ -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Nơi cư trú
+              <span class="block text-sm text-gray-500">Place of residence</span>
+            </label>
+            <input
+              pInputText
+              formControlName="address_mother"
+              placeholder="Nhập Nơi cư trú"
+              class="w-full input-field"
+            />
+          </div>
+
+          <!-- Quê quán mẹ -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Quê quán
+              <span class="block text-sm text-gray-500">Native land</span>
+            </label>
+            <input
+              pInputText
+              formControlName="nativeland_mother"
+              placeholder="Nhập Quê quán"
+              class="w-full input-field"
+            />
+          </div>
+        </div>
+
+        <!-- Section 5: Thông tin đăng ký khai sinh -->
+        <div class="relative mt-8 mb-6">
+          <div class="flex items-center">
+            <span class="inline-flex items-center justify-center w-8 h-8 bg-teal-600 text-white rounded-full mr-2">5</span>
+            <h3 class="text-xl font-bold text-gray-800">THÔNG TIN ĐĂNG KÝ KHAI SINH</h3>
+          </div>
+          <p class="text-sm italic text-gray-500 pl-10">BIRTH REGISTRATION INFORMATION</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Đã được đăng ký khai sinh tại -->
+          <div class="flex flex-col md:col-span-3">
+            <label class="font-bold text-gray-700 mb-2">
+              Đã được đăng ký khai sinh tại
+              <span class="block text-sm text-gray-500">Registered at</span>
+            </label>
+            <input
+              pInputText
+              formControlName="register"
+              placeholder="Nhập Đăng ký khai sinh tại"
+              class="w-full input-field"
+            />
+          </div>
+
+          <!-- Giấy khai sinh số -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Giấy khai sinh số
+              <span class="block text-sm text-gray-500">Birth certificate number</span>
+            </label>
+            <input
+              pInputText
+              formControlName="numberregister"
+              placeholder="Nhập Giấy khai sinh số"
+              class="w-full input-field"
+            />
+          </div>
+
+          <!-- Cấp ngày -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Cấp ngày
+              <span class="block text-sm text-gray-500">Date of issue</span>
+            </label>
+            <p-calendar
+              formControlName="register_date"
+              placeholder="dd-mm-yyyy"
+              dateFormat="dd-mm-yy"
+              [showIcon]="true"
+              class="w-full input-field"
+            ></p-calendar>
+          </div>
+
+          <!-- Đã được đăng ký khai sinh tại -->
+          <div class="flex flex-col md:col-span-3">
+            <label class="font-bold text-gray-700 mb-2">
+              Hộ chiếu phổ thông lần gần nhất (nếu có) số:
+              <span class="block text-sm text-gray-500">Most recent ordinary passport (if any) number:</span>
+            </label>
+            <input
+              pInputText
+              formControlName="passport"
+              placeholder="Nhập Đăng ký khai sinh tại"
+              class="w-full input-field"
+            />
+          </div>
+
+          <!-- Cấp ngày -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Cấp ngày
+              <span class="block text-sm text-gray-500">Date of issue</span>
+            </label>
+            <p-calendar
+              formControlName="day_pp"
+              placeholder="dd-mm-yyyy"
+              dateFormat="dd-mm-yy"
+              [showIcon]="true"
+              class="w-full input-field"
+            ></p-calendar>
+          </div>
+        </div>
+
+        <!-- Section 6: Thông tin nơi làm tờ khai -->
+        <div class="relative mt-8 mb-6">
+          <div class="flex items-center">
+            <span class="inline-flex items-center justify-center w-8 h-8 bg-teal-600 text-white rounded-full mr-2">6</span>
+            <h3 class="text-xl font-bold text-gray-800">THÔNG TIN NƠI LÀM TỜ KHAI</h3>
+          </div>
+          <p class="text-sm italic text-gray-500 pl-10">INFORMATION OF DECLARATION LOCATION</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Tờ khai này được làm tại -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Tờ khai này được làm tại
+              <span class="block text-sm text-gray-500">Declaration made at</span>
+            </label>
+            <div class="flex gap-4">
+              <p-radioButton
+                formControlName="address_register"
+                value="Úc (Australia)"
+                label="Úc (Australia)"
+                name="address_register"
+              ></p-radioButton>
+              <p-radioButton
+                formControlName="address_register"
+                value="Mỹ (USA)"
+                label="Mỹ (USA)"
+                name="address_register"
+              ></p-radioButton>
+            </div>
+          </div>
+
+          <!-- Ngày khai bản khai này -->
+          <div class="flex flex-col">
+            <label class="font-bold text-gray-700 mb-2">
+              Ngày khai bản khai này <span class="text-red-500">*</span>
+              <span class="block text-sm text-gray-500">Declaration date</span>
+            </label>
+            <p-calendar
+              formControlName="date_cap_register"
+              placeholder="dd-mm-yyyy"
+              dateFormat="dd-mm-yy"
+              [showIcon]="true"
+              class="w-full input-field"
+              [ngClass]="{'ng-invalid ng-dirty': lylichtuphap.get('date_cap_register')?.invalid && lylichtuphap.get('date_cap_register')?.touched}"
+            ></p-calendar>
+            <small
+              *ngIf="lylichtuphap.get('date_cap_register')?.invalid && lylichtuphap.get('date_cap_register')?.touched"
+              class="text-red-500 text-sm mt-1"
+            >
+              Ngày khai không được để trống
+            </small>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="mt-8 text-center">
+          <p-button
+            type="submit"
+            label="Hoàn Thành"
+            [disabled]="lylichtuphap.invalid"
+            styleClass="p-button-success"
+          ></p-button>
+        </div>
       </div>
-      <div class="col-md-6">
-        <div class="mb-3">
-          <label for="" class="form-label label-title">Ngày khai bản khai này</label>
-          <input type="date"
-            class="form-control" formControlName="date_cap_register" name="" id="" aria-describedby="helpId" placeholder="Nhập Năm sinh">
-            <small class="text-danger" *ngIf="lylichtuphap.get('date_cap_register')?.invalid && lylichtuphap.get('date_cap_register')?.touched">
-              Năm sinh không được để trống
-              </small>
-        </div>
-    </div>
-
-
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-      </div>
-    </div>
-
-
   </div>
-
-
 </section>

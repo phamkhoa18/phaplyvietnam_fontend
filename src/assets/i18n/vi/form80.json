@@ -522,6 +522,7 @@
   "FORM_888": {
       "TITLE": "TỜ KHAI NHÂN CHỨNG 888",
       "DESCRIPTION": "( DÀNH CHO FORM 888 )",
+      "PLEASE_CHOOSE": "Vui lòng chọn",
 
       "PHAN_1": {
         "TITLE": "THÔNG TIN CHUNG",
@@ -600,6 +601,89 @@
           "SUB_QUESTION_2": "Nhà cửa, Công việc, Con cái, ....."
         }
       }
+  },
+
+  "FORM_HOCHIEUV2": {
+    "TITLE": "TỜ KHAI HỘ CHIẾU",
+    "DESCRIPTION": "(Dùng cho cá nhân có yêu cầu cấp Hộ Chiếu)",
+    "PHAN_1": {
+      "TITLE": "THÔNG TIN TỜ KHAI",
+      "TITLE_EN": "PERSONAL INFORMATION",
+      "FIRST_NAME": "Họ",
+      "FIRST_NAME_EN": "First Name",
+      "MIDDLE_AND_GIVEN": "Chữ đệm và tên",
+      "MIDDLE_AND_GIVEN_EN": "Middle and given name",
+      "SEX": "Giới tính",
+      "SEX_EN": "Sex",
+      "MALE": "Nam",
+      "MALE_EN": "Male",
+      "FEMALE": "Nữ",
+      "FEMALE_EN": "Female",
+      "DATE_OF_BIRTH": "Ngày Tháng Năm Sinh",
+      "DATE_OF_BIRTH_EN": "Date of birth",
+      "PLACE_OF_BIRTH": "Nơi Sinh (tỉnh, TP)",
+      "PLACE_OF_BIRTH_EN": "Place of birth",
+      "ETHNICITY": "Dân tộc",
+      "ETHNICITY_EN": "Ethnicity",
+      "RELIGION": "Tôn giáo",
+      "RELIGION_EN": "Religion",
+      "ID_CARD": "Số ĐDCN/CMND (nếu có)",
+      "ID_CARD_EN": "ID card/Citizen ID",
+      "DATE_OF_ISSUE": "Ngày Cấp",
+      "DATE_OF_ISSUE_EN": "Date of issue",
+      "ADDRESS_FOREIGN": "Địa chỉ cư trú tại nước ngoài",
+      "ADDRESS_FOREIGN_EN": "Overseas residential address",
+      "ADDRESS_VN": "Địa chỉ thường trú ở trong nước trước khi xuất cảnh",
+      "ADDRESS_VN_EN": "Permanent address in VN",
+      "PHONE": "Số điện thoại",
+      "PHONE_EN": "Phone number",
+      "OCCUPATION": "Nghề Nghiệp",
+      "OCCUPATION_EN": "Occupation",
+      "WORKPLACE": "Tên và địa chỉ cơ quan (nếu có)",
+      "WORKPLACE_EN": "Workplace"
+    },
+    "PHAN_2": {
+      "TITLE": "THÔNG TIN VỀ CHA, MẸ, VỢ(CHỒNG)",
+      "TITLE_EN": "INFORMATION OF FAMILY MEMBERS",
+      "FATHER_NAME": "Họ và tên Bố",
+      "FATHER_NAME_EN": "Full name of Father",
+      "FATHER_DOB": "Năm sinh của Bố",
+      "FATHER_DOB_EN": "Date of birth",
+      "MOTHER_NAME": "Họ và tên Mẹ",
+      "MOTHER_NAME_EN": "Full name of Mother",
+      "MOTHER_DOB": "Năm sinh của Mẹ",
+      "MOTHER_DOB_EN": "Year of Mother's birth",
+      "SPOUSE_NAME": "Họ và tên vợ/chồng",
+      "SPOUSE_NAME_EN": "Full name of wife/husband",
+      "SPOUSE_DOB": "Năm sinh của vợ/chồng",
+      "SPOUSE_DOB_EN": "Year of wife/husband's birth"
+    },
+    "PHAN_3": {
+      "TITLE": "THÔNG TIN KHÁC",
+      "TITLE_EN": "OTHER INFORMATION",
+      "PASSPORT_NUMBER": "Hộ chiếu phổ thông lần gần nhất (nếu có) số",
+      "PASSPORT_NUMBER_EN": "Most recent passport number",
+      "DATE_OF_ISSUE_PP": "Cấp ngày",
+      "DATE_OF_ISSUE_PP_EN": "Date of issue",
+      "OFFERED_CONTENT": "Nội dung đề nghị",
+      "OFFERED_CONTENT_EN": "Offered content"
+    },
+    "PHAN_4": {
+      "TITLE": "HỒ SƠ ĐÍNH KÈM",
+      "TITLE_EN": "UPLOAD FILE",
+      "ATTACH_LIST": "HỒ SƠ BAO GỒM CÁC GIẤY TỜ ĐÍNH KÈM SAU:",
+      "UPLOAD_PLACE": "Nơi upload File",
+      "UPLOAD_MAX": "(tối đa 5MB)",
+      "OR_EMAIL": "Hoặc gửi đến Trợ giúp pháp lý Việt Nam:",
+      "ITEM_1": "Hình thẻ",
+      "ITEM_2": "Hộ chiếu",
+      "ITEM_3": "Visa",
+      "ITEM_4": "Hình CMND/CCCD"
+    },
+    "CHOOSE_DOC": "Vui lòng chọn loại giấy tờ",
+    "SUBMIT": "Hoàn Thành",
+    "RESET": "Làm mới",
+    "PLACEHOLDER_ADDRESS": "Ghi rõ số nhà, xã/phường (Number, ward/commune)"
   }
 
 }

@@ -114,9 +114,16 @@ export class ThuongtruTamtruComponent {
     })
   }
 
-  toDateFormat(value : String) {
-      const valuenew = value.split('-');
-      return `${valuenew[2]}/${valuenew[1]}/${valuenew[0]}`
+  toDateFormat(value: any): string {
+      if (!value) return '';
+      if (value instanceof Date) {
+        const d = String(value.getDate()).padStart(2, '0');
+        const m = String(value.getMonth() + 1).padStart(2, '0');
+        const y = value.getFullYear();
+        return `${d}/${m}/${y}`;
+      }
+      const valuenew = value.toString().split('-');
+      return valuenew.length === 3 ? `${valuenew[2]}/${valuenew[1]}/${valuenew[0]}` : '';
   }
 
   async getdatavn() {
@@ -201,6 +208,30 @@ export class ThuongtruTamtruComponent {
       // Ví dụ: thông báo lỗi trên giao diện
       this.lylichtuphap.markAllAsTouched();
     }
+  }
+
+  getErrorMessage(controlName: string): string {
+    const control = this.lylichtuphap.get(controlName);
+    if (control && control.touched) {
+      if (control.hasError('required')) {
+        return 'Vui lòng không để trống';
+      }
+      if (control.hasError('email')) {
+        return 'Vui lòng nhập đúng định dạng email.';
+      }
+      if (control.hasError('minlength')) {
+        const minLength = control.errors?.['minlength'].requiredLength;
+        return `Tối thiểu ${minLength} ký tự.`;
+      }
+      if (control.hasError('maxlength')) {
+        const maxLength = control.errors?.['maxlength'].requiredLength;
+        return `Tối đa ${maxLength} ký tự.`;
+      }
+      if (control.hasError('pattern')) {
+        return 'Định dạng không hợp lệ.';
+      }
+    }
+    return '';
   }
 
   resetForm(): void {

@@ -3,7 +3,6 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { Form80serviceService } from 'src/app/services/form80service.service';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { GooglemapsService } from 'src/app/services/googlemaps.service';
 import { formatDate } from '@angular/common';
 declare var google: any;
 
@@ -37,7 +36,6 @@ export class Form80eComponent {
   public entries:any = [];
   constructor(
     public form80service: Form80serviceService,
-    private googleMapservice: GooglemapsService,
     private ngZone: NgZone,
     private mess: MessageService,
     private router: Router,
@@ -58,12 +56,6 @@ export class Form80eComponent {
     });
     this.countries = this.form80service.countries ;
     this.thongtinarray = JSON.parse(sessionStorage.getItem('thongtinarraye') || '[]');
-    this.googleMapservice.loadGoogleMaps().then(() => {
-      this.initializeAutocomplete();
-    }).catch(error => {
-      console.error('Error loading Google Maps script:', error);
-    });
-
   }
 
   goToNext(): void {
@@ -146,49 +138,6 @@ export class Form80eComponent {
       });
       // Đẩy FormGroup vào FormArray
       apNatArray.push(group);
-    });
-  }
-
-  initializeAutocomplete(): void {
-    if (!this.autocompleteInput) {
-      console.error('Autocomplete input không được tìm thấy.');
-      return;
-    }
-
-    const autocompleteOptions = {
-      types: ['geocode']
-    };
-
-    this.autocomplete = new google.maps.places.Autocomplete(this.autocompleteInput.nativeElement, autocompleteOptions);
-
-    this.autocomplete.addListener('place_changed', () => {
-      this.ngZone.run(() => {
-        const place = this.autocomplete.getPlace();
-        if (place.geometry) {
-          console.log('Địa điểm đã chọn:', place.formatted_address);
-          this.itemthongtin.get(['ap.address live']).setValue(place.formatted_address);
-          // Lấy ra thành phần địa chỉ
-          const addressComponents = place.address_components;
-          let country = '';
-
-          // Tìm quốc gia trong các thành phần địa chỉ
-          for (const component of addressComponents) {
-            if (component.types.includes('country')) {
-              country = component.long_name; // Quốc gia (tên đầy đủ)
-              break;
-            }
-          }
-
-          if (country) {
-            console.log('Quốc gia:', country);
-            this.itemthongtin.get(['ap.cntry lived']).setValue(country);
-          } else {
-            console.log('Không tìm thấy quốc gia.');
-          }
-        } else {
-          console.log('Không có thông tin địa điểm hợp lệ');
-        }
-      });
     });
   }
 

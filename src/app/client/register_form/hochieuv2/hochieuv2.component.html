@@ -1,0 +1,239 @@
+<section class="min-h-screen bg-gray-50 py-8">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <form [formGroup]="hochieu" (ngSubmit)="submit()">
+      <div class="bg-white rounded-xl shadow-sm">
+        <!-- Title Header -->
+        <div class="relative bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800 rounded-t-xl">
+          <div class="px-6 py-8 sm:px-10 sm:py-10">
+            <div class="mx-auto max-w-3xl text-center">
+              <h1 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white tracking-tight">
+                {{ 'FORM_HOCHIEUV2.TITLE' | translate }}
+              </h1>
+              <p class="mt-2 text-xs sm:text-sm text-teal-50/90 font-normal">
+                {{ 'FORM_HOCHIEUV2.DESCRIPTION' | translate }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Body -->
+        <div class="p-6 md:p-8">
+          <!-- Section 1 -->
+          <div class="relative flex items-center mb-6 border-b-2 border-teal-600 pb-3">
+            <div class="flex-shrink-0 w-10 h-10 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">1</div>
+            <div class="ml-4">
+              <h2 class="text-xl md:text-2xl font-semibold text-teal-700 uppercase">{{ 'FORM_HOCHIEUV2.PHAN_1.TITLE' | translate }}</h2>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-8">
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_1.FIRST_NAME' | translate }} <span class="text-red-600 font-bold">*</span></label>
+              <input type="text" [formControlName]="'firstname'" pInputText [placeholder]="placeholder"
+                [ngClass]="{'border-red-500 bg-red-50': hochieu.get('firstname')?.invalid && (hochieu.get('firstname')?.dirty || hochieu.get('firstname')?.touched)}"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('firstname') != ''">{{ getErrorMessage('firstname') }}</span>
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_1.MIDDLE_AND_GIVEN' | translate }} <span class="text-red-600 font-bold">*</span></label>
+              <input type="text" [formControlName]="'lastname'" pInputText [placeholder]="placeholder"
+                [ngClass]="{'border-red-500 bg-red-50': hochieu.get('lastname')?.invalid && (hochieu.get('lastname')?.dirty || hochieu.get('lastname')?.touched)}"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('lastname') != ''">{{ getErrorMessage('lastname') }}</span>
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_1.SEX' | translate }} <span class="text-red-600 font-bold">*</span></label>
+              <div class="flex flex-wrap gap-4">
+                <div class="flex items-center gap-2">
+                  <p-radioButton [formControlName]="'gender'" value="Nam" />
+                  <span class="text-sm text-gray-700">{{ 'FORM_HOCHIEUV2.PHAN_1.MALE' | translate }}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <p-radioButton [formControlName]="'gender'" value="Nữ" />
+                  <span class="text-sm text-gray-700">{{ 'FORM_HOCHIEUV2.PHAN_1.FEMALE' | translate }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_1.DATE_OF_BIRTH' | translate }} <span class="text-red-600 font-bold">*</span></label>
+              <p-calendar placeholder="dd/mm/yyyy" [dateFormat]="'dd/mm/yy'" formControlName="date" styleClass="w-full"
+                inputStyleClass="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all"
+                [ngClass]="{'border-red-500 bg-red-50': hochieu.get('date')?.invalid && (hochieu.get('date')?.dirty || hochieu.get('date')?.touched)}"></p-calendar>
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('date') != ''">{{ getErrorMessage('date') }}</span>
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_1.PLACE_OF_BIRTH' | translate }} <span class="text-red-600 font-bold">*</span></label>
+              <input type="text" pInputText [placeholder]="placeholder" formControlName="date_address"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_1.ETHNICITY' | translate }}</label>
+              <input type="text" pInputText [placeholder]="placeholder" formControlName="nation"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_1.RELIGION' | translate }}</label>
+              <input type="text" pInputText [placeholder]="placeholder" formControlName="religion"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_1.ID_CARD' | translate }}</label>
+              <input type="text" pInputText [placeholder]="placeholder" formControlName="cmnd"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_1.DATE_OF_ISSUE' | translate }}</label>
+              <p-calendar placeholder="dd/mm/yyyy" [dateFormat]="'dd/mm/yy'" formControlName="cmnd_day" styleClass="w-full"
+                inputStyleClass="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all"></p-calendar>
+            </div>
+
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_1.ADDRESS_FOREIGN' | translate }}</label>
+              <textarea rows="3" pInputTextarea [placeholder]="'FORM_HOCHIEUV2.PLACEHOLDER_ADDRESS' | translate" [formControlName]="'address_foreign'"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all resize-none"></textarea>
+            </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_1.ADDRESS_VN' | translate }}</label>
+              <textarea rows="3" pInputTextarea [placeholder]="'FORM_HOCHIEUV2.PLACEHOLDER_ADDRESS' | translate" [formControlName]="'address_vn'"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all resize-none"></textarea>
+            </div>
+
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_1.PHONE' | translate }} <span class="text-red-600 font-bold">*</span></label>
+              <input type="text" [formControlName]="'phone'" pInputText [placeholder]="placeholder"
+                [ngClass]="{'border-red-500 bg-red-50': hochieu.get('phone')?.invalid && (hochieu.get('phone')?.dirty || hochieu.get('phone')?.touched)}"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+              <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('phone') != ''">{{ getErrorMessage('phone') }}</span>
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_1.OCCUPATION' | translate }}</label>
+              <input type="text" [formControlName]="'job'" pInputText [placeholder]="placeholder"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_1.WORKPLACE' | translate }}</label>
+              <input type="text" [formControlName]="'address_organ'" pInputText [placeholder]="placeholder"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+          </div>
+
+          <!-- Section 2 -->
+          <div class="relative flex items-center mb-6 border-b-2 border-teal-600 pb-3">
+            <div class="flex-shrink-0 w-10 h-10 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">2</div>
+            <div class="ml-4">
+              <h2 class="text-xl md:text-2xl font-semibold text-teal-700 uppercase">{{ 'FORM_HOCHIEUV2.PHAN_2.TITLE' | translate }}</h2>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-8">
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_2.FATHER_NAME' | translate }}</label>
+              <input type="text" pInputText [formControlName]="'name_dad'" [placeholder]="placeholder"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_2.FATHER_DOB' | translate }}</label>
+              <input type="number" pInputText [formControlName]="'date_dad'" [placeholder]="placeholder"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_2.MOTHER_NAME' | translate }}</label>
+              <input type="text" pInputText [formControlName]="'name_mother'" [placeholder]="placeholder"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_2.MOTHER_DOB' | translate }}</label>
+              <input type="number" pInputText [formControlName]="'date_mother'" [placeholder]="placeholder"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_2.SPOUSE_NAME' | translate }}</label>
+              <input type="text" pInputText [formControlName]="'name_chong_vo'" [placeholder]="placeholder"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_2.SPOUSE_DOB' | translate }}</label>
+              <input type="number" pInputText [formControlName]="'date_cv'" [placeholder]="placeholder"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+          </div>
+
+          <!-- Section 3 -->
+          <div class="relative flex items-center mb-6 border-b-2 border-teal-600 pb-3">
+            <div class="flex-shrink-0 w-10 h-10 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">3</div>
+            <div class="ml-4">
+              <h2 class="text-xl md:text-2xl font-semibold text-teal-700 uppercase">{{ 'FORM_HOCHIEUV2.PHAN_3.TITLE' | translate }}</h2>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-8">
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_3.PASSPORT_NUMBER' | translate }}</label>
+              <input type="text" pInputText [formControlName]="'passport'" [placeholder]="placeholder"
+                class="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all" />
+            </div>
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_3.DATE_OF_ISSUE_PP' | translate }}</label>
+              <p-calendar placeholder="dd/mm/yyyy" [dateFormat]="'dd/mm/yy'" formControlName="day_pp" styleClass="w-full"
+                inputStyleClass="w-full px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-1 focus:ring-teal-500 focus:border-teal-500 transition-all"></p-calendar>
+            </div>
+            <div class="md:col-span-4 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">{{ 'FORM_HOCHIEUV2.PHAN_3.OFFERED_CONTENT' | translate }}</label>
+              <p-dropdown [options]="listdenghi" optionLabel="name" optionValue="name" formControlName="de_nghi" [placeholder]="'FORM_HOCHIEUV2.CHOOSE_DOC' | translate"
+                styleClass="w-full" panelStyleClass="rounded-lg shadow-lg"></p-dropdown>
+            </div>
+          </div>
+
+          <!-- Section 4 -->
+          <div class="relative flex items-center mb-6 border-b-2 border-teal-600 pb-3">
+            <div class="flex-shrink-0 w-10 h-10 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">4</div>
+            <div class="ml-4">
+              <h2 class="text-xl md:text-2xl font-semibold text-teal-700 uppercase">{{ 'FORM_HOCHIEUV2.PHAN_4.TITLE' | translate }}</h2>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-8">
+            <div class="md:col-span-6 flex flex-col gap-2">
+              <label class="block text-sm font-medium text-gray-700 mb-2">{{ 'FORM_HOCHIEUV2.PHAN_4.ATTACH_LIST' | translate }}</label>
+              <div class="space-y-1 text-sm text-gray-600">
+                <p>1. {{ 'FORM_HOCHIEUV2.PHAN_4.ITEM_1' | translate }}</p>
+                <p>2. {{ 'FORM_HOCHIEUV2.PHAN_4.ITEM_2' | translate }}</p>
+                <p>3. {{ 'FORM_HOCHIEUV2.PHAN_4.ITEM_3' | translate }}</p>
+                <p>4. {{ 'FORM_HOCHIEUV2.PHAN_4.ITEM_4' | translate }}</p>
+              </div>
+            </div>
+            <div class="md:col-span-6 flex flex-col gap-3">
+              <label class="block text-sm font-semibold text-gray-800">{{ 'FORM_HOCHIEUV2.PHAN_4.UPLOAD_PLACE' | translate }} <span class="text-xs text-gray-500 font-normal">{{ 'FORM_HOCHIEUV2.PHAN_4.UPLOAD_MAX' | translate }}</span></label>
+              <p-fileUpload name="demo[]" [multiple]="true" [auto]="false" [customUpload]="true" [maxFileSize]="5000000"
+                (onSelect)="onSelect($event)" (onUpload)="onUpload($event)" chooseLabel="Chọn File" uploadLabel="Tải lên" cancelLabel="Hủy" styleClass="w-full">
+                <ng-template pTemplate="content">
+                  <div *ngIf="uploadedFiles.length" class="mt-3 space-y-2">
+                    <div *ngFor="let file of uploadedFiles" class="flex items-center justify-between bg-gray-100 text-gray-800 text-sm px-3 py-2 rounded-lg">
+                      <span class="truncate flex-1">📄 {{ file.name }}</span>
+                      <span class="text-gray-500 text-xs ml-2">{{ (file.size / 1024 / 1024).toFixed(2) }} MB</span>
+                    </div>
+                  </div>
+                </ng-template>
+              </p-fileUpload>
+              <p class="text-sm text-gray-600">{{ 'FORM_HOCHIEUV2.PHAN_4.OR_EMAIL' | translate }} <a href="mailto:hotro@trogiupphaply.com.au" class="text-teal-600 font-medium underline">hotro@trogiupphaply.com.au</a></p>
+            </div>
+          </div>
+
+          <p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { left: '50%', right: 'auto', transform: 'translateX(-50%)', bottom: '20px', width: 'calc(100% - 32px)', maxWidth: '360px' } }" />
+          <div class="flex flex-wrap justify-center gap-4 mt-8">
+            <button (click)="submit()" type="submit"
+              class="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-white bg-teal-600 rounded-lg shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 transition-all">
+              <i class="pi pi-check-circle mr-2"></i>{{ 'FORM_HOCHIEUV2.SUBMIT' | translate }}
+            </button>
+            <button type="button" (click)="resetForm()"
+              class="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-all">
+              <i class="pi pi-refresh mr-2"></i>{{ 'FORM_HOCHIEUV2.RESET' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

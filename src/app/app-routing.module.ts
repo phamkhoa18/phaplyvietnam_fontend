@@ -11,10 +11,6 @@ const routes: Routes = [
     loadChildren: () => import('./client/client.module').then(m => m.ClientModule)
   },
   {
-    path: 'pdf',
-    loadChildren: () => import('./pdf/pdf.module').then(m => m.PdfModule)
-  },
-  {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
     canActivate: [AuthSGuard]

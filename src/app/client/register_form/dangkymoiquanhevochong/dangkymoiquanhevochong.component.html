@@ -1077,7 +1077,7 @@
                 </div>
               </div>
             </div>
-            <p-toast position="bottom-right" key="br"/>
+            <p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { left: '50%', right: 'auto', transform: 'translateX(-50%)', bottom: '20px', width: 'calc(100% - 32px)', maxWidth: '360px' } }" />
             <button
                 (click)="submit()"
                 pButton

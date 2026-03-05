@@ -1,339 +1,56 @@
+<div class="home-page">
+  <div class="home-container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title">Biểu Mẫu Pháp Lý</h1>
+        <p class="hero-subtitle">Hệ thống biểu mẫu trực tuyến hỗ trợ các thủ tục pháp lý tại Việt Nam</p>
+      </div>
+    </section>
 
-<app-slider></app-slider>
+    <!-- Category Cards -->
+    <section class="categories-section">
+      <div class="categories-grid">
+        <!-- Lãnh sự Card -->
+        <div class="category-card" routerLink="/lanhsu">
+          <div class="card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h2 class="card-title">Biểu mẫu Lãnh sự</h2>
+            <p class="card-description">Tổng hợp các biểu mẫu phục vụ công việc Lãnh sự</p>
+          </div>
+          <div class="card-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 12l4-4-4-4"></path>
+            </svg>
+          </div>
+        </div>
 
-<section class="introduce sec">
-    <div class="container">
-      <div class="row">
-        <div class="cot1 col-xl-5 col-xs-12"><img [src]="this.api.URL + '/uploads/' + logo[0].image" style="margin-bottom: 20px;" alt="" width="300px"></div>
-        <div class="cot  col-xl-7 col-xs-12">
-          <p class="chungtoilaai">Chúng tôi là ai ?</p>
-          <p class="main_tittle">VỀ CHÚNG TÔI</p>
-          <p class="chungtoilaai">Trợ Giúp Pháp Lý Việt Nam tự hào là một nguồn tài nguyên đáng tin cậy và hữu ích về pháp lý tại Việt Nam. Chúng tôi cam kết cung cấp thông tin và hỗ trợ pháp lý đáng tin cậy, giúp bạn hiểu rõ và giải quyết các vấn đề liên quan đến pháp luật.</p>
-          <p class="chungtoilaai">Với sự phức tạp và thay đổi liên tục của hệ thống pháp luật, việc hiểu rõ quy định và quy trình pháp lý là rất quan trọng để bảo vệ quyền lợi của bạn. Tại Trợ Giúp Pháp Lý Việt Nam, chúng tôi cung cấp thông tin pháp lý dễ hiểu và chính xác về các lĩnh vực như hợp đồng, lao động, doanh nghiệp, gia đình, bất động sản, và nhiều lĩnh vực pháp lý khác.</p>
-          <div class="div_button">
-            <button class="button_xemthem">XEM THÊM</button>
+        <!-- Di trú Card -->
+        <div class="category-card" routerLink="/ditru">
+          <div class="card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h2 class="card-title">Biểu mẫu Di trú</h2>
+            <p class="card-description">Danh sách các biểu mẫu hỗ trợ thủ tục Di trú</p>
+          </div>
+          <div class="card-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 12l4-4-4-4"></path>
+            </svg>
           </div>
         </div>
       </div>
-    </div>
-</section>
-
-<!-- services -->
-
-<section class="bannermini" style="height: 80px;"></section>
-
-<section class="services sec"  >
-  <div class="container">
-    <span class=""> <hr> Chúng tôi làm những gì ? <hr></span>
-          <h3 class="title_services">DỊCH VỤ CỦA CHÚNG TÔI</h3>
-      <div class="row row_services">
-          <div class="col-lg-4 col-md-6 col-xs-12 col_services" *ngFor="let item of listservice" >
-                <div class="item_services"  routerLink="/{{item.link}}" style="cursor: pointer;" >
-                 <div class="item_services_logo">
-                    <i class="icon_edit fa-solid fa-pen-nib"></i>
-                  </div>
-                  <div class="item_services_des">
-                    <h3 class="des_services_title">{{item.title}}</h3>
-                    <div class="des_services_des" [innerText]="this.extractDescriptionPart(item.description)">
-
-                    </div>
-                  </div>
-                </div>
-          </div>
-
-      </div>
-
-      <div class="btn_click">
-        <button class="button_xemthem_vang" routerLink="/vn/dich-vu-lanh-su">XEM THÊM</button>
-      </div>
+    </section>
   </div>
-
-</section>
-
-<!-- end services -->
-
-
-<!-- quy trình -->
-
-<section class="tieubieu sec">
-  <div class="container">
-    <span class="diemnhan_services" style="color: #ffff;"> <hr>Quy trình sẽ như thế nào ?<hr></span>
-    <h3 class="title_services" >QUY TRÌNH XỬ LÝ CỦA CHÚNG TÔI </h3>
-
-    <div class="row row_tieubieu center">
-        <div class="col-lg-4 col-md-4 col-xs-12 col_tieubieu">
-            <div class="item_tieubieu">
-                <div class="item_tieubieu_icon">
-                  <i class="fa-solid fa-circle-question"></i>
-                </div>
-                <div class="item_tieubieu_title">
-                    <h3>Thu thập thông tin</h3>
-                </div>
-                <div class="item_tieubieu_des">
-                  Chúng tôi tìm kiếm thông tin từ các nguồn đáng tin cậy như cơ sở dữ liệu pháp lý và văn bản quy phạm pháp luật. Chúng tôi đảm bảo rằng thông tin thu thập được là chính xác và đáng tin cậy.
-                </div>
-                  <i class="fa-solid fa-circle-question item_tieubieu_nenicon"></i>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-xs-12 col_tieubieu">
-          <div class="item_tieubieu">
-              <div class="item_tieubieu_icon">
-                <i class="fa-solid fa-user-pen"></i>
-              </div>
-              <div class="item_tieubieu_title">
-                  <h3>Xử lý thông tin</h3>
-              </div>
-              <div class="item_tieubieu_des">
-                Chúng tôi phân tích và tổ chức thông tin thu thập để đáp ứng yêu cầu cụ thể. Việc này đảm bảo rằng thông tin được xử lý một cách hiệu quả và đáng tin cậy.
-              </div>
-              <i class="fa-solid fa-user-pen item_tieubieu_nenicon"></i>
-          </div>
-      </div>
-      <div class="col-lg-4 col-md-4 col-xs-12 col_tieubieu">
-        <div class="item_tieubieu">
-            <div class="item_tieubieu_icon">
-              <i class="fa-regular fa-thumbs-up"></i>
-            </div>
-            <div class="item_tieubieu_title">
-                <h3>Hoàn tất thủ tục</h3>
-            </div>
-            <div class="item_tieubieu_des">
-              Chúng tôi tuân thủ các quy trình nội bộ và quy định pháp luật để đảm bảo tính hợp lệ và chất lượng thông tin. Chúng tôi kiểm tra và đối chiếu thông tin trước khi hoàn tất thủ tục.
-            </div>
-            <i class="fa-regular fa-thumbs-up item_tieubieu_nenicon"></i>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-xs-12 col_tieubieu">
-      <div class="item_tieubieu">
-          <div class="item_tieubieu_icon">
-            <i class="fa-solid fa-circle-check"></i>
-          </div>
-          <div class="item_tieubieu_title">
-              <h3>Trả kết quả</h3>
-          </div>
-          <div class="item_tieubieu_des">
-            Cuối cùng, chúng tôi trình bày kết quả thông tin đã xử lý cho khách hàng hoặc bộ phận yêu cầu. Kết quả này được truyền đạt một cách rõ ràng và đáng tin cậy để hỗ trợ quyết định và hoạt động pháp lý.
-          </div>
-          <i class="fa-solid fa-circle-check item_tieubieu_nenicon"></i>
-      </div>
-  </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- end quy trình -->
-
-
-<!-- chi phí -->
-
-<section class="dolar sec" >
-    <div class="container">
-      <span class="diemnhan_services"> <hr> Bạn phải trả cho chúng tôi bao nhiêu ? <hr></span>
-          <h3 class="title_services">CHI PHÍ</h3>
-      <div class="row row_services">
-          <div class="col-lg-4 col-md-4 col-xs-12 col_services">
-            <div class="item_dolar border-3" style="border-radius: 30px;">
-              <div class="container_dolar card-body">
-                <div class="icon_dolar">
-                  <i class="icon_custom_3 fa-solid fa-phone-volume"></i>
-                </div>
-                <h5 class="card-title title_dolar" style="color: #75DAD2;">MIỄN PHÍ</h5>
-                <div class="content_dolar div_support">
-                  <p class="sp_text card-text">Tư vấn</p>
-                  <p class="sp_text card-text">Hỗ trợ sinh viên</p>
-                  <p class="sp_text card-text">Hỗ trợ giấy tờ</p>
-                </div>
-                  <p class="card-text">
-                    <small class="text-muted">
-                    <div class="div_support">
-                      <button class="button_support">Tìm hiểu thêm</button>
-                    </div>
-                  </small>
-                  </p>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-4 col-xs-12 col_services">
-            <div class="item_dolar border-3" style="border-radius: 30px;">
-              <div class="container_dolar card-body">
-                <div class="icon_dolar">
-                  <i class="icon_custom_3 fa-solid fa-phone-volume"></i>
-                </div>
-                <h5 class="card-title title_dolar" style="color: #75DAD2;">MIỄN PHÍ</h5>
-                <div class="content_dolar div_support">
-                  <p class="sp_text card-text">Tư vấn</p>
-                  <p class="sp_text card-text">Hỗ trợ sinh viên</p>
-                  <p class="sp_text card-text">Hỗ trợ giấy tờ</p>
-                </div>
-                  <p class="card-text">
-                    <small class="text-muted">
-                    <div class="div_support">
-                      <button class="button_support">Tìm hiểu thêm</button>
-                    </div>
-                  </small>
-                  </p>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-4 col-xs-12 col_services">
-            <div class="item_dolar border-3" style="border-radius: 30px;">
-              <div class="container_dolar card-body">
-                <div class="icon_dolar">
-                  <i class="icon_custom_3 fa-solid fa-phone-volume"></i>
-                </div>
-                <h5 class="card-title title_dolar" style="color: #75DAD2;">MIỄN PHÍ</h5>
-                <div class="content_dolar div_support">
-                  <p class="sp_text card-text">Tư vấn</p>
-                  <p class="sp_text card-text">Hỗ trợ sinh viên</p>
-                  <p class="sp_text card-text">Hỗ trợ giấy tờ</p>
-                </div>
-                  <p class="card-text">
-                    <small class="text-muted">
-                    <div class="div_support">
-                      <button class="button_support">Tìm hiểu thêm</button>
-                    </div>
-                  </small>
-                  </p>
-
-              </div>
-            </div>
-          </div>
-
-      </div>
-
-      <div class="btn_click">
-        <button class="button_xemthem_vang" routerLink="/vn/dich-vu-lanh-su">XEM THÊM</button>
-      </div>
-    </div>
-</section>
-
-<!-- end chi phí -->
-
-
-<!-- liên hệ -->
-
-<div class="mini_2">
-  <div class="container_mini_2 container">
-    <div class="mini_banner_2_content_left">
-      <h1 class="coop">Bạn muốn hợp tác với chúng tôi ?</h1>
-      <p class="coop_1">Trợ giúp Pháp Lý Việt Nam luôn sẵn sàng hợp tác với bạn</p>
-  </div>
-
-    <div class="mini_banner_2_content_right">
-      <button class="button_lienhe">LIÊN HỆ NGAY</button>
-    </div>
-
 </div>
-</div>
-<!-- end -->
-
-
-
-
-<!-- form -->
-  <!-- <app-form></app-form> -->
-<!-- end form -->
-
-
-
-<!-- Ý kiến khách hàng  -->
-<!-- <app-customer></app-customer> -->
-
-<!-- end  -->
-
-
-<!-- thành công -->
-
-<!-- <section class="success sec">
-    <div class="container">
-        <div class="row row_success">
-          <div class="quangcao khung_success">
-            <div class="row row_quangcao">
-                <div class="col-lg-3 col-md-3 col-xs-12 col_quangcao">
-                    <div class="item_quangcao item_success">
-                        <div class="icon_quangcao icon_success">
-                            <img [src]="this.api.URL + '/uploads/sach.webp'"alt="">
-                        </div>
-                        <div class="des_quangcao">
-                         <h3 class="des_quangcao_title des_success_title">
-                          <a href="#" title="" style="color: #ffffff;font-size: 20px;">1820 + </a>
-                        </h3>
-                        <h3 class="des_quangcao_title des_success_des">
-                          <a href="#" title="" style="color: #ffffff;font-size: 20px;">Hồ sơ hoàn tất
-                          </a>
-                        </h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-xs-12 col_quangcao">
-                  <div class="item_quangcao item_success">
-                      <div class="icon_quangcao icon_success">
-                          <img [src]="this.api.URL + '/uploads/user.webp'" alt="">
-                      </div>
-                      <div class="des_quangcao">
-                       <h3 class="des_quangcao_title des_success_title">
-                        <a href="#" title="" style="color: #ffffff;font-size: 20px;">2000 + </a>
-                      </h3>
-                      <h3 class="des_quangcao_title des_success_des">
-                        <a href="#" title="" style="color: #ffffff;font-size: 20px;">Khách hàng
-                        </a>
-                      </h3>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-3 col-md-3 col-xs-12 col_quangcao">
-                <div class="item_quangcao item_success">
-                    <div class="icon_quangcao icon_success">
-                        <img [src]="this.api.URL + '/uploads/battay.webp'" alt="">
-                    </div>
-                    <div class="des_quangcao">
-                     <h3 class="des_quangcao_title des_success_title">
-                      <a href="#" title="" style="color: #ffffff;font-size: 20px;">200 + </a>
-                    </h3>
-                    <h3 class="des_quangcao_title des_success_des">
-                      <a href="#" title="" style="color: #ffffff;font-size: 20px;">Đối tác liên kết
-                      </a>
-                    </h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-xs-12 col_quangcao">
-              <div class="item_quangcao item_success">
-                  <div class="icon_quangcao icon_success">
-                      <img [src]="this.api.URL + '/uploads/win.webp'" alt="">
-                  </div>
-                  <div class="des_quangcao">
-                   <h3 class="des_quangcao_title des_success_title">
-                    <a href="#" title="" style="color: #ffffff;font-size: 20px;">1820 + </a>
-                  </h3>
-                  <h3 class="des_quangcao_title des_success_des">
-                    <a href="#" title="" style="color: #ffffff;font-size: 20px;">Hồ sơ thành công
-                    </a>
-                  </h3>
-                  </div>
-              </div>
-          </div>
-            </div>
-        </div>
-        </div>
-    </div>
-</section> -->
-
-
-
-<!-- end -->
-
-
-<!-- news  -->
-
-<app-news></app-news>
-
-
-<app-form></app-form>
-
-<!-- end -->

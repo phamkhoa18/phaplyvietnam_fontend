@@ -3,7 +3,6 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { Form80serviceService } from 'src/app/services/form80service.service';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { GooglemapsService } from 'src/app/services/googlemaps.service';
 import { formatDate } from '@angular/common';
 declare var google: any;
 
@@ -39,7 +38,6 @@ arrayvisit:any = [
 public entries:any = [];
 constructor(
   public form80service: Form80serviceService,
-  private googleMapservice: GooglemapsService,
   private ngZone: NgZone,
   private mess: MessageService,
   private router: Router,
@@ -63,12 +61,6 @@ ngOnInit(): void {
   });
   this.thongtinarray = JSON.parse(sessionStorage.getItem('thongtinarrayl') || '[]');
   this.countries = this.form80service.countries ;
-
-  this.googleMapservice.loadGoogleMaps().then(() => {
-    this.initializeAutocomplete();
-  }).catch(error => {
-    console.error('Error loading Google Maps script:', error);
-  });
 
 }
 

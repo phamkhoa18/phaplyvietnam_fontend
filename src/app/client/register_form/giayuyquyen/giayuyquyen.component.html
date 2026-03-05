@@ -125,7 +125,7 @@
                   <label class="d-block font-weight-bold mb-2 title-input">
                     5. {{ 'FORM_UYQUYEN.APPLICANT_INFO.CURRENT_ADDRESS' | translate }}
                   </label>
-                  <input type="text" pInputText #autocomplete
+                  <input type="text" pInputText
                     [id]="inputId"
                     [formControlName]="'diachi'"
                     [placeholder]="placeholder"
@@ -278,7 +278,7 @@
                   <label class="d-block font-weight-bold mb-2 title-input">
                     6. {{ 'FORM_UYQUYEN.AUTHORIZED_PERSON.CURRENT_ADDRESS' | translate }}
                   </label>
-                  <input type="text" pInputText #autocomplete2
+                  <input type="text" pInputText
                     [id]="inputId"
                     [formControlName]="'diachiuq'"
                     [placeholder]="placeholder"
@@ -423,7 +423,7 @@
                 </div>
               </div>
             </div>
-            <p-toast position="bottom-right" key="br"/>
+            <p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { left: '50%', right: 'auto', transform: 'translateX(-50%)', bottom: '20px', width: 'calc(100% - 32px)', maxWidth: '360px' } }" />
             <button
                 (click)="submit()"
                 pButton

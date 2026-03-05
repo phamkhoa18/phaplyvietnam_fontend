@@ -1,30 +1,26 @@
-<section class="form lylichtuphap">
-  <div class="container">
-      <form [formGroup]="lylichtuphap" (ngSubmit)="submit()">
-        <div class="form_80" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;">
-          <!-- title -->
-          <div class="mat-card" style="border: 2px solid #1A8B83;">
-              <div class="HeaderCenter">
-                <span class="d-flex align-items-center flex-column" >
-                  <b class="header-title">{{ 'FORM_VISA600.TITLE' | translate }}</b>
-                  <b class="sub-title"><i>{{ 'FORM_VISA600.DES' | translate }}</i></b>
-                </span>
-              </div>
-          </div>
-
-           <!-- content -->
-           <div class="mat-card">
-            <div class="header-child header-a position-relative">
-              <div class="stt"><span>1</span></div>
-              <div class="content-header">
-                <h2 class="header-title-child d-flex flex-column">THÔNG TIN CƠ BẢN
-                  <b class="sub-title-child"><i>BASIC INFORMATION</i></b>
-                </h2>
-              </div>
+<section class="min-h-screen bg-gray-50 py-8">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <form [formGroup]="lylichtuphap" (ngSubmit)="submit()">
+      <div class="bg-white rounded-xl shadow-sm">
+        <div class="relative bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800 rounded-t-xl">
+          <div class="px-6 py-8 sm:px-10 sm:py-10">
+            <div class="mx-auto max-w-3xl text-center">
+              <h1 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white tracking-tight">{{ 'FORM_VISA600.TITLE' | translate }}</h1>
+              <p class="mt-2 text-xs sm:text-sm text-teal-50/90 font-normal">{{ 'FORM_VISA600.DES' | translate }}</p>
             </div>
-            <div class="row" style="padding-top: 15px;">
+          </div>
+        </div>
+        <div class="p-6 md:p-8">
+          <div class="relative flex items-center mb-6 border-b-2 border-teal-600 pb-3">
+            <div class="flex-shrink-0 w-10 h-10 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">1</div>
+            <div class="ml-4">
+              <h2 class="text-xl md:text-2xl font-semibold text-teal-700 uppercase">THÔNG TIN CƠ BẢN</h2>
+              <p class="text-xs text-gray-500 mt-0.5">BASIC INFORMATION</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-6">
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     1. {{ 'FORM_VISA600.1' | translate }} <span class="request"> *</span>
@@ -40,14 +36,14 @@
                     </div>
                   </div>
 
-                  <span class="error-message" *ngIf="this.getErrorMessage('nuocngoai') != ''">
+                  <span class="text-red-600 text-sm mt-1" *ngIf="this.getErrorMessage('nuocngoai') != ''">
                     {{ this.getErrorMessage('nuocngoai') }}
                   </span>
 
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <div class="d-flex flex-column pb-3" style="width: 100%;">
                     <label class="d-block font-weight-bold mb-2 title-input">
@@ -57,7 +53,7 @@
                       [formControlName]="'oquocgia'"
                       placeholder="Vui lòng chọn quốc gia"
                       [filter]="true"
-                      [ngClass]="{'valid': lylichtuphap.get('oquocgia').invalid && (lylichtuphap.get('oquocgia').dirty || lylichtuphap.get('oquocgia').touched)}"
+                      [ngClass]="{'border-red-500 bg-red-50': lylichtuphap.get('oquocgia').invalid && (lylichtuphap.get('oquocgia').dirty || lylichtuphap.get('oquocgia').touched)}"
                       filterBy="name"
                       [showClear]="true"
                       optionLabel="name" optionValue="name">
@@ -70,30 +66,30 @@
                     </p-dropdown>
                   </div>
 
-                  <span class="error-message" *ngIf="this.getErrorMessage('oquocgia') != ''">
+                  <span class="text-red-600 text-sm mt-1" *ngIf="this.getErrorMessage('oquocgia') != ''">
                     {{ this.getErrorMessage('oquocgia') }}
                   </span>
 
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     3. {{ 'FORM_VISA600.3' | translate }}
                   </label>
                   <input type="text" pInputText
                     [formControlName]="'quoctichvn'"
-                    [ngClass]="{'valid': lylichtuphap.get('quoctichvn').invalid && (lylichtuphap.get('quoctichvn').dirty || lylichtuphap.get('quoctichvn').touched)}"
+                    [ngClass]="{'border-red-500 bg-red-50': lylichtuphap.get('quoctichvn').invalid && (lylichtuphap.get('quoctichvn').dirty || lylichtuphap.get('quoctichvn').touched)}"
                     [placeholder]="placeholder"
                   />
-                  <span class="error-message" *ngIf="this.getErrorMessage('quoctichvn') != ''">
+                  <span class="text-red-600 text-sm mt-1" *ngIf="this.getErrorMessage('quoctichvn') != ''">
                     {{ this.getErrorMessage('quoctichvn') }}
                   </span>
                 </div>
               </div>
 
-              <div class="col-md-6 col-xs-12">
+              <div class="md:col-span-6">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     4. {{ 'FORM_VISA600.4' | translate }}
@@ -116,13 +112,13 @@
                       <label for="male" class="ms-2">{{ 'FORM_VISA600.4.4' | translate }}</label>
                     </div>
                   </div>
-                  <span class="error-message" *ngIf="this.getErrorMessage('mucdich') != ''">
+                  <span class="text-red-600 text-sm mt-1" *ngIf="this.getErrorMessage('mucdich') != ''">
                     {{ this.getErrorMessage('mucdich') }}
                   </span>
                 </div>
               </div>
 
-              <div class="col-md-6 col-xs-12">
+              <div class="md:col-span-6">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     5. {{ 'FORM_VISA600.5' | translate }}
@@ -153,7 +149,7 @@
                 </div>
               </div>
 
-              <div class="col-md-5 col-xs-12">
+              <div class="md:col-span-5">
                 <div class="d-flex flex-column pb-3">
                   <label class="d-block font-weight-bold mb-2 title-input">
                    6. {{ 'FORM_VISA600.6' | translate }} <span class="request"> *</span>
@@ -163,7 +159,7 @@
                   formControlName="datedenuc"
                   (onSelect)="onDateChange($event, 'datedenuc')"
                   (onInput)="onInputChange($event, 'datedenuc')"
-                  [ngClass]="{'valid': lylichtuphap.get(['datedenuc']).invalid && (lylichtuphap.get(['datedenuc']).dirty || lylichtuphap.get(['datedenuc']).touched)}"
+                  [ngClass]="{'border-red-500 bg-red-50': lylichtuphap.get(['datedenuc']).invalid && (lylichtuphap.get(['datedenuc']).dirty || lylichtuphap.get(['datedenuc']).touched)}"
                   >
                     <ng-template pTemplate="date" let-date>
                         <span>
@@ -172,13 +168,13 @@
                     </ng-template>
                 </p-calendar>
 
-                <span class="error-message" *ngIf="getErrorMessage('datedenuc') != ''">
+                <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('datedenuc') != ''">
                   {{ getErrorMessage('datedenuc') }}
                 </span>
                 </div>
               </div>
 
-              <div class="col-md-7 col-xs-12">
+              <div class="md:col-span-7">
                 <div class="d-flex flex-column pb-3">
                   <label class="d-block font-weight-bold mb-2 title-input">
                    7. {{ 'FORM_VISA600.7' | translate }} <span class="request"> *</span>
@@ -194,14 +190,14 @@
                     </div>
                   </div>
 
-                  <span class="error-message" *ngIf="this.getErrorMessage('dktheonhom') != ''">
+                  <span class="text-red-600 text-sm mt-1" *ngIf="this.getErrorMessage('dktheonhom') != ''">
                     {{ this.getErrorMessage('dktheonhom') }}
                   </span>
 
                 </div>
               </div>
 
-              <div class="col-md-12 col-xs-12">
+              <div class="md:col-span-12">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     8. {{ 'FORM_VISA600.8' | translate }} <span class="request"> *</span>
@@ -217,7 +213,7 @@
                     </div>
                   </div>
 
-                  <span class="error-message" *ngIf="this.getErrorMessage('nhanvien') != ''">
+                  <span class="text-red-600 text-sm mt-1" *ngIf="this.getErrorMessage('nhanvien') != ''">
                     {{ this.getErrorMessage('nhanvien') }}
                   </span>
 
@@ -225,52 +221,49 @@
               </div>
             </div>
 
-            <div class="header-child header-a position-relative">
-              <div class="stt"><span>2</span></div>
-              <div class="content-header">
-                <h2 class="header-title-child d-flex flex-column">THÔNG TIN CÁ NHÂN
-                  <b class="sub-title-child"><i>PERSONAL INFORMATION</i></b>
-                </h2>
-              </div>
+          <div class="relative flex items-center mb-6 border-b-2 border-teal-600 pb-3">
+            <div class="flex-shrink-0 w-10 h-10 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">2</div>
+            <div class="ml-4">
+              <h2 class="text-xl md:text-2xl font-semibold text-teal-700 uppercase">THÔNG TIN CÁ NHÂN</h2>
             </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-6">
 
-            <div class="row"  style="padding-top: 15px;">
-
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     9. {{ 'FORM_VISA600.10' | translate }}<span class="request"> *</span>
                   </label>
                   <input type="text" pInputText
                     [formControlName]="'ho'"
-                    [ngClass]="{'valid': lylichtuphap.get('ho').invalid && (lylichtuphap.get('ho').dirty || lylichtuphap.get('ho').touched)}"
+                    [ngClass]="{'border-red-500 bg-red-50': lylichtuphap.get('ho').invalid && (lylichtuphap.get('ho').dirty || lylichtuphap.get('ho').touched)}"
                     [placeholder]="placeholder"
                   />
-                  <span class="error-message" *ngIf="this.getErrorMessage('ho') != ''">
+                  <span class="text-red-600 text-sm mt-1" *ngIf="this.getErrorMessage('ho') != ''">
                     {{ this.getErrorMessage('ho') }}
                   </span>
 
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     10. {{ 'FORM_VISA600.12' | translate }}<span class="request"> *</span>
                   </label>
                   <input type="text" pInputText
                     [formControlName]="'ten'"
-                    [ngClass]="{'valid': lylichtuphap.get('ten').invalid && (lylichtuphap.get('ten').dirty || lylichtuphap.get('ten').touched)}"
+                    [ngClass]="{'border-red-500 bg-red-50': lylichtuphap.get('ten').invalid && (lylichtuphap.get('ten').dirty || lylichtuphap.get('ten').touched)}"
                     [placeholder]="placeholder"
                   />
-                  <span class="error-message" *ngIf="this.getErrorMessage('ten') != ''">
+                  <span class="text-red-600 text-sm mt-1" *ngIf="this.getErrorMessage('ten') != ''">
                     {{ this.getErrorMessage('ten') }}
                   </span>
 
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     13. {{ 'FORM_VISA600.13' | translate }}<span class="request"> *</span>
@@ -286,13 +279,13 @@
                     </div>
                   </div>
 
-                  <span class="error-message" *ngIf="this.getErrorMessage('gender') != ''">
+                  <span class="text-red-600 text-sm mt-1" *ngIf="this.getErrorMessage('gender') != ''">
                     {{ this.getErrorMessage('gender') }}
                   </span>
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3">
                   <label class="d-block font-weight-bold mb-2 title-input">
                    14. {{ 'FORM_VISA600.14' | translate }} <span class="request"> *</span>
@@ -302,7 +295,7 @@
                   formControlName="date"
                   (onSelect)="onDateChange($event, 'date')"
                   (onInput)="onInputChange($event, 'date')"
-                  [ngClass]="{'valid': lylichtuphap.get(['date']).invalid && (lylichtuphap.get(['date']).dirty || lylichtuphap.get(['date']).touched)}"
+                  [ngClass]="{'border-red-500 bg-red-50': lylichtuphap.get(['date']).invalid && (lylichtuphap.get(['date']).dirty || lylichtuphap.get(['date']).touched)}"
                   >
                     <ng-template pTemplate="date" let-date>
                         <span>
@@ -311,14 +304,14 @@
                     </ng-template>
                 </p-calendar>
 
-                <span class="error-message" *ngIf="getErrorMessage('date') != ''">
+                <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('date') != ''">
                   {{ getErrorMessage('date') }}
                 </span>
                 </div>
               </div>
 
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     15. {{ 'FORM_VISA600.15' | translate }}
@@ -330,7 +323,7 @@
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     16. {{ 'FORM_VISA600.16' | translate }}
@@ -342,7 +335,7 @@
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     17. {{ 'FORM_VISA600.17' | translate }}
@@ -354,7 +347,7 @@
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     18. {{ 'FORM_VISA600.18' | translate }}
@@ -367,7 +360,7 @@
               </div>
 
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     19. {{ 'FORM_VISA600.19' | translate }}
@@ -379,7 +372,7 @@
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     20. {{ 'FORM_VISA600.20' | translate }}<span class="request"> *</span>
@@ -395,13 +388,13 @@
                     </div>
                   </div>
 
-                  <span class="error-message" *ngIf="this.getErrorMessage('cmnd') != ''">
+                  <span class="text-red-600 text-sm mt-1" *ngIf="this.getErrorMessage('cmnd') != ''">
                     {{ this.getErrorMessage('cmnd') }}
                   </span>
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3" style="height: 100%;" *ngIf="this.lylichtuphap.get('cmnd').value == 'Có'">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     21. {{ 'FORM_VISA600.21' | translate }}
@@ -413,7 +406,7 @@
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3" style="height: 100%;" *ngIf="this.lylichtuphap.get('cmnd').value == 'Có'">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     22. {{ 'FORM_VISA600.22' | translate }}
@@ -425,7 +418,7 @@
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     23. {{ 'FORM_VISA600.23' | translate }}
@@ -441,7 +434,7 @@
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     24. {{ 'FORM_VISA600.24' | translate }}
@@ -464,13 +457,13 @@
                       <label for="male" class="ms-2">{{ 'FORM_VISA600.24.4' | translate }}</label>
                     </div>
                   </div>
-                  <span class="error-message" *ngIf="this.getErrorMessage('honnhan') != ''">
+                  <span class="text-red-600 text-sm mt-1" *ngIf="this.getErrorMessage('honnhan') != ''">
                     {{ this.getErrorMessage('honnhan') }}
                   </span>
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     25. {{ 'FORM_VISA600.25' | translate }}<span class="request"> *</span>
@@ -486,13 +479,13 @@
                     </div>
                   </div>
 
-                  <span class="error-message" *ngIf="this.getErrorMessage('quoctichht') != ''">
+                  <span class="text-red-600 text-sm mt-1" *ngIf="this.getErrorMessage('quoctichht') != ''">
                     {{ this.getErrorMessage('quoctichht') }}
                   </span>
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     26. {{ 'FORM_VISA600.26' | translate }}
@@ -504,7 +497,7 @@
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     27. {{ 'FORM_VISA600.27' | translate }}<span class="request"> *</span>
@@ -520,13 +513,13 @@
                     </div>
                   </div>
 
-                  <span class="error-message" *ngIf="this.getErrorMessage('nopvisauc') != ''">
+                  <span class="text-red-600 text-sm mt-1" *ngIf="this.getErrorMessage('nopvisauc') != ''">
                     {{ this.getErrorMessage('nopvisauc') }}
                   </span>
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="md:col-span-4">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     28. {{ 'FORM_VISA600.28' | translate }}<span class="request"> *</span>
@@ -542,13 +535,13 @@
                     </div>
                   </div>
 
-                  <span class="error-message" *ngIf="this.getErrorMessage('tungdenuc') != ''">
+                  <span class="text-red-600 text-sm mt-1" *ngIf="this.getErrorMessage('tungdenuc') != ''">
                     {{ this.getErrorMessage('tungdenuc') }}
                   </span>
                 </div>
               </div>
 
-              <div class="col-md-6">
+              <div class="md:col-span-6">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     29. {{ 'FORM_VISA600.29' | translate }}
@@ -560,7 +553,7 @@
                 </div>
               </div>
 
-              <div class="col-md-6">
+              <div class="md:col-span-6">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     30. {{ 'FORM_VISA600.30' | translate }}<span class="request"> *</span>
@@ -568,16 +561,16 @@
                   <input type="text" pInputText
                     [formControlName]="'dc'"
                     [placeholder]="placeholder"
-                    [ngClass]="{'valid': lylichtuphap.get('dc').invalid && (lylichtuphap.get('dc').dirty || lylichtuphap.get('dc').touched)}"
+                    [ngClass]="{'border-red-500 bg-red-50': lylichtuphap.get('dc').invalid && (lylichtuphap.get('dc').dirty || lylichtuphap.get('dc').touched)}"
                   />
 
-                  <span class="error-message" *ngIf="getErrorMessage('dc') != ''">
+                  <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('dc') != ''">
                     {{ getErrorMessage('dc') }}
                   </span>
                 </div>
               </div>
 
-              <div class="col-md-6">
+              <div class="md:col-span-6">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     31. {{ 'FORM_VISA600.31' | translate }}<span class="request"> *</span>
@@ -585,16 +578,16 @@
                   <input type="text" pInputText
                     [formControlName]="'sdt'"
                     [placeholder]="placeholder"
-                    [ngClass]="{'valid': lylichtuphap.get('sdt').invalid && (lylichtuphap.get('sdt').dirty || lylichtuphap.get('sdt').touched)}"
+                    [ngClass]="{'border-red-500 bg-red-50': lylichtuphap.get('sdt').invalid && (lylichtuphap.get('sdt').dirty || lylichtuphap.get('sdt').touched)}"
                   />
 
-                  <span class="error-message" *ngIf="getErrorMessage('sdt') != ''">
+                  <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('sdt') != ''">
                     {{ getErrorMessage('sdt') }}
                   </span>
                 </div>
               </div>
 
-              <div class="col-md-6">
+              <div class="md:col-span-6">
                 <div class="d-flex flex-column pb-3" style="height: 100%;">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     32. {{ 'FORM_VISA600.32' | translate }}
@@ -602,24 +595,24 @@
                   <input type="text" pInputText
                     [formControlName]="'email'"
                     [placeholder]="placeholder"
-                    [ngClass]="{'valid': lylichtuphap.get('email').invalid && (lylichtuphap.get('email').dirty || lylichtuphap.get('email').touched)}"
+                    [ngClass]="{'border-red-500 bg-red-50': lylichtuphap.get('email').invalid && (lylichtuphap.get('email').dirty || lylichtuphap.get('email').touched)}"
                   />
 
-                  <span class="error-message" *ngIf="getErrorMessage('email') != ''">
+                  <span class="text-red-600 text-sm mt-1" *ngIf="getErrorMessage('email') != ''">
                     {{ getErrorMessage('email') }}
                   </span>
                 </div>
               </div>
 
 
-              <div class="col-md-12">
+              <div class="md:col-span-12">
                 <div class="d-flex flex-column pb-3">
                   <div class="d-flex rounded flex-column pb-3 pt-2">
                     <div class="row" [formGroup]="itemthongtin">
                       <label class="d-block font-weight-bold mb-2 title-input">
                         33. {{"FORM_VISA600.33" | translate}}
                       </label>
-                        <div class="col-md-3 d-flex align-items-end">
+                        <div class="md:col-span-3 flex flex-col gap-2 items-end">
                           <div class="d-flex flex-column pb-3" style="width: 100%;">
                             <label class="d-block font-weight-bold mb-2 title-input">
                               {{"FORM_VISA600.33.1" | translate}}<span class="request"> *</span>
@@ -628,12 +621,12 @@
                             <input type="text" pInputText
                               [formControlName]="'vaitro'"
                               [placeholder]="placeholder"
-                              [ngClass]="{'valid': itemthongtin.get('vaitro').invalid && (itemthongtin.get('vaitro').dirty || itemthongtin.get('vaitro').touched)}"
+                              [ngClass]="{'border-red-500 bg-red-50': itemthongtin.get('vaitro').invalid && (itemthongtin.get('vaitro').dirty || itemthongtin.get('vaitro').touched)}"
                             />
                           </div>
                         </div>
 
-                        <div class="col-md-3 d-flex align-items-end">
+                        <div class="md:col-span-3 flex flex-col gap-2 items-end">
                           <div class="d-flex flex-column pb-3" style="width: 100%;">
                             <label class="d-block font-weight-bold mb-2 title-input">
                               {{"FORM_VISA600.33.2" | translate}} <span class="request"> *</span>
@@ -641,12 +634,12 @@
                             <input type="text" pInputText
                               [formControlName]="'ten'"
                               [placeholder]="placeholder"
-                              [ngClass]="{'valid': itemthongtin.get('ten').invalid && (itemthongtin.get('ten').dirty || itemthongtin.get('ten').touched)}"
+                              [ngClass]="{'border-red-500 bg-red-50': itemthongtin.get('ten').invalid && (itemthongtin.get('ten').dirty || itemthongtin.get('ten').touched)}"
                             />
                           </div>
                         </div>
 
-                        <div class="col-md-3 d-flex align-items-end">
+                        <div class="md:col-span-3 flex flex-col gap-2 items-end">
                           <div class="d-flex flex-column pb-3" style="width: 100%;">
                             <label class="d-block font-weight-bold mb-2 title-input">
                               {{"FORM_VISA600.33.3" | translate}}
@@ -666,7 +659,7 @@
                           </div>
                         </div>
 
-                        <div class="col-md-3 d-flex align-items-end">
+                        <div class="md:col-span-3 flex flex-col gap-2 items-end">
                           <div class="d-flex flex-column pb-3" style="width: 100%;">
                             <label class="d-block font-weight-bold mb-2 title-input">
                               {{"FORM_VISA600.33.4" | translate}}
@@ -688,7 +681,7 @@
                           </div>
                         </div>
 
-                        <div class="col-md-2 d-flex align-items-end">
+                        <div class="md:col-span-2 flex flex-col gap-2 items-end">
                           <div class="d-flex flex-column pb-3" style="width: 100%;">
                               <p-toast />
                               <p-confirmDialog />
@@ -701,7 +694,7 @@
                       <label class="d-block font-weight-bold mb-2 title-input" style="color: red; text-transform: uppercase;">
                         {{"FORM_VISA600.infor" | translate}}
                       </label>
-                        <div class="col-md-7 d-flex align-items-end">
+                        <div class="md:col-span-7 flex flex-col gap-2 items-end">
                           <div class="d-flex flex-column pb-3" style="width: 100%;">
                             <p-table
                             [value]="thongtinarray"
@@ -737,7 +730,7 @@
                 </div>
               </div>
 
-              <div class="col-md-12">
+              <div class="md:col-span-12">
                 <div class="d-flex flex-column pb-3">
                   <div class="d-flex rounded flex-column pb-3 pt-2">
                     <div class="row" [formGroup]="itemthanhvien">
@@ -746,7 +739,7 @@
                         <span style="font-family: 'roboto' !important; display: block; color: red ; font-style: italic; font-size: 13px; margin-top: 5px;">{{"FORM_VISA600.34.des" | translate}}</span>
                       </label>
 
-                        <div class="col-md-3 d-flex align-items-end">
+                        <div class="md:col-span-3 flex flex-col gap-2 items-end">
                           <div class="d-flex flex-column pb-3" style="width: 100%;">
                             <label class="d-block font-weight-bold mb-2 title-input">
                               {{"FORM_VISA600.33.2" | translate}} <span class="request"> *</span>
@@ -754,12 +747,12 @@
                             <input type="text" pInputText
                               [formControlName]="'ten'"
                               [placeholder]="placeholder"
-                              [ngClass]="{'valid': itemthanhvien.get('ten').invalid && (itemthanhvien.get('ten').dirty || itemthanhvien.get('ten').touched)}"
+                              [ngClass]="{'border-red-500 bg-red-50': itemthanhvien.get('ten').invalid && (itemthanhvien.get('ten').dirty || itemthanhvien.get('ten').touched)}"
                             />
                           </div>
                         </div>
 
-                        <div class="col-md-3 d-flex align-items-end">
+                        <div class="md:col-span-3 flex flex-col gap-2 items-end">
                           <div class="d-flex flex-column pb-3" style="width: 100%;">
                             <label class="d-block font-weight-bold mb-2 title-input">
                               {{"FORM_VISA600.34.1" | translate}}
@@ -771,7 +764,7 @@
                           </div>
                         </div>
 
-                        <div class="col-md-3 d-flex align-items-end">
+                        <div class="md:col-span-3 flex flex-col gap-2 items-end">
                           <div class="d-flex flex-column pb-3" style="width: 100%;">
                             <label class="d-block font-weight-bold mb-2 title-input">
                               {{"FORM_VISA600.34.2" | translate}}
@@ -783,7 +776,7 @@
                           </div>
                         </div>
 
-                        <div class="col-md-3 d-flex align-items-end">
+                        <div class="md:col-span-3 flex flex-col gap-2 items-end">
                           <div class="d-flex flex-column pb-3" style="width: 100%;">
                             <label class="d-block font-weight-bold mb-2 title-input">
                               {{"FORM_VISA600.33.3" | translate}}
@@ -803,7 +796,7 @@
                           </div>
                         </div>
 
-                        <div class="col-md-3 d-flex align-items-end">
+                        <div class="md:col-span-3 flex flex-col gap-2 items-end">
                           <div class="d-flex flex-column pb-3" style="width: 100%;">
                             <label class="d-block font-weight-bold mb-2 title-input">
                               {{"FORM_VISA600.33.4" | translate}}
@@ -825,7 +818,7 @@
                           </div>
                         </div>
 
-                        <div class="col-md-2 d-flex align-items-end">
+                        <div class="md:col-span-2 flex flex-col gap-2 items-end">
                           <div class="d-flex flex-column pb-3" style="width: 100%;">
                               <p-toast />
                               <p-confirmDialog />
@@ -838,7 +831,7 @@
                       <label class="d-block font-weight-bold mb-2 title-input" style="color: red; text-transform: uppercase;">
                         {{"FORM_VISA600.infor" | translate}}
                       </label>
-                        <div class="col-md-7 d-flex align-items-end">
+                        <div class="md:col-span-7 flex flex-col gap-2 items-end">
                           <div class="d-flex flex-column pb-3" style="width: 100%;">
                             <p-table
                             [value]="thongtinthanhvienarray"
@@ -876,7 +869,7 @@
                 </div>
               </div>
 
-              <div class="col-md-12">
+              <div class="md:col-span-12">
                 <div class="d-flex flex-column pb-3">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     35. {{ 'FORM_VISA600.35' | translate }}
@@ -892,7 +885,7 @@
                 </div>
               </div>
 
-              <div class="col-md-12">
+              <div class="md:col-span-12">
                 <div class="d-flex flex-column pb-3">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     36. {{ 'FORM_VISA600.36' | translate }}
@@ -912,17 +905,15 @@
 
 
 
-            <div class="header-child header-a position-relative" style="margin-top: 10px;">
-              <div class="stt"><span>3</span></div>
-              <div class="content-header">
-                <h2 class="header-title-child d-flex flex-column">HỒ SƠ ĐÍNH KÈM
-                  <b class="sub-title-child"><i> UPLOAD FILE</i></b>
-                </h2>
-              </div>
+          <div class="relative flex items-center mb-6 border-b-2 border-teal-600 pb-3">
+            <div class="flex-shrink-0 w-10 h-10 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">3</div>
+            <div class="ml-4">
+              <h2 class="text-xl md:text-2xl font-semibold text-teal-700 uppercase">HỒ SƠ ĐÍNH KÈM</h2>
             </div>
-            <div class="row" style="padding-top: 15px;">
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-6">
 
-              <div class="col-md-6">
+              <div class="md:col-span-6">
                 <div class="d-flex flex-column pb-3">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     {{ 'FORM_VISA600.37' | translate }}
@@ -934,7 +925,7 @@
                 </div>
               </div>
 
-              <div class="col-md-6">
+              <div class="md:col-span-6">
                 <div class="d-flex flex-column pb-3">
                   <label class="d-block font-weight-bold mb-2 title-input">
                     Nơi upload File (lưu ý tối đa 5mb)
@@ -962,19 +953,19 @@
                 </div>
               </div>
             </div>
-            <p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }" />
-            <button
-                pButton
-                pRipple
-                type="button"
-                (click)="submit()"
-                label="{{ 'FORM_VISA600.submit' | translate }}"
-                class="p-button-success submit_button"
-                >
+          <p-toast position="bottom-right" key="br" [breakpoints]="{ '920px': { left: '50%', right: 'auto', transform: 'translateX(-50%)', bottom: '20px', width: 'calc(100% - 32px)', maxWidth: '360px' } }" />
+          <div class="flex flex-wrap justify-center gap-4 mt-8">
+            <button type="button" (click)="submit()"
+              class="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-white bg-teal-600 rounded-lg shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 transition-all">
+              <i class="pi pi-check-circle mr-2"></i>{{ 'FORM_VISA600.submit' | translate }}
             </button>
-
+            <button type="button" (click)="resetForm()"
+              class="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-all">
+              <i class="pi pi-refresh mr-2"></i>Làm mới
+            </button>
           </div>
         </div>
-      </form>
+      </div>
+    </form>
   </div>
 </section>
