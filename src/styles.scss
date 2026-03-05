@@ -4,8 +4,37 @@
 
 @import "primeicons/primeicons.css";
 @import "flag-icons/css/flag-icons.min.css";
-@import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
+
+/* ===== Override PrimeNG lara-light-blue theme =====
+   The theme references local font files (Inter-roman.var.woff2, Inter-italic.var.woff2)
+   that may not exist on the server. We load the theme CSS but override the @font-face
+   to use the Google Fonts CDN "Inter" font already loaded in index.html.
+   ================================================== */
+
+/* Override @font-face: declare "Inter var" pointing to Google Fonts CDN woff2 */
+@font-face {
+  font-family: "Inter var";
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  src: url("https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter var";
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+  src: url("https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2") format("woff2");
+}
+
+/* Now import the theme - the @font-face above will take precedence */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+
+/* Override PrimeNG font-family to use "Inter" from Google Fonts */
+:root {
+  --font-family: "Inter", sans-serif;
+}
 
 
 * {
